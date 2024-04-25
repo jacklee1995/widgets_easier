@@ -1,6 +1,6 @@
 # Widgets Easier
 
-WidgetsEasier是一个开源库的Flutter组件库，附带了多个预构建UI组件。它旨在使开发更快更加地简单和高效，让开发成为一件愉快地事情。
+Widgets Easier是一个开源库的Flutter组件库，附带了多个预构建UI组件。它旨在使开发更快更加地简单和高效，让开发成为一件愉快地事情。
 
 
 ## Features
