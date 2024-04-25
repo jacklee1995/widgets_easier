@@ -1,4 +1,4 @@
-# WidgetsEasier
+# Widgets Easier
 
 [中文文档](https://github.com/jacklee1995/widgets_easier/blob/master/README_CN.md)
 
