@@ -10,14 +10,14 @@ class WinStyleDialogBody extends StatelessWidget {
   final Widget? bottomWidget;
 
   const WinStyleDialogBody({
-    Key? key,
+    super.key,
     required this.icon,
     required this.text,
     this.textStyle,
     this.height = 120,
     this.textWidth = 340,
     this.bottomWidget,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -19,6 +19,6 @@ Color findStatusColor(SemanticEnum dialogType) {
     case SemanticEnum.fatal:
       return SemanticColors.fatal;
     default:
-      return SemanticColors.primary; // 或者选择一个合适的默认颜色
+      return SemanticColors.primary;
   }
 }

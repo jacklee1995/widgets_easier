@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -8,7 +9,7 @@ class Picture extends StatelessWidget {
   const Picture._(this.image);
 
   factory Picture({
-    required dynamic source,
+    required String source,
     Key? key,
     double? width,
     double? height,
@@ -27,123 +28,259 @@ class Picture extends StatelessWidget {
     int? cacheHeight,
     Map<String, String>? headers,
     double scale = 1.0,
+    bool cache = false,
+    BoxBorder? border,
+    BorderRadius? borderRadius,
+    ShapeBorderClipper? clipper,
+    double opacity = 1.0,
   }) {
+    Widget unsupportedImage = Container(
+      width: width,
+      height: height,
+      color: Colors.blueGrey,
+      alignment: alignment,
+      padding: const EdgeInsets.all(3),
+      child: FittedBox(
+        fit: fit,
+        child: const Center(
+          child: Text(
+            'Unsupported Image',
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      ),
+    );
     bool isSvg(String path) {
-      return path.toLowerCase().endsWith('.svg');
+      return path.toLowerCase().contains('<svg');
     }
 
-    if (source is String) {
-      // Check if the source is likely a URL
-      if (Uri.tryParse(source)?.hasAbsolutePath ?? false) {
-        return Picture._(Image.network(
-          source,
-          key: key,
-          scale: scale,
-          frameBuilder: frameBuilder,
-          loadingBuilder: loadingBuilder,
-          errorBuilder: errorBuilder,
-          semanticLabel: semanticLabel,
-          excludeFromSemantics: excludeFromSemantics,
-          width: width,
-          height: height,
-          color: color,
-          fit: fit,
-          alignment: alignment,
-          colorBlendMode: colorBlendMode,
-          filterQuality: filterQuality,
-          cacheWidth: cacheWidth,
-          cacheHeight: cacheHeight,
-          headers: headers,
-        ));
+    bool isBase64(String str) {
+      final base64Regex = RegExp(
+          r'^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$');
+      return base64Regex.hasMatch(str);
+    }
+
+    bool isUrl(String url) {
+      Uri? uri = Uri.tryParse(url);
+      return uri != null && (uri.scheme == 'http' || uri.scheme == 'https');
+    }
+
+    try {
+      Widget imageWidget;
+      if (source.startsWith('asset')) {
+        try {
+          imageWidget = Image.asset(
+            source,
+            key: key,
+            scale: scale,
+            frameBuilder: frameBuilder,
+            errorBuilder: (_, __, ___) => unsupportedImage,
+            semanticLabel: semanticLabel,
+            excludeFromSemantics: excludeFromSemantics,
+            width: width,
+            height: height,
+            color: color,
+            fit: fit,
+            alignment: alignment,
+            colorBlendMode: colorBlendMode,
+            filterQuality: filterQuality,
+            cacheWidth: cacheWidth,
+            cacheHeight: cacheHeight,
+          );
+        } catch (e) {
+          try {
+            imageWidget = SvgPicture.asset(
+              source,
+              key: key,
+              width: width,
+              height: height,
+              fit: fit,
+              alignment: alignment,
+              matchTextDirection: matchTextDirection,
+            );
+          } catch (e) {
+            imageWidget = unsupportedImage;
+          }
+        }
+      } else if (isUrl(source)) {
+        if (source.contains('svg')) {
+          try {
+            imageWidget = SvgPicture.network(
+              source,
+              key: key,
+              width: width,
+              height: height,
+              fit: fit,
+              alignment: alignment,
+              matchTextDirection: matchTextDirection,
+            );
+          } catch (e) {
+            imageWidget = unsupportedImage;
+          }
+        } else {
+          imageWidget = Image.network(
+            source,
+            key: key,
+            scale: scale,
+            frameBuilder: frameBuilder,
+            loadingBuilder: loadingBuilder,
+            errorBuilder: (_, __, ___) => unsupportedImage,
+            semanticLabel: semanticLabel,
+            excludeFromSemantics: excludeFromSemantics,
+            width: width,
+            height: height,
+            color: color,
+            fit: fit,
+            alignment: alignment,
+            colorBlendMode: colorBlendMode,
+            filterQuality: filterQuality,
+            cacheWidth: cacheWidth,
+            cacheHeight: cacheHeight,
+            headers: headers,
+          );
+        }
+      } else if (isBase64(source)) {
+        final Uint8List bytes = base64.decode(source);
+        try {
+          imageWidget = Image.memory(
+            bytes,
+            key: key,
+            scale: scale,
+            frameBuilder: frameBuilder,
+            errorBuilder: (_, __, ___) => unsupportedImage,
+            semanticLabel: semanticLabel,
+            excludeFromSemantics: excludeFromSemantics,
+            width: width,
+            height: height,
+            color: color,
+            fit: fit,
+            alignment: alignment,
+            colorBlendMode: colorBlendMode,
+            filterQuality: filterQuality,
+            cacheWidth: cacheWidth,
+            cacheHeight: cacheHeight,
+          );
+        } catch (e) {
+          try {
+            imageWidget = SvgPicture.memory(
+              bytes,
+              key: key,
+              width: width,
+              height: height,
+              fit: fit,
+              alignment: alignment,
+              matchTextDirection: matchTextDirection,
+            );
+          } catch (e) {
+            imageWidget = unsupportedImage;
+          }
+        }
       } else if (isSvg(source)) {
-        return Picture._(SvgPicture.asset(
-          source,
-          key: key,
-          width: width,
-          height: height,
-          fit: fit,
-          alignment: alignment,
-          matchTextDirection: matchTextDirection,
-        ));
+        try {
+          imageWidget = SvgPicture.string(
+            source,
+            key: key,
+            width: width,
+            height: height,
+            fit: fit,
+            alignment: alignment,
+            matchTextDirection: matchTextDirection,
+          );
+        } catch (e) {
+          imageWidget = unsupportedImage;
+        }
       } else {
-        return Picture._(Image.asset(
-          source,
-          key: key,
-          scale: scale,
-          frameBuilder: frameBuilder,
-          errorBuilder: errorBuilder,
-          semanticLabel: semanticLabel,
-          excludeFromSemantics: excludeFromSemantics,
-          width: width,
-          height: height,
-          color: color,
-          fit: fit,
-          alignment: alignment,
-          colorBlendMode: colorBlendMode,
-          filterQuality: filterQuality,
-          cacheWidth: cacheWidth,
-          cacheHeight: cacheHeight,
-        ));
+        imageWidget = unsupportedImage;
       }
-    } else if (source is Uint8List) {
-      return Picture._(Image.memory(
-        source,
-        key: key,
-        scale: scale,
-        frameBuilder: frameBuilder,
-        errorBuilder: errorBuilder,
-        semanticLabel: semanticLabel,
-        excludeFromSemantics: excludeFromSemantics,
-        width: width,
-        height: height,
-        color: color,
-        fit: fit,
-        alignment: alignment,
-        colorBlendMode: colorBlendMode,
-        filterQuality: filterQuality,
-        cacheWidth: cacheWidth,
-        cacheHeight: cacheHeight,
+
+      return Picture._(
+        Opacity(
+          opacity: opacity,
+          child: SizedBox(
+            width: width,
+            height: height,
+            child: Stack(
+              children: [
+                ClipPath(
+                  clipper: clipper,
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints.expand(),
+                    child: FittedBox(
+                      fit: fit,
+                      alignment: alignment,
+                      child: imageWidget,
+                    ),
+                  ),
+                ),
+                if (clipper != null)
+                  CustomPaint(
+                    painter: _BorderPainter(
+                      shape: clipper.shape,
+                    ),
+                    child: SizedBox(
+                      width: width,
+                      height: height,
+                    ),
+                  ),
+              ],
+            ),
+          ),
+        ),
+      );
+      // return Picture._(
+      //   ClipPath(
+      //     clipper: ShapeBorderClipper(
+      //         shape: border ?? const RoundedRectangleBorder()),
+      //     child: CustomPaint(
+      //       child: Container(
+      //         width: width,
+      //         height: height,
+      //         decoration: BoxDecoration(
+      //           color: Colors.transparent,
+      //           borderRadius: borderRadius,
+      //         ),
+      //         child: imageWidget,
+      //       ),
+      //     ),
+      //   ),
+      // );
+    } catch (e, stackTrace) {
+      print('e ===================== $e');
+      return Picture._(Builder(
+        builder: (BuildContext context) {
+          if (errorBuilder != null) {
+            return errorBuilder(context, e, stackTrace);
+          } else {
+            return unsupportedImage;
+          }
+        },
       ));
-    } else if (source is Uri) {
-      String path = source.toString();
-      if (isSvg(path)) {
-        return Picture._(SvgPicture.network(
-          path,
-          key: key,
-          width: width,
-          height: height,
-          fit: fit,
-          alignment: alignment,
-          matchTextDirection: matchTextDirection,
-        ));
-      } else {
-        return Picture._(Image.network(
-          path,
-          key: key,
-          scale: scale,
-          frameBuilder: frameBuilder,
-          errorBuilder: errorBuilder,
-          semanticLabel: semanticLabel,
-          excludeFromSemantics: excludeFromSemantics,
-          width: width,
-          height: height,
-          color: color,
-          fit: fit,
-          alignment: alignment,
-          colorBlendMode: colorBlendMode,
-          filterQuality: filterQuality,
-          cacheWidth: cacheWidth,
-          cacheHeight: cacheHeight,
-          headers: headers,
-        ));
-      }
-    } else {
-      throw ArgumentError('Unsupported image source type');
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return image;
+  }
+}
+
+class _BorderPainter extends CustomPainter {
+  final ShapeBorder shape;
+
+  _BorderPainter({required this.shape});
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    shape.paint(canvas, Offset.zero & size);
+  }
+
+  @override
+  bool shouldRepaint(_BorderPainter oldDelegate) {
+    return oldDelegate.shape != shape;
   }
 }

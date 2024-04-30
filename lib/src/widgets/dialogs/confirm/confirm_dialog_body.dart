@@ -13,7 +13,7 @@ class ConfirmDialogBody extends StatelessWidget {
   final String cancelButtonText;
   final VoidCallback onTapConfirm;
   final VoidCallback onTapCancel;
-  final SemanticEnum semanticType;
+  final SemanticEnum type;
   final Color? color;
   final Color? backgroundColor;
   final Color? textColor;
@@ -23,14 +23,14 @@ class ConfirmDialogBody extends StatelessWidget {
   final bool noImage;
 
   const ConfirmDialogBody({
-    Key? key,
+    super.key,
     this.title,
     required this.message,
     required this.confirmButtonText,
     required this.cancelButtonText,
     required this.onTapConfirm,
     required this.onTapCancel,
-    required this.semanticType,
+    required this.type,
     this.color,
     this.backgroundColor,
     this.textColor,
@@ -39,13 +39,12 @@ class ConfirmDialogBody extends StatelessWidget {
     this.padding = const EdgeInsets.all(24),
     this.margin = const EdgeInsets.all(24),
     required this.noImage,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    Color statusColor =
-        findStatusColor(semanticType); // 使用findStatusColor函数获取颜色
+    Color statusColor = findStatusColor(type); // 使用findStatusColor函数获取颜色
 
     return Align(
       alignment: Alignment.center,
@@ -66,7 +65,7 @@ class ConfirmDialogBody extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              if (!noImage && imagePath == null) Iocns.confirm(semanticType),
+              if (!noImage && imagePath == null) Iocns.confirm(type),
               if (!noImage && imagePath != null)
                 Image.asset(
                   imagePath!,
@@ -114,7 +113,7 @@ class ConfirmDialogBody extends StatelessWidget {
                     child: SemanticButton(
                       onTap: onTapCancel,
                       text: cancelButtonText,
-                      dialogType: semanticType,
+                      type: type,
                       isOutlined: true,
                     ),
                   ),
@@ -126,7 +125,7 @@ class ConfirmDialogBody extends StatelessWidget {
                     child: SemanticButton(
                       onTap: onTapConfirm,
                       text: confirmButtonText,
-                      dialogType: semanticType,
+                      type: type,
                       isOutlined: false,
                     ),
                   ),

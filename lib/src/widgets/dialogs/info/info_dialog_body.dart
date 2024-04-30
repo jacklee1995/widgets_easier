@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 import '../../buttons/semantic_button.dart';
 import '../../../color/utils.dart';
@@ -11,7 +12,7 @@ class InfoDialogBody extends StatelessWidget {
   final String? imagePath;
   final String buttonText;
   final VoidCallback onTapDismiss;
-  final SemanticEnum semanticType;
+  final SemanticEnum type;
   final Color? color;
   final Color? backgroundColor;
   final Color? textColor;
@@ -26,7 +27,7 @@ class InfoDialogBody extends StatelessWidget {
     required this.message,
     required this.buttonText,
     required this.onTapDismiss,
-    required this.semanticType,
+    required this.type,
     this.color,
     this.backgroundColor,
     this.textColor,
@@ -40,8 +41,7 @@ class InfoDialogBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    Color statusColor =
-        findStatusColor(semanticType); // 使用findStatusColor函数获取颜色
+    Color statusColor = findStatusColor(type);
 
     return Align(
       alignment: Alignment.center,
@@ -62,49 +62,50 @@ class InfoDialogBody extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              if (!noImage && imagePath == null) Iocns.info(semanticType),
+              if (!noImage && imagePath == null) Iocns.info(type, size: 56),
               if (!noImage && imagePath != null)
                 Image.asset(
                   imagePath!,
-                  width: 84,
-                  height: 84,
+                  width: 56,
+                  height: 56,
                 ),
-              if (!noImage)
-                const SizedBox(
-                  height: 24,
-                ),
-              if (title != null)
-                Text(
-                  title ?? "",
-                  style: TextStyle(
-                    fontSize: 24,
-                    height: 1.2,
-                    fontWeight: FontWeight.w600,
-                    color: textColor ?? statusColor, // 使用状态颜色
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      if (title != null)
+                        Text(
+                          title ?? "",
+                          style: TextStyle(
+                            fontSize: 24,
+                            height: 1.2,
+                            fontWeight: FontWeight.w600,
+                            color: textColor ?? statusColor,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      if (title != null) const Gap(5),
+                      Text(
+                        message,
+                        style: TextStyle(
+                          color: textColor ?? statusColor,
+                          height: 1.5,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w400,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
                   ),
-                  textAlign: TextAlign.center,
-                ),
-              if (title != null)
-                const SizedBox(
-                  height: 5,
-                ),
-              Text(
-                message,
-                style: TextStyle(
-                  color: textColor ?? statusColor, // 使用状态颜色
-                  height: 1.5,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w400,
-                ),
-                textAlign: TextAlign.center,
+                ],
               ),
-              const SizedBox(
-                height: 30,
-              ),
+              const Gap(20),
               SemanticButton(
                 text: buttonText,
                 onTap: onTapDismiss,
-                dialogType: semanticType,
+                type: type,
                 isOutlined: false,
               ),
             ],

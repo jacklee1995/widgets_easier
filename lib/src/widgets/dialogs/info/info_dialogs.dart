@@ -14,7 +14,7 @@ class InfoDialogs {
     String? imagePath,
     required String buttonText,
     required VoidCallback onTapDismiss,
-    required SemanticEnum semanticType,
+    required SemanticEnum type,
     Color? color,
     Color? textColor,
     Color? buttonTextColor,
@@ -31,7 +31,7 @@ class InfoDialogs {
           message: message,
           buttonText: buttonText,
           onTapDismiss: onTapDismiss,
-          semanticType: semanticType,
+          type: type,
           color: color,
           textColor: textColor,
           buttonTextColor: buttonTextColor,
@@ -50,7 +50,7 @@ class InfoDialogs {
     String? imagePath,
     required String buttonText,
     required VoidCallback onTapDismiss,
-    required SemanticEnum semanticType,
+    required SemanticEnum type,
     RouteTransitionsBuilder? transitionBuilder,
     Color? color,
     Color? textColor,
@@ -72,7 +72,7 @@ class InfoDialogs {
           imagePath: imagePath,
           buttonText: buttonText,
           onTapDismiss: onTapDismiss,
-          semanticType: semanticType,
+          type: type,
           color: color,
           textColor: textColor,
           buttonTextColor: buttonTextColor,
@@ -82,7 +82,6 @@ class InfoDialogs {
         ),
       );
 
-  /// 此方法将以从左侧滑动的动画效果显示 InfoDialogs。
   static Future<T?> fadeInLeft<T extends Object?>(
     BuildContext context, {
     String? title,
@@ -90,7 +89,7 @@ class InfoDialogs {
     String? imagePath,
     required String buttonText,
     required VoidCallback onTapDismiss,
-    required SemanticEnum semanticType,
+    required SemanticEnum type,
     Color? color,
     Color? textColor,
     Color? buttonTextColor,
@@ -106,7 +105,7 @@ class InfoDialogs {
         imagePath: imagePath,
         buttonText: buttonText,
         onTapDismiss: onTapDismiss,
-        semanticType: semanticType,
+        type: type,
         color: color,
         textColor: textColor,
         buttonTextColor: buttonTextColor,
@@ -119,7 +118,6 @@ class InfoDialogs {
         },
       );
 
-  /// 此方法将以从右侧滑动的动画效果显示 InfoDialogs。
   static Future<T?> fadeInRight<T extends Object?>(
     BuildContext context, {
     String? title,
@@ -127,7 +125,7 @@ class InfoDialogs {
     String? imagePath,
     required String buttonText,
     required VoidCallback onTapDismiss,
-    required SemanticEnum semanticType,
+    required SemanticEnum type,
     Color? color,
     Color? textColor,
     Color? buttonTextColor,
@@ -143,7 +141,7 @@ class InfoDialogs {
         imagePath: imagePath,
         buttonText: buttonText,
         onTapDismiss: onTapDismiss,
-        semanticType: semanticType,
+        type: type,
         color: color,
         textColor: textColor,
         buttonTextColor: buttonTextColor,
@@ -156,7 +154,6 @@ class InfoDialogs {
         },
       );
 
-  /// 使用 showInfoDialogContents 实现从顶部滑动的动画效果
   static Future<T?> fadeInDown<T extends Object?>(
     BuildContext context, {
     String? title,
@@ -164,7 +161,7 @@ class InfoDialogs {
     String? imagePath,
     required String buttonText,
     required VoidCallback onTapDismiss,
-    required SemanticEnum semanticType,
+    required SemanticEnum type,
     Color? color,
     Color? textColor,
     Color? buttonTextColor,
@@ -180,7 +177,7 @@ class InfoDialogs {
         imagePath: imagePath,
         buttonText: buttonText,
         onTapDismiss: onTapDismiss,
-        semanticType: semanticType,
+        type: type,
         color: color,
         textColor: textColor,
         buttonTextColor: buttonTextColor,
@@ -200,7 +197,7 @@ class InfoDialogs {
     String? imagePath,
     required String buttonText,
     required VoidCallback onTapDismiss,
-    required SemanticEnum semanticType,
+    required SemanticEnum type,
     Color? color,
     Color? textColor,
     Color? buttonTextColor,
@@ -216,7 +213,7 @@ class InfoDialogs {
         imagePath: imagePath,
         buttonText: buttonText,
         onTapDismiss: onTapDismiss,
-        semanticType: semanticType,
+        type: type,
         color: color,
         textColor: textColor,
         buttonTextColor: buttonTextColor,
@@ -236,7 +233,7 @@ class InfoDialogs {
     String? imagePath,
     required String buttonText,
     required VoidCallback onTapDismiss,
-    required SemanticEnum semanticType,
+    SemanticEnum type = SemanticEnum.primary,
     Color? color,
     Color? textColor,
     Color? buttonTextColor,
@@ -252,7 +249,7 @@ class InfoDialogs {
         imagePath: imagePath,
         buttonText: buttonText,
         onTapDismiss: onTapDismiss,
-        semanticType: semanticType,
+        type: type,
         color: color,
         textColor: textColor,
         buttonTextColor: buttonTextColor,
@@ -265,7 +262,6 @@ class InfoDialogs {
         },
       );
 
-  /// 使用 showInfoDialogContents 实现从中心缩小的动画效果
   static Future<T?> zoomOut<T extends Object?>(
     BuildContext context, {
     String? title,
@@ -273,7 +269,7 @@ class InfoDialogs {
     String? imagePath,
     required String buttonText,
     required VoidCallback onTapDismiss,
-    required SemanticEnum semanticType,
+    required SemanticEnum type,
     Color? color,
     Color? textColor,
     Color? buttonTextColor,
@@ -289,7 +285,7 @@ class InfoDialogs {
         imagePath: imagePath,
         buttonText: buttonText,
         onTapDismiss: onTapDismiss,
-        semanticType: semanticType,
+        type: type,
         color: color,
         textColor: textColor,
         buttonTextColor: buttonTextColor,

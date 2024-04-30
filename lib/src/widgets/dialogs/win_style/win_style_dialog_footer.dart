@@ -8,12 +8,12 @@ class WinStyleInfoDialogFooter extends StatelessWidget {
   final Color backgroundColor;
 
   const WinStyleInfoDialogFooter({
-    Key? key,
+    super.key,
     required this.buttonText,
     required this.onButtonPressed,
     this.borderRadius = 0, // 默认圆角为0
     this.backgroundColor = const Color(0xFFF0F0F0),
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

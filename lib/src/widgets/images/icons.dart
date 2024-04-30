@@ -9,7 +9,7 @@ Widget _loadIcon({
 }) {
   return Image.asset(
     'assets/icons/$assetName.png',
-    package: 'get_dialogs',
+    package: 'widgets_easier',
     width: size,
     height: size,
     color: findStatusColor(semanticType),
