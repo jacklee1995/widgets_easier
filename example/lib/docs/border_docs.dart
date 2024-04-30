@@ -106,21 +106,21 @@ class BorderDocs extends StatelessWidget {
         Write.paragraph('其主要特点包括：'),
         Write.orderedList([
           Write.listItem(
-              '点线组成：虚线边框的特点是其边缘由一系列间隔的点线组成，而不是连续的实线。这种点线的组合在视觉上形成了一种虚化的边界，使得目标区域的边缘变得更加柔和。'),
+              '点线组成：虚线边框的特点是其边缘由一系列间隔的点线组成，而不是连续的实线。这种点线的组合在视觉上形成了一种虚化的边界，使得目标区域的边缘变得更加柔和；'),
           Write.listItem(
-              '轻盈的外观：虚线边框呈现出轻盈、细腻的外观，与实线边框相比更加柔和。这种轻盈的外观使得虚线边框在需要突出显示目标区域但又不希望过于强调边缘的场景中非常适用。'),
+              '轻盈的外观：虚线边框呈现出轻盈、细腻的外观，与实线边框相比更加柔和。这种轻盈的外观使得虚线边框在需要突出显示目标区域但又不希望过于强调边缘的场景中非常适用；'),
           Write.listItem(
               '视觉分隔：虽然虚线边框没有实线边框那么明确的界限，但它仍然能够提供视觉上的分隔效果，使得用户能够清晰地识别出目标区域的边界。虚线边框也常用于突出显示特定内容或者作为装饰性边框使用。'),
         ]),
         Write.paragraph(
             '虚线边框通常用于需要柔和、轻盈的界面布局中，例如卡片、面板、图像边框等元素的边框，或者用于突出显示特定内容的边界。在设计中，选择使用虚线边框还是其他边框样式取决于设计师对界面整体风格和用户体验的需求。'),
-        Write.paragraph('可以使用DottedBorder装饰容器获得虚线边框。默认情况下。点的样式是圆点，颜色为黑色。'),
+        Write.paragraph('一个例子如下：'),
         Row(
           children: [
             HighlightView(
               '''Container(
-  height: 50,
-  width: 200,
+  height: 150,
+  width: 300,
   decoration: ShapeDecoration(
     shape: DottedBorder(
       borderRadius: BorderRadius.circular(10),
@@ -155,8 +155,8 @@ class BorderDocs extends StatelessWidget {
           children: [
             HighlightView(
               '''Container(
-  height: 50,
-  width: 200,
+  height: 150,
+  width: 300,
   decoration: ShapeDecoration(
     shape: DottedBorder(
       dotSize: 6,
@@ -310,6 +310,13 @@ class BorderDocs extends StatelessWidget {
   width: 300,
   decoration: ShapeDecoration(
     shape: DashedBorder(
+      width: 4,
+      dashSize: 9,
+      dashSpacing: 2,
+      gradient: const LinearGradient(colors: [
+        Colors.blue,
+        Colors.purple,
+      ]),
       borderRadius: BorderRadius.circular(10),
     ),
   ),
@@ -397,8 +404,8 @@ class BorderDocs extends StatelessWidget {
   height: 200,
   decoration: const ShapeDecoration(
     shape: DottedDashBorder(
-      dotSize: 4.0,
-      dashSize: 8.0,
+      dotSize: 2.0,
+      dashSize: 18.0,
       spacing: 6.0,
       dotShape: BorderDotShape.circle,
       dotColor: Colors.blue,
@@ -559,7 +566,7 @@ class BorderDocs extends StatelessWidget {
             '槽线式边框通常用于与脊线边框相对应的场景，例如突出显示对话框、表格的单元格或者突出显示重要内容等。在设计中，选择使用槽线边框还是脊线边框取决于设计师对界面元素的整体风格和布局的需求。'),
         Write.paragraph(
             '你可以在 MDN 网站上尝试CSS版本，与这里的实现效果是一样的：https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-style。'),
-        Write.paragraph('槽线式边框有两个颜色。亮色表示阴影，暗色表示实线，可以自行指定，也可以不指定。一个简单地例子如下：'),
+        Write.paragraph('槽线式边框有两个颜色。亮色表示阴影，暗色表示实线，可以自行指定，也可以不指定。一个简单的例子如下：'),
         Row(
           children: [
             HighlightView(
@@ -629,8 +636,6 @@ class BorderDocs extends StatelessWidget {
             ),
           ],
         ),
-        Write.paragraph(
-            '这些示例展示了如何在不同的容器和卡片组件中使用 RidgeBorder，以及如何通过调整透明度、边框宽度和颜色来改变视觉效果。'),
         const Gap(20),
         Write.header2('3.7 内嵌式边框Inset'),
         Write.paragraph(
@@ -640,7 +645,7 @@ class BorderDocs extends StatelessWidget {
               '向内凹陷的外观：内嵌式边框的特点是其边缘呈现出向内凹陷的外观，与周围的内容形成一种凹陷的边界。这种外观让用户感觉目标区域被边框所包裹，形成了一种立体感；'),
           Write.listItem('清晰的界限：边框的边缘通常是清晰的，提供了明确的视觉分隔线，使得用户能够清晰地识别出目标区域的边界；'),
           Write.listItem(
-              '视觉深度感：内嵌式边框带来了一种视觉深度感，使得目标区域看起来更加突出。这种效果有时候可以增强界面元素之间的层次感，提高用户对界面布局的理解。'),
+              '视觉深度感：内嵌式边框带来了一种视觉深度感，使得目标区域看起来更加突出。这种效果有时候可以增强界面元素之间的层次感，提高用户对界面布局的理解；'),
           Write.paragraph(
               '内嵌式边框（Inset Border）常用于突出显示或分隔不同区域。与外凸式边框（Outset Border）相对应，内嵌式边框的特点是其边缘呈现出向内凹陷的外观。'),
         ]),
@@ -774,7 +779,8 @@ class BorderDocs extends StatelessWidget {
         Write.paragraph(
             '这个例子中，所使用的 SolidStarBorder 是基于Flutter原生的StarBorder实现的，在StarBorder上实现了Solid Border的效果。这使得你可以在SolidStarBorder上指定线宽、颜色，渐变色。'),
         Write.paragraph('边框包装器可以用于实现带有边框的裁剪，这使得改变原部件形状的同时在外围添加指定的线形效果。'),
-        Write.paragraph('因此，为了实现边框形状，你可以实现类似于SolidStarBorder的，带有绘制线形的形状裁剪器。')
+        Write.paragraph(
+            '因此，为了实现更多边框形状，你可以实现类似于SolidStarBorder的，带有绘制线形的形状裁剪器。不过不用担心，此库后续将不断实现新的边框形状。')
       ],
     );
   }
