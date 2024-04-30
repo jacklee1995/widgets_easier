@@ -58,7 +58,7 @@ Container(
 )
 ```
 
-![alt text](example_rMLTHxf325.png)
+![alt text](https://github.com/jacklee1995/widgets_easier/blob/master/readme_pics/example_rMLTHxf325.png)
 
 ```dart
 Container(
@@ -80,7 +80,7 @@ Container(
 )
 ```
 
-![alt text](example_tGc7sGaRB6.png)
+![alt text](https://github.com/jacklee1995/widgets_easier/blob/master/readme_pics/example_tGc7sGaRB6.png)
 
 #### 虚线边框
 
@@ -111,7 +111,7 @@ Container(
 )
 ```
 
-![alt text](example_4Cfj04zZEp.png)
+![alt text](https://github.com/jacklee1995/widgets_easier/blob/master/readme_pics/example_4Cfj04zZEp.png)
 
 
 
@@ -133,7 +133,7 @@ Container(
 )
 ```
 
-![alt text](example_UYLv3I04IM.png)
+![alt text](https://github.com/jacklee1995/widgets_easier/blob/master/readme_pics/example_UYLv3I04IM.png)
 
 ```dart
 Container(
@@ -160,7 +160,7 @@ Container(
 )
 ```
 
-![alt text](example_ftVtVT1h3h.png)
+![alt text](https://github.com/jacklee1995/widgets_easier/blob/master/readme_pics/example_ftVtVT1h3h.png)
 
 ### 破折线（划线）式边框
 
@@ -192,7 +192,7 @@ Container(
 )
 ```
 
-![alt text](example_YmfrrDWpjQ.png)
+![alt text](https://github.com/jacklee1995/widgets_easier/blob/master/readme_pics/example_YmfrrDWpjQ.png)
 
 ```dart
 Container(
@@ -218,7 +218,7 @@ Container(
 )
 ```
 
-![alt text](example_7v9Ey30ZDN.png)
+![alt text](https://github.com/jacklee1995/widgets_easier/blob/master/readme_pics/example_7v9Ey30ZDN.png)
 
 #### 点划线边框
 
@@ -245,7 +245,7 @@ Container(
 )
 ```
 
-![alt text](example_trId7p4DfI.png)
+![alt text](https://github.com/jacklee1995/widgets_easier/blob/master/readme_pics/example_trId7p4DfI.png)
 
 ```dart
 Container(
@@ -265,7 +265,7 @@ Container(
 )
 ```
 
-![alt text](example_CKPX3uxFDT.png)
+![alt text](https://github.com/jacklee1995/widgets_easier/blob/master/readme_pics/example_CKPX3uxFDT.png)
 
 #### 双线边框
 
@@ -295,7 +295,7 @@ Container(
 )
 ```
 
-![alt text](example_yUydL93aSN.png)
+![alt text](https://github.com/jacklee1995/widgets_easier/blob/master/readme_pics/example_yUydL93aSN.png)
 
 ```dart
 Container(
@@ -324,7 +324,7 @@ Container(
 )
 ```
 
-![alt text](example_Kb2mo2m5y3.png)
+![alt text](https://github.com/jacklee1995/widgets_easier/blob/master/readme_pics/example_Kb2mo2m5y3.png)
 
 #### 槽线边框
 
@@ -353,7 +353,7 @@ Container(
 ),
 ```
 
-![alt text](example_pdxVBlA7pW.png)
+![alt text](https://github.com/jacklee1995/widgets_easier/blob/master/readme_pics/example_pdxVBlA7pW.png)
 
 #### 脊线式边框
 
@@ -381,7 +381,7 @@ Container(
 ),
 ```
 
-![alt text](example_ust5G0YwTs.png)
+![alt text](https://github.com/jacklee1995/widgets_easier/blob/master/readme_pics/example_ust5G0YwTs.png)
 
 #### 内嵌式边框
 
@@ -406,7 +406,7 @@ Container(
 ),
 ```
 
-![alt text](example_hhq0iDwXtx.png)
+![alt text](https://github.com/jacklee1995/widgets_easier/blob/master/readme_pics/example_hhq0iDwXtx.png)
 
 #### 外凸式边框
 
@@ -432,7 +432,7 @@ Container(
 ),
 ```
 
-![alt text](example_bCS34n32wd.png)
+![alt text](https://github.com/jacklee1995/widgets_easier/blob/master/readme_pics/example_bCS34n32wd.png)
 
 # [**11. 边框包装器（BorderWrapper）**](https://editor.csdn.net/md?not_checkout=1&spm=1011.2415.3001.6217&articleId=138342762#11)
 
@@ -461,7 +461,7 @@ BorderWrapper(
 )
 ```
 
-![alt text](example_LY0KXoxpxN.png)
+![alt text](https://github.com/jacklee1995/widgets_easier/blob/master/readme_pics/example_LY0KXoxpxN.png)
 
 这个例子中，所使用的 SolidStarBorder 是基于Flutter原生的StarBorder实现的，在StarBorder上实现了Solid Border的效果。这使得你可以在SolidStarBorder上指定线宽、颜色，渐变色。边框包装器可以用于实现带有边框的裁剪，这使得改变原部件形状的同时在外围添加指定的线形效果。因此，为了实现更多边框形状，你可以实现类似于SolidStarBorder的，带有绘制线形的形状裁剪器。不过不用担心，此库后续将不断实现新的边框形状。
 
