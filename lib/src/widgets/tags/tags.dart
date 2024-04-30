@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../enums/size_enum.dart';
 import '../../enums/semantic_enum.dart';
 import '../../enums/effect_enum.dart';
+import '../../color/utils.dart';
 
 class Tag extends StatelessWidget {
   final Widget child;
@@ -31,6 +32,9 @@ class Tag extends StatelessWidget {
   /// Tag 的主题
   final EffectEnum effect;
 
+  /// 自定义高度
+  final double? height;
+
   const Tag({
     super.key,
     required this.child,
@@ -41,7 +45,8 @@ class Tag extends StatelessWidget {
     this.round = false,
     this.checked,
     this.onClose,
-    this.effect = EffectEnum.light, // 默认值为light
+    this.effect = EffectEnum.light,
+    this.height,
   });
 
   /// 根据TagSize枚举值返回相应的字体大小
@@ -66,38 +71,27 @@ class Tag extends StatelessWidget {
     if (checked != null && checked!) {
       return Colors.grey[300]!;
     }
-    switch (effect) {
-      case EffectEnum.light:
-        return lightColors[type]!;
-      case EffectEnum.dark:
-        return darkColors[type]!;
-      default:
-        return lightColors[type]!;
-    }
+    return findStatusColor(type).withOpacity(0.1);
   }
 
   Color _getTextColor(BuildContext context) {
     // 根据effect调整文字颜色
     if (effect == EffectEnum.plain) {
-      return Theme.of(context)
-          .textTheme
-          .bodyLarge!
-          .color!; // plain效果下使用主题默认文字颜色
-    } else if (effect == EffectEnum.light) {
-      return darkColors[type]!;
+      return findStatusColor(type); // plain效果下使用type对应的颜色
     }
-    return Colors.white; // 其他效果下使用白色文字
+    return findStatusColor(type);
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: height ?? _getHeightForSize(size),
       padding: EdgeInsets.symmetric(
           horizontal: 10, vertical: size == SizeEnum.small ? 2 : 4),
       decoration: BoxDecoration(
         color: _getBackgroundColor(context),
         borderRadius: BorderRadius.circular(round ? 20 : 3),
-        border: Border.all(color: darkColors[type]!),
+        border: Border.all(color: findStatusColor(type)),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -121,9 +115,7 @@ class Tag extends StatelessWidget {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(
-                    color: effect == EffectEnum.dark
-                        ? lightColors[type]!
-                        : darkColors[type]!,
+                    color: findStatusColor(type),
                     width: 1.0,
                   ),
                 ),
@@ -137,5 +129,16 @@ class Tag extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  double _getHeightForSize(SizeEnum size) {
+    switch (size) {
+      case SizeEnum.small:
+        return 20;
+      case SizeEnum.large:
+        return 40;
+      default:
+        return 30;
+    }
   }
 }
