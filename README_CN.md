@@ -29,7 +29,6 @@ flutter pub add widgets_easier
 
 
 
-
 ### 边框
 
 #### 实线边框
@@ -434,7 +433,7 @@ Container(
 
 ![alt text](https://github.com/jacklee1995/widgets_easier/blob/master/readme_pics/example_bCS34n32wd.png)
 
-# [**11. 边框包装器（BorderWrapper）**](https://editor.csdn.net/md?not_checkout=1&spm=1011.2415.3001.6217&articleId=138342762#11)
+#### 边框包装器（BorderWrapper）
 
 通过使用BorderWrapper组件，可以在其它的组件上使用边框，边框外部的内容将被按照边框轮廓裁剪掉。例如：
 
@@ -465,6 +464,4 @@ BorderWrapper(
 
 这个例子中，所使用的 SolidStarBorder 是基于Flutter原生的StarBorder实现的，在StarBorder上实现了Solid Border的效果。这使得你可以在SolidStarBorder上指定线宽、颜色，渐变色。边框包装器可以用于实现带有边框的裁剪，这使得改变原部件形状的同时在外围添加指定的线形效果。因此，为了实现更多边框形状，你可以实现类似于SolidStarBorder的，带有绘制线形的形状裁剪器。不过不用担心，此库后续将不断实现新的边框形状。
 
-
-## Additional information
 
