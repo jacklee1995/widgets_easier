@@ -32,6 +32,7 @@ export './src/widgets/borders/estar_border.dart';
 export './src/widgets/borders/protect_border.dart';
 
 export './src/widgets/buttons/semantic_button.dart';
+export './src/widgets/buttons/button_group.dart';
 
 export './src/widgets/indicator/percent_progress_indicator.dart';
 
