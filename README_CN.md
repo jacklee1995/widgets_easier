@@ -1400,7 +1400,7 @@ ButtonGroup(
 CounterInput(type: SemanticEnum.primary)
 ```
 
-![example_uoLPuBTKzb](J:\widgets_easier\assets\example_uoLPuBTKzb.png)
+![example_uoLPuBTKzb](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_uoLPuBTKzb.png)
 
 #### 5.3 自定义色彩
 
@@ -1425,7 +1425,7 @@ const CounterInput(
 
 
 
-![example_h0k4KWue9E](J:\widgets_easier\assets\example_h0k4KWue9E.png)
+![example_h0k4KWue9E](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_h0k4KWue9E.png)
 
 #### 5.4 尺寸
 
@@ -1467,7 +1467,7 @@ Row(
 ),
 ```
 
-![example_1JTzG6Hlaf](J:\widgets_easier\assets\example_1JTzG6Hlaf.png)
+![example_1JTzG6Hlaf](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_1JTzG6Hlaf.png)
 
 ##### 2 数值尺寸
 
@@ -1480,7 +1480,7 @@ CounterInput(
 ),
 ```
 
-![example_eDBmo5IVT9](J:\widgets_easier\assets\example_eDBmo5IVT9.png)
+![example_eDBmo5IVT9](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_eDBmo5IVT9.png)
 
 #### 5.5 轮廓型
 
@@ -1513,7 +1513,7 @@ Row(
 ),
 ```
 
-![example_tjpQHhVKRl](J:\widgets_easier\assets\example_tjpQHhVKRl.png)
+![example_tjpQHhVKRl](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_tjpQHhVKRl.png)
 
 #### 5.6 圆角加减器
 
@@ -1527,14 +1527,17 @@ const CounterInput(
 )
 ```
 
-![example_4AXqYeLDKp](J:\widgets_easier\assets\example_4AXqYeLDKp.gif)
+![example_4AXqYeLDKp](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_4AXqYeLDKp.gif)
 
 #### 5.7 自动宽度和固定宽度
 
 默认情况下宽度是自动的，加减器文本输入区的宽度随着位数的增加而增加。但是也可以指定一个固定的文本输入区宽度。例如：
 
 ```dart
-
+CounterInput(
+  textFieldWidth: 60,
+  controller: CounterInputController(),
+),
 ```
 
 
@@ -1601,7 +1604,7 @@ CounterInput(
 )
 ```
 
-![example_wzi2mFQRMk](J:\widgets_easier\assets\example_wzi2mFQRMk.gif)
+![example_wzi2mFQRMk](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_wzi2mFQRMk.gif)
 
 通过这个例子可以看出，`onMax`、`onMin`仅仅是到达最值得时候被调用，但是从如果尝试往超出方向继续点击按钮时不会被调用。以上面得GIF图片为例，当增加到10单词会调用onMax方法，但是在10上继续增加是不会处理的。
 
@@ -1637,7 +1640,7 @@ CounterInput(
 
 
 
-![example_fMYLgu8hR9](J:\widgets_easier\assets\example_fMYLgu8hR9.gif)
+![example_fMYLgu8hR9](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_fMYLgu8hR9.gif)
 
 
 ##### 4 值变化事件
@@ -1652,7 +1655,7 @@ CounterInput(
 )
 ```
 
-![example_Jfs459a3CF](J:\widgets_easier\assets\example_Jfs459a3CF.gif)
+![example_Jfs459a3CF](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_Jfs459a3CF.gif)
 
 对应图中的点击，控制台打印的结果为：
 

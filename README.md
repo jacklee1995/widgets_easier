@@ -494,11 +494,9 @@ Similar to **[Element-Plus](https://element-plus.org/)**, in the **Widgets Easie
 
 ![example_kAfLS9VvwG](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics//example_kAfLS9VvwG.png)
 
-
-
 #### 2.2 BasicShadow
 
-`BasicShadow` 是一个提供基本阴影效果的组件。它使用 `DecoratedBox` 来实现阴影，适用于需要轻微突出显示的元素。这种阴影效果不太强烈，但足以给元素添加一些深度和立体感。
+`BasicShadow` is a component that provides basic shadow effects. It utilizes `DecoratedBox` to achieve the shadow effect, suitable for elements that require subtle highlighting. This shadow effect is not too strong but is sufficient to add some depth and dimension to the element.
 
 ```dart
 BasicShadow(
@@ -515,7 +513,7 @@ BasicShadow(
 
 #### 2.3 LightShadow
 
-`LightShadow` 提供的是比 `BasicShadow` 更轻的阴影效果。它同样使用 `DecoratedBox`，阴影更加细微，适合不需要太多突出但又想有细微区分的界面元素。
+`LightShadow` provides a lighter shadow effect compared to `BasicShadow`. It also utilizes `DecoratedBox`, with a subtler shadow that is suitable for interface elements that do not require much prominence but still want subtle differentiation.
 
 ```dart
 LightShadow(
@@ -532,7 +530,7 @@ LightShadow(
 
 #### 2.4 LighterShadow
 
-`LighterShadow` 是四种阴影中最轻的一种。它几乎不可见，只在必要时提供最轻微的阴影效果，适用于极为细腻的用户界面设计，其中每一个细节都需要精心处理。
+`LighterShadow` is the lightest among the four shadows. It is almost invisible, providing only the slightest shadow effect when necessary. It is suitable for extremely delicate user interface designs where each detail requires meticulous handling.
 
 ```dart
 LighterShadow(
@@ -549,7 +547,7 @@ LighterShadow(
 
 #### 2.5 DarkShadow
 
-`DarkShadow` 提供的是最强烈的阴影效果，使用 `DecoratedBox` 实现。这种阴影适用于需要明显区分的元素，可以显著提升元素的视觉层次感和吸引用户的注意力。
+`DarkShadow` provides the most intense shadow effect, implemented using `DecoratedBox`. This type of shadow is suitable for elements that require clear distinction, significantly enhancing the visual hierarchy of elements and drawing the user's attention effectively.
 
 ```dart
 DarkShadow(
@@ -564,15 +562,16 @@ DarkShadow(
 )
 ```
 
-### 3. 按钮
+### 3. Buttons
 
-#### 3.1 SemanticButton基本用法
+#### 3.1 Basic Usage of SemanticButton
 
-SemanticButton 是一个高度可定制的按钮组件，支持多种视觉和交互效果。它允许开发者设置按钮的文本、图标、颜色、边框样式、阴影、以及交互时的视觉反馈。此外，按钮可以配置为带有前缀图标和后缀图标，增加按钮的表达力和功能性。
+SemanticButton is a highly customizable button component that supports various visual and interactive effects. It allows developers to set the button's text, icon, color, border style, shadow, and visual feedback during interactions. Additionally, buttons can be configured with prefix and suffix icons to enhance their expressiveness and functionality.
 
-将SemanticButton 的语义枚举应用于按钮，可以获得色彩主题差异化的不同按钮。
+Applying the semantic enumerations of SemanticButton to buttons allows for different buttons with color theme differentiations.
 
-例如：
+For example:
+
 ```dart
 SemanticButton(
   text: 'primary',
@@ -618,10 +617,11 @@ SemanticButton(
 
 ![example_udTNKdt6RP](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_udTNKdt6RP.gif)
 
-#### 3.2 轮廓按钮
+#### 3.2 Outline Button
 
-##### 3.2.1 基本用法
-SemanticButton默认为普通按钮（非轮廓按钮）。通过设置SemanticButton类的isOutlined属性参数值为true，则按钮将一轮廓形式显示，例如：
+##### 3.2.1 Basic Usage
+
+By default, SemanticButton is a regular button (non-outline button). By setting the isOutlined property parameter of the SemanticButton class to true, the button will be displayed in outline form, for example:
 
 ```dart
 SemanticButton(
@@ -676,13 +676,13 @@ SemanticButton(
 
 ![example_Ta3ohFfhRn](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics//example_Ta3ohFfhRn.gif)
 
-##### 3.2.2 轮廓类型
+##### 3.2.2 Outline Styles
 
-除了默认的实线轮廓外，还可以手动指定outlineStyle参数值设置伦托类型以及去轮廓。实线轮廓（OutlineStyle.solide）是默认的，因此这里不再重复给出例子。
+In addition to the default solid outline, you can manually specify the outlineStyle parameter value to set different types of outlines or remove the outline. The solid outline (OutlineStyle.solide) is the default, so examples are not repeated here.
 
+###### Dotted Outline
 
-###### Dotted轮廓
-Dotted 轮廓由一系列间隔相等的点组成，这些点连接在一起形成物体的边缘。通过指定outlineStyle: OutlineStyle.dotted，可以设置Dotted轮廓。例如：
+A dotted outline consists of a series of equally spaced dots connected together to form the edge of an object. By specifying outlineStyle: OutlineStyle.dotted, you can set a dotted outline. For example:
 
 ```dart
 SemanticButton(
@@ -744,9 +744,10 @@ SemanticButton(
 
 ![example_zQldNd5Agw](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics//example_zQldNd5Agw.gif)
 
-###### Dashed轮廓
+###### Dashed Outline
 
-Dashed 轮廓由一系列间隔的虚线组成，这些虚线连接在一起形成物体的边缘。通过指定outlineStyle: OutlineStyle.dashed，可以设置Dashed轮廓。例如：
+A dashed outline consists of a series of spaced dash lines connected together to form the edge of an object. By specifying outlineStyle: OutlineStyle.dashed, you can set a dashed outline. For example:
+
 ```dart
 SemanticButton(
   text: 'primary',
@@ -807,9 +808,9 @@ SemanticButton(
 
 ![example_0IooMDarZl](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics//example_0IooMDarZl.gif)
 
-###### 禁用轮廓
+###### Disabled Outline
 
-通过指定outlineStyle: OutlineStyle.none，可以禁用轮廓。例如：
+By specifying outlineStyle: OutlineStyle.none, you can disable the outline. For example:
 
 ```dart
 SemanticButton(
@@ -871,19 +872,17 @@ SemanticButton(
 
 ![example_xIzQytfQ87](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics//example_xIzQytfQ87.gif)
 
-#### 3.3 回调函数与禁用状态
+#### 3.3 Callback Functions and Disabled State
 
-
-通过设置按钮ontap属性值可以指定一个函数作为按钮点击时间的回调函数。如果没有指定回调函数，或者指定onTap属性的值为null，则按钮状态成为禁用状态。例如：
+By setting the onTap property of the button, you can specify a function as the callback function for the button click event. If no callback function is specified, or if the value of the onTap property is null, the button becomes disabled. For example:
 
 ![example_3spR0CNRPN](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics//example_3spR0CNRPN.gif)
 
+For desktop or web platforms, a disabled button not only cannot be clicked, but also does not have elevation changes on hover like a normal button. Additionally, icons on the button switch from active to disabled icons.
 
-对于桌面端或者Web平台，一个被禁用的按钮不仅无法被点击，而且在hover时，不会像正常按钮那样拥有海拔变化。图标上也从寿星图标转换为禁用图标。
+#### 3.4 Text Styles
 
-#### 3.4 文本样式
-
-通过设置fontSize属性，可以指定文本的大小。例如：
+By setting the fontSize property, you can specify the size of the text. For example:
 
 ```dart
 SemanticButton(
@@ -896,7 +895,7 @@ SemanticButton(
 
 ![example_CKynxsm8dc](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_CKynxsm8dc.png)
 
-通过fontWeight属性，可以指定字体粗细程度，例如
+By using the fontWeight property, you can specify the thickness of the font, for example:
 
 
 ```dart
@@ -920,11 +919,11 @@ SemanticButton(
 
 ![example_RBluUQsnWo](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_RBluUQsnWo.png)
 
-#### 3.5 圆角大小
+#### 3.5 Corner Radius
 
-##### 3.5.1 通过radius参数指定圆角
+##### 3.5.1 Specifying the Radius with the radius Parameter
 
-SemanticButton的radius参数用于统一指定按钮的四个角的弧度数值。是一个double类型的参数。默认情况下，radius参数值为4。再某些场景中，依据你的需求，可以手动调整按钮的圆角大小。例如：
+The radius parameter of SemanticButton is used to uniformly specify the radius of all four corners of the button. It is a double type parameter. By default, the radius parameter value is 4. In some scenarios, depending on your needs, you can manually adjust the corner radius of the button. For example:
 
 ```dart
 SemanticButton(
@@ -948,9 +947,9 @@ SemanticButton(
 
 ![example_j7nmu9vC0M](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics//example_j7nmu9vC0M.png)
 
-##### 3.5.2 使用borderRadius属性
+##### 3.5.2 Using the borderRadius Property
 
-**SemanticButton** 的 `borderRadius`更为灵活，也可以用它来指定圆形的边框半径。比如下面的例子展示了两个按钮，分别为他们指定左上角和右下角的圆角形状：
+The `borderRadius` of **SemanticButton** is more flexible and can also be used to specify the radius of circular borders. For example, the following example demonstrates two buttons, each specifying rounded corners for their top-left and bottom-right corners:
 
 ```dart
 SemanticButton(
@@ -976,12 +975,11 @@ SemanticButton(
 
 ![example_6WGxVLs5Dy](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_6WGxVLs5Dy.gif)
 
-#### 3.6 按钮尺寸
+#### 3.6 Button Sizes
 
-##### 3.6.1 尺寸枚举
+##### 3.6.1 Size Enumerations
 
-
-通过尺寸枚举，可以使用预设大小。例如：
+By using size enumerations, you can utilize preset sizes. For example:
 
 ```dart
 SemanticButton(
@@ -1006,9 +1004,9 @@ SemanticButton(
 ),
 ```
 
-##### 3.6.2 数值尺寸
+##### 3.6.2 Numeric Sizes
 
-除了尺寸枚举，你还可以通过具体的数值来指定按钮的尺寸，一旦指定数值则枚举尺寸自动失效。一个通过数值指定尺寸的例子如：
+In addition to size enumerations, you can also specify the size of the button using specific numerical values. Once a numerical value is specified, the enumerated sizes automatically become inactive. An example of specifying size using numerical values is:
 
 ```dart
 SemanticButton(
@@ -1020,17 +1018,17 @@ SemanticButton(
 ),
 ```
 
-#### 3.7 收缩行为
+#### 3.7 Shrink Behavior
 
-在 SemanticButton 组件中，shrink 参数用于控制按钮的收缩行为。当 shrink 设置为 true 时，按钮会根据其内容自适应宽度，而不是占据所有可用空间。这在某些情况下很有用，例如当你想要将多个按钮并排放置，并且希望每个按钮的宽度与其内容相匹配时。下面通过例子具体看一下 shrink 参数的作用。
+In the SemanticButton component, the shrink parameter controls the button's shrink behavior. When shrink is set to true, the button will adapt its width based on its content rather than occupying all available space. This is useful in certain cases, such as when you want to place multiple buttons side by side and want each button's width to match its content. Let's look at the effect of the shrink parameter through an example.
 
-##### 3.7.1 默认行为（shrink = false）
+##### 3.7.1 Default Behavior (shrink = false)
 
-1. 当 shrink 设置为 false（默认值）时，按钮将占据其父容器提供的所有可用宽度；
-2. 在这种情况下，按钮的宽度由其父容器的约束决定，而不是由按钮的内容决定；
-3. 按钮内容（文本和图标）将在按钮的可用空间内居中对齐。
+1. When shrink is set to false (the default value), the button will occupy all available width provided by its parent container.
+2. In this case, the button's width is determined by the constraints of its parent container rather than its content.
+3. The button's content (text and icon) will be centered within the available space of the button.
 
-假设下面这个按钮在一个Column中，这一行没有其它部件：
+Suppose the following button is in a Column, and there are no other widgets in this row:
 
 ```dart
 SemanticButton(
@@ -1039,15 +1037,13 @@ SemanticButton(
   onTap: () {},
 ),
 ```
-下一节的截图展示效果对比。
+##### 3.7.2 Shrink Behavior (shrink = true)
 
-##### 3.7.2 收缩行为（shrink = true）
+1. When shrink is set to true, the button will adapt its width based on its content.
+2. The width of the button will be determined by the actual width of its content (text and icon) rather than occupying all available space.
+3. This means the button will shrink to fit the width required by its content.
 
-1. 当 shrink 设置为 true 时，按钮将根据其内容自适应宽度；
-2. 按钮的宽度将由其内容（文本和图标）的实际宽度决定，而不是占据所有可用空间；
-3. 这意味着按钮将收缩到恰好容纳其内容所需的宽度。
-
-下面是一个shrink = true的例子，假设下面这个按钮在一个Column中，这一行没有其它部件：
+Here's an example with shrink = true. Suppose the following button is in a Column, and there are no other widgets in this row:
 
 ```dart
 SemanticButton(
@@ -1057,20 +1053,17 @@ SemanticButton(
   onTap: () {},
 ),
 ```
-两者的对比如下：
+Here's a comparison between the two:
 
-1. 当 shrink 设置为 true 时，按钮将根据其内容自适应宽度；
-2. 按钮的宽度将由其内容（文本和图标）的实际宽度决定，而不是占据所有可用空间；
-3. 这意味着按钮将收缩到恰好容纳其内容所需的宽度。
+1. When shrink is set to true, the button will adapt its width based on its content.
+2. The width of the button will be determined by the actual width of its content (text and icon) rather than occupying all available space.
+3. This means the button will shrink to fit the width required by its content.
 
+#### 3.8 Button Icons
 
+##### 3.8.1 Using Prefix Icons
 
-
-#### 3.8 按钮图标
-
-##### 3.8.1 前缀图标的使用
-
-在 `SemanticButton` 中，可以通过 `prefixIcon` 属性添加一个前缀图标。这个图标显示在按钮文本的左侧，通常用于增强按钮的语义或者提供视觉提示。例如，一个电话图标可以用在“呼叫”按钮上，以直观地表明按钮的功能。
+In `SemanticButton`, you can add a prefix icon using the `prefixIcon` property. This icon is displayed to the left of the button text and is typically used to enhance the button's semantics or provide visual cues. For example, a phone icon can be used on a "Call" button to visually indicate the button's function.
 
 ```dart
 SemanticButton(
@@ -1083,11 +1076,11 @@ SemanticButton(
 ```
 ![example_UaKvmEvzEC](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_UaKvmEvzEC.png)
 
-在上述代码中，`Icon(Icons.phone)` 作为 `prefixIcon` 被传递给 `SemanticButton`，使得用户可以直观地识别这是一个用于拨打电话的按钮。
+In the above code, `Icon(Icons.phone)` is passed as the `prefixIcon` to the `SemanticButton`, allowing users to visually identify this as a button for making phone calls.
 
-##### 3.8.2 后缀图标的使用
+##### 3.8.2 Using Suffix Icons
 
-与前缀图标类似，`SemanticButton` 也支持后缀图标，通过 `suffixIcon` 属性设置。后缀图标显示在按钮文本的右侧，适用于指示按钮的次要操作或额外的功能，如展开箭头或信息图标。
+Similar to prefix icons, `SemanticButton` also supports suffix icons, set through the `suffixIcon` property. Suffix icons are displayed to the right of the button text and are suitable for indicating secondary actions or additional functionalities, such as an expand arrow or information icon.
 
 ```dart
 SemanticButton(
@@ -1099,20 +1092,17 @@ SemanticButton(
 )
 ```
 
-在这个例子中，`Icon(Icons.arrow_drop_down)` 被设置为 `suffixIcon`，表明这个按钮可能会展开更多的选项或菜单。
+In this example, `Icon(Icons.arrow_drop_down)` is set as the `suffixIcon`, indicating that this button may expand to show more options or a menu.
 
 ![example_9RPs3ZX2Ti](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_9RPs3ZX2Ti.png)
 
+Whether it's a prefix icon or a suffix icon, the type is **Widget?**, which means you can flexibly use widgets as icons. In this way, the `prefixIcon` and `suffixIcon` properties of `SemanticButton` provide Flutter developers with a flexible way to design more expressive and functional user interfaces.
 
+#### 3.9 Customizing Colors
 
-不论前缀图标还是后缀图标，类型都是**Widget?**，这意味着你可以灵活使用组件作为图标。通过这种方式，`SemanticButton` 的 `prefixIcon` 和 `suffixIcon` 属性为Flutter开发者提供了一种灵活的方法来设计更具表达性和功能性的用户界面。
+##### 3.9.1 General Colors
 
-
-
-#### 3.9 自定义颜色
-
-##### 3.9.1 一般色彩
-通过按钮的 color 参数可以自定义颜色。color参数具有更高的优先级。如果自定义颜色，则 type 参数带来的颜色效果将消失。下面的例子展示了如何实现 color参数。
+You can customize the color through the button's color parameter. The color parameter has higher priority. If a custom color is specified, the color effect brought by the type parameter will disappear. The following example demonstrates how to implement the color parameter.
 
 ```dart
 SemanticButton(
@@ -1131,9 +1121,9 @@ SemanticButton(
 ```
 ![example_9l6lQQ1ixn](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_9l6lQQ1ixn.gif)
 
-##### 3.9.2 渐变色按钮
+##### 3.9.2 Gradient Buttons
 
-为了实现更加好看的外观，你还可以通过gradient参数指定按钮渐变色。例如，下面的例子展示了两个渐变色按钮：
+For a more visually appealing appearance, you can also specify button gradient colors through the gradient parameter. For example, the following example demonstrates two gradient color buttons:
 
 ```dart
 SemanticButton(
@@ -1171,12 +1161,11 @@ SemanticButton(
 
 ![example_ZPNFkyEpaC](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_ZPNFkyEpaC.gif)
 
-### 4. 按钮组
+### 4. Button Groups
 
+Button groups in the Widgets Easier component library are collections of multiple SemanticButtons. They have unified semantics and are arranged closely together.
 
-Widgets Easier组件库中的按钮组是多个SemanticButton的集合，他们具有统一的语义，并且以紧密的方式进行排列。
-
-#### 4.1 在ButtonGroup中组合SemanticButton
+#### 4.1 Combining SemanticButtons in a ButtonGroup
 
 ```dart
 ButtonGroup(
@@ -1194,10 +1183,12 @@ ButtonGroup(
   size: SizeEnum.defaultSize,
 )
 ```
-其中，ButtonGroup的每一个按钮的事件回调函数是在 SemanticButton 的onTap属性上直接指定的。与之类似的是单个按钮的文本，是通过每一个SemanticButton的text参数直接指定。
+In ButtonGroup, the event callback function for each button is directly specified on the onTap property of SemanticButton. Similarly, the text for each individual button is directly specified through the text parameter of each SemanticButton.
 
-#### 4.2 使用语义类型
-类似于SemanticButton，你也可以为ButtonGroup指定不同的type属性获得具有不同含义颜色象征的按钮组。例如：
+#### 4.2 Using Semantic Types
+
+Similar to SemanticButton, you can also specify different type properties for ButtonGroup to obtain button groups with different symbolic colors representing different meanings. For example:
+
 ```dart
 ButtonGroup(
   buttons: [
@@ -1280,9 +1271,10 @@ ButtonGroup(
 
 ![example_M8MY32Z4QW](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_M8MY32Z4QW.gif)
 
-#### 4.3 按钮组圆角
+#### 4.3 Button Group Corner Radius
 
-通过为按钮组指定 radius 属性可以手动修改按钮组圆角。若不指定，默认圆角大小为4。一个手动指定按钮组圆角的示例如下：
+You can manually modify the corner radius of the button group by specifying the radius property for the button group. If not specified, the default corner radius is 4. An example of manually specifying the button group corner radius is as follows:
+
 ```dart
 ButtonGroup(
   radius: 20,
@@ -1296,17 +1288,18 @@ ButtonGroup(
 
 ![example_GFp71agb79](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_GFp71agb79.gif)
 
-#### 4.4 按钮组尺寸
+#### 4.4 Button Group Sizes
 
-类似于SemanticButton，ButtonGroup也可以使用枚举尺寸和数值尺寸两种方式来指定尺寸。
+Similar to SemanticButton, ButtonGroup can also specify sizes using enumeration sizes and numerical sizes.
 
-##### 4.4.1 枚举尺寸
-可以使用尺寸枚举值为按钮组指定尺寸。例如：
+##### 4.4.1 Enumeration Sizes
 
-![example_KLiWhn18t5](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_KLiWhn18t5.gif)
+Enumeration size values can be used to specify the size of the button group. For example:![example_KLiWhn18t5](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_KLiWhn18t5.gif)
 
-##### 4.4.2 数值尺寸
-数值尺寸是更加灵活的大小指定方式。一旦使用数值尺寸，则指定的枚举尺寸将自动失效。你可以通过height属性来指定数值尺寸，例如：
+##### 4.4.2 Numeric Sizes
+
+Numeric sizes provide a more flexible way to specify sizes. Once a numeric size is used, the specified enumeration size will automatically become inactive. You can specify numeric sizes using the height property, for example:
+
 ```dart
 ButtonGroup(
   radius: 20,
@@ -1322,9 +1315,10 @@ ButtonGroup(
 
 ![example_FWgfhJiS1W](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_FWgfhJiS1W.gif)
 
-#### 4.5 使用前后缀图标
+#### 4.5 Using Prefix and Suffix Icons
 
-虽然ButtonGroup中可以有多个SemanticButton，但是在ButtonGroup上只能为第一个按钮添加前缀图标以及最后一个按钮添加后缀图标。这用起来十分简单，只需要为ButtonGroup指定prefixIcon参数或者suffixIcon参数。例如：
+While ButtonGroup can contain multiple SemanticButtons, only the first button in ButtonGroup can have a prefix icon and the last button can have a suffix icon. This is straightforward to implement, simply by specifying the prefixIcon parameter or suffixIcon parameter for the ButtonGroup. For example:
+
 ```dart
 ButtonGroup(
   radius: 10,
@@ -1357,9 +1351,10 @@ ButtonGroup(
 
 #### ![example_f6xDuUhP6W](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_f6xDuUhP6W.gif)
 
-#### 4.6 收缩行为
+#### 4.6 Shrink Behavior
 
-类似于SemanticButton，你可以为ButtonGroup指定收缩行为。这在类似于需要单个按钮组占满容器宽度的时候特别有用。例如，指定shrink参数值为false使按钮组占满整行：
+Similar to SemanticButton, you can specify the shrink behavior for ButtonGroup. This is particularly useful in situations where you need a single button group to occupy the full container width. For example, specifying the shrink parameter value as false to make the button group occupy the entire row:
+
 ```dart
 ButtonGroup(
   shrink: false,
@@ -1393,50 +1388,44 @@ ButtonGroup(
 
 ![example_W6GYBdDlgJ](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_W6GYBdDlgJ.gif)
 
-#### 4.7 有用的提示
+#### 4.7 Helpful Tips
 
-按钮组ButtonGroup是由多个SemanticButton按照一定方式组织的整体。你可以为在ButtonGroup中的SemanticButton指定更多参数——语法这上没有错误。但是并不是每一个SemanticButton的参数在ButtonGroup中都会生效，因为在按钮组中需要按照自己的方式去进行管理。可以指定的主要是每一个按钮的文本、回调事件等，因为这些参数不属于整体，是单元特有的。
+ButtonGroup is a whole composed of multiple SemanticButtons organized in a certain way. You can specify more parameters for SemanticButtons in ButtonGroup—there are no syntax errors here. However, not every parameter of SemanticButton will take effect in ButtonGroup because the buttons in the group need to be managed in their own way. The main parameters that can be specified are the text and callback events for each button because these parameters do not belong to the whole but are specific to each unit.
 
+### 5. Counter
 
+#### 5.1 Introduction to the Counter Component
 
+**CounterInput** is a **Flutter** widget for numerical input and adjustment. It provides an intuitive interface that allows users to change the current value by clicking plus and minus buttons or directly inputting numbers. This component includes the following features:
 
+1. Supports increasing or decreasing the current value by clicking plus and minus buttons.
+2. Supports directly inputting numbers in the text field.
+3. Customizable minimum value, maximum value, and step size.
+4. Customizable styles, including size, color, and border style.
+5. Provides multiple callback events for monitoring value changes and boundary conditions.
+6. Supports continuous value change by long-pressing plus and minus buttons.
+7. Supports disabling and enabling component interaction.
 
-### 5. 加减器
+#### 5.2 Using Semantic Types
 
-#### 5.1 加减器组件简介
-
-**CounterInput**`是一个用于数值输入和调整的 **Flutter** 组件，它提供了一个直观的界面，允许用户通过点击加号和减号按钮或直接输入数值来改变当前值。改组件包含以下特性：
-
-1. 支持点击加号和减号按钮来增加或减少当前值
-2. 支持直接在文本框中输入数值；
-3. 可自定义的最小值、最大值和步长；
-4. 可自定义的样式，包括大小、颜色和边框样式；
-5. 提供了多个回调事件，用于监听值的变化和边界情况；
-6. 支持长按加号和减号按钮来连续改变值；
-7. 支持禁用和启用组件的交互。
-
-
-
-#### 5.2 使用语义
-
-和其它组件一样，通过`type`属性可以指定语义枚举值，以得到不同的语义色彩。例如：
+Like other components, you can specify semantic enumeration values through the `type` property to obtain different semantic colors. For example:
 
 ```dart
 CounterInput(type: SemanticEnum.primary)
 ```
 
-![example_uoLPuBTKzb](J:\widgets_easier\assets\example_uoLPuBTKzb.png)
+![example_uoLPuBTKzb](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_uoLPuBTKzb.png)
 
-#### 5.3 自定义色彩
+#### 5.3 Custom Colors
 
-如果你想更加灵活地指定各个部分的颜色，这也是可行的。具体来说，有以下几个颜色参数：
+If you want to specify the colors of each part more flexibly, that's also possible. Specifically, there are the following color parameters:
 
-1. iconColor：加减图标的颜色
-2. backgroundColor：输入框背景色；
-3. buttonColor：按钮颜色；
-4. textColor：输入框文本颜色。
+1. iconColor: Color of the plus and minus icons
+2. backgroundColor: Background color of the input field
+3. buttonColor: Color of the buttons
+4. textColor: Text color of the input field
 
-下面是一个例子：
+Here's an example:
 
 ```dart
 const CounterInput(
@@ -1450,13 +1439,13 @@ const CounterInput(
 
 
 
-![example_h0k4KWue9E](J:\widgets_easier\assets\example_h0k4KWue9E.png)
+![example_h0k4KWue9E](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_h0k4KWue9E.png)
 
-#### 5.4 尺寸
+#### 5.4 Sizes
 
-##### 1 枚举尺寸
+##### 5.4.1 Enumeration Sizes
 
-通过size组件可以指定尺寸枚举，包括SizeEnum.small、SizeEnum.defaultSize、SizeEnum.large，如果未指定，默认为SizeEnum.defaultSize。例如：
+You can specify enumeration sizes through the size parameter, including SizeEnum.small, SizeEnum.defaultSize, and SizeEnum.large. If not specified, the default is SizeEnum.defaultSize. For example:
 
 ```dart
 Row(
@@ -1492,11 +1481,11 @@ Row(
 ),
 ```
 
-![example_1JTzG6Hlaf](J:\widgets_easier\assets\example_1JTzG6Hlaf.png)
+![example_1JTzG6Hlaf](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_1JTzG6Hlaf.png)
 
-##### 2 数值尺寸
+##### 5.4.2 Numeric Sizes
 
-如果枚举尺寸不能满足要求还可以指定数值：
+If enumeration sizes cannot meet your requirements, you can also specify numerical values:
 
 ```dart
 CounterInput(
@@ -1505,11 +1494,11 @@ CounterInput(
 ),
 ```
 
-![example_eDBmo5IVT9](J:\widgets_easier\assets\example_eDBmo5IVT9.png)
+![example_eDBmo5IVT9](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_eDBmo5IVT9.png)
 
-#### 5.5 轮廓型
+#### 5.5 Outline Style
 
-通过指定`isOutlined`的值为true，可以设置加减器为轮廓型。例如：
+By setting the value of `isOutlined` to true, you can set the counter as an outline style. For example:
 
 ```dart
 Row(
@@ -1538,11 +1527,11 @@ Row(
 ),
 ```
 
-![example_tjpQHhVKRl](J:\widgets_easier\assets\example_tjpQHhVKRl.png)
+![example_tjpQHhVKRl](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_tjpQHhVKRl.png)
 
-#### 5.6 圆角加减器
+#### 5.6 Rounded Counter
 
-通过`radius`属性可以很方便地为加减器设置圆角.例如：
+You can easily set the counter with rounded corners using the `radius` property, for example:
 
 ```dart
 const CounterInput(
@@ -1552,30 +1541,31 @@ const CounterInput(
 )
 ```
 
-![example_4AXqYeLDKp](J:\widgets_easier\assets\example_4AXqYeLDKp.gif)
+![example_4AXqYeLDKp](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_4AXqYeLDKp.gif)
 
-#### 5.7 自动宽度和固定宽度
+#### 5.7 Automatic Width and Fixed Width
 
-默认情况下宽度是自动的，加减器文本输入区的宽度随着位数的增加而增加。但是也可以指定一个固定的文本输入区宽度。例如：
+By default, the width is automatic, and the width of the counter's text input area increases as the number of digits increases. However, you can also specify a fixed width for the text input area. For example:
 
 ```dart
-
+CounterInput(
+  textFieldWidth: 60,
+  controller: CounterInputController(),
+),
 ```
 
 
 
-#### 5.8 回调事件
+#### 5.8 Callback Events
 
+##### 5.8.1 Increment and Decrement Callbacks
 
+The increment callback is used to listen for value increase events, triggered when the value increases; similarly, the decrement callback is used to listen for decrease events, triggered when the value decreases.
 
-##### 1 加、减回调
+- The `onIncrement` callback is used to monitor value increase events.
+- The `onDecrement` callback is used to monitor value decrease events.
 
-加回调用于监听值增加事件，当数值增加时触发；类似地，减回调用于监听减少事件，当数值减少时触发。
-
-- 通过`onIncrement`回调，用于监值增加事件；
-- 通过`Decremented`回调，用于监值减少事件。
-
-下面这个例子中，初始值为7，步进值为2，当增加或者减少时在控制台打印新值和旧值：
+In the following example, with an initial value of 7 and a step of 2, when incrementing or decrementing, the new and old values are printed on the console:
 
 ```dart
 CounterInput(
@@ -1590,13 +1580,13 @@ CounterInput(
 ),
 ```
 
-> 注：指定初始值需要使用CounterInputController控制器，就像这个例子中所示的一样。
+> Note: Specifying an initial value requires using the CounterInputController controller, as shown in this example.
 
 
 
-##### 2 最值到达回调
+##### 5.8.2 Boundary Reached Callbacks
 
-加减器有一个最大值和一个最小值，默认情况下最小值为0，最大值为100。当变化到最小值时，将触发最小值回调。下面的例子展示了到达最大/最小值时，执行相关回调。其中设置最大值为10，最小值为1，初始值为6，步进值为2。每当到达最小或最大值的时候弹窗提示。
+The counter has a maximum value and a minimum value, with the default minimum value being 0 and the maximum value being 100. When it reaches the minimum value, the minimum value callback is triggered. The following example demonstrates executing the relevant callbacks when reaching the maximum/minimum values. Here, the maximum value is set to 10, the minimum value to 1, the initial value to 6, and the step to 2. A popup message appears whenever the minimum or maximum value is reached.
 
 ```dart
 CounterInput(
@@ -1626,13 +1616,13 @@ CounterInput(
 )
 ```
 
-![example_wzi2mFQRMk](J:\widgets_easier\assets\example_wzi2mFQRMk.gif)
+![example_wzi2mFQRMk](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_wzi2mFQRMk.gif)
 
-通过这个例子可以看出，`onMax`、`onMin`仅仅是到达最值得时候被调用，但是从如果尝试往超出方向继续点击按钮时不会被调用。以上面得GIF图片为例，当增加到10单词会调用onMax方法，但是在10上继续增加是不会处理的。
+Through this example, it can be observed that `onMax` and `onMin` are only called when reaching the maximum or minimum values, but they are not called if attempting to continue clicking the buttons beyond those limits. Using the GIF image above as an example, when incrementing to 10, the `onMax` method will be called, but attempting to increment further beyond 10 will not be handled.
 
-##### 3 溢出回调
+##### 5.8.3 Overflow Callback
 
-溢出回调是为了响应增道最大值继续操作增加、减到最小值继续操作减少的场景。例如：
+The overflow callback is used to respond to scenarios where operations continue beyond the maximum value when incrementing or beyond the minimum value when decrementing. For example:
 
 ```dart
 CounterInput(
@@ -1662,10 +1652,10 @@ CounterInput(
 
 
 
-![example_fMYLgu8hR9](J:\widgets_easier\assets\example_fMYLgu8hR9.gif)
+![example_fMYLgu8hR9](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_fMYLgu8hR9.gif)
 
 
-##### 4 值变化事件
+##### 4. Value Change Events
 
 
 
@@ -1677,9 +1667,9 @@ CounterInput(
 )
 ```
 
-![example_Jfs459a3CF](J:\widgets_easier\assets\example_Jfs459a3CF.gif)
+![example_Jfs459a3CF](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_Jfs459a3CF.gif)
 
-对应图中的点击，控制台打印的结果为：
+The corresponding clicks in the image result in the following console output:
 
 ```dart
 flutter: oldValue is 0.0, newValue is 1.0

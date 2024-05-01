@@ -149,6 +149,13 @@ class CounterInputDocs extends StatelessWidget {
           height: 50,
           controller: CounterInputController(),
         ),
+        Write.header3('5.3.3 自动宽度和固定宽度'),
+        Write.paragraph(
+            '默认情况下宽度是自动的，加减器文本输入区的宽度随着位数的增加而增加。但是也可以通过textFieldWidth指定一个固定的文本输入区宽度。例如：'),
+        CounterInput(
+          textFieldWidth: 60,
+          controller: CounterInputController(),
+        ),
         Write.header2('5.4 轮廓型加减器'),
         Write.paragraph('通过指定isOutlined的值为true，可以设置加减器为轮廓型。'),
         Row(
