@@ -15,7 +15,7 @@ class ShadowDocs extends StatelessWidget {
             '受到Element的启发，典型的阴影效果被封装为以下四个组件：BasicShadow、LightShadow、LighterShadow、DarkShadow，每个组件都使用 DecoratedBox 来实现特定的阴影效果。'),
         const Gap(20),
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             BasicShadow(
               child: Container(

@@ -5,7 +5,7 @@
 Widgets Easier is a Flutter component library of open-source widgets, featuring multiple pre-built UI components. It aims to make development faster, simpler, and more efficient, turning development into an enjoyable task.
 
 
-![widgets_easier.png](https://github.com/jacklee1995/widgets_easier/blob/master/assets/widgets_easier.png)
+![widgets_easier.png](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/assets/widgets_easier.png)
 
 ## Features
 
@@ -20,8 +20,16 @@ WidgetsEasier offers a wide range of features to streamline your Flutter develop
 - **Easy Integration**: Seamlessly integrate WidgetsEasier into your existing Flutter projects with simple installation steps.
 - **Regular Updates**: Stay up-to-date with the latest Flutter trends and best practices, as we continuously update and enhance WidgetsEasier.
 
+## Getting Started
 
-## Getting started
+In your Flutter project, run the following commands:
+
+```bash
+flutter pub add widgets_easier
+flutter pub add flutter_easy_animations
+```
+
+This will install the latest version of the Widgets Easier library. The animation part is encapsulated into the flutter_easy_animations library. When dealing with animation-related functionalities, you need to install it separately.
 
 
 ## Usage
@@ -58,7 +66,7 @@ Container(
 )
 ```
 
-![alt text](https://github.com/jacklee1995/widgets_easier/blob/master/readme_pics/example_rMLTHxf325.png)
+![alt text](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_rMLTHxf325.png)
 
 ```dart
 Container(
@@ -80,7 +88,7 @@ Container(
 )
 ```
 
-![alt text](https://github.com/jacklee1995/widgets_easier/blob/master/readme_pics/example_tGc7sGaRB6.png)
+![alt text](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_tGc7sGaRB6.png)
 
 ### Dotted Border
 
@@ -112,7 +120,7 @@ Container(
 )
 ```
 
-![alt text](https://github.com/jacklee1995/widgets_easier/blob/master/readme_pics/example_4Cfj04zZEp.png)
+![example_4Cfj04zZEp.png](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_4Cfj04zZEp.png)
 
 
 
@@ -134,7 +142,7 @@ Container(
 )
 ```
 
-![alt text](https://github.com/jacklee1995/widgets_easier/blob/master/readme_pics/example_UYLv3I04IM.png)
+![example_UYLv3I04IM.png](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_UYLv3I04IM.png)
 
 ```dart
 Container(
@@ -161,7 +169,7 @@ Container(
 )
 ```
 
-![alt text](https://github.com/jacklee1995/widgets_easier/blob/master/readme_pics/example_ftVtVT1h3h.png)
+![example_ftVtVT1h3h.png](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_ftVtVT1h3h.png)
 
 ### Dashed Border
 
@@ -194,7 +202,7 @@ Container(
 )
 ```
 
-![alt text](https://github.com/jacklee1995/widgets_easier/blob/master/readme_pics/example_YmfrrDWpjQ.png)
+![example_YmfrrDWpjQ.png](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_YmfrrDWpjQ.png)
 
 ```dart
 Container(
@@ -220,7 +228,7 @@ Container(
 )
 ```
 
-![alt text](https://github.com/jacklee1995/widgets_easier/blob/master/readme_pics/example_7v9Ey30ZDN.png)
+![alt text](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_7v9Ey30ZDN.png)
 
 ### Dotted Dash Border
 
@@ -245,7 +253,7 @@ Container(
 )
 ```
 
-![alt text](https://github.com/jacklee1995/widgets_easier/blob/master/readme_pics/example_trId7p4DfI.png)
+![alt text](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_trId7p4DfI.png)
 
 ```dart
 Container(
@@ -265,7 +273,7 @@ Container(
 )
 ```
 
-![alt text](https://github.com/jacklee1995/widgets_easier/blob/master/readme_pics/example_CKPX3uxFDT.png)
+![alt text](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_CKPX3uxFDT.png)
 
 ### Double Border
 
@@ -295,7 +303,7 @@ Container(
 )
 ```
 
-![alt text](https://github.com/jacklee1995/widgets_easier/blob/master/readme_pics/example_yUydL93aSN.png)
+![alt text](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_yUydL93aSN.png)
 
 ```dart
 Container(
@@ -324,7 +332,7 @@ Container(
 )
 ```
 
-![alt text](https://github.com/jacklee1995/widgets_easier/blob/master/readme_pics/example_Kb2mo2m5y3.png)
+![alt text](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_Kb2mo2m5y3.png)
 
 ### Groove Border
 
@@ -353,7 +361,7 @@ Container(
 ),
 ```
 
-![alt text](https://github.com/jacklee1995/widgets_easier/blob/master/readme_pics/example_pdxVBlA7pW.png)
+![alt text](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_pdxVBlA7pW.png)
 
 ### Ridge Border
 
@@ -382,7 +390,7 @@ Container(
 ),
 ```
 
-![alt text](https://github.com/jacklee1995/widgets_easier/blob/master/readme_pics/example_ust5G0YwTs.png)
+![alt text](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_ust5G0YwTs.png)
 
 ### Inset Border
 
@@ -409,7 +417,7 @@ Container(
 ),
 ```
 
-![alt text](https://github.com/jacklee1995/widgets_easier/blob/master/readme_pics/example_hhq0iDwXtx.png)
+![alt text](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_hhq0iDwXtx.png)
 
 ### Outset Border
 
@@ -436,7 +444,7 @@ Container(
 ),
 ```
 
-![alt text](https://github.com/jacklee1995/widgets_easier/blob/master/readme_pics/example_bCS34n32wd.png)
+![alt text](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_bCS34n32wd.png)
 
 #### BorderWrapper
 
@@ -465,10 +473,9 @@ BorderWrapper(
 )
 ```
 
-![alt text](https://github.com/jacklee1995/widgets_easier/blob/master/readme_pics/example_LY0KXoxpxN.png)
+![alt text](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_LY0KXoxpxN.png)
 
 In this example, the SolidStarBorder used is based on Flutter's native StarBorder implementation, with the Solid Border effect added onto it. This allows you to specify line width, color, and gradients on the SolidStarBorder. The BorderWrapper can be used to achieve clipping with borders, enabling the addition of specified line effects while changing the shape of the original widget. Therefore, to implement more border shapes, you can create shape clippers similar to SolidStarBorder that draw lines. However, rest assured that this library will continue to implement new border shapes in the future.
-
 
 
 

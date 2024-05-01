@@ -35,6 +35,8 @@ class PictureDocs extends StatelessWidget {
           height: 200,
           fit: BoxFit.cover,
         ),
+        Write.paragraph(
+            '如果将Flutter用于Web，网络请求跨域时，需要处理跨域问题，这对于网络图片也不例外。多使用代理服务器的方式。'),
         Write.header3('9.1.3 示例：网络SVG图片'),
         Container(
           color: Colors.blue,
@@ -53,7 +55,8 @@ class PictureDocs extends StatelessWidget {
           height: 150,
           fit: BoxFit.fill,
         ),
-        // Image.asset('assets/local-image.png'),
+        Write.paragraph(
+            '使用资源图片文件时，需要确保该文图文件存在于相应的目录中，并且正确地将该图片注册到你项目的`pubspec.yaml`文件中。'),
         Write.header3('9.1.5 示例：SVG XML文本'),
         Picture(
           source: svgStr,
@@ -77,9 +80,9 @@ class PictureDocs extends StatelessWidget {
         ),
         Write.header3('9.1.7 使用边框'),
         Write.paragraph(
-            'clipper属性接受一个ShapeBorderClipper，这意味着图片很容易添加任何形状的边框并裁剪成各种想要的形状。'),
+            'Pictrue 组件的 clipper属性接受一个ShapeBorderClipper，这意味着图片很容易添加任何形状的边框并裁剪成各种想要的形状。'),
         Write.paragraph(
-            '因此，你可以直接使用Widgets Easier库中预定义好的各种边框类型，比如使用SolidShapeBorder实现实线型边框：'),
+            '你可以直接使用Widgets Easier库中预定义好的各种边框类型，比如使用SolidShapeBorder实现实线型边框：'),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -130,7 +133,6 @@ class PictureDocs extends StatelessWidget {
             ),
           ],
         ),
-
         Write.header2('9.2 图片预览器'),
         Write.paragraph('图片预览器用于在一个弹窗层预览一组图片，它接收一组Picture类图片资源进行加载。'),
         Write.header3('9.3 Web图片预览器'),

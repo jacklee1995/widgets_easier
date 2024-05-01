@@ -9,6 +9,7 @@ import 'package:flutter_highlight/flutter_highlight.dart';
 import 'package:flutter_highlight/themes/github.dart';
 import 'docs/animation_docs.dart';
 import 'docs/border_docs.dart';
+import 'docs/button_group_docs.dart';
 import 'docs/card_docs.dart';
 import 'docs/counter_input_docs.dart';
 import 'docs/dialog_docs.dart';
@@ -28,6 +29,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(widget.title),
         actions: [
@@ -72,6 +74,7 @@ class _HomeViewState extends State<HomeView> {
               Write.header1('3. 按钮'),
               const ButtonDocs(),
               Write.header1('4. 按钮组'),
+              const ButtonGroupDocs(),
               Write.header1('5. 加减输入器'),
               CounterInputDocs(),
               Write.header1('6. 指示器'),
