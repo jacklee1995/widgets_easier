@@ -471,7 +471,9 @@ BorderWrapper(
 
 于 **[Element-Plus](https://element-plus.org/)** 类似， 在 **Widgets Easier** 库中，典型的阴影效果被封装为以下四个组件：**BasicShadow**、**LightShadow**、**LighterShadow**、**DarkShadow**，每个组件都使用 DecoratedBox 来实现特定的阴影效果。
 
-![example_kAfLS9VvwG](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_kAfLS9VvwG.png)
+![example_kAfLS9VvwG](./readme_pics/example_kAfLS9VvwG.png)
+
+
 
 #### 2.2 BasicShadow
 
@@ -651,7 +653,7 @@ SemanticButton(
 ),
 ```
 
-![example_Ta3ohFfhRn](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_Ta3ohFfhRn.gif)
+![example_Ta3ohFfhRn](./readme_pics/example_Ta3ohFfhRn.gif)
 
 ##### 3.2.2 轮廓类型
 
@@ -719,7 +721,7 @@ SemanticButton(
 ),
 ```
 
-![example_zQldNd5Agw](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_zQldNd5Agw.gif)
+![example_zQldNd5Agw](./readme_pics/example_zQldNd5Agw.gif)
 
 ###### Dashed轮廓
 
@@ -782,7 +784,7 @@ SemanticButton(
 ),
 ```
 
-![example_0IooMDarZl](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_0IooMDarZl.gif)
+![example_0IooMDarZl](./readme_pics/example_0IooMDarZl.gif)
 
 ###### 禁用轮廓
 
@@ -846,14 +848,14 @@ SemanticButton(
 ),
 ```
 
-![example_xIzQytfQ87](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_xIzQytfQ87.gif)
+![example_xIzQytfQ87](./readme_pics/example_xIzQytfQ87.gif)
 
 #### 3.3 回调函数与禁用状态
 
 
 通过设置按钮ontap属性值可以指定一个函数作为按钮点击时间的回调函数。如果没有指定回调函数，或者指定onTap属性的值为null，则按钮状态成为禁用状态。例如：
 
-![example_3spR0CNRPN](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_3spR0CNRPN.gif)
+![example_3spR0CNRPN](./readme_pics/example_3spR0CNRPN.gif)
 
 
 对于桌面端或者Web平台，一个被禁用的按钮不仅无法被点击，而且在hover时，不会像正常按钮那样拥有海拔变化。图标上也从寿星图标转换为禁用图标。
@@ -923,7 +925,7 @@ SemanticButton(
 ),
 ```
 
-![example_j7nmu9vC0M](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_j7nmu9vC0M.png)
+![example_j7nmu9vC0M](./readme_pics/example_j7nmu9vC0M.png)
 
 ##### 3.5.2 使用borderRadius属性
 
