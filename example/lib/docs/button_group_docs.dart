@@ -20,7 +20,6 @@ class ButtonGroupDocs extends StatelessWidget {
           children: [
             HighlightView(
               '''ButtonGroup(
-  
   buttons: [
     SemanticButton(
         text: 'Button 1', onTap: () => print('Button 1 pressed')),
@@ -31,8 +30,6 @@ class ButtonGroupDocs extends StatelessWidget {
     SemanticButton(
         text: 'Button 4', onTap: () => print('Button 4 pressed')),
   ],
-  type: SemanticEnum.primary,
-  size: SizeEnum.defaultSize,
 )''',
               language: 'dart',
               theme: vs2015Theme,
@@ -189,9 +186,9 @@ class ButtonGroupDocs extends StatelessWidget {
             type: SemanticEnum.info,
             height: 60,
             buttons: [
-              SemanticButton(text: 'large But1', onTap: () {}),
-              SemanticButton(text: 'large But2', onTap: () => {}),
-              SemanticButton(text: 'large But3', onTap: () => {}),
+              SemanticButton(text: 'But1', onTap: () {}),
+              SemanticButton(text: 'But2', onTap: () => {}),
+              SemanticButton(text: 'But3', onTap: () => {}),
             ],
           ),
         ),
@@ -205,7 +202,6 @@ class ButtonGroupDocs extends StatelessWidget {
             HighlightView(
               '''ButtonGroup(
   radius: 10,
-  
   prefixIcon: const Icon(
     Icons.arrow_drop_down,
     color: Colors.white,
@@ -267,7 +263,7 @@ class ButtonGroupDocs extends StatelessWidget {
         ),
         Write.header2('4.5 收缩行为'),
         Write.paragraph(
-            '类似于SemanticButton，你可以为ButtonGroup指定收缩行为。这在类似于需要单个按钮组占满容器宽度的时候特别有用。例如，指定shrink为false使按钮占满整行：'),
+            '类似于SemanticButton，你可以为ButtonGroup指定收缩行为。这在类似于需要单个按钮组占满容器宽度的时候特别有用。例如，指定shrink为false使按钮组占满整行：'),
         const Gap(10),
         ButtonGroup(
           shrink: false,

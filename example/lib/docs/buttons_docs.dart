@@ -560,7 +560,7 @@ class ButtonDocs extends StatelessWidget {
           ],
         ),
         Write.paragraph(
-            '可见你仅仅需要指定一个颜色参数，而相关颜色参数是自动计算的，比如背景色、轮廓色等等，这使得我们用起来更加方便。'),
+            '可见我们仅仅需要指定一个颜色参数，而相关颜色参数是自动计算的，比如背景色、轮廓色等等，这使得我们用起来更加方便。'),
         const Gap(40),
         Write.header3('3.9.2 渐变色'),
         Write.paragraph(
