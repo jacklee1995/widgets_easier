@@ -471,7 +471,7 @@ BorderWrapper(
 
 于 **[Element-Plus](https://element-plus.org/)** 类似， 在 **Widgets Easier** 库中，典型的阴影效果被封装为以下四个组件：**BasicShadow**、**LightShadow**、**LighterShadow**、**DarkShadow**，每个组件都使用 DecoratedBox 来实现特定的阴影效果。
 
-![example_kAfLS9VvwG](C:\Users\jclee95\Documents\ShareX\Screenshots\2024-04\example_kAfLS9VvwG.png)
+![example_kAfLS9VvwG](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_kAfLS9VvwG.png)
 
 #### 2.2 BasicShadow
 
@@ -593,7 +593,7 @@ SemanticButton(
   onTap: () {},
 ```
 
-![example_udTNKdt6RP](C:\Users\jclee95\Documents\ShareX\Screenshots\2024-05\example_udTNKdt6RP.gif)
+![example_udTNKdt6RP](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_udTNKdt6RP.gif)
 
 #### 3.2 轮廓按钮
 
@@ -651,7 +651,7 @@ SemanticButton(
 ),
 ```
 
-![example_Ta3ohFfhRn](C:\Users\jclee95\Documents\ShareX\Screenshots\2024-04\example_Ta3ohFfhRn.gif)
+![example_Ta3ohFfhRn](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_Ta3ohFfhRn.gif)
 
 ##### 3.2.2 轮廓类型
 
@@ -719,7 +719,7 @@ SemanticButton(
 ),
 ```
 
-![example_zQldNd5Agw](C:\Users\jclee95\Documents\ShareX\Screenshots\2024-04\example_zQldNd5Agw.gif)
+![example_zQldNd5Agw](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_zQldNd5Agw.gif)
 
 ###### Dashed轮廓
 
@@ -782,7 +782,7 @@ SemanticButton(
 ),
 ```
 
-![example_0IooMDarZl](C:\Users\jclee95\Documents\ShareX\Screenshots\2024-04\example_0IooMDarZl.gif)
+![example_0IooMDarZl](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_0IooMDarZl.gif)
 
 ###### 禁用轮廓
 
@@ -846,14 +846,14 @@ SemanticButton(
 ),
 ```
 
-![example_xIzQytfQ87](C:\Users\jclee95\Documents\ShareX\Screenshots\2024-04\example_xIzQytfQ87.gif)
+![example_xIzQytfQ87](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_xIzQytfQ87.gif)
 
 #### 3.3 回调函数与禁用状态
 
 
 通过设置按钮ontap属性值可以指定一个函数作为按钮点击时间的回调函数。如果没有指定回调函数，或者指定onTap属性的值为null，则按钮状态成为禁用状态。例如：
 
-![example_3spR0CNRPN](C:\Users\jclee95\Documents\ShareX\Screenshots\2024-04\example_3spR0CNRPN.gif)
+![example_3spR0CNRPN](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_3spR0CNRPN.gif)
 
 
 对于桌面端或者Web平台，一个被禁用的按钮不仅无法被点击，而且在hover时，不会像正常按钮那样拥有海拔变化。图标上也从寿星图标转换为禁用图标。
@@ -871,7 +871,7 @@ SemanticButton(
 ),
 ```
 
-![example_CKynxsm8dc](C:\Users\jclee95\Documents\ShareX\Screenshots\2024-05\example_CKynxsm8dc.png)
+![example_CKynxsm8dc](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_CKynxsm8dc.png)
 
 通过fontWeight属性，可以指定字体粗细程度，例如
 
@@ -895,7 +895,7 @@ SemanticButton(
 ),
 ```
 
-![example_RBluUQsnWo](C:\Users\jclee95\Documents\ShareX\Screenshots\2024-05\example_RBluUQsnWo.png)
+![example_RBluUQsnWo](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_RBluUQsnWo.png)
 
 #### 3.5 圆角大小
 
@@ -923,7 +923,7 @@ SemanticButton(
 ),
 ```
 
-![example_j7nmu9vC0M](C:\Users\jclee95\Documents\ShareX\Screenshots\2024-04\example_j7nmu9vC0M.png)
+![example_j7nmu9vC0M](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_j7nmu9vC0M.png)
 
 ##### 3.5.2 使用borderRadius属性
 
@@ -951,7 +951,7 @@ SemanticButton(
 ),
 ```
 
-![example_6WGxVLs5Dy](C:\Users\jclee95\Documents\ShareX\Screenshots\2024-05\example_6WGxVLs5Dy.gif)
+![example_6WGxVLs5Dy](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_6WGxVLs5Dy.gif)
 
 #### 3.6 按钮尺寸
 
@@ -1058,7 +1058,7 @@ SemanticButton(
   type: SemanticEnum.primary,
 )
 ```
-![example_UaKvmEvzEC](C:\Users\jclee95\Documents\ShareX\Screenshots\2024-05\example_UaKvmEvzEC.png)
+![example_UaKvmEvzEC](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_UaKvmEvzEC.png)
 
 在上述代码中，`Icon(Icons.phone)` 作为 `prefixIcon` 被传递给 `SemanticButton`，使得用户可以直观地识别这是一个用于拨打电话的按钮。
 
@@ -1078,7 +1078,7 @@ SemanticButton(
 
 在这个例子中，`Icon(Icons.arrow_drop_down)` 被设置为 `suffixIcon`，表明这个按钮可能会展开更多的选项或菜单。
 
-![example_9RPs3ZX2Ti](C:\Users\jclee95\Documents\ShareX\Screenshots\2024-05\example_9RPs3ZX2Ti.png)
+![example_9RPs3ZX2Ti](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_9RPs3ZX2Ti.png)
 
 
 
@@ -1106,7 +1106,7 @@ SemanticButton(
   isOutlined: true,
   onTap: () {},
 ```
-![example_9l6lQQ1ixn](C:\Users\jclee95\Documents\ShareX\Screenshots\2024-05\example_9l6lQQ1ixn.gif)
+![example_9l6lQQ1ixn](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_9l6lQQ1ixn.gif)
 
 ##### 3.9.2 渐变色按钮
 
@@ -1146,7 +1146,7 @@ SemanticButton(
 ),
 ```
 
-![example_ZPNFkyEpaC](C:\Users\jclee95\Documents\ShareX\Screenshots\2024-05\example_ZPNFkyEpaC.gif)
+![example_ZPNFkyEpaC](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_ZPNFkyEpaC.gif)
 
 ### 4. 按钮组
 
@@ -1255,7 +1255,7 @@ ButtonGroup(
 ),
 ```
 
-![example_M8MY32Z4QW](C:\Users\jclee95\Documents\ShareX\Screenshots\2024-05\example_M8MY32Z4QW.gif)
+![example_M8MY32Z4QW](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_M8MY32Z4QW.gif)
 
 #### 4.3 按钮组圆角
 
@@ -1271,7 +1271,7 @@ ButtonGroup(
 )
 ```
 
-![example_GFp71agb79](C:\Users\jclee95\Documents\ShareX\Screenshots\2024-05\example_GFp71agb79.gif)
+![example_GFp71agb79](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_GFp71agb79.gif)
 
 #### 4.4 按钮组尺寸
 
@@ -1280,7 +1280,7 @@ ButtonGroup(
 ##### 4.4.1 枚举尺寸
 可以使用尺寸枚举值为按钮组指定尺寸。例如：
 
-![example_KLiWhn18t5](C:\Users\jclee95\Documents\ShareX\Screenshots\2024-05\example_KLiWhn18t5.gif)
+![example_KLiWhn18t5](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_KLiWhn18t5.gif)
 
 ##### 4.4.2 数值尺寸
 数值尺寸是更加灵活的大小指定方式。一旦使用数值尺寸，则指定的枚举尺寸将自动失效。你可以通过height属性来指定数值尺寸，例如：
@@ -1297,7 +1297,7 @@ ButtonGroup(
 )
 ```
 
-![example_FWgfhJiS1W](C:\Users\jclee95\Documents\ShareX\Screenshots\2024-05\example_FWgfhJiS1W.gif)
+![example_FWgfhJiS1W](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_FWgfhJiS1W.gif)
 
 #### 4.5 使用前后缀图标
 
@@ -1332,7 +1332,7 @@ ButtonGroup(
 )
 ```
 
-#### ![example_f6xDuUhP6W](C:\Users\jclee95\Documents\ShareX\Screenshots\2024-05\example_f6xDuUhP6W.gif)
+#### ![example_f6xDuUhP6W](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_f6xDuUhP6W.gif)
 
 #### 4.6 收缩行为
 
@@ -1368,7 +1368,7 @@ ButtonGroup(
 ),
 ```
 
-![example_W6GYBdDlgJ](C:\Users\jclee95\Documents\ShareX\Screenshots\2024-05\example_W6GYBdDlgJ.gif)
+![example_W6GYBdDlgJ](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_W6GYBdDlgJ.gif)
 
 #### 4.7 有用的提示
 
