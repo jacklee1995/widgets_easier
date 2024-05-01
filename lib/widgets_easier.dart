@@ -16,7 +16,6 @@ export './src/widgets/shadow/light_shadow.dart';
 export './src/widgets/shadow/lighter_shadow.dart';
 
 export './src/widgets/borders/border_wrapper.dart';
-
 export './src/widgets/borders/border_dot_shape.dart';
 export './src/widgets/borders/dashed_border.dart';
 export './src/widgets/borders/dotted_border.dart';
@@ -37,6 +36,7 @@ export './src/widgets/buttons/button_group.dart';
 export './src/widgets/indicator/percent_progress_indicator.dart';
 
 export './src/widgets/inputs/counter_input.dart';
+export './src/widgets/inputs/counter_input_controller.dart';
 
 export './src/widgets/dialogs/info/info_dialogs.dart';
 export './src/widgets/dialogs/confirm/confirm_dialogs.dart';
