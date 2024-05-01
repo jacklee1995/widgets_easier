@@ -1,26 +1,26 @@
 import 'dart:async';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../color/utils.dart';
 import '../../enums/semantic_enum.dart';
 import '../../enums/size_enum.dart';
+import 'counter_input_controller.dart';
 
-/// 加减输入器
 class CounterInput extends StatefulWidget {
-  final TextEditingController textController;
+  final CounterInputController? controller;
   final Function(double oldValue, double newValue)? onIncrement;
   final Function(double oldValue, double newValue)? onDecrement;
   final Function(double oldValue, double newValue)? onValueChanged;
   final VoidCallback? onMin;
   final VoidCallback? onMax;
-  final VoidCallback? onMinOverflow; // 新增：最小值溢出回调
-  final VoidCallback? onMaxOverflow; // 新增：最大值溢出回调
+  final VoidCallback? onMinOverflow;
+  final VoidCallback? onMaxOverflow;
   final SemanticEnum type;
   final bool isOutlined;
   final double radius;
   final SizeEnum size;
-  final double initialValue;
   final double minValue;
   final double maxValue;
   final double step;
@@ -30,10 +30,11 @@ class CounterInput extends StatefulWidget {
   final Color? buttonColor;
   final Color? textColor;
   final bool enabled;
+  final double? textFieldWidth;
 
   const CounterInput({
     super.key,
-    required this.textController,
+    this.controller,
     this.onIncrement,
     this.onDecrement,
     this.onValueChanged,
@@ -43,9 +44,8 @@ class CounterInput extends StatefulWidget {
     this.onMaxOverflow,
     this.type = SemanticEnum.secondary,
     this.isOutlined = false,
-    this.radius = 18,
+    this.radius = 4,
     this.size = SizeEnum.defaultSize,
-    this.initialValue = 0,
     this.minValue = 0,
     this.maxValue = 100,
     this.step = 1,
@@ -55,6 +55,7 @@ class CounterInput extends StatefulWidget {
     this.buttonColor,
     this.textColor,
     this.enabled = true,
+    this.textFieldWidth,
   });
 
   @override
@@ -62,113 +63,135 @@ class CounterInput extends StatefulWidget {
 }
 
 class _CounterInputState extends State<CounterInput> {
+  late CounterInputController _controller;
   late Timer _timer;
-  late double _currentValue;
 
   @override
   void initState() {
     super.initState();
-    double adjustedMinValue = widget.minValue;
-    double adjustedMaxValue = widget.maxValue;
-    if (adjustedMinValue > adjustedMaxValue) {
-      // 如果最小值大于最大值，交换它们的值
-      double temp = adjustedMinValue;
-      adjustedMinValue = adjustedMaxValue;
-      adjustedMaxValue = temp;
+    _controller = widget.controller ?? CounterInputController(initialValue: 0);
+    _controller.setValue(_controller.value.clamp(
+        min(widget.minValue, widget.maxValue),
+        max(widget.minValue, widget.maxValue)));
+  }
+
+  @override
+  void dispose() {
+    if (widget.controller == null) {
+      _controller.dispose();
     }
-    _currentValue =
-        widget.initialValue.clamp(adjustedMinValue, adjustedMaxValue);
-    widget.textController.text = _formatValue(_currentValue);
+    super.dispose();
   }
 
   void _handleIncrement() {
     if (!widget.enabled) return;
 
-    setState(() {
-      double oldValue = _currentValue;
-      double newValue = _currentValue + widget.step;
-      if (widget.minValue <= widget.maxValue) {
-        if (newValue <= widget.maxValue) {
-          _currentValue = newValue;
-          _updateValue();
-          if (widget.onIncrement != null) {
-            widget.onIncrement!(oldValue, _currentValue);
-          }
-          if (newValue == widget.maxValue && widget.onMax != null) {
-            widget.onMax!();
-          }
-        } else if (widget.onMaxOverflow != null) {
-          // 新增
-          widget.onMaxOverflow!();
+    final oldValue = _controller.value;
+    final newValue = oldValue + widget.step;
+    if (widget.minValue <= widget.maxValue) {
+      if (newValue <= widget.maxValue) {
+        _controller.setValue(newValue.clamp(
+          min(widget.minValue, widget.maxValue),
+          max(widget.minValue, widget.maxValue),
+        ));
+        // 响应变化事件
+        if (widget.onValueChanged != null) {
+          widget.onValueChanged!(oldValue, _controller.value);
         }
-      } else {
-        double maxReachableValue = _getMaxReachableValue();
-        if (maxReachableValue != _currentValue) {
-          double newValue = _currentValue + widget.step;
-          if (newValue > widget.minValue) {
-            newValue = widget.minValue;
-          }
-          _currentValue = newValue;
-          _updateValue();
-          if (widget.onIncrement != null) {
-            widget.onIncrement!(oldValue, _currentValue);
-          }
-          if (_currentValue == widget.minValue && widget.onMax != null) {
-            widget.onMax!();
-          }
-        } else if (widget.onMaxOverflow != null) {
-          // 新增
-          widget.onMaxOverflow!();
+        // 响应加事件
+        if (widget.onIncrement != null) {
+          widget.onIncrement!(oldValue, _controller.value);
         }
+
+        if (newValue == widget.maxValue && widget.onMax != null) {
+          widget.onMax!();
+        }
+      } else if (widget.onMaxOverflow != null) {
+        widget.onMaxOverflow!();
       }
-    });
+    } else {
+      final maxReachableValue = _getMaxReachableValue();
+      if (maxReachableValue != _controller.value) {
+        final newValue = oldValue + widget.step;
+        if (newValue > widget.minValue) {
+          _controller.setValue(
+            widget.minValue.clamp(
+              min(widget.minValue, widget.maxValue),
+              max(widget.minValue, widget.maxValue),
+            ),
+          );
+        } else {
+          _controller.setValue(
+            newValue.clamp(
+              min(widget.minValue, widget.maxValue),
+              max(widget.minValue, widget.maxValue),
+            ),
+          );
+        }
+        if (widget.onIncrement != null) {
+          widget.onIncrement!(oldValue, _controller.value);
+        }
+        if (_controller.value == widget.minValue && widget.onMax != null) {
+          widget.onMax!();
+        }
+      } else if (widget.onMaxOverflow != null) {
+        widget.onMaxOverflow!();
+      }
+    }
   }
 
   void _handleDecrement() {
     if (!widget.enabled) return;
 
-    setState(() {
-      double oldValue = _currentValue;
-      double newValue = _currentValue - widget.step;
-      if (widget.minValue <= widget.maxValue) {
-        if (newValue >= widget.minValue) {
-          _currentValue = newValue;
-          _updateValue();
-          if (widget.onDecrement != null) {
-            widget.onDecrement!(oldValue, _currentValue);
-          }
-          if (newValue == widget.minValue && widget.onMin != null) {
-            widget.onMin!();
-          }
-        } else if (widget.onMinOverflow != null) {
-          // 新增
-          widget.onMinOverflow!();
+    final oldValue = _controller.value;
+    final newValue = oldValue - widget.step;
+    if (widget.minValue <= widget.maxValue) {
+      if (newValue >= widget.minValue) {
+        _controller.setValue(newValue.clamp(
+            min(widget.minValue, widget.maxValue),
+            max(widget.minValue, widget.maxValue)));
+        // 响应变化事件
+        if (widget.onValueChanged != null) {
+          widget.onValueChanged!(oldValue, _controller.value);
         }
-      } else {
-        double minReachableValue = _getMinReachableValue();
-        if (minReachableValue != _currentValue) {
-          double newValue = _currentValue - widget.step;
-          if (newValue < widget.maxValue) {
-            newValue = widget.maxValue;
-          }
-          _currentValue = newValue;
-          _updateValue();
-          if (widget.onDecrement != null) {
-            widget.onDecrement!(oldValue, _currentValue);
-          }
-          if (_currentValue == widget.maxValue && widget.onMin != null) {
-            widget.onMin!();
-          }
-        } else if (widget.onMinOverflow != null) {
-          // 新增
-          widget.onMinOverflow!();
+        // 响应减事件
+        if (widget.onDecrement != null) {
+          widget.onDecrement!(oldValue, _controller.value);
         }
+        if (newValue == widget.minValue && widget.onMin != null) {
+          widget.onMin!();
+        }
+      } else if (widget.onMinOverflow != null) {
+        widget.onMinOverflow!();
       }
-    });
+    } else {
+      final minReachableValue = _getMinReachableValue();
+      if (minReachableValue != _controller.value) {
+        final newValue = oldValue - widget.step;
+        if (newValue < widget.maxValue) {
+          _controller.setValue(widget.maxValue.clamp(
+              min(widget.minValue, widget.maxValue),
+              max(widget.minValue, widget.maxValue)));
+        } else {
+          _controller.setValue(newValue.clamp(
+              min(widget.minValue, widget.maxValue),
+              max(widget.minValue, widget.maxValue)));
+        }
+
+        if (widget.onDecrement != null) {
+          widget.onDecrement!(oldValue, _controller.value);
+        }
+        if (_controller.value == widget.maxValue && widget.onMin != null) {
+          widget.onMin!();
+        }
+      } else if (widget.onMinOverflow != null) {
+        widget.onMinOverflow!();
+      }
+    }
   }
 
   double _getMaxReachableValue() {
-    double potentialValue = _currentValue;
+    double potentialValue = _controller.value;
     while (potentialValue < widget.minValue) {
       potentialValue += widget.step;
       if (potentialValue > widget.minValue) {
@@ -180,7 +203,7 @@ class _CounterInputState extends State<CounterInput> {
   }
 
   double _getMinReachableValue() {
-    double potentialValue = _currentValue;
+    double potentialValue = _controller.value;
     while (potentialValue > widget.maxValue) {
       potentialValue -= widget.step;
       if (potentialValue < widget.maxValue) {
@@ -189,22 +212,6 @@ class _CounterInputState extends State<CounterInput> {
       }
     }
     return potentialValue;
-  }
-
-  void _updateValue() {
-    double oldValue = double.parse(widget.textController.text);
-    widget.textController.text = _formatValue(_currentValue);
-    if (widget.onValueChanged != null) {
-      widget.onValueChanged!(oldValue, _currentValue);
-    }
-  }
-
-  String _formatValue(double value) {
-    if (widget.step.floor() == widget.step) {
-      return value.toInt().toString();
-    } else {
-      return value.toString();
-    }
   }
 
   void _handleLongPress(bool increment) {
@@ -238,7 +245,8 @@ class _CounterInputState extends State<CounterInput> {
           children: [
             _buildButton(Icons.remove, () => _handleLongPress(false),
                 buttonColor, iconColor, true, height, disabledColor),
-            _buildTextField(backgroundColor, height, textColor),
+            _buildTextField(
+                backgroundColor, height, textColor, widget.textFieldWidth),
             _buildButton(Icons.add, () => _handleLongPress(true), buttonColor,
                 iconColor, false, height, disabledColor),
           ],
@@ -255,6 +263,8 @@ class _CounterInputState extends State<CounterInput> {
       bool isLeft,
       double height,
       Color disabledColor) {
+    double minHeight = 12.0; // 设置最小高度值
+    height = max(height, minHeight); // 确保高度不小于最小值
     return MouseRegion(
       cursor: widget.enabled
           ? SystemMouseCursors.click
@@ -304,13 +314,21 @@ class _CounterInputState extends State<CounterInput> {
   }
 
   Widget _buildTextField(
-      Color backgroundColor, double height, Color textColor) {
+    Color backgroundColor,
+    double height,
+    Color textColor,
+    double? textFieldWidth,
+  ) {
+    double minHeight = 12.0; // 设置最小高度值
+    height = max(height, minHeight); // 确保高度不小于最小值
     return Container(
-      width: 60,
       height: height,
+      width: textFieldWidth,
       alignment: Alignment.center,
       decoration: BoxDecoration(
+        // 设置背景颜色，如果是outlined风格则为透明，否则使用指定的backgroundColor
         color: widget.isOutlined ? Colors.transparent : backgroundColor,
+        // 如果是outlined风格，设置边框颜色和宽度
         border: widget.isOutlined
             ? Border.symmetric(
                 vertical:
@@ -318,20 +336,83 @@ class _CounterInputState extends State<CounterInput> {
               )
             : null,
       ),
-      child: TextFormField(
-        controller: widget.textController,
-        keyboardType: const TextInputType.numberWithOptions(decimal: true),
-        inputFormatters: [
-          FilteringTextInputFormatter.allow(RegExp(r'^\d*\.?\d*')),
-        ],
-        textAlign: TextAlign.center,
-        style: TextStyle(height: 1.0, color: textColor),
-        decoration: const InputDecoration(
-          isDense: true,
-          contentPadding: EdgeInsets.zero,
-          border: InputBorder.none,
+      child: IntrinsicWidth(
+        child: Center(
+          child: TextField(
+            controller: _controller.textController,
+            // 设置键盘类型为数字，允许小数点
+            keyboardType: const TextInputType.numberWithOptions(decimal: true),
+            // 允许输入数字和小数点
+            inputFormatters: [
+              FilteringTextInputFormatter.allow(RegExp(r'^\d*\.?\d*')),
+            ],
+            // 文本对齐方式为开始，使光标和文本从左侧开始
+            textAlign: TextAlign.end,
+            // 设置文本样式，包括行高和颜色
+            style: TextStyle(
+              // height: 1.5,
+              color: textColor,
+              fontSize: height * 0.6, // 根据高度设置字体大小
+            ),
+            // 设置输入框的内边距和边框样式
+            decoration: InputDecoration(
+              isDense: true,
+              contentPadding: EdgeInsets.symmetric(
+                horizontal: 8,
+                vertical: (height - height * 0.8) / 2, // 根据高度计算垂直内边距
+              ),
+              border: InputBorder.none,
+            ),
+            // 允许交互选择，用于复制粘贴等操作
+            enableInteractiveSelection: true,
+            // 根据enabled状态禁用或启用输入框
+            enabled: widget.enabled,
+            // 当文本改变时的处理逻辑
+            onChanged: (value) {
+              final oldValue = _controller.value;
+              if (value == '') {
+                _controller.setValue(widget.minValue);
+              } else {
+                // 尝试将输入的文本转换为double类型
+                final parsedValue = double.tryParse(value);
+                if (parsedValue != null) {
+                  // 如果转换成功，设置新的值，并确保它在允许的范围内
+                  _controller.setValue(parsedValue.clamp(
+                      min(widget.minValue, widget.maxValue),
+                      max(widget.minValue, widget.maxValue)));
+                } else {
+                  // 如果转换失败，保持当前的值不变
+                  _controller.setValue(oldValue);
+                }
+              }
+
+              // 检查值的变化并触发相应的回调函数
+              if (_controller.value != oldValue) {
+                if (widget.onValueChanged != null) {
+                  widget.onValueChanged!(oldValue, _controller.value);
+                }
+
+                if (_controller.value > oldValue) {
+                  if (widget.onIncrement != null) {
+                    widget.onIncrement!(oldValue, _controller.value);
+                  }
+                  if (_controller.value == widget.maxValue &&
+                      widget.onMax != null) {
+                    widget.onMax!();
+                  }
+                } else if (_controller.value < oldValue) {
+                  if (widget.onDecrement != null) {
+                    widget.onDecrement!(oldValue, _controller.value);
+                  }
+                  if (_controller.value == widget.minValue &&
+                      widget.onMin != null) {
+                    widget.onMin!();
+                  }
+                }
+              }
+            },
+          ),
         ),
-        enabled: widget.enabled,
       ),
     );
   }
