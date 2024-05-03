@@ -1707,7 +1707,7 @@ flutter pub add flutter_easy_animations
 
 **InfoDialogs**是一种消息式的弹窗，这种弹窗只有一个按钮。你可以为**InfoDialogs**指定一个`type`属性，这将拥有语义性色彩。它的弹窗体看起来是这样的：
 
-![example_nc62R6kkem](J:\widgets_easier\assets\example_nc62R6kkem.png)
+![example_nc62R6kkem](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_nc62R6kkem.png)
 
 例如：
 
@@ -1832,7 +1832,7 @@ Row(
 
 
 
-![example_0YDNxnPzok](J:\widgets_easier\assets\example_0YDNxnPzok.gif)
+![example_0YDNxnPzok](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_0YDNxnPzok.gif)
 
 
 
@@ -1860,7 +1860,7 @@ SemanticButton(
 
 其效果如下：
 
-![example_QCpD0oPAWg](J:\widgets_easier\assets\example_QCpD0oPAWg.gif)
+![example_QCpD0oPAWg](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_QCpD0oPAWg.gif)
 
 
 
@@ -1896,7 +1896,7 @@ SemanticButton(
 
 其效果如下：
 
-![example_CYfwe0SU6B](J:\widgets_easier\assets\example_CYfwe0SU6B.gif)
+![example_CYfwe0SU6B](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_CYfwe0SU6B.gif)
 
 
 
@@ -1914,7 +1914,7 @@ SemanticButton(
 
 其消息窗体看起来是这样的：
 
-![example_AR1n3S0R9d](J:\widgets_easier\assets\example_AR1n3S0R9d.png)
+![example_AR1n3S0R9d](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_AR1n3S0R9d.png)
 
 ##### 使用语义
 
@@ -2092,7 +2092,7 @@ SemanticButton(
 
 其效果如下：
 
-![example_UqL2qrRpiO](J:\widgets_easier\assets\example_UqL2qrRpiO.gif)
+![example_UqL2qrRpiO](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_UqL2qrRpiO.gif)
 
 ##### 自定义动画
 
@@ -2130,7 +2130,7 @@ SemanticButton(
 
 其效果如下：
 
-![example_EGAUPCK3VF](J:\widgets_easier\assets\example_EGAUPCK3VF.gif)
+![example_EGAUPCK3VF](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_EGAUPCK3VF.gif)
 
 
 #### WinDialogs
@@ -2201,7 +2201,7 @@ SemanticButton(
 
 效果如图所示：
 
-![example_Z45EJiFtKU](J:\widgets_easier\assets\example_Z45EJiFtKU.gif)
+![example_Z45EJiFtKU](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_Z45EJiFtKU.gif)
 
 
 
@@ -2209,7 +2209,7 @@ SemanticButton(
 
 
 
-![example_BTEipOt7f9](J:\widgets_easier\assets\example_BTEipOt7f9.gif)
+![example_BTEipOt7f9](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_BTEipOt7f9.gif)
 
 
 
@@ -2282,7 +2282,7 @@ SemanticButton(
 
 其效果如下：
 
-![example_XXgNIBMhxU](J:\widgets_easier\assets\example_XXgNIBMhxU.gif)
+![example_XXgNIBMhxU](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_XXgNIBMhxU.gif)
 
 > 注：这里使用的`AnimateStyles.rollIn`动画需要单独安装：
 > ```bash
