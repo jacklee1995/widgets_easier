@@ -1,6 +1,7 @@
 import 'package:example/widgets/docs_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_easy_animations/flutter_easy_animations.dart';
 import 'package:gap/gap.dart';
 import 'package:widgets_easier/widgets_easier.dart';
 
@@ -44,12 +45,6 @@ class DialogDocs extends StatelessWidget {
             Write.unorderedList([
               Write.listItem('作用：视觉上表示消息的性质（如信息、警告等）。'),
               Write.listItem('示例：一个i字符（Information）信息图标表示表示一般消息。')
-            ])
-          ]),
-          Write.listItem(' 辅助操作（Auxiliary Actions） (可选)', [
-            Write.unorderedList([
-              Write.listItem('作用：提供与消息相关的额外操作。'),
-              Write.listItem('示例：「查看详情」按钮，可以链接到更详细的说明或相关设置。')
             ])
           ]),
         ]),
@@ -181,7 +176,50 @@ class DialogDocs extends StatelessWidget {
             ),
           ],
         ),
-        const Gap(10),
+        Write.header3('11.2.3 zoomIn动画'),
+        Write.paragraph(
+            '`InfoDialogs.show`是没有动画效果的。你可以直接使用`InfoDialogs.zoomIn`方法，这将有一个缩放效果的弹窗动画。`InfoDialogs.zoomIn`方法和`InfoDialogs.show`具体完全一样的参数。例如：'),
+        Center(
+          child: SemanticButton(
+            text: 'zoomIn动画',
+            shrink: true,
+            onTap: () => InfoDialogs.zoomIn(
+              context,
+              title: "你好啊！",
+              message: "这是一个消息弹窗",
+              buttonText: "我知道了",
+              onTapDismiss: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ),
+        ),
+        const Gap(20),
+        Write.header3('11.2.3 自定义动画'),
+        const Gap(20),
+        Write.paragraph(
+            '你还可以通过在InfoDialogs.showInfoDialog方法中指定transitionBuilder参数来自定义弹窗动画效果，例如：'),
+        const Gap(20),
+        Center(
+          child: SemanticButton(
+            text: '自定义动画',
+            shrink: true,
+            onTap: () => InfoDialogs.showInfoDialog(
+              context,
+              title: "你好啊！",
+              message: "这是一个消息弹窗",
+              buttonText: "我知道了",
+              transitionBuilder:
+                  (context, animation, secondaryAnimation, child) {
+                return AnimateStyles.backInDown(animation, child);
+              },
+              onTapDismiss: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ),
+        ),
+        const Gap(20),
         Write.header2('11.3 确认弹窗（ConfirmDialog）'),
         Write.header3('11.3.1 确认弹窗的构成'),
         Write.paragraph(
@@ -190,19 +228,17 @@ class DialogDocs extends StatelessWidget {
           Write.listItem('图标（可选）；'),
           Write.listItem('标题：简洁明了地描述所需确认的操作;'),
           Write.listItem('内容：提供操作的详细信息，帮助用户做出决策;'),
-          Write.listItem('操作按钮：通常是“确认”和“取消”，有时可能包括其他选项，如“保存”，“不保存”，“取消”;'),
+          Write.listItem('操作按钮：通常是“确认”和“取消”，有时可能包括其他选项，如“保存”，“不保存”等;'),
         ]),
         const Gap(10),
-        ConfirmDialogBody(
+        ConfirmDialog(
           title: "确认删除",
           message: "您确定要删除这个文件吗？这个操作是不可逆的。",
           confirmButtonText: "删除",
           cancelButtonText: "取消",
-          onTapConfirm: () {
-            // 执行删除操作
-          },
+          onTapConfirm: () {},
           onTapCancel: () {},
-          type: SemanticEnum.warning, // 使用警告类型的颜色主题
+          type: SemanticEnum.warning,
           noImage: true,
         ),
         const Gap(10),
@@ -214,7 +250,7 @@ class DialogDocs extends StatelessWidget {
             SemanticButton(
               text: 'primary弹窗',
               type: SemanticEnum.primary,
-              onTap: () => ConfirmDialogs.zoomIn(
+              onTap: () => ConfirmDialogs.show(
                 context,
                 title: "你确定吗",
                 message: "这个是primary确认弹窗",
@@ -233,7 +269,7 @@ class DialogDocs extends StatelessWidget {
             SemanticButton(
               text: 'secondary弹窗',
               type: SemanticEnum.secondary,
-              onTap: () => ConfirmDialogs.zoomIn(
+              onTap: () => ConfirmDialogs.show(
                 context,
                 title: "你确定吗",
                 message: "这个是secondary确认弹窗",
@@ -252,7 +288,7 @@ class DialogDocs extends StatelessWidget {
             SemanticButton(
               text: 'info弹窗',
               type: SemanticEnum.info,
-              onTap: () => ConfirmDialogs.zoomIn(
+              onTap: () => ConfirmDialogs.show(
                 context,
                 title: "你确定吗",
                 message: "这个是info确认弹窗",
@@ -271,7 +307,7 @@ class DialogDocs extends StatelessWidget {
             SemanticButton(
               text: 'success弹窗',
               type: SemanticEnum.success,
-              onTap: () => ConfirmDialogs.zoomIn(
+              onTap: () => ConfirmDialogs.show(
                 context,
                 title: "你确定吗",
                 message: "这个是success确认弹窗",
@@ -290,7 +326,7 @@ class DialogDocs extends StatelessWidget {
             SemanticButton(
               text: 'warning弹窗',
               type: SemanticEnum.warning,
-              onTap: () => ConfirmDialogs.zoomIn(
+              onTap: () => ConfirmDialogs.show(
                 context,
                 title: "你确定吗",
                 message: "这个是warning确认弹窗",
@@ -309,7 +345,7 @@ class DialogDocs extends StatelessWidget {
             SemanticButton(
               text: 'danger弹窗',
               type: SemanticEnum.danger,
-              onTap: () => ConfirmDialogs.zoomIn(
+              onTap: () => ConfirmDialogs.show(
                 context,
                 title: "你确定吗",
                 message: "这个是danger确认弹窗",
@@ -328,7 +364,7 @@ class DialogDocs extends StatelessWidget {
             SemanticButton(
               text: 'fatal弹窗',
               type: SemanticEnum.fatal,
-              onTap: () => ConfirmDialogs.zoomIn(
+              onTap: () => ConfirmDialogs.show(
                 context,
                 title: "你确定吗",
                 message: "这个是fatal确认弹窗",
@@ -346,6 +382,57 @@ class DialogDocs extends StatelessWidget {
           ],
         ),
         const Gap(10),
+        Write.header3('11.3.3 zoomIn动画'),
+        Write.paragraph(
+            '`ConfirmDialogs.show`是没有动画效果的。你可以直接使用`ConfirmDialogs.zoomIn`方法，这将有一个缩放效果的弹窗动画。`ConfirmDialogs.zoomIn`方法和`ConfirmDialogs.show`具体完全一样的参数。例如：'),
+        Center(
+          child: SemanticButton(
+            text: 'zoomIn动画',
+            shrink: true,
+            onTap: () => ConfirmDialogs.zoomIn(
+              context,
+              title: "你确定吗",
+              message: "这个是确认弹窗",
+              confirmButtonText: "确定",
+              cancelButtonText: "真的确定",
+              onTapCancel: () {
+                Navigator.of(context).pop();
+              },
+              onTapConfirm: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ),
+        ),
+        const Gap(20),
+        Write.header3('11.3.4 自定义动画'),
+        Write.paragraph(
+            '你还可以通过在**ConfirmDialogs.showInfoDialog**方法中指定`transitionBuilder`参数来自定义弹窗动画效果，例如：'),
+        const Gap(20),
+        Center(
+          child: SemanticButton(
+            text: 'flipInX动画',
+            shrink: true,
+            onTap: () => ConfirmDialogs.showConfirmDialog(
+              context,
+              transitionBuilder:
+                  (context, animation, secondaryAnimation, child) {
+                return AnimateStyles.flipInX(animation, child);
+              },
+              title: "你确定吗",
+              message: "这个是确认弹窗",
+              confirmButtonText: "确定",
+              cancelButtonText: "真的确定",
+              onTapCancel: () {
+                Navigator.of(context).pop();
+              },
+              onTapConfirm: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ),
+        ),
+        const Gap(20),
         Write.header2('11.4 Windows风格的弹窗（WinDialogs）'),
         Write.paragraph('Windows风格弹窗有三个部分组成，分别是Header、Body、Footer。'),
         WinStyleDialog(
@@ -447,7 +534,136 @@ class DialogDocs extends StatelessWidget {
           ),
         ),
         const Gap(20),
-        Write.paragraph('可以看出的是，你不需要考虑图标的大小，即使你指定了图标大小，这在内部也是自动大小的。'),
+        Write.paragraph('下面是一个使用zoomIn动画的例子'),
+        Center(
+          child: SemanticButton(
+            text: '使用zoomIn动画',
+            isOutlined: true,
+            shrink: true,
+            radius: 2,
+            color: Colors.black,
+            onTap: () => WinDialogs.zoomIn(
+              context,
+              title: 'title',
+              icon: const Icon(Icons.run_circle_outlined),
+              text: '在这个世界上，我们每个人都应该深刻理解，生活中，若能够不断地反思和自省，那么我们就能更好地理解生活的真谛。',
+              contents: Row(
+                children: [
+                  const Text('打开(O):'),
+                  const Gap(10),
+                  Expanded(
+                    child: Container(
+                      height: 25,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.grey,
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(2),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              actions: [
+                SemanticButton(
+                  text: '确定',
+                  width: 90,
+                  isOutlined: true,
+                  radius: 2,
+                  color: Colors.black,
+                  onTap: () {},
+                ),
+                const Gap(10),
+                SemanticButton(
+                  text: '取消',
+                  width: 90,
+                  isOutlined: true,
+                  radius: 2,
+                  color: Colors.black,
+                  onTap: () {},
+                ),
+                const Gap(10),
+                SemanticButton(
+                  text: '浏览',
+                  width: 90,
+                  isOutlined: true,
+                  radius: 2,
+                  color: Colors.black,
+                  onTap: () {},
+                ),
+              ],
+            ),
+          ),
+        ),
+        const Gap(20),
+        Write.paragraph('下面是一个自定义动画的例子'),
+        Center(
+          child: SemanticButton(
+            text: '使用bounceIn动画',
+            isOutlined: true,
+            shrink: true,
+            radius: 2,
+            color: Colors.black,
+            onTap: () => WinDialogs.showWinDialog(
+              context,
+              transitionBuilder:
+                  (context, animation, secondaryAnimation, child) {
+                return AnimateStyles.bounceIn(animation, child);
+              },
+              title: 'title',
+              icon: const Icon(Icons.run_circle_outlined),
+              text: '在这个世界上，我们每个人都应该深刻理解，生活中，若能够不断地反思和自省，那么我们就能更好地理解生活的真谛。',
+              contents: Row(
+                children: [
+                  const Text('打开(O):'),
+                  const Gap(10),
+                  Expanded(
+                    child: Container(
+                      height: 25,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.grey,
+                          width: 1,
+                        ),
+                        borderRadius: BorderRadius.circular(2),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              actions: [
+                SemanticButton(
+                  text: '确定',
+                  width: 90,
+                  isOutlined: true,
+                  radius: 2,
+                  color: Colors.black,
+                  onTap: () {},
+                ),
+                const Gap(10),
+                SemanticButton(
+                  text: '取消',
+                  width: 90,
+                  isOutlined: true,
+                  radius: 2,
+                  color: Colors.black,
+                  onTap: () {},
+                ),
+                const Gap(10),
+                SemanticButton(
+                  text: '浏览',
+                  width: 90,
+                  isOutlined: true,
+                  radius: 2,
+                  color: Colors.black,
+                  onTap: () {},
+                ),
+              ],
+            ),
+          ),
+        ),
+        Write.paragraph('另外需要指出的是，你不需要考虑图标的大小，即使你指定了图标大小，这在内部也是自动大小的。'),
         const Gap(20),
         Write.header2('11.4 Future型弹窗案例'),
         const Gap(20),

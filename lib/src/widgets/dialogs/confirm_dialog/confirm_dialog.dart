@@ -5,7 +5,7 @@ import '../../../color/utils.dart';
 import '../../../enums/semantic_enum.dart';
 import '../../images/icons.dart';
 
-class ConfirmDialogBody extends StatelessWidget {
+class ConfirmDialog extends StatelessWidget {
   final String? title;
   final String message;
   final String? imagePath;
@@ -22,7 +22,7 @@ class ConfirmDialogBody extends StatelessWidget {
   final EdgeInsets? margin;
   final bool noImage;
 
-  const ConfirmDialogBody({
+  const ConfirmDialog({
     super.key,
     this.title,
     required this.message,
@@ -44,7 +44,7 @@ class ConfirmDialogBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    Color statusColor = findStatusColor(type); // 使用findStatusColor函数获取颜色
+    Color statusColor = findStatusColor(type);
 
     return Align(
       alignment: Alignment.center,

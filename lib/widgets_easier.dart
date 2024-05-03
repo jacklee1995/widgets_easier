@@ -45,7 +45,7 @@ export './src/widgets/dialogs/win_style_dialog/win_style_dialog.dart';
 export './src/widgets/dialogs/win_style_dialog/win_dialogs.dart';
 
 export './src/widgets/dialogs/info_dialog/info_dialog.dart';
-export './src/widgets/dialogs/confirm_dialog/confirm_dialog_body.dart';
+export 'src/widgets/dialogs/confirm_dialog/confirm_dialog.dart';
 
 export './src/widgets/captcha/sliding_captcha.dart';
 

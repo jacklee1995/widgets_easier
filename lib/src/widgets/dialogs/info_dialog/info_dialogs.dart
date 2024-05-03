@@ -43,14 +43,14 @@ class InfoDialogs {
       );
 
   /// 可以指定任意自定义动画
-  static Future<T?> showInfoDialogContents<T extends Object?>(
+  static Future<T?> showInfoDialog<T extends Object?>(
     BuildContext context, {
     String? title,
     required String message,
     String? imagePath,
     required String buttonText,
     required VoidCallback onTapDismiss,
-    required SemanticEnum type,
+    SemanticEnum type = SemanticEnum.primary,
     RouteTransitionsBuilder? transitionBuilder,
     Color? color,
     Color? textColor,
@@ -82,150 +82,6 @@ class InfoDialogs {
         ),
       );
 
-  static Future<T?> fadeInLeft<T extends Object?>(
-    BuildContext context, {
-    String? title,
-    required String message,
-    String? imagePath,
-    required String buttonText,
-    required VoidCallback onTapDismiss,
-    required SemanticEnum type,
-    Color? color,
-    Color? textColor,
-    Color? buttonTextColor,
-    EdgeInsets? margin,
-    EdgeInsets? padding,
-    bool barrierDismissible = true,
-    bool noImage = false,
-  }) =>
-      showInfoDialogContents<T>(
-        context,
-        title: title,
-        message: message,
-        imagePath: imagePath,
-        buttonText: buttonText,
-        onTapDismiss: onTapDismiss,
-        type: type,
-        color: color,
-        textColor: textColor,
-        buttonTextColor: buttonTextColor,
-        margin: margin,
-        padding: padding,
-        barrierDismissible: barrierDismissible,
-        noImage: noImage,
-        transitionBuilder: (context, animation, secondaryAnimation, child) {
-          return AnimateStyles.fadeInLeft(animation, child);
-        },
-      );
-
-  static Future<T?> fadeInRight<T extends Object?>(
-    BuildContext context, {
-    String? title,
-    required String message,
-    String? imagePath,
-    required String buttonText,
-    required VoidCallback onTapDismiss,
-    required SemanticEnum type,
-    Color? color,
-    Color? textColor,
-    Color? buttonTextColor,
-    EdgeInsets? margin,
-    EdgeInsets? padding,
-    bool barrierDismissible = true,
-    bool noImage = false,
-  }) =>
-      showInfoDialogContents<T>(
-        context,
-        title: title,
-        message: message,
-        imagePath: imagePath,
-        buttonText: buttonText,
-        onTapDismiss: onTapDismiss,
-        type: type,
-        color: color,
-        textColor: textColor,
-        buttonTextColor: buttonTextColor,
-        margin: margin,
-        padding: padding,
-        barrierDismissible: barrierDismissible,
-        noImage: noImage,
-        transitionBuilder: (context, animation, secondaryAnimation, child) {
-          return AnimateStyles.fadeInRight(animation, child);
-        },
-      );
-
-  static Future<T?> fadeInDown<T extends Object?>(
-    BuildContext context, {
-    String? title,
-    required String message,
-    String? imagePath,
-    required String buttonText,
-    required VoidCallback onTapDismiss,
-    required SemanticEnum type,
-    Color? color,
-    Color? textColor,
-    Color? buttonTextColor,
-    EdgeInsets? margin,
-    EdgeInsets? padding,
-    bool barrierDismissible = true,
-    bool noImage = false,
-  }) =>
-      showInfoDialogContents<T>(
-        context,
-        title: title,
-        message: message,
-        imagePath: imagePath,
-        buttonText: buttonText,
-        onTapDismiss: onTapDismiss,
-        type: type,
-        color: color,
-        textColor: textColor,
-        buttonTextColor: buttonTextColor,
-        margin: margin,
-        padding: padding,
-        barrierDismissible: barrierDismissible,
-        noImage: noImage,
-        transitionBuilder: (context, animation, secondaryAnimation, child) {
-          return AnimateStyles.fadeInDown(animation, child);
-        },
-      );
-
-  static Future<T?> slideInUp<T extends Object?>(
-    BuildContext context, {
-    String? title,
-    required String message,
-    String? imagePath,
-    required String buttonText,
-    required VoidCallback onTapDismiss,
-    required SemanticEnum type,
-    Color? color,
-    Color? textColor,
-    Color? buttonTextColor,
-    EdgeInsets? margin,
-    EdgeInsets? padding,
-    bool barrierDismissible = true,
-    bool noImage = false,
-  }) =>
-      showInfoDialogContents<T>(
-        context,
-        title: title,
-        message: message,
-        imagePath: imagePath,
-        buttonText: buttonText,
-        onTapDismiss: onTapDismiss,
-        type: type,
-        color: color,
-        textColor: textColor,
-        buttonTextColor: buttonTextColor,
-        margin: margin,
-        padding: padding,
-        barrierDismissible: barrierDismissible,
-        noImage: noImage,
-        transitionBuilder: (context, animation, secondaryAnimation, child) {
-          return AnimateStyles.slideInUp(animation, child);
-        },
-      );
-
   static Future<T?> zoomIn<T extends Object?>(
     BuildContext context, {
     String? title,
@@ -242,7 +98,7 @@ class InfoDialogs {
     bool barrierDismissible = true,
     bool noImage = false,
   }) =>
-      showInfoDialogContents<T>(
+      showInfoDialog<T>(
         context,
         title: title,
         message: message,
@@ -259,42 +115,6 @@ class InfoDialogs {
         noImage: noImage,
         transitionBuilder: (context, animation, secondaryAnimation, child) {
           return AnimateStyles.zoomIn(animation, child);
-        },
-      );
-
-  static Future<T?> zoomOut<T extends Object?>(
-    BuildContext context, {
-    String? title,
-    required String message,
-    String? imagePath,
-    required String buttonText,
-    required VoidCallback onTapDismiss,
-    required SemanticEnum type,
-    Color? color,
-    Color? textColor,
-    Color? buttonTextColor,
-    EdgeInsets? margin,
-    EdgeInsets? padding,
-    bool barrierDismissible = true,
-    bool noImage = false,
-  }) =>
-      showInfoDialogContents<T>(
-        context,
-        title: title,
-        message: message,
-        imagePath: imagePath,
-        buttonText: buttonText,
-        onTapDismiss: onTapDismiss,
-        type: type,
-        color: color,
-        textColor: textColor,
-        buttonTextColor: buttonTextColor,
-        margin: margin,
-        padding: padding,
-        barrierDismissible: barrierDismissible,
-        noImage: noImage,
-        transitionBuilder: (context, animation, secondaryAnimation, child) {
-          return AnimateStyles.zoomOut(animation, child);
         },
       );
 }

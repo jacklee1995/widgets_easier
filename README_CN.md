@@ -1677,20 +1677,460 @@ flutter: oldValue is 2.0, newValue is 1.0
 flutter: oldValue is 1.0, newValue is 0.0
 ```
 
+### 6. 动画
 
-### 6. 弹窗
+动画相关工具被单独封装在`flutter_easy_animations`库中，需要独立进行安装：
+
+```bash
+flutter pub add flutter_easy_animations
+```
+
+更多关于动画用法，请查阅写在`flutter_easy_animations`中的文档：[https://pub.dev/packages/flutter_easy_animations](https://pub.dev/packages/flutter_easy_animations)
+
+
+
+### 7. 弹窗
 
 #### InfoDialogs
 
+##### 弹窗构成
 
-#### AlertDialogs
+消息弹窗（InfoDialog）通常用于在移动应用中显示重要信息，需要用户明确地关闭弹窗以确保信息被看到。以下是InfoDialog的主要构成元素：
+
+- 图标（可选）
+
+- 标题（Title）
+- 内容（Content）
+- 关闭按钮（Close Button）
+
+##### 使用语义
+
+**InfoDialogs**是一种消息式的弹窗，这种弹窗只有一个按钮。你可以为**InfoDialogs**指定一个`type`属性，这将拥有语义性色彩。它的弹窗体看起来是这样的：
+
+![example_nc62R6kkem](J:\widgets_easier\assets\example_nc62R6kkem.png)
+
+例如：
+
+```dart
+Row(
+  mainAxisAlignment: MainAxisAlignment.spaceAround,
+  children: [
+    SemanticButton(
+      text: 'primary弹窗',
+      type: SemanticEnum.primary,
+      isOutlined: true,
+      onTap: () => InfoDialogs.show(
+        context,
+        title: "你好啊！",
+        message: "这是一个primary消息弹窗",
+        buttonText: "我知道了",
+        onTapDismiss: () {
+          Navigator.of(context).pop();
+        },
+        type: SemanticEnum.primary,
+      ),
+    ),
+    const Gap(10),
+    SemanticButton(
+      text: 'secondary弹窗',
+      type: SemanticEnum.secondary,
+      isOutlined: true,
+      onTap: () => InfoDialogs.show(
+        context,
+        title: "你好啊！",
+        message: "这是一个secondary消息弹窗",
+        buttonText: "我知道了",
+        onTapDismiss: () {
+          Navigator.of(context).pop();
+        },
+        type: SemanticEnum.secondary,
+      ),
+    ),
+    const Gap(10),
+    SemanticButton(
+      text: 'info弹窗',
+      type: SemanticEnum.info,
+      isOutlined: true,
+      onTap: () => InfoDialogs.show(
+        context,
+        title: "你好啊！",
+        message: "这是一个info消息弹窗",
+        buttonText: "我知道了",
+        onTapDismiss: () {
+          Navigator.of(context).pop();
+        },
+        type: SemanticEnum.info,
+      ),
+    ),
+    const Gap(10),
+    SemanticButton(
+      text: 'success弹窗',
+      type: SemanticEnum.success,
+      isOutlined: true,
+      onTap: () => InfoDialogs.show(
+        context,
+        title: "你好啊！",
+        message: "这是一个success消息弹窗",
+        buttonText: "我知道了",
+        onTapDismiss: () {
+          Navigator.of(context).pop();
+        },
+        type: SemanticEnum.success,
+      ),
+    ),
+    const Gap(10),
+    SemanticButton(
+      text: 'warning弹窗',
+      type: SemanticEnum.warning,
+      isOutlined: true,
+      onTap: () => InfoDialogs.show(
+        context,
+        title: "你好啊！",
+        message: "这是一个warning消息弹窗",
+        buttonText: "我知道了",
+        onTapDismiss: () {
+          Navigator.of(context).pop();
+        },
+        type: SemanticEnum.warning,
+      ),
+    ),
+    const Gap(10),
+    SemanticButton(
+      text: 'danger弹窗',
+      type: SemanticEnum.danger,
+      isOutlined: true,
+      onTap: () => InfoDialogs.show(
+        context,
+        title: "你好啊！",
+        message: "这是一个danger消息弹窗",
+        buttonText: "我知道了",
+        onTapDismiss: () {
+          Navigator.of(context).pop();
+        },
+        type: SemanticEnum.danger,
+      ),
+    ),
+    const Gap(10),
+    SemanticButton(
+      text: 'fatal弹窗',
+      type: SemanticEnum.fatal,
+      isOutlined: true,
+      onTap: () => InfoDialogs.show(
+        context,
+        title: "你好啊！",
+        message: "这是一个fatal消息弹窗",
+        buttonText: "我知道了",
+        onTapDismiss: () {
+          Navigator.of(context).pop();
+        },
+        type: SemanticEnum.fatal,
+      ),
+    ),
+  ],
+)
+```
+
+
+
+![example_0YDNxnPzok](J:\widgets_easier\assets\example_0YDNxnPzok.gif)
+
+
+
+##### zoomIn动画
+
+`InfoDialogs.show`是没有动画效果的。你可以直接使用`InfoDialogs.zoomIn`方法，这将有一个缩放效果的弹窗动画。`InfoDialogs.zoomIn`方法和`InfoDialogs.show`具体完全一样的参数。例如：
+
+
+
+```dart
+SemanticButton(
+  text: 'zoomIn动画',
+  shrink: true,
+  onTap: () => InfoDialogs.zoomIn(
+    context,
+    title: "你好啊！",
+    message: "这是一个fatal消息弹窗",
+    buttonText: "我知道了",
+    onTapDismiss: () {
+      Navigator.of(context).pop();
+    },
+  ),
+)
+```
+
+其效果如下：
+
+![example_QCpD0oPAWg](J:\widgets_easier\assets\example_QCpD0oPAWg.gif)
+
+
+
+##### 自定义动画
+
+你还可以通过在**InfoDialogs.showInfoDialog**方法中指定`transitionBuilder`参数来自定义弹窗动画效果，例如：
+
+```dart
+SemanticButton(
+  text: '自定义动画',
+  shrink: true,
+  onTap: () => InfoDialogs.showInfoDialog(
+    context,
+    title: "你好啊！",
+    message: "这是一个消息弹窗",
+    buttonText: "我知道了",
+    transitionBuilder:
+        (context, animation, secondaryAnimation, child) {
+      return AnimateStyles.backInDown(animation, child);
+    },
+    onTapDismiss: () {
+      Navigator.of(context).pop();
+    },
+  ),
+)
+```
+
+> 注：这里使用的`AnimateStyles.backInDown`动画需要单独安装：
+>
+> ```bash
+> flutter pub add flutter_easy_animations
+> ```
+
+其效果如下：
+
+![example_CYfwe0SU6B](J:\widgets_easier\assets\example_CYfwe0SU6B.gif)
+
 
 
 #### ConfirmDialogs
 
+##### 弹窗构成
+
+确认型弹窗（Confirmation Dialog）用于在执行某些可能具有重大影响的操作前，要求用户确认其决定。这种弹窗通常包含以下元素：
+
+- 图标（可选）；
+
+- 标题：简洁明了地描述所需确认的操作;
+- 内容：提供操作的详细信息，帮助用户做出决策;
+- 操作按钮：通常是“确认”和“取消”，有时可能包括其他选项，如“保存”，“不保存”等;
+
+其消息窗体看起来是这样的：
+
+![example_AR1n3S0R9d](J:\widgets_easier\assets\example_AR1n3S0R9d.png)
+
+##### 使用语义
+
+你可以为**ConfirmDialogs**指定一个`type`属性，这将拥有语义性色彩。它的弹窗体看起来是这样的：
+
+例如：
+
+```dart
+Row(
+  mainAxisAlignment: MainAxisAlignment.spaceAround,
+  children: [
+    SemanticButton(
+      text: 'primary弹窗',
+      type: SemanticEnum.primary,
+      onTap: () => ConfirmDialogs.show(
+        context,
+        title: "你确定吗",
+        message: "这个是primary确认弹窗",
+        confirmButtonText: "确定",
+        cancelButtonText: "真的确定",
+        onTapCancel: () {
+          Navigator.of(context).pop();
+        },
+        onTapConfirm: () {
+          Navigator.of(context).pop();
+        },
+        type: SemanticEnum.primary,
+      ),
+    ),
+    const Gap(10),
+    SemanticButton(
+      text: 'secondary弹窗',
+      type: SemanticEnum.secondary,
+      onTap: () => ConfirmDialogs.show(
+        context,
+        title: "你确定吗",
+        message: "这个是secondary确认弹窗",
+        confirmButtonText: "确定",
+        cancelButtonText: "真的确定",
+        onTapCancel: () {
+          Navigator.of(context).pop();
+        },
+        onTapConfirm: () {
+          Navigator.of(context).pop();
+        },
+        type: SemanticEnum.secondary,
+      ),
+    ),
+    const Gap(10),
+    SemanticButton(
+      text: 'info弹窗',
+      type: SemanticEnum.info,
+      onTap: () => ConfirmDialogs.show(
+        context,
+        title: "你确定吗",
+        message: "这个是info确认弹窗",
+        confirmButtonText: "确定",
+        cancelButtonText: "真的确定",
+        onTapCancel: () {
+          Navigator.of(context).pop();
+        },
+        onTapConfirm: () {
+          Navigator.of(context).pop();
+        },
+        type: SemanticEnum.info,
+      ),
+    ),
+    const Gap(10),
+    SemanticButton(
+      text: 'success弹窗',
+      type: SemanticEnum.success,
+      onTap: () => ConfirmDialogs.show(
+        context,
+        title: "你确定吗",
+        message: "这个是success确认弹窗",
+        confirmButtonText: "确定",
+        cancelButtonText: "真的确定",
+        onTapCancel: () {
+          Navigator.of(context).pop();
+        },
+        onTapConfirm: () {
+          Navigator.of(context).pop();
+        },
+        type: SemanticEnum.success,
+      ),
+    ),
+    const Gap(10),
+    SemanticButton(
+      text: 'warning弹窗',
+      type: SemanticEnum.warning,
+      onTap: () => ConfirmDialogs.show(
+        context,
+        title: "你确定吗",
+        message: "这个是warning确认弹窗",
+        confirmButtonText: "确定",
+        cancelButtonText: "真的确定",
+        onTapCancel: () {
+          Navigator.of(context).pop();
+        },
+        onTapConfirm: () {
+          Navigator.of(context).pop();
+        },
+        type: SemanticEnum.warning,
+      ),
+    ),
+    const Gap(10),
+    SemanticButton(
+      text: 'danger弹窗',
+      type: SemanticEnum.danger,
+      onTap: () => ConfirmDialogs.show(
+        context,
+        title: "你确定吗",
+        message: "这个是danger确认弹窗",
+        confirmButtonText: "确定",
+        cancelButtonText: "真的确定",
+        onTapCancel: () {
+          Navigator.of(context).pop();
+        },
+        onTapConfirm: () {
+          Navigator.of(context).pop();
+        },
+        type: SemanticEnum.danger,
+      ),
+    ),
+    const Gap(10),
+    SemanticButton(
+      text: 'fatal弹窗',
+      type: SemanticEnum.fatal,
+      onTap: () => ConfirmDialogs.show(
+        context,
+        title: "你确定吗",
+        message: "这个是fatal确认弹窗",
+        confirmButtonText: "确定",
+        cancelButtonText: "真的确定",
+        onTapCancel: () {
+          Navigator.of(context).pop();
+        },
+        onTapConfirm: () {
+          Navigator.of(context).pop();
+        },
+        type: SemanticEnum.fatal,
+      ),
+    ),
+  ],
+)
+```
 
 
-FutureDialogs 用于处理消息型弹窗，这种弹窗
+
+##### zoomIn动画
+
+`ConfirmDialogs.show`是没有动画效果的。你可以直接使用`ConfirmDialogs.zoomIn`方法，这将有一个缩放效果的弹窗动画。`ConfirmDialogs.zoomIn`方法和`ConfirmDialogs.show`具体完全一样的参数。例如：
+
+
+
+```dart
+SemanticButton(
+  text: 'zoomIn动画',
+  shrink: true,
+  onTap: () => ConfirmDialogs.zoomIn(
+    context,
+    title: "你确定吗",
+    message: "这个是确认弹窗",
+    confirmButtonText: "确定",
+    cancelButtonText: "真的确定",
+    onTapCancel: () {
+      Navigator.of(context).pop();
+    },
+    onTapConfirm: () {
+      Navigator.of(context).pop();
+    },
+  ),
+)
+```
+
+其效果如下：
+
+![example_UqL2qrRpiO](J:\widgets_easier\assets\example_UqL2qrRpiO.gif)
+
+##### 自定义动画
+
+你还可以通过在**ConfirmDialogs.showInfoDialog**方法中指定`transitionBuilder`参数来自定义弹窗动画效果，例如：
+
+```dart
+SemanticButton(
+  text: 'flipInX动画',
+  shrink: true,
+  onTap: () => ConfirmDialogs.showConfirmDialog(
+    context,
+    transitionBuilder:
+        (context, animation, secondaryAnimation, child) {
+      return AnimateStyles.flipInX(animation, child);
+    },
+    title: "你确定吗",
+    message: "这个是确认弹窗",
+    confirmButtonText: "确定",
+    cancelButtonText: "真的确定",
+    onTapCancel: () {
+      Navigator.of(context).pop();
+    },
+    onTapConfirm: () {
+      Navigator.of(context).pop();
+    },
+  ),
+)
+```
+
+> 注：这里使用的`AnimateStyles.backInDown`动画需要单独安装：
+>
+> ```bash
+> flutter pub add flutter_easy_animations
+> ```
+
+其效果如下：
+
+![example_EGAUPCK3VF](J:\widgets_easier\assets\example_EGAUPCK3VF.gif)
 
 
 #### WinDialogs
@@ -1758,6 +2198,99 @@ SemanticButton(
   ),
 ),
 ```
+
+效果如图所示：
+
+![example_Z45EJiFtKU](J:\widgets_easier\assets\example_Z45EJiFtKU.gif)
+
+
+
+与之前的弹窗一样，你可以使用`zoomIn`方法来设置一个从小到大的弹窗动画效果，该方法用于与`show`方法一样的参数：
+
+
+
+![example_BTEipOt7f9](J:\widgets_easier\assets\example_BTEipOt7f9.gif)
+
+
+
+如果你打算自定义弹窗动画，这也是和之前的弹窗一样的。你可以使用`showWinDialog`，并通过`transitionBuilder`参数指定一个动画。例如：
+
+```dart
+SemanticButton(
+  text: '使用bounceIn动画',
+  isOutlined: true,
+  shrink: true,
+  radius: 2,
+  color: Colors.black,
+  onTap: () => WinDialogs.showWinDialog(
+    context,
+    transitionBuilder:
+        (context, animation, secondaryAnimation, child) {
+      return AnimateStyles.bounceIn(animation, child);
+    },
+    title: 'title',
+    icon: const Icon(Icons.run_circle_outlined),
+    text: '在这个世界上，我们每个人都应该深刻理解，生活中，若能够不断地反思和自省，那么我们就能更好地理解生活的真谛。',
+    contents: Row(
+      children: [
+        const Text('打开(O):'),
+        const Gap(10),
+        Expanded(
+          child: Container(
+            height: 25,
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.grey,
+                width: 1,
+              ),
+              borderRadius: BorderRadius.circular(2),
+            ),
+          ),
+        ),
+      ],
+    ),
+    actions: [
+      SemanticButton(
+        text: '确定',
+        width: 90,
+        isOutlined: true,
+        radius: 2,
+        color: Colors.black,
+        onTap: () {},
+      ),
+      const Gap(10),
+      SemanticButton(
+        text: '取消',
+        width: 90,
+        isOutlined: true,
+        radius: 2,
+        color: Colors.black,
+        onTap: () {},
+      ),
+      const Gap(10),
+      SemanticButton(
+        text: '浏览',
+        width: 90,
+        isOutlined: true,
+        radius: 2,
+        color: Colors.black,
+        onTap: () {},
+      ),
+    ],
+  
+```
+
+其效果如下：
+
+![example_XXgNIBMhxU](J:\widgets_easier\assets\example_XXgNIBMhxU.gif)
+
+> 注：这里使用的`AnimateStyles.rollIn`动画需要单独安装：
+> ```bash
+> flutter pub add flutter_easy_animations
+> ```
+
+
+
 
 
 #### FutureDialogs
