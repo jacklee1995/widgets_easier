@@ -38,7 +38,7 @@ class ConfirmDialogBody extends StatelessWidget {
     this.imagePath,
     this.padding = const EdgeInsets.all(24),
     this.margin = const EdgeInsets.all(24),
-    required this.noImage,
+    this.noImage = false,
   });
 
   @override

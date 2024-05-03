@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'app/routes.dart';
 import 'home_view.dart';
 import 'theme_mode.dart';
 
@@ -15,8 +16,9 @@ class MyApp extends StatelessWidget {
     return ValueListenableBuilder(
       valueListenable: themeMode,
       builder: (context, value, child) => MaterialApp(
-        title: 'Widgets Easier Demo',
+        title: 'Widgets Easier Demos',
         themeMode: value,
+        routes: routes,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
@@ -24,7 +26,7 @@ class MyApp extends StatelessWidget {
         darkTheme: ThemeData.dark(
           useMaterial3: true,
         ),
-        home: const HomeView(title: 'Demos'),
+        home: const HomeView(),
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:widgets_easier/widgets_easier.dart';
 
 class WinStyleButton extends StatelessWidget {
   final String text;
@@ -12,12 +13,10 @@ class WinStyleButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        foregroundColor: Colors.white, backgroundColor: Colors.blue, // 文字颜色
-      ),
-      child: Text(text),
+    return SemanticButton(
+      text: text,
+      color: const Color(0xFFFDFDFD),
+      isOutlined: true,
     );
   }
 }

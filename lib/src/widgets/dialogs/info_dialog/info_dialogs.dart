@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easy_animations/flutter_easy_animations.dart';
 
 import '../../../enums/semantic_enum.dart';
-import 'info_dialog_body.dart';
+import 'info_dialog.dart';
 
 class InfoDialogs {
   /// 无动画
@@ -26,7 +26,7 @@ class InfoDialogs {
       showDialog<T>(
         barrierDismissible: barrierDismissible,
         context: context,
-        builder: (context) => InfoDialogBody(
+        builder: (context) => InfoDialog(
           title: title,
           message: message,
           buttonText: buttonText,
@@ -66,7 +66,7 @@ class InfoDialogs {
         barrierLabel: '',
         transitionDuration: const Duration(milliseconds: 300),
         transitionBuilder: transitionBuilder,
-        pageBuilder: (animation, secondaryAnimation, child) => InfoDialogBody(
+        pageBuilder: (animation, secondaryAnimation, child) => InfoDialog(
           title: title,
           message: message,
           imagePath: imagePath,

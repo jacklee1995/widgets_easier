@@ -38,12 +38,14 @@ export './src/widgets/indicator/percent_progress_indicator.dart';
 export './src/widgets/inputs/counter_input.dart';
 export './src/widgets/inputs/counter_input_controller.dart';
 
-export './src/widgets/dialogs/info/info_dialogs.dart';
-export './src/widgets/dialogs/confirm/confirm_dialogs.dart';
-export './src/widgets/dialogs/verification/verification_dialogs.dart';
+export './src/widgets/dialogs/info_dialog/info_dialogs.dart';
+export './src/widgets/dialogs/confirm_dialog/confirm_dialogs.dart';
+export './src/widgets/dialogs/future_dialog/future_dialogs.dart';
+export './src/widgets/dialogs/win_style_dialog/win_style_dialog.dart';
+export './src/widgets/dialogs/win_style_dialog/win_dialogs.dart';
 
-export './src/widgets/dialogs/info/info_dialog_body.dart';
-export './src/widgets/dialogs/confirm/confirm_dialog_body.dart';
+export './src/widgets/dialogs/info_dialog/info_dialog.dart';
+export './src/widgets/dialogs/confirm_dialog/confirm_dialog_body.dart';
 
 export './src/widgets/captcha/sliding_captcha.dart';
 
