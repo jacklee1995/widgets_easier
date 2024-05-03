@@ -1692,5 +1692,945 @@ flutter: oldValue is 1.0, newValue is 0.0
 
 
 
+### 7. Pop-up Windows
+
+#### InfoDialogs
+
+##### Composition of Pop-up Windows
+
+Message pop-up windows (InfoDialogs) are typically used in mobile applications to display important information that requires users to explicitly close the window to ensure the information is seen. The main components of an InfoDialog are as follows:
+
+- Icon (optional)
+- Title
+- Content
+- Close Button
+
+##### Semantic Usage
+
+**InfoDialogs** are a type of message-style pop-up window that typically contains only one button. You can specify a `type` attribute for **InfoDialogs**, which gives it semantic color. The appearance of the pop-up window is as follows:
+
+![example_nc62R6kkem](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_nc62R6kkem.png)
+
+例如：
+
+```dart
+Row(
+  mainAxisAlignment: MainAxisAlignment.spaceAround,
+  children: [
+    SemanticButton(
+      text: 'primary弹窗',
+      type: SemanticEnum.primary,
+      isOutlined: true,
+      onTap: () => InfoDialogs.show(
+        context,
+        title: "你好啊！",
+        message: "这是一个primary消息弹窗",
+        buttonText: "我知道了",
+        onTapDismiss: () {
+          Navigator.of(context).pop();
+        },
+        type: SemanticEnum.primary,
+      ),
+    ),
+    const Gap(10),
+    SemanticButton(
+      text: 'secondary弹窗',
+      type: SemanticEnum.secondary,
+      isOutlined: true,
+      onTap: () => InfoDialogs.show(
+        context,
+        title: "你好啊！",
+        message: "这是一个secondary消息弹窗",
+        buttonText: "我知道了",
+        onTapDismiss: () {
+          Navigator.of(context).pop();
+        },
+        type: SemanticEnum.secondary,
+      ),
+    ),
+    const Gap(10),
+    SemanticButton(
+      text: 'info弹窗',
+      type: SemanticEnum.info,
+      isOutlined: true,
+      onTap: () => InfoDialogs.show(
+        context,
+        title: "你好啊！",
+        message: "这是一个info消息弹窗",
+        buttonText: "我知道了",
+        onTapDismiss: () {
+          Navigator.of(context).pop();
+        },
+        type: SemanticEnum.info,
+      ),
+    ),
+    const Gap(10),
+    SemanticButton(
+      text: 'success弹窗',
+      type: SemanticEnum.success,
+      isOutlined: true,
+      onTap: () => InfoDialogs.show(
+        context,
+        title: "你好啊！",
+        message: "这是一个success消息弹窗",
+        buttonText: "我知道了",
+        onTapDismiss: () {
+          Navigator.of(context).pop();
+        },
+        type: SemanticEnum.success,
+      ),
+    ),
+    const Gap(10),
+    SemanticButton(
+      text: 'warning弹窗',
+      type: SemanticEnum.warning,
+      isOutlined: true,
+      onTap: () => InfoDialogs.show(
+        context,
+        title: "你好啊！",
+        message: "这是一个warning消息弹窗",
+        buttonText: "我知道了",
+        onTapDismiss: () {
+          Navigator.of(context).pop();
+        },
+        type: SemanticEnum.warning,
+      ),
+    ),
+    const Gap(10),
+    SemanticButton(
+      text: 'danger弹窗',
+      type: SemanticEnum.danger,
+      isOutlined: true,
+      onTap: () => InfoDialogs.show(
+        context,
+        title: "你好啊！",
+        message: "这是一个danger消息弹窗",
+        buttonText: "我知道了",
+        onTapDismiss: () {
+          Navigator.of(context).pop();
+        },
+        type: SemanticEnum.danger,
+      ),
+    ),
+    const Gap(10),
+    SemanticButton(
+      text: 'fatal弹窗',
+      type: SemanticEnum.fatal,
+      isOutlined: true,
+      onTap: () => InfoDialogs.show(
+        context,
+        title: "你好啊！",
+        message: "这是一个fatal消息弹窗",
+        buttonText: "我知道了",
+        onTapDismiss: () {
+          Navigator.of(context).pop();
+        },
+        type: SemanticEnum.fatal,
+      ),
+    ),
+  ],
+)
+```
+
+
+
+![example_0YDNxnPzok](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_0YDNxnPzok.gif)
+
+##### ZoomIn Animation
+
+The `InfoDialogs.show` method does not have an animation effect. You can directly use the `InfoDialogs.zoomIn` method, which provides a pop-up animation with scaling effect. The `InfoDialogs.zoomIn` method takes exactly the same parameters as `InfoDialogs.show`. For example:
+
+```dart
+SemanticButton(
+  text: 'zoomIn动画',
+  shrink: true,
+  onTap: () => InfoDialogs.zoomIn(
+    context,
+    title: "你好啊！",
+    message: "这是一个fatal消息弹窗",
+    buttonText: "我知道了",
+    onTapDismiss: () {
+      Navigator.of(context).pop();
+    },
+  ),
+)
+```
+
+The running result is as follows:
+
+![example_QCpD0oPAWg](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_QCpD0oPAWg.gif)
+
+
+
+##### Custom Animation
+
+You can also customize the pop-up animation effect by specifying the `transitionBuilder` parameter in the **InfoDialogs.showInfoDialog** method, for example:
+
+```dart
+SemanticButton(
+  text: '自定义动画',
+  shrink: true,
+  onTap: () => InfoDialogs.showInfoDialog(
+    context,
+    title: "你好啊！",
+    message: "这是一个消息弹窗",
+    buttonText: "我知道了",
+    transitionBuilder:
+        (context, animation, secondaryAnimation, child) {
+      return AnimateStyles.backInDown(animation, child);
+    },
+    onTapDismiss: () {
+      Navigator.of(context).pop();
+    },
+  ),
+)
+```
+
+> Note: The `AnimateStyles.backInDown` animation used here needs to be installed separately.
+>
+> ```bash
+> flutter pub add flutter_easy_animations
+> ```
+
+The running result is as follows:
+
+![example_CYfwe0SU6B](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_CYfwe0SU6B.gif)
+
+
+
+#### ConfirmDialogs
+
+##### Composition of Pop-up Windows
+
+Confirmation Dialogs are used to request user confirmation before performing actions that may have significant consequences. These pop-up windows typically contain the following elements:
+
+- Icon (optional)
+- Title: Clearly describes the action requiring confirmation.
+- Content: Provides detailed information about the action to help the user make a decision.
+- Action Buttons: Typically include "Confirm" and "Cancel", sometimes may include other options such as "Save", "Don't Save", etc.
+
+The appearance of the pop-up window is as follows:
+
+![example_AR1n3S0R9d](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_AR1n3S0R9d.png)
+
+##### Semantic Usage
+
+You can specify a `type` attribute for **ConfirmDialogs**, which gives it semantic color. The appearance of the pop-up window is as follows:
+
+For example:
+
+```dart
+Row(
+  mainAxisAlignment: MainAxisAlignment.spaceAround,
+  children: [
+    SemanticButton(
+      text: 'primary弹窗',
+      type: SemanticEnum.primary,
+      onTap: () => ConfirmDialogs.show(
+        context,
+        title: "你确定吗",
+        message: "这个是primary确认弹窗",
+        confirmButtonText: "确定",
+        cancelButtonText: "真的确定",
+        onTapCancel: () {
+          Navigator.of(context).pop();
+        },
+        onTapConfirm: () {
+          Navigator.of(context).pop();
+        },
+        type: SemanticEnum.primary,
+      ),
+    ),
+    const Gap(10),
+    SemanticButton(
+      text: 'secondary弹窗',
+      type: SemanticEnum.secondary,
+      onTap: () => ConfirmDialogs.show(
+        context,
+        title: "你确定吗",
+        message: "这个是secondary确认弹窗",
+        confirmButtonText: "确定",
+        cancelButtonText: "真的确定",
+        onTapCancel: () {
+          Navigator.of(context).pop();
+        },
+        onTapConfirm: () {
+          Navigator.of(context).pop();
+        },
+        type: SemanticEnum.secondary,
+      ),
+    ),
+    const Gap(10),
+    SemanticButton(
+      text: 'info弹窗',
+      type: SemanticEnum.info,
+      onTap: () => ConfirmDialogs.show(
+        context,
+        title: "你确定吗",
+        message: "这个是info确认弹窗",
+        confirmButtonText: "确定",
+        cancelButtonText: "真的确定",
+        onTapCancel: () {
+          Navigator.of(context).pop();
+        },
+        onTapConfirm: () {
+          Navigator.of(context).pop();
+        },
+        type: SemanticEnum.info,
+      ),
+    ),
+    const Gap(10),
+    SemanticButton(
+      text: 'success弹窗',
+      type: SemanticEnum.success,
+      onTap: () => ConfirmDialogs.show(
+        context,
+        title: "你确定吗",
+        message: "这个是success确认弹窗",
+        confirmButtonText: "确定",
+        cancelButtonText: "真的确定",
+        onTapCancel: () {
+          Navigator.of(context).pop();
+        },
+        onTapConfirm: () {
+          Navigator.of(context).pop();
+        },
+        type: SemanticEnum.success,
+      ),
+    ),
+    const Gap(10),
+    SemanticButton(
+      text: 'warning弹窗',
+      type: SemanticEnum.warning,
+      onTap: () => ConfirmDialogs.show(
+        context,
+        title: "你确定吗",
+        message: "这个是warning确认弹窗",
+        confirmButtonText: "确定",
+        cancelButtonText: "真的确定",
+        onTapCancel: () {
+          Navigator.of(context).pop();
+        },
+        onTapConfirm: () {
+          Navigator.of(context).pop();
+        },
+        type: SemanticEnum.warning,
+      ),
+    ),
+    const Gap(10),
+    SemanticButton(
+      text: 'danger弹窗',
+      type: SemanticEnum.danger,
+      onTap: () => ConfirmDialogs.show(
+        context,
+        title: "你确定吗",
+        message: "这个是danger确认弹窗",
+        confirmButtonText: "确定",
+        cancelButtonText: "真的确定",
+        onTapCancel: () {
+          Navigator.of(context).pop();
+        },
+        onTapConfirm: () {
+          Navigator.of(context).pop();
+        },
+        type: SemanticEnum.danger,
+      ),
+    ),
+    const Gap(10),
+    SemanticButton(
+      text: 'fatal弹窗',
+      type: SemanticEnum.fatal,
+      onTap: () => ConfirmDialogs.show(
+        context,
+        title: "你确定吗",
+        message: "这个是fatal确认弹窗",
+        confirmButtonText: "确定",
+        cancelButtonText: "真的确定",
+        onTapCancel: () {
+          Navigator.of(context).pop();
+        },
+        onTapConfirm: () {
+          Navigator.of(context).pop();
+        },
+        type: SemanticEnum.fatal,
+      ),
+    ),
+  ],
+)
+```
+
+
+
+##### ZoomIn Animation
+
+The `ConfirmDialogs.show` method does not have an animation effect. You can directly use the `ConfirmDialogs.zoomIn` method, which provides a pop-up animation with a scaling effect. The `ConfirmDialogs.zoomIn` method takes exactly the same parameters as `ConfirmDialogs.show`. For example:
+
+
+
+```dart
+SemanticButton(
+  text: 'zoomIn动画',
+  shrink: true,
+  onTap: () => ConfirmDialogs.zoomIn(
+    context,
+    title: "你确定吗",
+    message: "这个是确认弹窗",
+    confirmButtonText: "确定",
+    cancelButtonText: "真的确定",
+    onTapCancel: () {
+      Navigator.of(context).pop();
+    },
+    onTapConfirm: () {
+      Navigator.of(context).pop();
+    },
+  ),
+)
+```
+
+The running result is as follows:
+
+![example_UqL2qrRpiO](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_UqL2qrRpiO.gif)
+
+##### Custom Animation
+
+You can also customize the pop-up animation effect by specifying the `transitionBuilder` parameter in the **ConfirmDialogs.showInfoDialog** method, for example:
+
+```dart
+SemanticButton(
+  text: 'flipInX动画',
+  shrink: true,
+  onTap: () => ConfirmDialogs.showConfirmDialog(
+    context,
+    transitionBuilder:
+        (context, animation, secondaryAnimation, child) {
+      return AnimateStyles.flipInX(animation, child);
+    },
+    title: "你确定吗",
+    message: "这个是确认弹窗",
+    confirmButtonText: "确定",
+    cancelButtonText: "真的确定",
+    onTapCancel: () {
+      Navigator.of(context).pop();
+    },
+    onTapConfirm: () {
+      Navigator.of(context).pop();
+    },
+  ),
+)
+```
+
+> Note: The `AnimateStyles.flipInX` animation used here needs to be installed separately.
+>
+> ```bash
+> flutter pub add flutter_easy_animations
+> ```
+
+The running result is as follows:
+
+![example_EGAUPCK3VF](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_EGAUPCK3VF.gif)
+
+#### WinDialogs
+
+WinDialogs is a type of dialog that mimics the Windows style. The following example demonstrates calling a Windows-style dialog:
+
+```dart
+SemanticButton(
+  text: '显示Windows风格弹窗',
+  isOutlined: true,
+  shrink: true,
+  radius: 2,
+  color: Colors.black,
+  onTap: () => WinDialogs.show(
+    context,
+    title: 'title',
+    icon: const Icon(Icons.run_circle_outlined),
+    text: '在这个世界上，我们每个人都应该深刻理解，生活中，若能够不断地反思和自省，那么我们就能更好地理解生活的真谛。',
+    contents: Row(
+      children: [
+        const Text('打开(O):'),
+        const Gap(10),
+        Expanded(
+          child: Container(
+            height: 25,
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.grey,
+                width: 1,
+              ),
+              borderRadius: BorderRadius.circular(2),
+            ),
+          ),
+        ),
+      ],
+    ),
+    actions: [
+      SemanticButton(
+        text: '确定',
+        width: 90,
+        isOutlined: true,
+        radius: 2,
+        color: Colors.black,
+        onTap: () {},
+      ),
+      const Gap(10),
+      SemanticButton(
+        text: '取消',
+        width: 90,
+        isOutlined: true,
+        radius: 2,
+        color: Colors.black,
+        onTap: () {},
+      ),
+      const Gap(10),
+      SemanticButton(
+        text: '浏览',
+        width: 90,
+        isOutlined: true,
+        radius: 2,
+        color: Colors.black,
+        onTap: () {},
+      ),
+    ],
+  ),
+),
+```
+
+The running result is as shown in the image:
+
+![example_Z45EJiFtKU](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_Z45EJiFtKU.gif)
+
+
+
+Just like with the previous dialogs, you can use the `zoomIn` method to set a pop-up animation effect that scales from small to large. This method takes the same parameters as the `show` method:
+
+
+
+![example_BTEipOt7f9](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_BTEipOt7f9.gif)
+
+
+
+If you intend to customize the pop-up animation, it's similar to the previous dialogs. You can use `showWinDialog` and specify an animation through the `transitionBuilder` parameter. For example:
+
+```dart
+SemanticButton(
+  text: '使用bounceIn动画',
+  isOutlined: true,
+  shrink: true,
+  radius: 2,
+  color: Colors.black,
+  onTap: () => WinDialogs.showWinDialog(
+    context,
+    transitionBuilder:
+        (context, animation, secondaryAnimation, child) {
+      return AnimateStyles.bounceIn(animation, child);
+    },
+    title: 'title',
+    icon: const Icon(Icons.run_circle_outlined),
+    text: '在这个世界上，我们每个人都应该深刻理解，生活中，若能够不断地反思和自省，那么我们就能更好地理解生活的真谛。',
+    contents: Row(
+      children: [
+        const Text('打开(O):'),
+        const Gap(10),
+        Expanded(
+          child: Container(
+            height: 25,
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.grey,
+                width: 1,
+              ),
+              borderRadius: BorderRadius.circular(2),
+            ),
+          ),
+        ),
+      ],
+    ),
+    actions: [
+      SemanticButton(
+        text: '确定',
+        width: 90,
+        isOutlined: true,
+        radius: 2,
+        color: Colors.black,
+        onTap: () {},
+      ),
+      const Gap(10),
+      SemanticButton(
+        text: '取消',
+        width: 90,
+        isOutlined: true,
+        radius: 2,
+        color: Colors.black,
+        onTap: () {},
+      ),
+      const Gap(10),
+      SemanticButton(
+        text: '浏览',
+        width: 90,
+        isOutlined: true,
+        radius: 2,
+        color: Colors.black,
+        onTap: () {},
+      ),
+    ],
+  
+```
+
+The running result is as follows:
+
+![example_XXgNIBMhxU](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_XXgNIBMhxU.gif)
+
+> 注：这里使用的`AnimateStyles.bounceIn`动画需要单独安装：
+>
+> ```bash
+> flutter pub add flutter_easy_animations
+> ```
+
+
+
+#### FutureDialogs
+
+FutureDialogs are used to handle dialogs based on Future objects.
+
+A Future object has two states during its lifecycle:
+
+1. **Uncompleted**:
+
+When a Future is created, it's in the uncompleted state. This means the asynchronous operation has not yet completed, and the result is not available.
+
+2. **Completed**:
+
+After the asynchronous operation is completed, the Future enters the completed state. There are two possible outcomes in this state:
+
+- **Fulfilled**: The asynchronous operation completed successfully, and the Future obtains a value.
+- **Rejected**: The asynchronous operation failed to complete successfully due to an error, and the Future obtains an error.
+
+The static methods in FutureDialogs require corresponding construction of the content to be displayed when loading, success, or failure occurs.
+
+Taking a login page as an example, a login request is made to the backend server with two possible outcomes: success or failure. We construct the content for the following two dialogs accordingly:
+
+Content for successful authentication display:
+
+```dart
+import 'package:flutter/material.dart';
+
+import 'package:gap/gap.dart';
+
+class SuccessDialog extends StatelessWidget {
+  final String data;
+  const SuccessDialog(
+    this.data, {
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.center,
+      child: Material(
+        color: Colors.transparent,
+        child: Container(
+          width: 200,
+          height: 200,
+          margin: const EdgeInsets.all(26),
+          padding: const EdgeInsets.all(26),
+          decoration: BoxDecoration(
+            color: Colors.black.withOpacity(0.6),
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(
+                Icons.check,
+                color: Colors.green,
+                size: 60,
+              ),
+              const Gap(20),
+              Text(data, style: const TextStyle(color: Colors.white)),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+```
+
+用于认证失败显示的内容：
+
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+
+class FailureDialog extends StatelessWidget {
+  final String data;
+  const FailureDialog(
+    this.data, {
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.center,
+      child: Material(
+        color: Colors.transparent,
+        child: Container(
+          width: 230,
+          height: 200,
+          margin: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: Colors.black.withOpacity(0.6),
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(
+                Icons.close,
+                color: Colors.red,
+                size: 60,
+              ),
+              const Gap(20),
+              Text(data,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  )),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+```
+
+Then we call the dialogs on the login page:
+
+
+```dart
+import 'package:example/login/dialogs/failure_dialog.dart';
+import 'package:flutter/material.dart';
+import 'package:widgets_easier/widgets_easier.dart';
+
+import 'dialogs/success_dialog.dart';
+import 'login_controller.dart';
+
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final LoginController loginManager = LoginController();
+
+  void handleLogin(BuildContext context) {
+    // 从文本控制器获取用户名和密码
+    final String username = usernameController.text;
+    final String password = passwordController.text;
+
+    // 显示一个异步操作的对话框，这个对话框将在 simulateLogin 方法的 Future 完成后关闭
+    FutureDialogs.show<String>(
+      context: context,
+      futureCallback: () => loginManager.simulateLogin(username, password),
+      buildSuccessDialog: (data) {
+        return SuccessDialog(data);
+      },
+      buildFailureDialog: (data) {
+        return FailureDialog(data);
+      },
+    ).then((result) {
+      // 检查从 simulateLogin 返回的结果
+      if (result != null && result['status'] == true) {
+        // 如果登录成功，导航到主页
+        Navigator.pushReplacementNamed(context, '/login-success');
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('FutureDialogs 示例')),
+      body: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          children: [
+            TextField(
+              controller: usernameController,
+              decoration: const InputDecoration(
+                labelText: '输入你的账号',
+                border: OutlineInputBorder(),
+                prefixIcon: Icon(Icons.account_circle),
+              ),
+            ),
+            const SizedBox(height: 10),
+            TextField(
+              controller: passwordController,
+              decoration: const InputDecoration(
+                labelText: '输入你的密码',
+                border: OutlineInputBorder(),
+                prefixIcon: Icon(Icons.lock),
+              ),
+              obscureText: true,
+            ),
+            const SizedBox(height: 20),
+            SemanticButton(
+              text: '登录',
+              type: SemanticEnum.primary,
+              onTap: () => handleLogin(context),
+              radius: 40,
+              isOutlined: true,
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+```
+
+其中：
+
+```dart
+FutureDialogs.show<String>(
+      context: context,
+      futureCallback: () => loginManager.simulateLogin(username, password),
+      buildSuccessDialog: (data) {
+        return SuccessDialog(data);
+      },
+      buildFailureDialog: (data) {
+        return FailureDialog(data);
+      },
+    ).then((result) {
+      // 检查从 simulateLogin 返回的结果
+      if (result != null && result['status'] == true) {
+        // 如果登录成功，导航到主页
+        Navigator.pushReplacementNamed(context, '/login-success');
+      }
+    });
+```
+
+After completion, we can also chain some operations. This design is very necessary. In this example, after a successful login, we navigate to the login success page. Here, the `result` parameter in the `then` function is also the value returned by the `futureCallback`. On the other hand, if needed, we can also continue with the next dialog here.
+
+Where the asynchronous function is:
+
+
+```dart
+import 'dart:async';
+
+class LoginController {
+  Future<Map<String, dynamic>> simulateLogin(
+    String username,
+    String password,
+  ) async {
+    // 一般对于空密码等情况可以在客户端验证，以减少API请求
+    if (username.isEmpty || password.isEmpty) {
+      return {
+        'status': false,
+        'data': '账户名或密码不能为空',
+      };
+    }
+    // 模拟请求API返回结果，有可能成功也有可能失败
+    else if (username == 'jclee95' && password == '123456') {
+      await Future.delayed(const Duration(seconds: 1));
+      return {'status': true, 'data': '登录成功'};
+    } else {
+      await Future.delayed(const Duration(seconds: 1));
+      return {'status': false, 'data': '账户名或密码错误'};
+    }
+  }
+}
+
+```
+
+In this code snippet, `simulateLogin` is a function simulating an asynchronous login.
+
+If the login is successful, it returns:
+
+```dart
+{'status': true, 'data': '登录成功'}
+```
+
+If the login fails, it returns:
+
+```dart
+{'status': false, 'data': '账户名或密码错误'}
+```
+
+
+Then construct a login success page:
+
+
+
+```dart
+import 'package:flutter/material.dart';
+
+class LoginSuccessView extends StatelessWidget {
+  const LoginSuccessView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('登录成功'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Icon(
+              Icons.check_circle_outline,
+              size: 100,
+              color: Colors.green,
+            ),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text(
+                '您已成功登录！',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, '/home');
+              },
+              child: const Text('回到主页'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+```
+
+The appearance looks like this:
+
+1. Username and password are empty:
+![在这里插入图片描述](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/989b2405eaab4d629d9ce22c4a9a6a71.gif)
+
+
+
+2. Incorrect password input:
+
+![在这里插入图片描述](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/9fc16728e2c740e39d3bd1f729a6dd7d.gif)
+3. Password authentication successful
+
+![在这里插入图片描述](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/296cf1829bb047448477db75ff560ed1.gif)
+
 
 

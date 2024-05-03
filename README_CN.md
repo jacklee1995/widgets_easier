@@ -2122,7 +2122,7 @@ SemanticButton(
 )
 ```
 
-> 注：这里使用的`AnimateStyles.backInDown`动画需要单独安装：
+> 注：这里使用的`AnimateStyles.flipInX`动画需要单独安装：
 >
 > ```bash
 > flutter pub add flutter_easy_animations
@@ -2624,15 +2624,16 @@ class LoginSuccessView extends StatelessWidget {
 
 
 
-用户名密码为空：
+1.用户名密码为空：
 ![在这里插入图片描述](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/989b2405eaab4d629d9ce22c4a9a6a71.gif)
 
 
 
-输入错误的密码：
+2. 输入错误的密码：
 
 ![在这里插入图片描述](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/9fc16728e2c740e39d3bd1f729a6dd7d.gif)
-密码认证成功
+
+3. 密码认证成功
 
 ![在这里插入图片描述](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/296cf1829bb047448477db75ff560ed1.gif)
 
