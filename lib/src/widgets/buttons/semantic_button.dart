@@ -21,9 +21,6 @@ class SemanticButton extends StatefulWidget {
   /// Whether the button should be outlined instead of filled.
   final bool isOutlined;
 
-  /// The fixed height of the button. If null, the height is determined by the content and size.
-  final double? height;
-
   /// The radius of the button's corners.
   final double radius;
 
@@ -45,6 +42,11 @@ class SemanticButton extends StatefulWidget {
   /// The size of the button which affects its padding and font size.
   final SizeEnum size;
 
+  /// The fixed height of the button. If null, the height is determined by the content and size.
+  final double? height;
+
+  final double? width;
+
   /// Whether the button width should shrink to fit its child.
   final bool shrink;
 
@@ -64,7 +66,6 @@ class SemanticButton extends StatefulWidget {
     this.onTap,
     this.type = SemanticEnum.primary,
     this.isOutlined = false,
-    this.height,
     this.radius = 4,
     this.borderRadius,
     this.fontSize = 18,
@@ -72,6 +73,8 @@ class SemanticButton extends StatefulWidget {
     this.prefixIcon,
     this.suffixIcon,
     this.size = SizeEnum.defaultSize,
+    this.height,
+    this.width,
     this.shrink = false,
     this.outlineStyle = OutlineStyle.solid,
     this.outlineWidth = 1.0,
@@ -111,6 +114,7 @@ class _SemanticButtonState extends State<SemanticButton> {
 
     Widget buttonContent = Container(
       height: effectiveHeight,
+      width: widget.width,
       decoration: BoxDecoration(
         gradient: widget.gradient,
         color: widget.gradient == null

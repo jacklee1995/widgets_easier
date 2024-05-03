@@ -1,6 +1,9 @@
+import 'package:example/login/dialogs/failure_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easy_animations/flutter_easy_animations.dart';
 import 'package:widgets_easier/widgets_easier.dart';
 
+import 'dialogs/success_dialog.dart';
 import 'login_controller.dart';
 
 class LoginPage extends StatefulWidget {
@@ -13,35 +16,39 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final LoginManager loginManager = LoginManager();
+  final LoginController loginManager = LoginController();
 
   void handleLogin(BuildContext context) {
+    // 从文本控制器获取用户名和密码
     final String username = usernameController.text;
     final String password = passwordController.text;
 
-    if (username.isEmpty || password.isEmpty) {
-      VerificationDialogs.zoomIn(
-          context: context,
-          verificationFunction: () async => {
-                'status': false,
-                'message': '账户名或密码不能为空',
-              });
-    } else {
-      VerificationDialogs.zoomIn(
-          context: context,
-          verificationFunction: () =>
-              loginManager.simulateLogin(username, password)).then((result) {
-        if (result != null && result['status'] == true) {
-          Navigator.pushReplacementNamed(context, '/home');
-        }
-      });
-    }
+    // 显示一个异步操作的对话框，这个对话框将在 simulateLogin 方法的 Future 完成后关闭
+    FutureDialogs.showFutureDialog(
+      context: context,
+      transitionBuilder: (context, animation, secondaryAnimation, child) {
+        return AnimateStyles.rollIn(animation, child);
+      },
+      futureCallback: () => loginManager.simulateLogin(username, password),
+      buildSuccessDialog: (data) {
+        return SuccessDialog(data);
+      },
+      buildFailureDialog: (data) {
+        return FailureDialog(data);
+      },
+    ).then((result) {
+      // 检查从 simulateLogin 返回的结果
+      if (result != null && result['status'] == true) {
+        // 如果登录成功，导航到主页
+        Navigator.pushReplacementNamed(context, '/login-success');
+      }
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('VerificationDialogs 示例')),
+      appBar: AppBar(title: const Text('FutureDialogs 示例')),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(

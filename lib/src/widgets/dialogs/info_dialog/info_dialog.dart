@@ -6,7 +6,7 @@ import '../../../color/utils.dart';
 import '../../../enums/semantic_enum.dart';
 import '../../images/icons.dart';
 
-class InfoDialogBody extends StatelessWidget {
+class InfoDialog extends StatelessWidget {
   final String? title;
   final String message;
   final String? imagePath;
@@ -21,7 +21,7 @@ class InfoDialogBody extends StatelessWidget {
   final EdgeInsets? margin;
   final bool noImage;
 
-  const InfoDialogBody({
+  const InfoDialog({
     super.key,
     this.title,
     required this.message,
@@ -33,8 +33,8 @@ class InfoDialogBody extends StatelessWidget {
     this.textColor,
     this.buttonTextColor,
     this.imagePath,
-    this.padding = const EdgeInsets.all(24),
-    this.margin = const EdgeInsets.all(24),
+    this.padding = const EdgeInsets.all(12),
+    this.margin = const EdgeInsets.all(12),
     required this.noImage,
   });
 
@@ -49,13 +49,13 @@ class InfoDialogBody extends StatelessWidget {
         color: Colors.transparent,
         child: Container(
           constraints: const BoxConstraints(
-            maxWidth: 340,
+            maxWidth: 346,
           ),
-          margin: margin ?? const EdgeInsets.all(24),
-          padding: padding ?? const EdgeInsets.all(24),
+          margin: margin ?? const EdgeInsets.all(26),
+          padding: padding ?? const EdgeInsets.all(26),
           decoration: BoxDecoration(
             color: backgroundColor ?? theme.dialogBackgroundColor,
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(16),
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -79,7 +79,7 @@ class InfoDialogBody extends StatelessWidget {
                         Text(
                           title ?? "",
                           style: TextStyle(
-                            fontSize: 24,
+                            fontSize: 23,
                             height: 1.2,
                             fontWeight: FontWeight.w600,
                             color: textColor ?? statusColor,
@@ -91,7 +91,7 @@ class InfoDialogBody extends StatelessWidget {
                         message,
                         style: TextStyle(
                           color: textColor ?? statusColor,
-                          height: 1.5,
+                          height: 1.6,
                           fontSize: 18,
                           fontWeight: FontWeight.w400,
                         ),

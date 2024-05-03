@@ -1,12 +1,8 @@
 import 'package:example/docs/buttons_docs.dart';
 import 'package:example/docs/picture_docs.dart';
-import 'package:example/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:widgets_easier/widgets_easier.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_highlight/flutter_highlight.dart';
-import 'package:flutter_highlight/themes/github.dart';
 import 'docs/animation_docs.dart';
 import 'docs/border_docs.dart';
 import 'docs/button_group_docs.dart';
@@ -18,8 +14,7 @@ import 'docs/slider_docs.dart';
 import 'theme_mode.dart';
 
 class HomeView extends StatefulWidget {
-  const HomeView({super.key, required this.title});
-  final String title;
+  const HomeView({super.key});
 
   @override
   State<HomeView> createState() => _HomeViewState();
@@ -31,7 +26,7 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text(widget.title),
+        title: const Text('Examples'),
         actions: [
           ValueListenableBuilder(
             valueListenable: themeMode,
@@ -76,7 +71,7 @@ class _HomeViewState extends State<HomeView> {
               Write.header1('4. 按钮组'),
               const ButtonGroupDocs(),
               Write.header1('5. 加减输入器'),
-              CounterInputDocs(),
+              const CounterInputDocs(),
               Write.header1('6. 指示器'),
               Write.header2('百分比指示器（水平）'),
               Write.paragraph('指示器'),
@@ -146,42 +141,3 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 }
-// Write.orderedList([
-//                 Write.listItem('111111', [
-//                   Write.listItem('item', [
-//                     const Text('text'),
-//                     Write.orderedList([
-//                       Write.listItem('sub-orderedList-item1'),
-//                       Write.listItem('sub-orderedList-item2'),
-//                       Write.listItem('sub-orderedList-item3', [
-//                         Write.orderedList([
-//                           Write.listItem('sub-sub-orderedList-item1'),
-//                           Write.listItem('sub-sub-orderedList-item2'),
-//                           Write.listItem('sub-sub-orderedList-item3', [
-//                             Write.unorderedList([
-//                               Write.listItem('sub-sub-sub-unorderedList-item1'),
-//                               Write.listItem(
-//                                   'sub-sub-sub-unorderedList-item2', [
-//                                 Write.unorderedList([
-//                                   Write.listItem(
-//                                       'Stir both mixtures together.'),
-//                                   Write.listItem('Fill muffin tray 3/4 full.'),
-//                                   Write.listItem('Bake for 20 minutes.'),
-//                                 ]),
-//                               ]),
-//                             ]),
-//                           ]),
-//                         ]),
-//                       ]),
-//                     ]),
-//                   ]),
-//                 ]),
-//                 Write.listItem('222222', [
-//                   Write.unorderedList([
-//                     Write.listItem('W6ER5F4'),
-//                     Write.listItem('w6e5rffvre'),
-//                     Write.image(source: 'source'),
-//                   ]),
-//                 ]),
-//                 Write.listItem('333333'),
-//               ]),

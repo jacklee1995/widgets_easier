@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 class ToastMessageWidget extends StatelessWidget {
   final String message;
   const ToastMessageWidget({
-    Key? key,
+    super.key,
     required this.message,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
