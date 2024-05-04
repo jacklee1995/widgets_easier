@@ -1,6 +1,5 @@
 import 'package:example/widgets/docs_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_highlight/flutter_highlight.dart';
 import 'package:flutter_highlight/themes/vs2015.dart';
 import 'package:gap/gap.dart';
@@ -40,12 +39,16 @@ class PictureDocs extends StatelessWidget {
         Write.header3('9.1.3 示例：网络SVG图片'),
         Container(
           color: Colors.blue,
+          width: 200,
+          height: 80,
           child: Picture(
+            width: 100,
+            height: 40,
+            alignment: Alignment.center,
             source:
                 'https://storage.googleapis.com/cms-storage-bucket/ec64036b4eacc9f3fd73.svg',
-            width: 200,
-            height: 80,
-            fit: BoxFit.contain,
+
+            // fit: BoxFit.contain,
           ),
         ),
         Write.header3('9.1.4 示例：普通资源图片'),

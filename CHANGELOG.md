@@ -10,7 +10,7 @@
 
 ButtonGroup Widget is a button combination based on **SemanticButton**.
 
-### Change
+### Changes
 - Added custom color and gradient color functionality to **SemanticButton**.
 - Added debugging information to **SemanticButton**.
 - Added the borderRadius property to **SemanticButton**, which is used to specify a finer border radius than the radius property.
@@ -22,11 +22,11 @@ CounterInput, which is a **Flutter** widget for numerical input and adjustment. 
 
 ## 0.0.4
 
-### Change
+### Changes
 
 A new `width` property has been added to the **SemanticButton** widget, which is used to forcibly limit the width of the component. If a specific value is specified for this property, the `shrink` property will not occupy the entire container width even if it is set to `false`.
 
-### Add
+### Added
 
 #### FutureDialogs
 
@@ -35,3 +35,12 @@ A new `width` property has been added to the **SemanticButton** widget, which is
 #### WinDialogs
 
 **WinDialogs** is a type of dialog that mimics the Windows style.
+
+
+## 0.0.5
+
+### Changes
+
+Fixes were made to the behavior of the `fit` and `alignment` properties of the Picture class. The constraints using BoxConstraints.expand() for images were removed. The method of size limitation was adjusted, as well as the arrangement within the parent container.
+
+### Added
