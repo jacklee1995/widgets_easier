@@ -44,3 +44,5 @@ A new `width` property has been added to the **SemanticButton** widget, which is
 Fixes were made to the behavior of the `fit` and `alignment` properties of the Picture class. The constraints using BoxConstraints.expand() for images were removed. The method of size limitation was adjusted, as well as the arrangement within the parent container.
 
 ### Added
+
+**NotifyToasts** class, which provides a simple and flexible way to display message notifications in your application. By customizing styles, animation effects and interactions, you can create message notifications that conform to the application design style.
