@@ -199,58 +199,72 @@ class Picture extends StatelessWidget {
       }
 
       return Picture._(
-        Opacity(
-          opacity: opacity,
-          child: SizedBox(
-            width: width,
-            height: height,
-            child: Stack(
-              children: [
-                ClipPath(
-                  clipper: clipper,
-                  child: ConstrainedBox(
-                    constraints: const BoxConstraints.expand(),
-                    child: FittedBox(
-                      fit: fit,
-                      alignment: alignment,
-                      child: imageWidget,
+        SizedBox(
+          width: width,
+          height: height,
+          child: width != null && height != null
+              ? Align(
+                  alignment: alignment,
+                  child: Opacity(
+                    opacity: opacity,
+                    child: Stack(
+                      children: [
+                        ClipPath(
+                          clipper: clipper,
+                          child: Container(
+                            child: imageWidget,
+                          ),
+                        ),
+                        if (clipper != null)
+                          CustomPaint(
+                            painter: _BorderPainter(
+                              shape: clipper.shape,
+                            ),
+                            child: SizedBox(
+                              width: width,
+                              height: height,
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
+                )
+              : FittedBox(
+                  fit: fit,
+                  alignment: alignment,
+                  child: Container(
+                    constraints: const BoxConstraints(
+                      minWidth: 1,
+                      minHeight: 1,
+                    ),
+                    child: Opacity(
+                      opacity: opacity,
+                      child: Stack(
+                        children: [
+                          ClipPath(
+                            clipper: clipper,
+                            child: Container(
+                              child: imageWidget,
+                            ),
+                          ),
+                          if (clipper != null)
+                            CustomPaint(
+                              painter: _BorderPainter(
+                                shape: clipper.shape,
+                              ),
+                              child: SizedBox(
+                                width: width,
+                                height: height,
+                              ),
+                            ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-                if (clipper != null)
-                  CustomPaint(
-                    painter: _BorderPainter(
-                      shape: clipper.shape,
-                    ),
-                    child: SizedBox(
-                      width: width,
-                      height: height,
-                    ),
-                  ),
-              ],
-            ),
-          ),
         ),
       );
-      // return Picture._(
-      //   ClipPath(
-      //     clipper: ShapeBorderClipper(
-      //         shape: border ?? const RoundedRectangleBorder()),
-      //     child: CustomPaint(
-      //       child: Container(
-      //         width: width,
-      //         height: height,
-      //         decoration: BoxDecoration(
-      //           color: Colors.transparent,
-      //           borderRadius: borderRadius,
-      //         ),
-      //         child: imageWidget,
-      //       ),
-      //     ),
-      //   ),
-      // );
     } catch (e, stackTrace) {
-      print('e ===================== $e');
       return Picture._(Builder(
         builder: (BuildContext context) {
           if (errorBuilder != null) {

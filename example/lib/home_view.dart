@@ -9,6 +9,7 @@ import 'docs/button_group_docs.dart';
 import 'docs/card_docs.dart';
 import 'docs/counter_input_docs.dart';
 import 'docs/dialog_docs.dart';
+import 'docs/notify_toast_docs.dart';
 import 'docs/shadow_docs.dart';
 import 'docs/slider_docs.dart';
 import 'theme_mode.dart';
@@ -24,7 +25,6 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text('Examples'),
         actions: [
@@ -134,6 +134,8 @@ class _HomeViewState extends State<HomeView> {
               const Gap(20),
               Write.header1('11. 弹窗'),
               const DialogDocs(),
+              Write.header1('12. 消息吐丝'),
+              const NotifyToastDocs(),
             ],
           ),
         ),
