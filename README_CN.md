@@ -2699,7 +2699,7 @@ Row(
 
 代码的运行效果如下：
 
-![example_qCE7P4gOkP](J:\widgets_easier\readme_pics\example_qCE7P4gOkP.gif)
+![example_qCE7P4gOkP](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_qCE7P4gOkP.gif)
 
 一条消息吐丝的默认时间为3s，你可以通过`duration`参数指定其时间。上面的示例中，**Bottom Left** 的被手动设置为1秒。
 
@@ -2789,7 +2789,7 @@ Row(
 
 代码的运行效果如下：
 
-![example_5MJrSKGAUZ](J:\widgets_easier\readme_pics\example_5MJrSKGAUZ.gif)
+![example_5MJrSKGAUZ](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_5MJrSKGAUZ.gif)
 
 需要指出的是，消息吐丝中的type不会默认为SemanticEnum.primary，如果没有指定，则不使用语义色彩。
 
@@ -2822,7 +2822,7 @@ SemanticButton(
 
 代码的运行效果如下：
 
-![example_N97sCnevj3](J:\widgets_easier\readme_pics\example_N97sCnevj3.gif)
+![example_N97sCnevj3](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_N97sCnevj3.gif)
 
 这个例子中，自定义了一个“Alarm”消息通知。通过title属性指定标题文本为Alarm；通过icon属性指定了一个Alarm图标。可以看到，即使我们指定了type，自定义的标题也会覆盖掉对应于type的默认标题。
 
@@ -2844,7 +2844,7 @@ SemanticButton(
 
 代码的运行效果如下：
 
-![example_0VkrqwD0V6](J:\widgets_easier\readme_pics\example_0VkrqwD0V6.gif)
+![example_0VkrqwD0V6](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_0VkrqwD0V6.gif)
 
 #### 8.4 自定义颜色
 
@@ -2867,7 +2867,7 @@ SemanticButton(
 
 代码的运行效果如下：
 
-![example_v5UtPLQkCx](J:\widgets_easier\readme_pics\example_v5UtPLQkCx.gif)
+![example_v5UtPLQkCx](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_v5UtPLQkCx.gif)
 
 #### 8.5 自定义动画
 
@@ -2891,7 +2891,7 @@ SemanticButton(
 
 代码的运行效果如下：
 
-![example_oRw9m9WFAl](J:\widgets_easier\readme_pics\example_oRw9m9WFAl.gif)
+![example_oRw9m9WFAl](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_oRw9m9WFAl.gif)
 
 需要注意的是，选择符合逻辑的动画能够让消息吐丝的进入和退出看起来更加自然。就比如这个例子中，`showTopRight`使用了`zoomInRight`动画，而不是`zoomInLeft`动画。
 
@@ -2920,7 +2920,7 @@ SemanticButton(
 
 代码的运行效果如下：
 
-![example_hLZFdhRnWm](J:\widgets_easier\readme_pics\example_hLZFdhRnWm.gif)
+![example_hLZFdhRnWm](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_hLZFdhRnWm.gif)
 
 #### 8.7 禁用自动移除
 
@@ -2943,7 +2943,7 @@ SemanticButton(
 
 代码的运行效果如下：
 
-![example_11BEIJRAt5](J:\widgets_easier\readme_pics\example_11BEIJRAt5.gif)
+![example_11BEIJRAt5](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_11BEIJRAt5.gif)
 
 如果禁用自动移除，不管showClose是否为false，都将启用关闭按钮图标。
 
@@ -2965,4 +2965,4 @@ SemanticButton(
 
 代码的运行效果如下：
 
-![example_s2AsI6WQKD](J:\widgets_easier\readme_pics\example_s2AsI6WQKD.gif)
+![example_s2AsI6WQKD](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_s2AsI6WQKD.gif)

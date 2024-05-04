@@ -2280,7 +2280,7 @@ The running result is as follows:
 
 ![example_XXgNIBMhxU](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_XXgNIBMhxU.gif)
 
-> 注：这里使用的`AnimateStyles.bounceIn`动画需要单独安装：
+> Note: The `AnimateStyles.bounceIn` animation used here needs to be installed separately.
 >
 > ```bash
 > flutter pub add flutter_easy_animations
@@ -2357,7 +2357,7 @@ class SuccessDialog extends StatelessWidget {
 }
 ```
 
-用于认证失败显示的内容：
+Content displayed for authentication failure:
 
 
 ```dart
@@ -2434,11 +2434,11 @@ class _LoginPageState extends State<LoginPage> {
   final LoginController loginManager = LoginController();
 
   void handleLogin(BuildContext context) {
-    // 从文本控制器获取用户名和密码
+    // Get the username and password from the text controller.
     final String username = usernameController.text;
     final String password = passwordController.text;
 
-    // 显示一个异步操作的对话框，这个对话框将在 simulateLogin 方法的 Future 完成后关闭
+    // Display a dialog for an asynchronous operation that will close after the Future of the `simulateLogin` method is completed.
     FutureDialogs.show<String>(
       context: context,
       futureCallback: () => loginManager.simulateLogin(username, password),
@@ -2449,9 +2449,9 @@ class _LoginPageState extends State<LoginPage> {
         return FailureDialog(data);
       },
     ).then((result) {
-      // 检查从 simulateLogin 返回的结果
+      // Check the result returned from simulateLogin.
       if (result != null && result['status'] == true) {
-        // 如果登录成功，导航到主页
+        // If login is successful, navigate to the home page.
         Navigator.pushReplacementNamed(context, '/login-success');
       }
     });
@@ -2499,7 +2499,7 @@ class _LoginPageState extends State<LoginPage> {
 }
 ```
 
-其中：
+ Where:
 
 ```dart
 FutureDialogs.show<String>(
@@ -2533,14 +2533,14 @@ class LoginController {
     String username,
     String password,
   ) async {
-    // 一般对于空密码等情况可以在客户端验证，以减少API请求
+    // Typically, for cases like empty passwords, client-side validation can be done to reduce API requests.
     if (username.isEmpty || password.isEmpty) {
       return {
         'status': false,
         'data': '账户名或密码不能为空',
       };
     }
-    // 模拟请求API返回结果，有可能成功也有可能失败
+    // Simulate the API request result, which could either succeed or fail.
     else if (username == 'jclee95' && password == '123456') {
       await Future.delayed(const Duration(seconds: 1));
       return {'status': true, 'data': '登录成功'};
@@ -2621,16 +2621,343 @@ class LoginSuccessView extends StatelessWidget {
 The appearance looks like this:
 
 1. Username and password are empty:
-![在这里插入图片描述](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/989b2405eaab4d629d9ce22c4a9a6a71.gif)
+![pic_discribles](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/989b2405eaab4d629d9ce22c4a9a6a71.gif)
 
 
 
 2. Incorrect password input:
 
-![在这里插入图片描述](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/9fc16728e2c740e39d3bd1f729a6dd7d.gif)
+![](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/9fc16728e2c740e39d3bd1f729a6dd7d.gif)
 3. Password authentication successful
 
-![在这里插入图片描述](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/296cf1829bb047448477db75ff560ed1.gif)
+![](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/296cf1829bb047448477db75ff560ed1.gif)
+
+### 8. Toast Messages
 
 
+The toast message component is inspired by Element-Plus's Notification and encapsulated in a way that is suitable for use in Flutter. It provides a simple and flexible way to display message notifications in your application. By customizing styles, animation effects, and interactions, you can create message notifications that align with your app's design style.
 
+#### 8.1 Basic Usage
+
+The toast message-related components are displayed using static methods provided by the `NotifyToasts` class. The `NotifyToasts` class has four static methods corresponding to displaying message notifications in four different positions:
+
+1. `showTopLeft`: Display message notification in the top-left corner of the screen.
+2. `showTopRight`: Display message notification in the top-right corner of the screen.
+3. `showBottomLeft`: Display message notification in the bottom-left corner of the screen.
+4. `showBottomRight`: Display message notification in the bottom-right corner of the screen.
+
+For example:
+
+```dart
+Row(
+  mainAxisAlignment: MainAxisAlignment.spaceAround,
+  children: [
+    SemanticButton(
+      onTap: () => NotifyToasts.showTopRight(
+        context,
+        title: 'TopRight',
+        message: 'Top Right Notification!',
+      ),
+      isOutlined: true,
+      text: 'Top Right',
+    ),
+    SemanticButton(
+      onTap: () => NotifyToasts.showTopLeft(
+        context,
+        title: 'TopLeft',
+        message: 'Top Left Notification!',
+      ),
+      isOutlined: true,
+      text: 'Top Left',
+    ),
+    SemanticButton(
+      onTap: () => NotifyToasts.showBottomRight(
+        context,
+        title: 'BottomRight',
+        message: 'Bottom Right Notification!',
+      ),
+      isOutlined: true,
+      text: 'Bottom Right',
+    ),
+    SemanticButton(
+      onTap: () => NotifyToasts.showBottomLeft(
+        context,
+        duration: const Duration(seconds: 1),
+        title: 'BottomLeft',
+        message: 'Bottom Left Notification!',
+      ),
+      isOutlined: true,
+      text: 'Bottom Left',
+    ),
+  ],
+),
+```
+
+The running effect of the code is as follows:
+
+![example_qCE7P4gOkP](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_qCE7P4gOkP.gif)
+
+Translate the document: The default duration for a toast message is 3 seconds, and you can specify the time using the `duration` parameter. In the example above, the **Bottom Left** toast is manually set to 1 second.
+
+#### 8.2 Semantic Types
+
+Each of the four static methods in NotifyToasts has a `type` property, which is an enumeration of SemanticEnum. You can set different semantic types by specifying values from the SemanticEnum. For example:
+
+```dart
+Row(
+  mainAxisAlignment: MainAxisAlignment.spaceAround,
+  children: [
+    SemanticButton(
+      type: SemanticEnum.primary,
+      onTap: () => NotifyToasts.showTopRight(
+        context,
+        type: SemanticEnum.primary,
+        message: 'Here are some messages.',
+      ),
+      isOutlined: true,
+      text: 'Primary',
+    ),
+    SemanticButton(
+      type: SemanticEnum.secondary,
+      onTap: () => NotifyToasts.showTopRight(
+        context,
+        type: SemanticEnum.secondary,
+        message: 'Here are some messages.',
+      ),
+      isOutlined: true,
+      text: 'Secondary',
+    ),
+    SemanticButton(
+      type: SemanticEnum.info,
+      onTap: () => NotifyToasts.showTopRight(
+        context,
+        type: SemanticEnum.info,
+        message: 'Here are some messages.',
+      ),
+      isOutlined: true,
+      text: 'Info',
+    ),
+    SemanticButton(
+      type: SemanticEnum.success,
+      onTap: () => NotifyToasts.showTopRight(
+        context,
+        type: SemanticEnum.success,
+        message: 'Here are some messages.',
+      ),
+      isOutlined: true,
+      text: 'Success',
+    ),
+    SemanticButton(
+      type: SemanticEnum.warning,
+      onTap: () => NotifyToasts.showTopRight(
+        context,
+        type: SemanticEnum.warning,
+        message: 'Here are some messages.',
+      ),
+      isOutlined: true,
+      text: 'Warning',
+    ),
+    SemanticButton(
+      type: SemanticEnum.danger,
+      onTap: () => NotifyToasts.showTopRight(
+        context,
+        type: SemanticEnum.danger,
+        message: 'Here are some messages.',
+      ),
+      isOutlined: true,
+      text: 'Danger',
+    ),
+    SemanticButton(
+      type: SemanticEnum.fatal,
+      onTap: () => NotifyToasts.showTopRight(
+        context,
+        type: SemanticEnum.fatal,
+        message: 'Here are some messages.',
+      ),
+      isOutlined: true,
+      text: 'Fatal',
+    ),
+  ],
+)
+```
+
+The running effect of the code is as follows:
+
+![example_5MJrSKGAUZ](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_5MJrSKGAUZ.gif)
+
+It should be noted that the `type` in toast messages will not default to `SemanticEnum.primary`; if not specified, semantic colors will not be used.
+
+#### 8.3 Custom Images and Titles
+
+If a non-empty `type` value is specified, you do not need to specify icons and titles as there are default icons and titles. However, you can still customize them if needed, for example:
+
+```dart
+SemanticButton(
+  shrink: true,
+  prefixIcon: const Icon(
+    Icons.access_alarms,
+    color: Color.fromARGB(255, 125, 8, 0),
+  ),
+  type: SemanticEnum.danger,
+  onTap: () => NotifyToasts.showTopRight(
+    context,
+    title: 'Alarm',
+    icon: const Icon(
+      Icons.access_alarms,
+      color: Color.fromARGB(255, 125, 8, 0),
+    ),
+    type: SemanticEnum.danger,
+    message: 'Here are some messages.',
+  ),
+  isOutlined: true,
+  text: 'Alarm',
+)
+```
+
+The running effect of the code is as follows:
+
+![example_N97sCnevj3](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_N97sCnevj3.gif)
+
+In this example, a custom "Alarm" message notification is defined. The title text is set to "Alarm" using the `title` property, and an Alarm icon is specified using the `icon` property. It can be observed that even if a `type` is specified, the custom title will override the default title associated with the type.
+
+Additionally, it is worth noting that the icon here does not necessarily have to be of type `Icon`; it can be any widget. This provides developers with greater flexibility in usage, such as using an image:
+
+```dart
+SemanticButton(
+  shrink: true,
+  onTap: () => NotifyToasts.showTopRight(
+    context,
+    title: 'Jack Lee',
+    icon: Picture(source: 'assets/jclee95.png'),
+    message: 'JackLee, the author of this library, is a good boy.',
+  ),
+  isOutlined: true,
+  text: 'Jack Lee',
+)
+```
+
+The running effect of the code is as follows:
+
+![example_0VkrqwD0V6](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_0VkrqwD0V6.gif)
+
+#### 8.4 Custom Colors
+
+You can customize the colors of notification messages. For example:
+
+```dart
+SemanticButton(
+  shrink: true,
+  color: Colors.amber,
+  onTap: () => NotifyToasts.showTopRight(
+    context,
+    color: Colors.amber,
+    title: 'Custom color',
+    message: 'The currently defined color is Colors.amber.',
+  ),
+  isOutlined: true,
+  text: 'Custom color',
+)
+```
+
+The running effect of the code is as follows:
+
+![example_v5UtPLQkCx](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_v5UtPLQkCx.gif)
+
+#### 8.5 Custom Animation
+
+You can customize animations, but it is still recommended to use the pre-built animation effects from the `flutter_easy_animations` library that comes with the **Widgets Easier** component library. By default, the `showTopRight` and `showBottomRight` methods in **NotifyToasts** use the **AnimateStyles.slideInRight** animation effect, while the `showTopLeft` and `showBottomLeft` methods use the **AnimateStyles.slideInLeft** animation effect.
+
+
+You can specify the animation effect by using the `animationEffect` parameter in any of the static methods in **NotifyToasts**. For example:
+
+```dart
+SemanticButton(
+  shrink: true,
+  onTap: () => NotifyToasts.showTopRight(
+    context,
+    animationEffect: AnimateStyles.zoomInRight,
+    title: 'Custom Animation',
+    message: 'Use AnimateStyles.zoomInRight animation effect.',
+  ),
+  isOutlined: true,
+  text: 'AnimateStyles.zoomInRight',
+)
+```
+
+The running effect of the code is as follows:
+
+![example_oRw9m9WFAl](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_oRw9m9WFAl.gif)
+
+Please note that choosing appropriate animations can make the entry and exit of toast messages look more natural. For example, in this case, `showTopRight` uses the `zoomInRight` animation instead of the `zoomInLeft` animation.
+
+Additionally, if needed, you can specify the animation duration using the `animationDuration` parameter. If not specified, the default duration of `300` milliseconds is used.
+
+
+#### 8.6 Close Button
+
+
+By default, each toast message includes a close button. If you do not want to display the close button, you can set the value of the `showClose` attribute to `false`. For example:
+
+```dart
+SemanticButton(
+  shrink: true,
+  onTap: () => NotifyToasts.showTopRight(
+    context,
+    title: 'close icon button',
+    showClose: false,
+    message:
+        'You can disable the close icon button by specifying the value of the showClose property as flase.',
+  ),
+  isOutlined: true,
+  text: 'close icon button',
+)
+```
+
+The running effect of the code is as follows:
+
+![example_hLZFdhRnWm](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_hLZFdhRnWm.gif)
+
+#### 8.7 Disable Auto Removal
+
+By default, toast messages are automatically removed once the specified time is reached. However, if you set `autoClose` to `false`, you will need to manually click the close button. For example:
+
+```dart
+SemanticButton(
+  shrink: true,
+  onTap: () => NotifyToasts.showTopRight(
+    context,
+    title: 'Jack Lee',
+    autoClose: false,
+    icon: Picture(source: 'assets/jclee95.png'),
+    message: 'JackLee, the author of this library, is a good boy.',
+  ),
+  isOutlined: true,
+  text: 'Jack Lee',
+)
+```
+
+The running effect of the code is as follows:
+
+![example_11BEIJRAt5](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_11BEIJRAt5.gif)
+
+If auto removal is disabled, the close button icon will be enabled regardless of whether `showClose` is set to `false`.
+
+#### 8.8 Click Event
+
+```dart
+SemanticButton(
+  shrink: true,
+  onTap: () => NotifyToasts.showTopRight(
+    context,
+    autoClose: false,
+    title: 'Click Login',
+    message: 'Click the message toast to jump to the login page.',
+    onTap: () => Navigator.of(context).pushNamed('/login'),
+  ),
+  text: 'OnTap Callback',
+)
+```
+
+The running effect of the code is as follows:
+
+![example_s2AsI6WQKD](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_s2AsI6WQKD.gif)
