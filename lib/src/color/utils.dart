@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../widgets_easier.dart';
+import '../enums/semantic_enum.dart';
+import 'semantic_color.dart';
 
 Color findStatusColor(SemanticEnum dialogType) {
   switch (dialogType) {
