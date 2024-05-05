@@ -1,245 +1,127 @@
 import 'dart:async';
-import 'package:flutter/material.dart';
 
-import '../../color/utils.dart';
-import '../../enums/semantic_enum.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_easy_animations/flutter_easy_animations.dart';
+import '../../types.dart';
+
+enum TipToastPosition {
+  top,
+  center,
+  bottom,
+}
 
 class TipToasts {
-  static OverlayEntry? _overlayEntry;
-
-  /// 在屏幕中央显示提示吐司
-  static void showCenter(
-    BuildContext context, {
-    required String message,
-    Duration duration = const Duration(seconds: 2),
-    Duration animationDuration = const Duration(milliseconds: 300),
-    AnimatedWidget Function(Listenable, Widget?)? animationEffect,
-    SemanticEnum? type,
-    double? width,
-    TextStyle? messageStyle,
+  static void toCenter(
+    BuildContext context,
+    String message, {
+    double opacity = 0.7,
+    Color backgroundColor = Colors.black,
+    TextStyle textStyle = const TextStyle(color: Colors.white, fontSize: 16),
+    double maxWidth = 200,
   }) {
-    if (animationEffect != null) {
-      _showByAnimation(
-        context,
+    showOverlay(
+      context,
+      _CenterToast(
         message: message,
-        duration: duration,
-        animationDuration: animationDuration,
-        position: TipToastPosition.center,
-        animationEffect: animationEffect,
-        type: type,
-        width: width,
-        messageStyle: messageStyle,
-      );
-    } else {
-      _show(
-        context,
-        message: message,
-        duration: duration,
-        position: TipToastPosition.center,
-        type: type,
-        width: width,
-        messageStyle: messageStyle,
-      );
-    }
-  }
-
-  /// 在屏幕顶部显示提示吐司
-  static void showTop(
-    BuildContext context, {
-    required String message,
-    Duration duration = const Duration(seconds: 2),
-    Duration animationDuration = const Duration(milliseconds: 300),
-    AnimatedWidget Function(Listenable, Widget?)? animationEffect,
-    SemanticEnum? type,
-    double? width,
-    TextStyle? messageStyle,
-    double topOffset = 80,
-  }) {
-    if (animationEffect != null) {
-      _showByAnimation(
-        context,
-        message: message,
-        duration: duration,
-        animationDuration: animationDuration,
-        position: TipToastPosition.top,
-        animationEffect: animationEffect,
-        type: type,
-        width: width,
-        messageStyle: messageStyle,
-        topOffset: topOffset,
-      );
-    } else {
-      _show(
-        context,
-        message: message,
-        duration: duration,
-        position: TipToastPosition.top,
-        type: type,
-        width: width,
-        messageStyle: messageStyle,
-        topOffset: topOffset,
-      );
-    }
-  }
-
-  /// 在屏幕底部显示提示吐司
-  static void showBottom(
-    BuildContext context, {
-    required String message,
-    Duration duration = const Duration(seconds: 2),
-    Duration animationDuration = const Duration(milliseconds: 300),
-    AnimatedWidget Function(Listenable, Widget?)? animationEffect,
-    SemanticEnum? type,
-    double? width,
-    TextStyle? messageStyle,
-    double bottomOffset = 80,
-  }) {
-    if (animationEffect != null) {
-      _showByAnimation(
-        context,
-        message: message,
-        duration: duration,
-        animationDuration: animationDuration,
-        position: TipToastPosition.bottom,
-        animationEffect: animationEffect,
-        type: type,
-        width: width,
-        messageStyle: messageStyle,
-        bottomOffset: bottomOffset,
-      );
-    } else {
-      _show(
-        context,
-        message: message,
-        duration: duration,
-        position: TipToastPosition.bottom,
-        type: type,
-        width: width,
-        messageStyle: messageStyle,
-        bottomOffset: bottomOffset,
-      );
-    }
-  }
-
-  static void _show(
-    BuildContext context, {
-    required String message,
-    required Duration duration,
-    required TipToastPosition position,
-    SemanticEnum? type,
-    double? width,
-    TextStyle? messageStyle,
-    double topOffset = 0,
-    double bottomOffset = 0,
-  }) {
-    _overlayEntry?.remove();
-
-    _overlayEntry = OverlayEntry(
-      builder: (context) => TipToast(
-        message: message,
-        duration: duration,
-        animationDuration: Duration.zero,
-        position: position,
-        animationEffect: (listenable, _) => AnimatedBuilder(
-          animation: listenable as Listenable,
-          builder: (context, child) => child!,
-          child: const SizedBox.shrink(),
-        ),
-        type: type,
-        width: width,
-        messageStyle: messageStyle,
-        topOffset: topOffset,
-        bottomOffset: bottomOffset,
+        opacity: opacity,
+        backgroundColor: backgroundColor,
+        textStyle: textStyle,
+        maxWidth: maxWidth,
       ),
+      AnimateStyles.fadeIn,
+    );
+  }
+
+  static void toTop(
+    BuildContext context,
+    String message, {
+    double offset = 100,
+    double opacity = 0.7,
+    Color backgroundColor = Colors.black,
+    TextStyle textStyle = const TextStyle(color: Colors.white, fontSize: 16),
+    double maxWidth = 200,
+  }) {
+    showOverlay(
+      context,
+      _TopToast(
+        message: message,
+        offset: offset,
+        opacity: opacity,
+        backgroundColor: backgroundColor,
+        textStyle: textStyle,
+        maxWidth: maxWidth,
+      ),
+      AnimateStyles.slideInDown,
+    );
+  }
+
+  static void toBottom(
+    BuildContext context,
+    String message, {
+    double offset = 100,
+    double opacity = 0.7,
+    Color backgroundColor = Colors.black,
+    TextStyle textStyle = const TextStyle(color: Colors.white, fontSize: 16),
+    double maxWidth = 200,
+  }) {
+    showOverlay(
+      context,
+      _BottomToast(
+        message: message,
+        offset: offset,
+        opacity: opacity,
+        backgroundColor: backgroundColor,
+        textStyle: textStyle,
+        maxWidth: maxWidth,
+      ),
+      AnimateStyles.slideInUp,
+    );
+  }
+
+  static void showOverlay(
+    BuildContext context,
+    Widget overlay,
+    TransitionFunction animationBuilder,
+  ) {
+    final overlayState = Overlay.of(context);
+    final overlayEntry = OverlayEntry(
+      builder: (context) =>
+          _ToastOverlay(animationBuilder: animationBuilder, child: overlay),
     );
 
-    Overlay.of(context).insert(_overlayEntry!);
+    overlayState.insert(overlayEntry);
 
-    Timer(duration, () {
-      _overlayEntry?.remove();
-      _overlayEntry = null;
-    });
-  }
-
-  static void _showByAnimation(
-    BuildContext context, {
-    required String message,
-    required Duration duration,
-    required Duration animationDuration,
-    required TipToastPosition position,
-    required AnimatedWidget Function(Listenable, Widget?) animationEffect,
-    SemanticEnum? type,
-    double? width,
-    TextStyle? messageStyle,
-    double topOffset = 0,
-    double bottomOffset = 0,
-  }) {
-    _overlayEntry?.remove();
-
-    _overlayEntry = OverlayEntry(
-      builder: (context) => TipToast(
-        message: message,
-        duration: duration,
-        animationDuration: animationDuration,
-        position: position,
-        animationEffect: animationEffect,
-        type: type,
-        width: width,
-        messageStyle: messageStyle,
-        topOffset: topOffset,
-        bottomOffset: bottomOffset,
-      ),
-    );
-
-    Overlay.of(context).insert(_overlayEntry!);
-
-    Timer(duration, () {
-      _overlayEntry?.remove();
-      _overlayEntry = null;
+    Future.delayed(const Duration(seconds: 1), () {
+      overlayEntry.remove();
     });
   }
 }
 
-class TipToast extends StatefulWidget {
-  final String message;
-  final Duration duration;
-  final Duration animationDuration;
-  final TipToastPosition position;
-  final AnimatedWidget Function(Listenable, Widget?) animationEffect;
-  final SemanticEnum? type;
-  final double? width;
-  final TextStyle? messageStyle;
-  final double topOffset;
-  final double bottomOffset;
+class _ToastOverlay extends StatefulWidget {
+  final Widget child;
+  final TransitionFunction animationBuilder;
 
-  const TipToast({
-    super.key,
-    required this.message,
-    required this.duration,
-    required this.animationDuration,
-    required this.position,
-    required this.animationEffect,
-    this.type,
-    this.width,
-    this.messageStyle,
-    this.topOffset = 0,
-    this.bottomOffset = 0,
-  });
+  const _ToastOverlay({required this.child, required this.animationBuilder});
 
   @override
-  State<TipToast> createState() => _TipToastState();
+  _ToastOverlayState createState() => _ToastOverlayState();
 }
 
-class _TipToastState extends State<TipToast>
+class _ToastOverlayState extends State<_ToastOverlay>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
+  late Animation<double> _animation;
 
   @override
   void initState() {
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: widget.animationDuration,
+      duration: const Duration(milliseconds: 300),
+    );
+    _animation = CurvedAnimation(
+      parent: _animationController,
+      curve: Curves.easeOut,
     );
     _animationController.forward();
   }
@@ -252,45 +134,88 @@ class _TipToastState extends State<TipToast>
 
   @override
   Widget build(BuildContext context) {
-    final backgroundColor = widget.type != null
-        ? findStatusColor(widget.type!).withOpacity(0.8)
-        : Colors.black.withOpacity(0.8);
-    final textColor =
-        widget.type != null ? findStatusColor(widget.type!) : Colors.white;
+    return widget.animationBuilder(_animation, widget.child);
+  }
+}
 
-    return Positioned(
-      top: widget.position == TipToastPosition.top ? widget.topOffset : null,
-      bottom: widget.position == TipToastPosition.bottom
-          ? widget.bottomOffset
-          : null,
-      left: 0,
-      right: 0,
+class _CenterToast extends StatelessWidget {
+  final String message;
+  final double opacity;
+  final Color backgroundColor;
+  final TextStyle textStyle;
+  final double maxWidth;
+
+  const _CenterToast({
+    required this.message,
+    required this.opacity,
+    required this.backgroundColor,
+    required this.textStyle,
+    required this.maxWidth,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.transparent,
       child: Center(
-        child: widget.animationEffect(
-          _animationController,
-          Material(
-            color: Colors.transparent,
-            child: Container(
-              constraints: BoxConstraints(
-                maxWidth: widget.width ?? 200,
-              ),
-              padding: const EdgeInsets.symmetric(
-                horizontal: 24,
-                vertical: 12,
-              ),
-              decoration: BoxDecoration(
-                color: backgroundColor,
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Text(
-                widget.message,
-                textAlign: TextAlign.center,
-                style: widget.messageStyle ??
-                    TextStyle(
-                      color: textColor,
-                      fontSize: 16,
-                    ),
-              ),
+        child: Container(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 24,
+            vertical: 12,
+          ),
+          constraints: BoxConstraints(maxWidth: maxWidth),
+          decoration: BoxDecoration(
+            color: backgroundColor.withOpacity(opacity),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Text(
+            message,
+            style: textStyle,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _TopToast extends StatelessWidget {
+  final String message;
+  final double offset;
+  final double opacity;
+  final Color backgroundColor;
+  final TextStyle textStyle;
+  final double maxWidth;
+
+  const _TopToast({
+    required this.message,
+    required this.offset,
+    required this.opacity,
+    required this.backgroundColor,
+    required this.textStyle,
+    required this.maxWidth,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.transparent,
+      child: Align(
+        alignment: Alignment.topCenter,
+        child: Padding(
+          padding: EdgeInsets.only(top: offset),
+          child: Container(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 24,
+              vertical: 12,
+            ),
+            constraints: BoxConstraints(maxWidth: maxWidth),
+            decoration: BoxDecoration(
+              color: backgroundColor.withOpacity(opacity),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Text(
+              message,
+              style: textStyle,
             ),
           ),
         ),
@@ -299,8 +224,48 @@ class _TipToastState extends State<TipToast>
   }
 }
 
-enum TipToastPosition {
-  top,
-  center,
-  bottom,
+class _BottomToast extends StatelessWidget {
+  final String message;
+  final double offset;
+  final double opacity;
+  final Color backgroundColor;
+  final TextStyle textStyle;
+  final double maxWidth;
+
+  const _BottomToast({
+    required this.message,
+    required this.offset,
+    required this.opacity,
+    required this.backgroundColor,
+    required this.textStyle,
+    required this.maxWidth,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.transparent,
+      child: Align(
+        alignment: Alignment.bottomCenter,
+        child: Padding(
+          padding: EdgeInsets.only(bottom: offset),
+          child: Container(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 24,
+              vertical: 12,
+            ),
+            constraints: BoxConstraints(maxWidth: maxWidth),
+            decoration: BoxDecoration(
+              color: backgroundColor.withOpacity(opacity),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Text(
+              message,
+              style: textStyle,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }

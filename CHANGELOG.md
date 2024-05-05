@@ -46,3 +46,11 @@ Fixes were made to the behavior of the `fit` and `alignment` properties of the P
 ### Added
 
 **NotifyToasts** class, which provides a simple and flexible way to display message notifications in your application. By customizing styles, animation effects and interactions, you can create message notifications that conform to the application design style.
+
+
+## 0.0.6
+
+
+### Added 
+
+**TipToasts** class, which is a utility class  used to display temporary notifications or messages in Flutter. It can show custom toast messages at the top, center, or bottom of the screen that automatically disappear after a certain period of time. These types of notifications are commonly referred to as "toast" messages, originating from a similar concept in Android development.

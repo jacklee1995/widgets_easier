@@ -12,6 +12,7 @@ import 'docs/dialog_docs.dart';
 import 'docs/notify_toast_docs.dart';
 import 'docs/shadow_docs.dart';
 import 'docs/slider_docs.dart';
+import 'docs/tip_toast_docs.dart';
 import 'theme_mode.dart';
 
 class HomeView extends StatefulWidget {
@@ -75,53 +76,6 @@ class _HomeViewState extends State<HomeView> {
               Write.header1('6. 指示器'),
               Write.header2('百分比指示器（水平）'),
               Write.paragraph('指示器'),
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: PercentIndicator(
-                  value: 0.7,
-                  valueIndicator: '@P%',
-                  type: SemanticEnum.primary,
-                  // size: SizeEnum.defaultSize,
-                  startRadius: 5,
-                  endRadius: 15,
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: PercentIndicator(
-                  value: 0.5,
-                  type: SemanticEnum.success,
-                  size: SizeEnum.large,
-                  height: 20,
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: PercentIndicator(
-                  value: 0.3,
-                  type: SemanticEnum.warning,
-                  size: SizeEnum.small,
-                  height: 5,
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: PercentIndicator(
-                  value: 0.8,
-                  type: SemanticEnum.danger,
-                  size: SizeEnum.large,
-                  height: 20,
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: PercentIndicator(
-                  value: null, // Indeterminate
-                  type: SemanticEnum.info,
-                  size: SizeEnum.defaultSize,
-                  height: 10,
-                ),
-              ),
               Write.header2('百分比指示器（环形）'),
               Write.header1('7. 滑动器'),
               const SliderDocs(),
@@ -136,6 +90,8 @@ class _HomeViewState extends State<HomeView> {
               const DialogDocs(),
               Write.header1('12. 消息吐丝'),
               const NotifyToastDocs(),
+              Write.header1('13. 提示吐丝'),
+              const TipToastDocs(),
             ],
           ),
         ),

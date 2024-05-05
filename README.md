@@ -2961,3 +2961,14 @@ SemanticButton(
 The running effect of the code is as follows:
 
 ![example_s2AsI6WQKD](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_s2AsI6WQKD.gif)
+
+
+
+
+
+
+
+### Issues Report
+
+You can provide feedback or report [issues](https://github.com/jacklee1995/widgets_easier/issues) on this project's GitHub. If you feel that this library is missing a feature, please create a feature request. Pull requests are also welcome.
+
