@@ -1,7 +1,5 @@
-import 'dart:ui' as ui;
 import 'package:example/widgets/docs_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:widgets_easier/widgets_easier.dart';
 
 class SliderDocs extends StatefulWidget {
@@ -20,7 +18,6 @@ class SliderDocsState extends State<SliderDocs> {
   double _value6 = 0.3;
   double _value7 = 0.6;
   double _value8 = 0.4;
-  double _value9 = 0.5;
   @override
   Widget build(BuildContext context) {
     return DocsWidget(
