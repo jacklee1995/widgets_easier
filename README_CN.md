@@ -3012,7 +3012,7 @@ SemanticButton(
 )
 ```
 
-![example_JskzbjcvBA](J:\widgets_easier\readme_pics\example_JskzbjcvBA.gif)
+![example_JskzbjcvBA](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_JskzbjcvBA.gif)
 
 
 
@@ -3043,7 +3043,7 @@ SemanticButton(
 )
 ```
 
-![example_NznGSg2hm0](J:\widgets_easier\readme_pics\example_NznGSg2hm0.gif)
+![example_NznGSg2hm0](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_NznGSg2hm0.gif)
 
 
 
@@ -3075,4 +3075,4 @@ SemanticButton(
 )
 ```
 
-![example_hbHZoFAO8O](J:\widgets_easier\readme_pics\example_hbHZoFAO8O.gif)
+![example_hbHZoFAO8O](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_hbHZoFAO8O.gif)

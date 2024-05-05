@@ -2966,9 +2966,117 @@ The running effect of the code is as follows:
 
 
 
+### 9.1 Introduction to TipToasts Tool
+
+TipToasts is a utility class used to display toast messages in Flutter applications, serving as a simple form of toast. It offers a straightforward and flexible way to display brief messages at different positions on the screen, supporting custom animation effects and styles. TipToasts are suitable for various scenarios requiring simple informative prompts:
+
+1. Displaying messages indicating successful or failed operations.
+2. Providing notifications or warnings to users.
+3. Providing feedback to users after specific actions.
+4. Displaying temporary status information.
+
+TipToasts provide several static methods for displaying toast messages, namely `toCenter`, `toTop`, and `toBottom`.
+
+### 9.2 `toCenter` Method
+
+```dart
+static void toCenter(
+  BuildContext context,
+  String message, {
+  double opacity = 0.7,
+  Color backgroundColor = Colors.black,
+  TextStyle textStyle = const TextStyle(color: Colors.white, fontSize: 16),
+  double maxWidth = double.infinity,
+})
+```
+
+The `toCenter` method is a static method used to display toast messages at the center of the screen, with the following parameters:
+
+- `context`: The build context.
+- `message`: The text message to display.
+- `opacity`: The opacity of the background, default is 0.7.
+- `backgroundColor`: The background color, default is black.
+- `textStyle`: The text style, default is white text with a font size of 16.
+- `messageStyle`: The style of the message text.
+- `maxWidth`: The maximum width of the toast message, default is 200.
+
+For example:
+
+```dart
+SemanticButton(
+  shrink: true,
+  text: 'toCenter',
+  onTap: () => TipToasts.toCenter(context, 'toCenter'),
+)
+```
+
+![example_JskzbjcvBA](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_JskzbjcvBA.gif)
+
+#### 9.3 toTop Method
+
+This method is used to display a prompt message at the top of the screen, with the option to specify a vertical offset.
+
+```dart
+static void toTop(
+  BuildContext context,
+  String message, {
+  double offset = 100,
+  double opacity = 0.7,
+  Color backgroundColor = Colors.black,
+  TextStyle textStyle = const TextStyle(color: Colors.white, fontSize: 16),
+  double maxWidth = double.infinity,
+})
+```
+
+Where the parameter `offset` represents the vertical offset from the top of the screen, defaulting to 100. Other parameters are the same as the `toCenter` method.
+
+For example:
+
+```dart
+SemanticButton(
+  shrink: true,
+  text: 'toTop',
+  onTap: () => TipToasts.toTop(context, 'toTop'),
+)
+```
+
+![example_NznGSg2hm0](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_NznGSg2hm0.gif)
 
 
-### Issues Report
+
+#### 9.4 toBottom Method
+
+This method is used to display a prompt message at the bottom of the screen, with the option to specify a vertical offset.
+
+```dart
+static void toBottom(
+  BuildContext context,
+  String message, {
+  double offset = 100,
+  double opacity = 0.7,
+  Color backgroundColor = Colors.black,
+  TextStyle textStyle = const TextStyle(color: Colors.white, fontSize: 16),
+  double maxWidth = double.infinity,
+})
+```
+
+Where the parameter `offset` represents the vertical offset from the bottom of the screen, defaulting to 100. 
+
+For example:
+
+```dart
+SemanticButton(
+  shrink: true,
+  text: 'toBottom',
+  onTap: () => TipToasts.toBottom(context, 'toBottom'),
+)
+```
+
+![example_hbHZoFAO8O](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_hbHZoFAO8O.gif)
+
+
+
+###  Issues Report
 
 You can provide feedback or report [issues](https://github.com/jacklee1995/widgets_easier/issues) on this project's GitHub. If you feel that this library is missing a feature, please create a feature request. Pull requests are also welcome.
 
