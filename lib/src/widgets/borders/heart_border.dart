@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'dart:ui' as ui;
 
 class HeartBorder extends ShapeBorder {
   final double size;
   final double strokeWidth;
   final Color strokeColor;
 
-  HeartBorder({
+  const HeartBorder({
     required this.size,
     this.strokeWidth = 2.0,
     this.strokeColor = Colors.black,
@@ -23,8 +22,6 @@ class HeartBorder extends ShapeBorder {
   @override
   Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
     final path = Path();
-    final double width = rect.width;
-    final double height = rect.height;
     final double centerX = rect.center.dx;
     final double centerY = rect.center.dy;
     final double scale = size / 883.15;

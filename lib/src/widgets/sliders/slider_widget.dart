@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
+// import 'package:flutter/services.dart';
 import 'package:widgets_easier/src/widgets/sliders/image_slider_thumb_shape.dart';
 
 import 'slider_input_widget.dart';

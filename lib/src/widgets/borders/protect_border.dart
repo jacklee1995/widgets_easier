@@ -278,7 +278,7 @@ class ProtectBorder extends ShapeBorder {
   }
 
   @override
-  int get hashCode => hashValues(strokeWidth, strokeColor, gradient);
+  int get hashCode => Object.hash(strokeWidth, strokeColor, gradient);
 
   @override
   String toString() {

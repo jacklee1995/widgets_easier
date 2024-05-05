@@ -1150,7 +1150,6 @@ SemanticButton(
 
 ### 4. 按钮组
 
-
 Widgets Easier组件库中的按钮组是多个SemanticButton的集合，他们具有统一的语义，并且以紧密的方式进行排列。
 
 #### 4.1 在ButtonGroup中组合SemanticButton
@@ -1376,7 +1375,13 @@ ButtonGroup(
 
 
 
-### 5. 加减器
+
+### 5. 标签
+
+
+
+
+### 6. 加减器
 
 #### 5.1 加减器组件简介
 
@@ -1677,7 +1682,8 @@ flutter: oldValue is 2.0, newValue is 1.0
 flutter: oldValue is 1.0, newValue is 0.0
 ```
 
-### 6. 动画
+
+### 7. 动画
 
 动画相关工具被单独封装在`flutter_easy_animations`库中，需要独立进行安装：
 
@@ -1689,7 +1695,7 @@ flutter pub add flutter_easy_animations
 
 
 
-### 7. 弹窗
+### 8. 弹窗
 
 #### InfoDialogs
 
@@ -2637,7 +2643,7 @@ class LoginSuccessView extends StatelessWidget {
 
 ![在这里插入图片描述](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/296cf1829bb047448477db75ff560ed1.gif)
 
-### 8. 消息吐丝
+### 9. 消息吐丝
 
 消息吐丝组件受到Element-Plus的Notification启发，并以一种适合于在Flutter上使用的方式进行封装。它提供了一种简单而灵活的方式来在你的应用中显示消息通知。通过自定义样式、动画效果和交互，你可以创建出符合应用设计风格的消息通知。
 
@@ -2967,7 +2973,7 @@ SemanticButton(
 
 ![example_s2AsI6WQKD](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_s2AsI6WQKD.gif)
 
-### 9. 提示吐丝
+### 10. 提示吐丝
 
 #### 9.1 TipToasts工具简介
 
@@ -3076,3 +3082,20 @@ SemanticButton(
 ```
 
 ![example_hbHZoFAO8O](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_hbHZoFAO8O.gif)
+
+
+### 11. 底部弹窗
+
+### 12. 抽屉
+
+
+###  Issues Report
+
+You can provide feedback or report [issues](https://github.com/jacklee1995/widgets_easier/issues) on this project's GitHub. If you feel that this library is missing a feature, please create a feature request. Pull requests are also welcome.
+
+
+
+
+
+
+
