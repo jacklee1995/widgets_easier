@@ -400,7 +400,7 @@ class CounterInputDocs extends StatelessWidget {
         const Gap(20),
         CounterInput(
           onValueChanged: (oldValue, newValue) {
-            print('oldValue is $oldValue, newValue is $newValue');
+            debugPrint('oldValue is $oldValue, newValue is $newValue');
           },
         ),
         const Gap(20),

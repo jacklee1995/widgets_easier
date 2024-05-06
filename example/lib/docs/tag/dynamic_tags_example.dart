@@ -34,7 +34,7 @@ class _DynamicTagsExampleState extends State<DynamicTagsExample> {
       children: [
         for (int index = 0; index < _tags.length; index++)
           Tag(
-            // key: UniqueKey(),
+            key: UniqueKey(),
             _tags[index],
             type: SemanticEnum.primary,
             theme: TagThemeEnum.light,

@@ -584,7 +584,7 @@ class ButtonDocs extends StatelessWidget {
                   Colors.orange,
                 ],
               ),
-              onTap: () => print('Gradient1'),
+              onTap: () => debugPrint('Gradient1'),
             ),
             const Gap(1),
             SemanticButton(
@@ -600,7 +600,7 @@ class ButtonDocs extends StatelessWidget {
                   Colors.red,
                 ],
               ),
-              onTap: () => print('Gradient2'),
+              onTap: () => debugPrint('Gradient2'),
             ),
           ],
         ),

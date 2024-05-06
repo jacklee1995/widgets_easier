@@ -24,13 +24,13 @@ class ButtonGroupDocs extends StatelessWidget {
               '''ButtonGroup(
   buttons: [
     SemanticButton(
-        text: 'Button 1', onTap: () => print('Button 1 pressed')),
+        text: 'Button 1', onTap: () => debugPrint('Button 1 pressed')),
     SemanticButton(
-        text: 'Button 2', onTap: () => print('Button 2 pressed')),
+        text: 'Button 2', onTap: () => debugPrint('Button 2 pressed')),
     SemanticButton(
-        text: 'Button 3', onTap: () => print('Button 3 pressed')),
+        text: 'Button 3', onTap: () => debugPrint('Button 3 pressed')),
     SemanticButton(
-        text: 'Button 4', onTap: () => print('Button 4 pressed')),
+        text: 'Button 4', onTap: () => debugPrint('Button 4 pressed')),
   ],
 )''',
               language: 'dart',
@@ -41,13 +41,17 @@ class ButtonGroupDocs extends StatelessWidget {
             ButtonGroup(
               buttons: [
                 SemanticButton(
-                    text: 'Button 1', onTap: () => print('Button 1 pressed')),
+                    text: 'Button 1',
+                    onTap: () => debugPrint('Button 1 pressed')),
                 SemanticButton(
-                    text: 'Button 2', onTap: () => print('Button 2 pressed')),
+                    text: 'Button 2',
+                    onTap: () => debugPrint('Button 2 pressed')),
                 SemanticButton(
-                    text: 'Button 3', onTap: () => print('Button 3 pressed')),
+                    text: 'Button 3',
+                    onTap: () => debugPrint('Button 3 pressed')),
                 SemanticButton(
-                    text: 'Button 4', onTap: () => print('Button 4 pressed')),
+                    text: 'Button 4',
+                    onTap: () => debugPrint('Button 4 pressed')),
               ],
             ),
           ],
@@ -59,10 +63,10 @@ class ButtonGroupDocs extends StatelessWidget {
           buttons: [
             SemanticButton(
                 text: 'primary But1',
-                onTap: () => print('primary But1 pressed')),
+                onTap: () => debugPrint('primary But1 pressed')),
             SemanticButton(
                 text: 'primary But2',
-                onTap: () => print('primary But2 pressed')),
+                onTap: () => debugPrint('primary But2 pressed')),
           ],
           type: SemanticEnum.primary,
         ),
@@ -71,10 +75,10 @@ class ButtonGroupDocs extends StatelessWidget {
           buttons: [
             SemanticButton(
                 text: 'secondary But1',
-                onTap: () => print('secondary But1 pressed')),
+                onTap: () => debugPrint('secondary But1 pressed')),
             SemanticButton(
                 text: 'secondary But2',
-                onTap: () => print('secondary But2 pressed')),
+                onTap: () => debugPrint('secondary But2 pressed')),
           ],
           type: SemanticEnum.secondary,
         ),
@@ -82,9 +86,11 @@ class ButtonGroupDocs extends StatelessWidget {
         ButtonGroup(
           buttons: [
             SemanticButton(
-                text: 'info But1', onTap: () => print('info But1 pressed')),
+                text: 'info But1',
+                onTap: () => debugPrint('info But1 pressed')),
             SemanticButton(
-                text: 'info But2', onTap: () => print('info But2 pressed')),
+                text: 'info But2',
+                onTap: () => debugPrint('info But2 pressed')),
           ],
           type: SemanticEnum.info,
         ),
@@ -93,10 +99,10 @@ class ButtonGroupDocs extends StatelessWidget {
           buttons: [
             SemanticButton(
                 text: 'warning But1',
-                onTap: () => print('warning But1 pressed')),
+                onTap: () => debugPrint('warning But1 pressed')),
             SemanticButton(
                 text: 'warning But2',
-                onTap: () => print('warning But2 pressed')),
+                onTap: () => debugPrint('warning But2 pressed')),
           ],
           type: SemanticEnum.success,
         ),
@@ -105,10 +111,10 @@ class ButtonGroupDocs extends StatelessWidget {
           buttons: [
             SemanticButton(
                 text: 'warning But1',
-                onTap: () => print('warning But1 pressed')),
+                onTap: () => debugPrint('warning But1 pressed')),
             SemanticButton(
                 text: 'warning But2',
-                onTap: () => print('warning But2 pressed')),
+                onTap: () => debugPrint('warning But2 pressed')),
           ],
           type: SemanticEnum.warning,
         ),
@@ -116,9 +122,11 @@ class ButtonGroupDocs extends StatelessWidget {
         ButtonGroup(
           buttons: [
             SemanticButton(
-                text: 'danger But1', onTap: () => print('danger But1 pressed')),
+                text: 'danger But1',
+                onTap: () => debugPrint('danger But1 pressed')),
             SemanticButton(
-                text: 'danger But2', onTap: () => print('danger But2 pressed')),
+                text: 'danger But2',
+                onTap: () => debugPrint('danger But2 pressed')),
           ],
           type: SemanticEnum.danger,
         ),
@@ -126,9 +134,11 @@ class ButtonGroupDocs extends StatelessWidget {
         ButtonGroup(
           buttons: [
             SemanticButton(
-                text: 'fatal But1', onTap: () => print('fatal But1 pressed')),
+                text: 'fatal But1',
+                onTap: () => debugPrint('fatal But1 pressed')),
             SemanticButton(
-                text: 'fatal But2', onTap: () => print('fatal But2 pressed')),
+                text: 'fatal But2',
+                onTap: () => debugPrint('fatal But2 pressed')),
           ],
           type: SemanticEnum.fatal,
         ),

@@ -54,7 +54,7 @@ class DialogDocs extends StatelessWidget {
           message: "您的文件已成功保存。",
           buttonText: "好的",
           onTapDismiss: () {
-            print('InfoDialog-用户点击确认');
+            debugPrint('InfoDialog-用户点击确认');
           },
           type: SemanticEnum.success, // 使用成功类型的颜色主题
           noImage: false, // 显示默认的成功图标
