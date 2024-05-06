@@ -1394,6 +1394,7 @@ ButtonGroup is a whole composed of multiple SemanticButtons organized in a certa
 
 ### 6. Tags
 
+
 ### 7. Counter
 
 #### 7.1 Introduction to the Counter Component

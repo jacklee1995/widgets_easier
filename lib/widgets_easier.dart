@@ -49,6 +49,8 @@ export './src/widgets/dialogs/confirm_dialog/confirm_dialog.dart';
 export './src/widgets/toasts/notify_toasts.dart';
 export './src/widgets/toasts/tip_toasts.dart';
 
+export './src/widgets/tags/tag.dart';
+
 export './src/widgets/captcha/sliding_captcha.dart';
 
 export './src/widgets/write/write.dart';

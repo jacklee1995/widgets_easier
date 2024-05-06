@@ -7,12 +7,14 @@ import 'package:widgets_easier/widgets_easier.dart';
 import '../widgets/docs_widget.dart';
 
 class BorderDocs extends StatelessWidget {
-  const BorderDocs({super.key});
+  final int c;
+  const BorderDocs(this.c, {super.key});
   @override
   Widget build(BuildContext context) {
     return DocsWidget(
       children: [
-        Write.header2('3.1 实线边框（Solod）'),
+        Write.header1('$c. 边框'),
+        Write.header2('$c.1 实线边框（Solod）'),
         Write.paragraph('实线边框（Solid Border）是最普通、最常见地边框类型。'),
         Write.paragraph('其主要特点包括：'),
         Write.orderedList([
@@ -101,7 +103,7 @@ class BorderDocs extends StatelessWidget {
             )
           ],
         ),
-        Write.header2('3.2 虚线边框（Dotted）'),
+        Write.header2('$c.2 虚线边框（Dotted）'),
         Write.paragraph('虚线边框（Dotted Border）是一种在界面设计中另外一种边框类型。'),
         Write.paragraph('其主要特点包括：'),
         Write.orderedList([
@@ -248,7 +250,7 @@ class BorderDocs extends StatelessWidget {
           ],
         ),
         const Gap(20),
-        Write.header2('3.3 破折线式边框（Dashed）'),
+        Write.header2('$c.3 破折线式边框（Dashed）'),
         Write.paragraph(
             '破折线式边框（Dashed Border）是界面设计中常见的边框样式之一，与实线边框和虚线边框相比，其外观和特点略有不同。'),
         Write.paragraph('其主要特点包括：'),
@@ -354,7 +356,7 @@ class BorderDocs extends StatelessWidget {
             ),
           ],
         ),
-        Write.header2('3.4 点划线边框（Dotted Dash）'),
+        Write.header2('$c.4 点划线边框（Dotted Dash）'),
         Write.paragraph(
             '点划线边框（Dotted Dash Border）是一种在界面设计中另外一种边框类型，，与实线边框、虚线边框、破折线边框等相比，其外观和特点略有不同。其主要特点有：'),
         Write.orderedList([
@@ -438,7 +440,7 @@ class BorderDocs extends StatelessWidget {
         ),
         Write.paragraph(''),
         Write.paragraph(''),
-        Write.header2('3.4 双线边框Double'),
+        Write.header2('$c.4 双线边框Double'),
         Write.paragraph(
             '双线边框（Double Border）是一种常见的边框样式，在界面设计中用于突出显示或分隔不同区域。与单线边框相比，双线边框具有更加突出和立体的外观。'),
         Write.paragraph('其主要特点包括：'),
@@ -550,7 +552,7 @@ class BorderDocs extends StatelessWidget {
           ],
         ),
         const Gap(20),
-        Write.header2('3.5 槽线式边框Groove'),
+        Write.header2('$c.5 槽线式边框Groove'),
         Write.paragraph(
             '槽线式边框（Groove Border）是一种3D效果的边框，用于突出显示或分隔不同区域。与其它边框相比，槽线边框呈现出相反的外观特点。'),
         Write.paragraph('其主要特点包括：'),
@@ -598,7 +600,7 @@ class BorderDocs extends StatelessWidget {
           ],
         ),
         const Gap(20),
-        Write.header2('3.6 脊线式边框Ridge'),
+        Write.header2('$c.6 脊线式边框Ridge'),
         Write.paragraph('脊线式边框（Ridge Border）一种3D效果的边框，通常用于突出显示或分隔不同区域。其特点包括：'),
         Write.orderedList([
           Write.listItem('凸起的外观： 脊线式边框的特点是其边缘呈现出一种凸起的外观，与周围的内容形成明显的分隔;'),
@@ -637,7 +639,7 @@ class BorderDocs extends StatelessWidget {
           ],
         ),
         const Gap(20),
-        Write.header2('3.7 内嵌式边框Inset'),
+        Write.header2('$c.7 内嵌式边框Inset'),
         Write.paragraph(
             '内嵌式边框（Inset Border）也是一种3D效果的边框，它类似于Gooove边框。只不过没有内测阴影效果。'),
         Write.orderedList([
@@ -678,7 +680,7 @@ class BorderDocs extends StatelessWidget {
           ],
         ),
         const Gap(20),
-        Write.header2('3.8 外凸式边框Outset'),
+        Write.header2('$c.8 外凸式边框Outset'),
         Write.paragraph(
             '外凸式边框（Outset Border）也是一种3D效果的边框，它类似于Ridge边框。只不过没有内测阴影效果。与内嵌式边框相对应，其特点是边缘呈现出向外凸起的外观。'),
         Write.paragraph('其主要特点包括：'),
@@ -721,7 +723,7 @@ class BorderDocs extends StatelessWidget {
             ),
           ],
         ),
-        Write.header2('3.9 边框包装器BorderWrapper'),
+        Write.header2('$c.9 边框包装器BorderWrapper'),
         Write.paragraph(
             '通过使用BorderWrapper组件，可以在其它的组件上使用边框，边框外部的内容将被按照边框轮廓裁剪掉。例如：'),
         Row(
@@ -780,7 +782,8 @@ class BorderDocs extends StatelessWidget {
             '这个例子中，所使用的 SolidStarBorder 是基于Flutter原生的StarBorder实现的，在StarBorder上实现了Solid Border的效果。这使得你可以在SolidStarBorder上指定线宽、颜色，渐变色。'),
         Write.paragraph('边框包装器可以用于实现带有边框的裁剪，这使得改变原部件形状的同时在外围添加指定的线形效果。'),
         Write.paragraph(
-            '因此，为了实现更多边框形状，你可以实现类似于SolidStarBorder的，带有绘制线形的形状裁剪器。不过不用担心，此库后续将不断实现新的边框形状。')
+            '因此，为了实现更多边框形状，你可以实现类似于SolidStarBorder的，带有绘制线形的形状裁剪器。不过不用担心，此库后续将不断实现新的边框形状。'),
+        const Gap(20),
       ],
     );
   }

@@ -7,17 +7,19 @@ import 'package:widgets_easier/widgets_easier.dart';
 import '../login/login_view.dart';
 
 class DialogDocs extends StatelessWidget {
-  const DialogDocs({super.key});
+  final int c;
+  const DialogDocs(this.c, {super.key});
   @override
   Widget build(BuildContext context) {
     return DocsWidget(
       children: [
-        Write.header2('11.1 警告弹窗（AlertDialog）'),
-        Write.header2('11.2 消息弹窗（InfoDialog）'),
+        Write.header1('$c. 弹窗'),
+        Write.header2('$c.1 警告弹窗（AlertDialog）'),
+        Write.header2('$c.2 消息弹窗（InfoDialog）'),
         Write.paragraph('用于显示简短的信息或反馈。'),
         Write.paragraph(
             '除了InfoDialog外，吐丝（Toast）也是一种消息型弹窗。但是Toast通常自动消失，不需要用户操作；InfoDialog则需要用户手动关闭。一般来说，如果消息不是那么重要，则可以使用Toast；反之，如果需要引起用户更多的注意，则使用InfoDialog。'),
-        Write.header3('11.2.1 消息窗体的构成'),
+        Write.header3('$c.2.1 消息窗体的构成'),
         const Gap(10),
         Write.paragraph(
             '消息弹窗（InfoDialog）通常用于在移动应用中显示重要信息，需要用户明确地关闭弹窗以确保信息被看到。以下是InfoDialog的主要构成元素：'),
@@ -57,7 +59,7 @@ class DialogDocs extends StatelessWidget {
           type: SemanticEnum.success, // 使用成功类型的颜色主题
           noImage: false, // 显示默认的成功图标
         ),
-        Write.header3('11.2.2 消息弹窗的使用'),
+        Write.header3('$c.2.2 消息弹窗的使用'),
         Write.paragraph('现在，你可以点击下面的按钮测试对应的消息弹窗。'),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -175,7 +177,7 @@ class DialogDocs extends StatelessWidget {
             ),
           ],
         ),
-        Write.header3('11.2.3 zoomIn动画'),
+        Write.header3('$c.2.3 zoomIn动画'),
         Write.paragraph(
             '`InfoDialogs.show`是没有动画效果的。你可以直接使用`InfoDialogs.zoomIn`方法，这将有一个缩放效果的弹窗动画。`InfoDialogs.zoomIn`方法和`InfoDialogs.show`具体完全一样的参数。例如：'),
         Center(
@@ -194,7 +196,7 @@ class DialogDocs extends StatelessWidget {
           ),
         ),
         const Gap(20),
-        Write.header3('11.2.3 自定义动画'),
+        Write.header3('$c.2.3 自定义动画'),
         const Gap(20),
         Write.paragraph(
             '你还可以通过在InfoDialogs.showInfoDialog方法中指定transitionBuilder参数来自定义弹窗动画效果，例如：'),
@@ -219,8 +221,8 @@ class DialogDocs extends StatelessWidget {
           ),
         ),
         const Gap(20),
-        Write.header2('11.3 确认弹窗（ConfirmDialog）'),
-        Write.header3('11.3.1 确认弹窗的构成'),
+        Write.header2('$c.3 确认弹窗（ConfirmDialog）'),
+        Write.header3('$c.3.1 确认弹窗的构成'),
         Write.paragraph(
             '确认型弹窗（Confirmation Dialog）用于在执行某些可能具有重大影响的操作前，要求用户确认其决定。这种弹窗通常包含以下元素：'),
         Write.orderedList([
@@ -241,7 +243,7 @@ class DialogDocs extends StatelessWidget {
           noImage: true,
         ),
         const Gap(10),
-        Write.header3('11.3.2 确认型弹窗的使用'),
+        Write.header3('$c.3.2 确认型弹窗的使用'),
         Write.paragraph('下面的例子展示了确认型弹窗的基本用法'),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -381,7 +383,7 @@ class DialogDocs extends StatelessWidget {
           ],
         ),
         const Gap(10),
-        Write.header3('11.3.3 zoomIn动画'),
+        Write.header3('$c.3.3 zoomIn动画'),
         Write.paragraph(
             '`ConfirmDialogs.show`是没有动画效果的。你可以直接使用`ConfirmDialogs.zoomIn`方法，这将有一个缩放效果的弹窗动画。`ConfirmDialogs.zoomIn`方法和`ConfirmDialogs.show`具体完全一样的参数。例如：'),
         Center(
@@ -404,7 +406,7 @@ class DialogDocs extends StatelessWidget {
           ),
         ),
         const Gap(20),
-        Write.header3('11.3.4 自定义动画'),
+        Write.header3('$c.3.4 自定义动画'),
         Write.paragraph(
             '你还可以通过在**ConfirmDialogs.showInfoDialog**方法中指定`transitionBuilder`参数来自定义弹窗动画效果，例如：'),
         const Gap(20),
@@ -432,7 +434,7 @@ class DialogDocs extends StatelessWidget {
           ),
         ),
         const Gap(20),
-        Write.header2('11.4 Windows风格的弹窗（WinDialogs）'),
+        Write.header2('$c.4 Windows风格的弹窗（WinDialogs）'),
         Write.paragraph('Windows风格弹窗有三个部分组成，分别是Header、Body、Footer。'),
         WinStyleDialog(
           icon: const Icon(Icons.run_circle_outlined),
@@ -664,7 +666,7 @@ class DialogDocs extends StatelessWidget {
         ),
         Write.paragraph('另外需要指出的是，你不需要考虑图标的大小，即使你指定了图标大小，这在内部也是自动大小的。'),
         const Gap(20),
-        Write.header2('11.4 Future型弹窗案例'),
+        Write.header2('$c.4 Future型弹窗案例'),
         const Gap(20),
         SemanticButton(
           text: '案例',

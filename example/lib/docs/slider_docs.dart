@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:widgets_easier/widgets_easier.dart';
 
 class SliderDocs extends StatefulWidget {
-  const SliderDocs({super.key});
+  final int c;
+  const SliderDocs(this.c, {super.key});
 
   @override
   State<StatefulWidget> createState() => SliderDocsState();
@@ -22,8 +23,9 @@ class SliderDocsState extends State<SliderDocs> {
   Widget build(BuildContext context) {
     return DocsWidget(
       children: [
+        Write.header1('${widget.c}. 滑动器'),
         Write.paragraph('SliderWidget 是一个常用的 UI 组件, 用于在一个范围内选择一个值。'),
-        Write.header2('.1 基本用法'),
+        Write.header2('${widget.c}.1 基本用法'),
         SliderWidget(
           value: _value1,
           onChanged: (value) {
@@ -34,7 +36,7 @@ class SliderDocsState extends State<SliderDocs> {
           min: 0.0,
           max: 100.0,
         ),
-        Write.header2('.2 自定义外观'),
+        Write.header2('${widget.c}.2 自定义外观'),
         Write.paragraph('CustomSlider 提供了多个参数来自定义滑块的外观:'),
         Write.orderedList([
           Write.listItem('activeColor: 滑块激活部分的颜色;'),
@@ -57,7 +59,7 @@ class SliderDocsState extends State<SliderDocs> {
           overlayColor:
               MaterialStateProperty.all<Color>(Colors.blue.withOpacity(0.2)),
         ),
-        Write.header2('.3 显示间断点'),
+        Write.header2('${widget.c}.3 显示间断点'),
         Write.paragraph('通过设置 divisions 参数,我们可以在滑块上显示间断点:'),
         SliderWidget(
           value: _value3,
@@ -71,7 +73,7 @@ class SliderDocsState extends State<SliderDocs> {
           divisions: 10,
           showStops: true,
         ),
-        Write.header2('.4 显示标签'),
+        Write.header2('${widget.c}.4 显示标签'),
         Write.paragraph('我们可以使用 label 参数在滑块上方显示一个标签:'),
         SliderWidget(
           value: _value4,
@@ -89,7 +91,7 @@ class SliderDocsState extends State<SliderDocs> {
           label: '${_value4.round()}',
         ),
         Write.paragraph('这将在滑块上方显示当前值。'),
-        Write.header2('.5 显示刻度'),
+        Write.header2('${widget.c}.5 显示刻度'),
         Write.paragraph('通过设置 marks 参数,我们可以在滑块下方显示刻度:'),
         SliderWidget(
           value: _value5,
@@ -108,7 +110,7 @@ class SliderDocsState extends State<SliderDocs> {
           },
         ),
         Write.paragraph('这将在滑块下方显示 0、50 和 100 的刻度。'),
-        Write.header2('.6 禁用滑块'),
+        Write.header2('${widget.c}.6 禁用滑块'),
         Write.paragraph('通过设置 enabled 参数为 false,我们可以禁用滑块:'),
         SliderWidget(
           value: _value6,
@@ -121,7 +123,7 @@ class SliderDocsState extends State<SliderDocs> {
           max: 100.0,
           enabled: false,
         ),
-        Write.header2('.7 垂直滑块'),
+        Write.header2('${widget.c}.7 垂直滑块'),
         Write.paragraph('通过设置 vertical 参数为 true,我们可以创建一个垂直滑块:'),
         SliderWidget(
           value: _value7,
@@ -135,7 +137,7 @@ class SliderDocsState extends State<SliderDocs> {
           vertical: true,
         ),
         Write.paragraph('这将创建一个垂直方向的滑块。'),
-        Write.header2('.8 自定义工具提示'),
+        Write.header2('${widget.c}.8 自定义工具提示'),
         Write.paragraph('我们可以使用 formatTooltip 参数自定义工具提示的格式:'),
         SliderWidget(
           value: _value8,
@@ -149,7 +151,7 @@ class SliderDocsState extends State<SliderDocs> {
           formatTooltip: (value) => '${value.round()}%',
         ),
         Write.paragraph('这将在工具提示中显示百分比值。'),
-        Write.header2('.9 自定义滑块'),
+        Write.header2('${widget.c}.9 自定义滑块'),
       ],
     );
   }

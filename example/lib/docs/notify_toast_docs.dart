@@ -6,14 +6,16 @@ import 'package:widgets_easier/widgets_easier.dart';
 import '../widgets/docs_widget.dart';
 
 class NotifyToastDocs extends StatelessWidget {
-  const NotifyToastDocs({super.key});
+  final int c;
+  const NotifyToastDocs(this.c, {super.key});
   @override
   Widget build(BuildContext context) {
     return DocsWidget(
       children: [
+        Write.header1('$c. 消息吐丝'),
         Write.paragraph(
             '消息吐丝组件受到Element-Plus的Notification启发，并以一种适合于在Flutter上使用的方式进行封装。它提供了一种简单而灵活的方式来在你的应用中显示消息通知。通过自定义样式、动画效果和交互，你可以创建出符合应用设计风格的消息通知。'),
-        Write.header2('12.1 基本用法'),
+        Write.header2('$c.1 基本用法'),
         Write.paragraph(
             '消息吐丝相关组件是通过 NotifyToasts 类提供的静态方法来掉用显示的。 NotifyToasts 类中有四个静态方法，对应于显示消息通知的四个方位：'),
         Write.orderedList([
@@ -69,7 +71,7 @@ class NotifyToastDocs extends StatelessWidget {
         Write.paragraph(
             '一条消息吐丝的默认时间为3s，你可以通过duration参数指定其时间。上面的示例中，BottomLeft的被手动设置为1秒。'),
         const Gap(20),
-        Write.header2('12.2 语义类型'),
+        Write.header2('$c.2 语义类型'),
         Write.paragraph(
             'NotifyToasts的四个静态方法中都有一个type属性，它是一个SemanticEnum枚举。你可以通过指定SemanticEnum的值来设置不同的语义类型。例如：'),
         const Gap(20),
@@ -152,7 +154,7 @@ class NotifyToastDocs extends StatelessWidget {
         Write.paragraph(
             '需要指出的是，消息吐丝中的type不会默认为SemanticEnum.primary，如果没有指定，则不使用语义色彩。'),
         const Gap(20),
-        Write.header2('12.3 自定义图片和标题'),
+        Write.header2('$c.3 自定义图片和标题'),
         Write.paragraph(
             '如果指定了非空的type值，你可以不必指定图标和标题，因为有默认的图标和标题。当然如果你需要自己指定也是可以的，例如：'),
         const Gap(20),
@@ -198,7 +200,7 @@ class NotifyToastDocs extends StatelessWidget {
           ),
         ),
         const Gap(20),
-        Write.header2('12.4 自定义颜色'),
+        Write.header2('$c.4 自定义颜色'),
         Write.paragraph('你可以自己定义通知消息的颜色。'),
         const Gap(20),
         Center(
@@ -216,7 +218,7 @@ class NotifyToastDocs extends StatelessWidget {
           ),
         ),
         const Gap(20),
-        Write.header2('12.5 自定义动画'),
+        Write.header2('$c.5 自定义动画'),
         Write.paragraph(
             '你可以自定义动画，不过这里还是和以前一样推荐使用Widgets Easier组件库配套的flutter_easy_animations库中现成的动画效果。'),
         Write.paragraph(
@@ -243,7 +245,7 @@ class NotifyToastDocs extends StatelessWidget {
         Write.paragraph(
             '另外，如果有需要，你可以通过animationDuration参数来指定。如未指定，则采用默认的300毫秒。'),
         const Gap(20),
-        Write.header2('12.6 关闭按钮'),
+        Write.header2('$c.6 关闭按钮'),
         Write.paragraph(
             '默认情况下，每一条消息吐丝都带有一个关闭按钮。如果不显示关闭按钮，则可以指定showClose属性的值为flase。例如：'),
         const Gap(20),
@@ -262,7 +264,7 @@ class NotifyToastDocs extends StatelessWidget {
           ),
         ),
         const Gap(20),
-        Write.header2('12.7 禁用自动移除'),
+        Write.header2('$c.7 禁用自动移除'),
         Write.paragraph(
             '默认情况下，一旦到达指定时间则消息吐丝将被自动移除。不过如果指定了autoClose为false，则需要手动点击关闭按钮。例如：'),
         const Gap(20),
@@ -283,7 +285,7 @@ class NotifyToastDocs extends StatelessWidget {
         const Gap(20),
         Write.paragraph('如果禁用自动移除，不管showClose是否为false，都将启用关闭按钮图标。'),
         const Gap(20),
-        Write.header2('12.8 点击事件'),
+        Write.header2('$c.8 点击事件'),
         Write.paragraph('通过指定onTap回调，可以为消息吐丝添加点击事件。例如：'),
         Center(
           child: SemanticButton(

@@ -53,8 +53,14 @@ Fixes were made to the behavior of the `fit` and `alignment` properties of the P
 
 ### Added 
 
-**TipToasts** class, which is a utility class  used to display temporary notifications or messages in Flutter. It can show custom toast messages at the top, center, or bottom of the screen that automatically disappear after a certain period of time. These types of notifications are commonly referred to as "toast" messages, originating from a similar concept in Android development.
+**TipToasts** class, which is a utility class used to display temporary notifications or messages in Flutter. It can show custom toast messages at the top, center, or bottom of the screen that automatically disappear after a certain period of time. These types of notifications are commonly referred to as "toast" messages, originating from a similar concept in Android development.
 
 ## 0.0.7
 
 Some bugs Fixed.
+
+## 0.0.8 
+
+### Added
+
+**Tag** class, which is a Widget class designed for labeling and selection purposes. It features a `type` attribute that allows users to choose the type of tag they want to use. Additionally, there is a `color` attribute that enables customization of the background color to fit different design needs. The `closable` attribute can be set to make the tag removable, providing flexibility in user interaction. Moreover, the Tag widget supports multiple sizes, accommodating various UI design requirements and enhancing its versatility across different applications.
