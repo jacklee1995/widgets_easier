@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../../enums/size_enum.dart';
 import '../../enums/semantic_enum.dart';
@@ -7,8 +6,8 @@ import '../../color/utils.dart';
 
 enum TagThemeEnum { light, dark, plain }
 
-class Tag extends StatefulWidget {
-  final String initialText;
+class Tag extends StatelessWidget {
+  final String text;
   final SemanticEnum? type;
   final Color? color;
   final bool closable;
@@ -20,12 +19,9 @@ class Tag extends StatefulWidget {
   final TagThemeEnum theme;
   final double? height;
   final double? width;
-  final bool editable;
-  final bool shrink;
-  final Function(String, String)? onTextChanged;
 
   const Tag(
-    this.initialText, {
+    this.text, {
     super.key,
     this.type,
     this.color,
@@ -38,134 +34,54 @@ class Tag extends StatefulWidget {
     this.theme = TagThemeEnum.plain,
     this.height,
     this.width,
-    this.editable = false,
-    this.shrink = true,
-    this.onTextChanged,
   });
 
   @override
-  State<Tag> createState() => _TagState();
-}
-
-class _TagState extends State<Tag> {
-  late TextEditingController _textController;
-
-  @override
-  void initState() {
-    super.initState();
-    _textController = TextEditingController(text: widget.initialText);
-  }
-
-  @override
   Widget build(BuildContext context) {
-    final borderColor = widget.color ??
-        (widget.type != null ? findStatusColor(widget.type!) : null);
+    final borderColor = color ?? (type != null ? findStatusColor(type!) : null);
     final backgroundColor = _getBackgroundColor(context, borderColor);
     final textColor = _getTextColor(context, borderColor);
 
     return GestureDetector(
-      onTap: widget.onTap,
-      onLongPress: widget.onLongPress,
-      child: IntrinsicWidth(
-        child: Container(
-          height: widget.height != null && widget.height! > 12
-              ? widget.height
-              : _getHeightForSize(widget.size),
-          width: widget.width ?? (widget.shrink ? null : double.infinity),
-          padding:
-              EdgeInsets.symmetric(horizontal: _getPaddingForSize(widget.size)),
-          decoration: BoxDecoration(
-            color: backgroundColor,
-            borderRadius: BorderRadius.circular(widget.borderRadius ?? 4),
-            border: _getBorder(context, borderColor),
-          ),
-          child: Row(
-            mainAxisSize: widget.shrink ? MainAxisSize.min : MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              widget.editable
-                  ? _editableText(textColor)
-                  : _staticText(textColor),
-              if (widget.closable) ...[
-                SizedBox(width: _getSpacingForSize(widget.size)),
-                _CloseIcon(
-                  color: textColor,
-                  size: widget.size,
-                  onClose: widget.onClose,
-                ),
-              ],
+      onTap: onTap,
+      onLongPress: onLongPress,
+      child: Container(
+        height:
+            height != null && height! > 12 ? height : _getHeightForSize(size),
+        width: width,
+        padding: EdgeInsets.symmetric(horizontal: _getPaddingForSize(size)),
+        decoration: BoxDecoration(
+          color: backgroundColor,
+          borderRadius: BorderRadius.circular(borderRadius ?? 4),
+          border: _getBorder(context, borderColor),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              text,
+              style: TextStyle(
+                color: textColor,
+                fontSize: _getFontSizeForSize(size),
+              ),
+            ),
+            if (closable) ...[
+              SizedBox(width: _getSpacingForSize(size)),
+              _CloseIcon(
+                color: textColor,
+                size: size,
+                onClose: onClose,
+              ),
             ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _editableText(Color textColor) {
-    return Expanded(
-      child: KeyboardListener(
-        focusNode: FocusNode(),
-        onKeyEvent: (KeyEvent event) {
-          if (event is KeyDownEvent &&
-              event.logicalKey == LogicalKeyboardKey.escape) {
-            setState(() {});
-          }
-        },
-        child: TextField(
-          controller: _textController,
-          style: TextStyle(
-            color: textColor,
-            fontSize: _getFontSizeForSize(widget.size),
-            decoration: TextDecoration.none,
-          ),
-          decoration: const InputDecoration(
-            isDense: true,
-            border: InputBorder.none,
-            contentPadding: EdgeInsets.zero,
-          ),
-          cursorColor: textColor,
-          onSubmitted: (value) {
-            setState(() {
-              if (widget.onTextChanged != null) {
-                widget.onTextChanged!(widget.initialText, value);
-              }
-            });
-          },
-          onEditingComplete: () {
-            setState(() {
-              if (widget.onTextChanged != null) {
-                widget.onTextChanged!(widget.initialText, _textController.text);
-              }
-            });
-          },
-          textInputAction: TextInputAction.done,
-          onTap: () {
-            setState(() {});
-          },
-        ),
-      ),
-    );
-  }
-
-  Widget _staticText(Color textColor) {
-    return GestureDetector(
-      onTap: () {
-        if (widget.editable) {
-          setState(() {});
-        }
-      },
-      child: Text(
-        _textController.text,
-        style: TextStyle(
-          color: textColor,
-          fontSize: _getFontSizeForSize(widget.size),
+          ],
         ),
       ),
     );
   }
 
   Color? _getBackgroundColor(BuildContext context, Color? borderColor) {
-    switch (widget.theme) {
+    switch (theme) {
       case TagThemeEnum.dark:
         return borderColor;
       case TagThemeEnum.light:
@@ -176,7 +92,7 @@ class _TagState extends State<Tag> {
   }
 
   Color _getTextColor(BuildContext context, Color? borderColor) {
-    switch (widget.theme) {
+    switch (theme) {
       case TagThemeEnum.dark:
         return Colors.white;
       case TagThemeEnum.light:
@@ -189,7 +105,7 @@ class _TagState extends State<Tag> {
   }
 
   BoxBorder? _getBorder(BuildContext context, Color? borderColor) {
-    if (widget.theme == TagThemeEnum.plain) {
+    if (theme == TagThemeEnum.plain) {
       return Border.all(
         color: borderColor ??
             (Theme.of(context).brightness == Brightness.dark
