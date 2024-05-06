@@ -67,39 +67,42 @@ class _TagState extends State<Tag> {
     final backgroundColor = _getBackgroundColor(context, borderColor);
     final textColor = _getTextColor(context, borderColor);
 
-    Widget tagContent = GestureDetector(
+    return GestureDetector(
       onTap: widget.onTap,
       onLongPress: widget.onLongPress,
-      child: Container(
-        height: widget.height != null && widget.height! > 12
-            ? widget.height
-            : _getHeightForSize(widget.size),
-        width: widget.width,
-        padding:
-            EdgeInsets.symmetric(horizontal: _getPaddingForSize(widget.size)),
-        decoration: BoxDecoration(
-          color: backgroundColor,
-          borderRadius: BorderRadius.circular(widget.borderRadius ?? 4),
-          border: _getBorder(context, borderColor),
-        ),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            widget.editable ? _editableText(textColor) : _staticText(textColor),
-            if (widget.closable) ...[
-              SizedBox(width: _getSpacingForSize(widget.size)),
-              _CloseIcon(
-                color: textColor,
-                size: widget.size,
-                onClose: widget.onClose,
-              ),
+      child: IntrinsicWidth(
+        child: Container(
+          height: widget.height != null && widget.height! > 12
+              ? widget.height
+              : _getHeightForSize(widget.size),
+          width: widget.width ?? (widget.shrink ? null : double.infinity),
+          padding:
+              EdgeInsets.symmetric(horizontal: _getPaddingForSize(widget.size)),
+          decoration: BoxDecoration(
+            color: backgroundColor,
+            borderRadius: BorderRadius.circular(widget.borderRadius ?? 4),
+            border: _getBorder(context, borderColor),
+          ),
+          child: Row(
+            mainAxisSize: widget.shrink ? MainAxisSize.min : MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              widget.editable
+                  ? _editableText(textColor)
+                  : _staticText(textColor),
+              if (widget.closable) ...[
+                SizedBox(width: _getSpacingForSize(widget.size)),
+                _CloseIcon(
+                  color: textColor,
+                  size: widget.size,
+                  onClose: widget.onClose,
+                ),
+              ],
             ],
-          ],
+          ),
         ),
       ),
     );
-
-    return widget.shrink ? IntrinsicWidth(child: tagContent) : tagContent;
   }
 
   Widget _editableText(Color textColor) {
