@@ -63,4 +63,4 @@ Some bugs Fixed.
 
 ### Added
 
-**Tag** class, which is a Widget class designed for labeling and selection purposes. It features a `type` attribute that allows users to choose the type of tag they want to use. Additionally, there is a `color` attribute that enables customization of the background color to fit different design needs. The `closable` attribute can be set to make the tag removable, providing flexibility in user interaction. Moreover, the Tag widget supports multiple sizes, accommodating various UI design requirements and enhancing its versatility across different applications.
+**Tag** class, which is a Widget class designed for labeling and selection purposes. It features a `type` attribute that allows users to choose the type of tag they want to use. 
