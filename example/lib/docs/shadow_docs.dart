@@ -5,7 +5,8 @@ import 'package:widgets_easier/widgets_easier.dart';
 import '../widgets/docs_widget.dart';
 
 class ShadowDocs extends StatelessWidget {
-  const ShadowDocs({super.key});
+  final int c;
+  const ShadowDocs(this.c, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +17,7 @@ class ShadowDocs extends StatelessWidget {
         const Gap(20),
         Row(
           children: [
+            Write.header1('$c. 阴影'),
             BasicShadow(
               child: Container(
                 height: 100,

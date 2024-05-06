@@ -1,0 +1,8 @@
+.git/
+.idea/
+*.log
+.readme_pics/
+.idea/
+build/
+.vscode/
+TODO.md

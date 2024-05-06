@@ -6,15 +6,17 @@ import 'package:gap/gap.dart';
 import 'package:widgets_easier/widgets_easier.dart';
 
 class PictureDocs extends StatelessWidget {
-  const PictureDocs({super.key});
+  final int c;
+  const PictureDocs(this.c, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return DocsWidget(
       children: [
+        Write.header1('$c. 图片'),
         Write.paragraph('图片组件旨在以更方便的形式使用Fluttre图片'),
-        Write.header2('9.1 Picture类'),
-        Write.header3('9.1.1 特点'),
+        Write.header2('$c.1 Picture类'),
+        Write.header3('$c.1.1 特点'),
         Write.paragraph('Picture类是一个自动处理字符串加载图片的组件，它具有以下的特点：'),
         Write.orderedList([
           Write.listItem('如果指定的字符串为url，则以网络图片形式加载图片；', [
@@ -27,7 +29,7 @@ class PictureDocs extends StatelessWidget {
           Write.listItem(
               '如果指定的字符串为assets，则加载assets图片。这需要确保在项目的pubspec.yaml中包含了该assets图片资源；'),
         ]),
-        Write.header3('9.1.2 示例：网络图片'),
+        Write.header3('$c.1.2 示例：网络图片'),
         Picture(
           source: 'https://via.placeholder.com/200',
           width: 200,
@@ -36,7 +38,7 @@ class PictureDocs extends StatelessWidget {
         ),
         Write.paragraph(
             '如果将Flutter用于Web，网络请求跨域时，需要处理跨域问题，这对于网络图片也不例外。多使用代理服务器的方式。'),
-        Write.header3('9.1.3 示例：网络SVG图片'),
+        Write.header3('$c.1.3 示例：网络SVG图片'),
         Container(
           color: Colors.blue,
           width: 200,
@@ -51,7 +53,7 @@ class PictureDocs extends StatelessWidget {
             // fit: BoxFit.contain,
           ),
         ),
-        Write.header3('9.1.4 示例：普通资源图片'),
+        Write.header3('$c.1.4 示例：普通资源图片'),
         Picture(
           source: 'assets/local-image.png',
           width: 150,
@@ -60,14 +62,14 @@ class PictureDocs extends StatelessWidget {
         ),
         Write.paragraph(
             '使用资源图片文件时，需要确保该文图文件存在于相应的目录中，并且正确地将该图片注册到你项目的`pubspec.yaml`文件中。'),
-        Write.header3('9.1.5 示例：SVG XML文本'),
+        Write.header3('$c.1.5 示例：SVG XML文本'),
         Picture(
           source: svgStr,
           width: 100,
           height: 100,
           fit: BoxFit.scaleDown,
         ),
-        Write.header3('9.1.6 示例：一个不存在的网络位置'),
+        Write.header3('$c.1.6 示例：一个不存在的网络位置'),
         Align(
           alignment: Alignment.center,
           child: Picture(
@@ -81,7 +83,7 @@ class PictureDocs extends StatelessWidget {
             },
           ),
         ),
-        Write.header3('9.1.7 使用边框'),
+        Write.header3('$c.1.7 使用边框'),
         Write.paragraph(
             'Pictrue 组件的 clipper属性接受一个ShapeBorderClipper，这意味着图片很容易添加任何形状的边框并裁剪成各种想要的形状。'),
         Write.paragraph(
@@ -136,9 +138,9 @@ class PictureDocs extends StatelessWidget {
             ),
           ],
         ),
-        Write.header2('9.2 图片预览器'),
+        Write.header2('$c.2 图片预览器'),
         Write.paragraph('图片预览器用于在一个弹窗层预览一组图片，它接收一组Picture类图片资源进行加载。'),
-        Write.header3('9.3 Web图片预览器'),
+        Write.header3('$c.3 Web图片预览器'),
         Write.paragraph('Web图片预览器主要用于桌面段或者Web场景，'),
       ],
     );

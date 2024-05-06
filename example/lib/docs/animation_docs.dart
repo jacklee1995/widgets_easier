@@ -8,7 +8,8 @@ import 'package:widgets_easier/widgets_easier.dart';
 import 'animate_examples.dart';
 
 class AnimationDocs extends StatefulWidget {
-  const AnimationDocs({super.key});
+  final int c;
+  const AnimationDocs(this.c, {super.key});
 
   @override
   State<AnimationDocs> createState() => _AnimationDocsState();
@@ -37,7 +38,8 @@ class _AnimationDocsState extends State<AnimationDocs>
   Widget build(BuildContext context) {
     return DocsWidget(
       children: [
-        Write.header2('1. 安装'),
+        Write.header1('${widget.c}. 动画'),
+        Write.header2('${widget.c}.1. 安装'),
         Write.paragraph('Widgets Easy动画在独立的动画库中，它包含了多种常用动画。你可以通过运行下面的方法进行安装：'),
         HighlightView(
           'flutter pub add flutter_easy_animations',
@@ -45,8 +47,8 @@ class _AnimationDocsState extends State<AnimationDocs>
           theme: vs2015Theme,
           padding: const EdgeInsets.all(12),
         ),
-        Write.header2('2. 用法'),
-        Write.header3('2.1 导入'),
+        Write.header2('${widget.c}.2. 用法'),
+        Write.header3('${widget.c}.2.1 导入'),
         Write.paragraph('在你的代码中先导入flutter_easy_animations库：'),
         HighlightView(
           'import \'package:flutter_easy_animations/flutter_easy_animations.dart\';',
@@ -54,7 +56,7 @@ class _AnimationDocsState extends State<AnimationDocs>
           theme: vs2015Theme,
           padding: const EdgeInsets.all(12),
         ),
-        Write.header3('2.2 AnimateStyles类'),
+        Write.header3('${widget.c}.2.2 AnimateStyles类'),
         Write.paragraph(
             'AnimateStyles类以静态成员的方式提供了多个动画效果。考虑到 https://animate.style/ 中（即Animate.css）中的动画为前端开发者所熟知，这里对该前端动画效果完整给出了对应的Flutter端实现并进行了一定程度的拓展。下面的代码展示了如何为子元素添加动画效果：'),
         HighlightView(

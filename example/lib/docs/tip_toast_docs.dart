@@ -6,12 +6,15 @@ import 'package:widgets_easier/widgets_easier.dart';
 import '../widgets/docs_widget.dart';
 
 class TipToastDocs extends StatelessWidget {
-  const TipToastDocs({super.key});
+  final int c;
+  const TipToastDocs(this.c, {super.key});
+
   @override
   Widget build(BuildContext context) {
     return DocsWidget(
       children: [
-        Write.header2('13.1 TipToasts工具简介'),
+        Write.header1('$c. 提示吐丝'),
+        Write.header2('$c.1 TipToasts工具简介'),
         Write.paragraph(
             'TipToasts 是一个用于在 Flutter 应用中显示提示消息的工具类，是一种最简单的吐丝。它提供了一种简单而灵活的方式来在屏幕的不同位置显示短暂的提示信息，并支持自定义动画效果和样式。TipToast 适用各种需要简单提示性的场景：'),
         Write.orderedList([
@@ -23,7 +26,7 @@ class TipToastDocs extends StatelessWidget {
         Write.paragraph(
             'TipToasts 提供了几个静态方法来显示提示消息，分别是toCenter、toTop和toBottom。'),
         const Gap(20),
-        Write.header2('13.2 toCenter方法'),
+        Write.header2('$c.2 toCenter方法'),
         const Gap(20),
         HighlightView(
           '''static void toCenter(
@@ -50,7 +53,7 @@ class TipToastDocs extends StatelessWidget {
           Write.listItem('maxWidth: 提示消息的最大宽度，默认为 200。'),
         ]),
         const Gap(20),
-        Write.header2('13.3 toTop方法'),
+        Write.header2('$c.3 toTop方法'),
         const Gap(20),
         Write.paragraph('该方法用于在屏幕顶部显示提示消息，并可以指定垂直偏移量。'),
         const Gap(20),
@@ -71,7 +74,7 @@ class TipToastDocs extends StatelessWidget {
         const Gap(20),
         Write.paragraph('其中参数offset表示从屏幕顶部的垂直偏移量，默认为 100，其他参数与 toCenter 方法相同。'),
         const Gap(20),
-        Write.header2('13.4 toBottom方法'),
+        Write.header2('$c.4 toBottom方法'),
         const Gap(20),
         Write.paragraph('该方法用于在屏幕底部显示提示消息，并可以指定垂直偏移量。'),
         HighlightView(
@@ -90,7 +93,7 @@ class TipToastDocs extends StatelessWidget {
         ),
         Write.paragraph('其中参数offset表示从屏幕底部的垂直偏移量，默认为 100。'),
         const Gap(20),
-        Write.header2('13.5 代码示例'),
+        Write.header2('$c.5 代码示例'),
         const Gap(20),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
