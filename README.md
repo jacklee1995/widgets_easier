@@ -1161,11 +1161,11 @@ SemanticButton(
 
 ![example_ZPNFkyEpaC](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_ZPNFkyEpaC.gif)
 
-### 5. Button Groups
+### 4. Button Groups
 
 Button groups in the Widgets Easier component library are collections of multiple SemanticButtons. They have unified semantics and are arranged closely together.
 
-#### 5.1 Combining SemanticButtons in a ButtonGroup
+#### 4.1 Combining SemanticButtons in a ButtonGroup
 
 ```dart
 ButtonGroup(
@@ -1185,7 +1185,7 @@ ButtonGroup(
 ```
 In ButtonGroup, the event callback function for each button is directly specified on the onTap property of SemanticButton. Similarly, the text for each individual button is directly specified through the text parameter of each SemanticButton.
 
-#### 5.2 Using Semantic Types
+#### 4.2 Using Semantic Types
 
 Similar to SemanticButton, you can also specify different type properties for ButtonGroup to obtain button groups with different symbolic colors representing different meanings. For example:
 
@@ -1271,7 +1271,7 @@ ButtonGroup(
 
 ![example_M8MY32Z4QW](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_M8MY32Z4QW.gif)
 
-#### 5.3 Button Group Corner Radius
+#### 4.3 Button Group Corner Radius
 
 You can manually modify the corner radius of the button group by specifying the radius property for the button group. If not specified, the default corner radius is 4. An example of manually specifying the button group corner radius is as follows:
 
@@ -1288,15 +1288,15 @@ ButtonGroup(
 
 ![example_GFp71agb79](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_GFp71agb79.gif)
 
-#### 5.4 Button Group Sizes
+#### 4.4 Button Group Sizes
 
 Similar to SemanticButton, ButtonGroup can also specify sizes using enumeration sizes and numerical sizes.
 
-##### 5.4.1 Enumeration Sizes
+##### 4.4.1 Enumeration Sizes
 
 Enumeration size values can be used to specify the size of the button group. For example:![example_KLiWhn18t5](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_KLiWhn18t5.gif)
 
-##### 5.4.2 Numeric Sizes
+##### 4.4.2 Numeric Sizes
 
 Numeric sizes provide a more flexible way to specify sizes. Once a numeric size is used, the specified enumeration size will automatically become inactive. You can specify numeric sizes using the height property, for example:
 
@@ -1315,7 +1315,7 @@ ButtonGroup(
 
 ![example_FWgfhJiS1W](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_FWgfhJiS1W.gif)
 
-#### 5.5 Using Prefix and Suffix Icons
+#### 4.5 Using Prefix and Suffix Icons
 
 While ButtonGroup can contain multiple SemanticButtons, only the first button in ButtonGroup can have a prefix icon and the last button can have a suffix icon. This is straightforward to implement, simply by specifying the prefixIcon parameter or suffixIcon parameter for the ButtonGroup. For example:
 
@@ -1351,7 +1351,7 @@ ButtonGroup(
 
 #### ![example_f6xDuUhP6W](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_f6xDuUhP6W.gif)
 
-#### 5.6 Shrink Behavior
+#### 4.6 Shrink Behavior
 
 Similar to SemanticButton, you can specify the shrink behavior for ButtonGroup. This is particularly useful in situations where you need a single button group to occupy the full container width. For example, specifying the shrink parameter value as false to make the button group occupy the entire row:
 
@@ -1386,18 +1386,244 @@ ButtonGroup(
 ),
 ```
 
+The running result is as follows:
+
 ![example_W6GYBdDlgJ](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_W6GYBdDlgJ.gif)
 
-#### 5.7 Helpful Tips
+#### 4.7 Helpful Tips
 
 ButtonGroup is a whole composed of multiple SemanticButtons organized in a certain way. You can specify more parameters for SemanticButtons in ButtonGroup—there are no syntax errors here. However, not every parameter of SemanticButton will take effect in ButtonGroup because the buttons in the group need to be managed in their own way. The main parameters that can be specified are the text and callback events for each button because these parameters do not belong to the whole but are specific to each unit.
 
-### 6. Tags
+### 5. Tags
+
+### 5.1 Semantic Types
+
+The `type` parameter of the Tag component allows for the utilization of semantic colors. For example:
+
+```dart
+const Row(
+  mainAxisAlignment: MainAxisAlignment.spaceAround,
+  children: [
+    Tag('tag', type: SemanticEnum.primary),
+    Tag('tag', type: SemanticEnum.secondary),
+    Tag('tag', type: SemanticEnum.info),
+    Tag('tag', type: SemanticEnum.success),
+    Tag('tag', type: SemanticEnum.warning),
+    Tag('tag', type: SemanticEnum.danger),
+    Tag('tag', type: SemanticEnum.fatal),
+  ],
+),
+```
+
+The running result is as follows:
+
+![example_RLfAZpHGRt](J:\widgets_easier\readme_pics\example_RLfAZpHGRt-1714994639986-23.png)
+
+### 5.2 Style Themes
+
+Inspired by Element-plus, **Tag** has three style themes: `plain`, `light`, and `dark`. By default, it is set to `plain`, as demonstrated in the previous section. Below are examples of the `light` and `dark` themes:
 
 
-### 7. Counter
 
-#### 7.1 Introduction to the Counter Component
+##### light
+
+```dart
+const Row(
+  mainAxisAlignment: MainAxisAlignment.spaceAround,
+  children: [
+    Tag('tag', theme: TagThemeEnum.light, type: SemanticEnum.primary),
+    Tag('tag', theme: TagThemeEnum.light, type: SemanticEnum.secondary),
+    Tag('tag', theme: TagThemeEnum.light, type: SemanticEnum.info),
+    Tag('tag', theme: TagThemeEnum.light, type: SemanticEnum.success),
+    Tag('tag', theme: TagThemeEnum.light, type: SemanticEnum.warning),
+    Tag('tag', theme: TagThemeEnum.light, type: SemanticEnum.danger),
+    Tag('tag', theme: TagThemeEnum.light, type: SemanticEnum.fatal),
+  ],
+),
+```
+
+The running result is as follows:
+
+![example_uLVBhrUyBl](J:\widgets_easier\readme_pics\example_uLVBhrUyBl-1714994639986-24.png)
+
+
+
+##### dark
+
+```dart
+const Row(
+  mainAxisAlignment: MainAxisAlignment.spaceAround,
+  children: [
+    Tag('tag', theme: TagThemeEnum.dark, type: SemanticEnum.primary),
+    Tag('tag', theme: TagThemeEnum.dark, type: SemanticEnum.secondary),
+    Tag('tag', theme: TagThemeEnum.dark, type: SemanticEnum.info),
+    Tag('tag', theme: TagThemeEnum.dark, type: SemanticEnum.success),
+    Tag('tag', theme: TagThemeEnum.dark, type: SemanticEnum.warning),
+    Tag('tag', theme: TagThemeEnum.dark, type: SemanticEnum.danger),
+    Tag('tag', theme: TagThemeEnum.dark, type: SemanticEnum.fatal),
+  ],
+),
+```
+
+![example_4GWiRl3tzL](J:\widgets_easier\readme_pics\example_4GWiRl3tzL-1714994639986-25.png)
+
+
+
+#### 5.3 Radius
+
+By default, there is a radius of 4 for corners. To manually modify this, you can specify the `radius` parameter. The `radius` parameter accepts a double value. For example, setting `radius` to 0 will remove the rounded corners:
+
+```dart
+Tag('radius: 0', radius: 0),
+```
+
+The running result is as follows:
+
+![example_WCSxzzhhjE](J:\widgets_easier\readme_pics\example_WCSxzzhhjE-1714994639986-26.png)
+
+
+
+#### 5.4 Size
+
+##### 5.4.1 Enum Sizes
+
+For example:
+
+```dart
+Tag('SizeEnum.small', size: SizeEnum.small),
+Tag('SizeEnum.defaultSize', size: SizeEnum.defaultSize),
+Tag('SizeEnum.large', size: SizeEnum.large),
+```
+
+The running result is as follows:
+
+![example_T8peW8o3Ud](J:\widgets_easier\readme_pics\example_T8peW8o3Ud.png)
+
+##### 5.4.2 Numeric Sizes
+
+You can specify a numeric value as the size using the `height` parameter. Once the `height` is specified, the `size` parameter becomes ineffective. For example, specifying a height of 50:
+
+```dart
+Tag('hignt=50', height: 50),
+```
+
+The running result is as follows:
+
+![example_0yBhql2v2F](J:\widgets_easier\readme_pics\example_0yBhql2v2F-1714994639986-27.png)
+
+##### 5.4.3 Shrink Property
+
+By setting the `shrink` property to false, you can make a tag occupy as much space as possible on a single line. For example:
+
+```dart
+Tag('shrink: false', shrink: false)
+```
+
+The running result is as follows:
+
+![example_sonRhtEJqj](J:\widgets_easier\readme_pics\example_sonRhtEJqj-1714994639986-28.png)
+
+#### 5.5 Closable Tags
+
+By specifying `closable: true`, a close icon will be displayed. For example:
+
+```dart
+const Row(
+  mainAxisAlignment: MainAxisAlignment.spaceAround,
+  children: [
+    Tag('tag', closable: true, type: SemanticEnum.primary),
+    Tag('tag', closable: true, type: SemanticEnum.secondary),
+    Tag('tag', closable: true, type: SemanticEnum.info),
+    Tag('tag', closable: true, type: SemanticEnum.success),
+    Tag('tag', closable: true, type: SemanticEnum.warning),
+    Tag('tag', closable: true, type: SemanticEnum.danger),
+    Tag('tag', closable: true, type: SemanticEnum.fatal),
+  ],
+),
+```
+
+The running result is as follows:
+
+![example_HJgxs2Vv3O](J:\widgets_easier\readme_pics\example_HJgxs2Vv3O-1714994639986-29.gif)
+
+
+
+#### 5.6 Example of Dynamically Editing Tags
+
+Dynamic editing of tags can be achieved by triggering the `onClose` event after clicking the close button on the tag. For example:
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:widgets_easier/widgets_easier.dart';
+
+class DynamicTagsExample extends StatefulWidget {
+  const DynamicTagsExample({super.key});
+
+  @override
+  State<DynamicTagsExample> createState() => _DynamicTagsExampleState();
+}
+
+class _DynamicTagsExampleState extends State<DynamicTagsExample> {
+  final List<String> _tags = ['Tag 1', 'Tag 2', 'Tag 3'];
+  final String _newTagButtonText = '+ 添加 Tag';
+
+  void _handleClose(int index) {
+    setState(() {
+      _tags.removeAt(index);
+    });
+  }
+
+  void _handleSubmitted(String value) {
+    if (value.isNotEmpty) {
+      setState(() {
+        _tags.add(value);
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Wrap(
+      spacing: 8,
+      runSpacing: 8,
+      children: [
+        Text('$_tags'),
+        for (int index = 0; index < _tags.length; index++)
+          Tag(
+            key: UniqueKey(), // 重要
+            _tags[index],
+            type: SemanticEnum.primary,
+            theme: TagThemeEnum.light,
+            closable: true,
+            onClose: (_) {
+              _handleClose(index);
+            },
+          ),
+        Tag(
+          _newTagButtonText,
+          type: SemanticEnum.danger,
+          editable: true,
+          restoreAfterSubmitted: true,
+          onSubmitted: _handleSubmitted,
+        ),
+      ],
+    );
+  }
+}
+```
+
+The running result is as follows:
+
+![在这里插入图片描述](J:\widgets_easier\readme_pics\cea33e4f5e9f46d5a148d886959c6d32-1714994639986-30.gif)
+
+
+
+
+
+
+### 6. Counter
+
+#### 6.1 Introduction to the Counter Component
 
 **CounterInput** is a **Flutter** widget for numerical input and adjustment. It provides an intuitive interface that allows users to change the current value by clicking plus and minus buttons or directly inputting numbers. This component includes the following features:
 
@@ -1409,7 +1635,7 @@ ButtonGroup is a whole composed of multiple SemanticButtons organized in a certa
 6. Supports continuous value change by long-pressing plus and minus buttons.
 7. Supports disabling and enabling component interaction.
 
-#### 7.2 Using Semantic Types
+#### 6.2 Using Semantic Types
 
 Like other components, you can specify semantic enumeration values through the `type` property to obtain different semantic colors. For example:
 
@@ -1419,7 +1645,7 @@ CounterInput(type: SemanticEnum.primary)
 
 ![example_uoLPuBTKzb](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_uoLPuBTKzb.png)
 
-#### 7.3 Custom Colors
+#### 6.3 Custom Colors
 
 If you want to specify the colors of each part more flexibly, that's also possible. Specifically, there are the following color parameters:
 
@@ -1444,9 +1670,9 @@ const CounterInput(
 
 ![example_h0k4KWue9E](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_h0k4KWue9E.png)
 
-#### 7.4 Sizes
+#### 6.4 Sizes
 
-##### 7.4.1 Enumeration Sizes
+##### 6.4.1 Enumeration Sizes
 
 You can specify enumeration sizes through the size parameter, including SizeEnum.small, SizeEnum.defaultSize, and SizeEnum.large. If not specified, the default is SizeEnum.defaultSize. For example:
 
@@ -1486,7 +1712,7 @@ Row(
 
 ![example_1JTzG6Hlaf](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_1JTzG6Hlaf.png)
 
-##### 7.4.2 Numeric Sizes
+##### 6.4.2 Numeric Sizes
 
 If enumeration sizes cannot meet your requirements, you can also specify numerical values:
 
@@ -1499,7 +1725,7 @@ CounterInput(
 
 ![example_eDBmo5IVT9](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_eDBmo5IVT9.png)
 
-#### 7.5 Outline Style
+#### 6.5 Outline Style
 
 By setting the value of `isOutlined` to true, you can set the counter as an outline style. For example:
 
@@ -1532,7 +1758,7 @@ Row(
 
 ![example_tjpQHhVKRl](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_tjpQHhVKRl.png)
 
-#### 7.6 Rounded Counter
+#### 6.6 Rounded Counter
 
 You can easily set the counter with rounded corners using the `radius` property, for example:
 
@@ -1546,7 +1772,7 @@ const CounterInput(
 
 ![example_4AXqYeLDKp](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_4AXqYeLDKp.gif)
 
-#### 7.7 Automatic Width and Fixed Width
+#### 6.7 Automatic Width and Fixed Width
 
 By default, the width is automatic, and the width of the counter's text input area increases as the number of digits increases. However, you can also specify a fixed width for the text input area. For example:
 
@@ -1559,9 +1785,9 @@ CounterInput(
 
 
 
-#### 7.8 Callback Events
+#### 6.8 Callback Events
 
-##### 7.8.1 Increment and Decrement Callbacks
+##### 6.8.1 Increment and Decrement Callbacks
 
 The increment callback is used to listen for value increase events, triggered when the value increases; similarly, the decrement callback is used to listen for decrease events, triggered when the value decreases.
 
@@ -1587,7 +1813,7 @@ CounterInput(
 
 
 
-##### 7.8.2 Boundary Reached Callbacks
+##### 6.8.2 Boundary Reached Callbacks
 
 The counter has a maximum value and a minimum value, with the default minimum value being 0 and the maximum value being 100. When it reaches the minimum value, the minimum value callback is triggered. The following example demonstrates executing the relevant callbacks when reaching the maximum/minimum values. Here, the maximum value is set to 10, the minimum value to 1, the initial value to 6, and the step to 2. A popup message appears whenever the minimum or maximum value is reached.
 
@@ -1623,7 +1849,7 @@ CounterInput(
 
 Through this example, it can be observed that `onMax` and `onMin` are only called when reaching the maximum or minimum values, but they are not called if attempting to continue clicking the buttons beyond those limits. Using the GIF image above as an example, when incrementing to 10, the `onMax` method will be called, but attempting to increment further beyond 10 will not be handled.
 
-##### 7.8.3 Overflow Callback
+##### 6.8.3 Overflow Callback
 
 The overflow callback is used to respond to scenarios where operations continue beyond the maximum value when incrementing or beyond the minimum value when decrementing. For example:
 
@@ -1695,7 +1921,7 @@ flutter: oldValue is 1.0, newValue is 0.0
 
 
 
-### 8. Pop-up Windows
+### 7. Pop-up Windows
 
 #### InfoDialogs
 
@@ -2635,12 +2861,12 @@ The appearance looks like this:
 
 ![](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/296cf1829bb047448477db75ff560ed1.gif)
 
-### 9. Toast Messages
+### 8. Toast Messages
 
 
 The toast message component is inspired by Element-Plus's Notification and encapsulated in a way that is suitable for use in Flutter. It provides a simple and flexible way to display message notifications in your application. By customizing styles, animation effects, and interactions, you can create message notifications that align with your app's design style.
 
-#### 9.1 Basic Usage
+#### 8.1 Basic Usage
 
 The toast message-related components are displayed using static methods provided by the `NotifyToasts` class. The `NotifyToasts` class has four static methods corresponding to displaying message notifications in four different positions:
 
@@ -2702,7 +2928,7 @@ The running effect of the code is as follows:
 
 Translate the document: The default duration for a toast message is 3 seconds, and you can specify the time using the `duration` parameter. In the example above, the **Bottom Left** toast is manually set to 1 second.
 
-#### 9.2 Semantic Types
+#### 8.2 Semantic Types
 
 Each of the four static methods in NotifyToasts has a `type` property, which is an enumeration of SemanticEnum. You can set different semantic types by specifying values from the SemanticEnum. For example:
 
@@ -2790,7 +3016,7 @@ The running effect of the code is as follows:
 
 It should be noted that the `type` in toast messages will not default to `SemanticEnum.primary`; if not specified, semantic colors will not be used.
 
-#### 9.3 Custom Images and Titles
+#### 8.3 Custom Images and Titles
 
 If a non-empty `type` value is specified, you do not need to specify icons and titles as there are default icons and titles. However, you can still customize them if needed, for example:
 
@@ -2843,7 +3069,7 @@ The running effect of the code is as follows:
 
 ![example_0VkrqwD0V6](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_0VkrqwD0V6.gif)
 
-#### 9.4 Custom Colors
+#### 8.4 Custom Colors
 
 You can customize the colors of notification messages. For example:
 
@@ -2866,7 +3092,7 @@ The running effect of the code is as follows:
 
 ![example_v5UtPLQkCx](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_v5UtPLQkCx.gif)
 
-#### 9.5 Custom Animation
+#### 8.5 Custom Animation
 
 You can customize animations, but it is still recommended to use the pre-built animation effects from the `flutter_easy_animations` library that comes with the **Widgets Easier** component library. By default, the `showTopRight` and `showBottomRight` methods in **NotifyToasts** use the **AnimateStyles.slideInRight** animation effect, while the `showTopLeft` and `showBottomLeft` methods use the **AnimateStyles.slideInLeft** animation effect.
 
@@ -2896,7 +3122,7 @@ Please note that choosing appropriate animations can make the entry and exit of 
 Additionally, if needed, you can specify the animation duration using the `animationDuration` parameter. If not specified, the default duration of `300` milliseconds is used.
 
 
-#### 9.6 Close Button
+#### 8.6 Close Button
 
 
 By default, each toast message includes a close button. If you do not want to display the close button, you can set the value of the `showClose` attribute to `false`. For example:
@@ -2920,7 +3146,7 @@ The running effect of the code is as follows:
 
 ![example_hLZFdhRnWm](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_hLZFdhRnWm.gif)
 
-#### 9.7 Disable Auto Removal
+#### 8.7 Disable Auto Removal
 
 By default, toast messages are automatically removed once the specified time is reached. However, if you set `autoClose` to `false`, you will need to manually click the close button. For example:
 
@@ -2945,7 +3171,7 @@ The running effect of the code is as follows:
 
 If auto removal is disabled, the close button icon will be enabled regardless of whether `showClose` is set to `false`.
 
-#### 9.8 Click Event
+#### 8.8 Click Event
 
 ```dart
 SemanticButton(
@@ -2967,9 +3193,9 @@ The running effect of the code is as follows:
 
 
 
-### 10. TipToasts
+### 9. TipToasts
 
-#### 10.1 Introduction to TipToasts Tool
+#### 9.1 Introduction to TipToasts Tool
 
 TipToasts is a utility class used to display toast messages in Flutter applications, serving as a simple form of toast. It offers a straightforward and flexible way to display brief messages at different positions on the screen, supporting custom animation effects and styles. TipToasts are suitable for various scenarios requiring simple informative prompts:
 
@@ -2980,7 +3206,7 @@ TipToasts is a utility class used to display toast messages in Flutter applicati
 
 TipToasts provide several static methods for displaying toast messages, namely `toCenter`, `toTop`, and `toBottom`.
 
-#### 10.2 `toCenter` Method
+#### 9.2 `toCenter` Method
 
 ```dart
 static void toCenter(
@@ -3015,7 +3241,7 @@ SemanticButton(
 
 ![example_JskzbjcvBA](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_JskzbjcvBA.gif)
 
-#### 10.3 toTop Method
+#### 9.3 toTop Method
 
 This method is used to display a prompt message at the top of the screen, with the option to specify a vertical offset.
 
@@ -3047,7 +3273,7 @@ SemanticButton(
 
 
 
-#### 10.4 toBottom Method
+#### 9.4 toBottom Method
 
 This method is used to display a prompt message at the bottom of the screen, with the option to specify a vertical offset.
 

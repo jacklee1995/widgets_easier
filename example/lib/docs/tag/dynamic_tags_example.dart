@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 import 'package:widgets_easier/widgets_easier.dart';
 
 class DynamicTagsExample extends StatefulWidget {
@@ -13,9 +12,9 @@ class _DynamicTagsExampleState extends State<DynamicTagsExample> {
   final List<String> _tags = ['Tag 1', 'Tag 2', 'Tag 3'];
   final String _newTagButtonText = '+ 添加 Tag';
 
-  void _handleClose(String tag) {
+  void _handleClose(int index) {
     setState(() {
-      _tags.remove(tag);
+      _tags.removeAt(index);
     });
   }
 
@@ -33,17 +32,17 @@ class _DynamicTagsExampleState extends State<DynamicTagsExample> {
       spacing: 8,
       runSpacing: 8,
       children: [
-        for (final tag in _tags)
+        for (int index = 0; index < _tags.length; index++)
           Tag(
-            tag,
+            // key: UniqueKey(),
+            _tags[index],
             type: SemanticEnum.primary,
             theme: TagThemeEnum.light,
             closable: true,
-            onClose: () => _handleClose(tag),
+            onClose: (_) {
+              _handleClose(index);
+            },
           ),
-        // 或者用SizedBox()
-        // 很重要，用于确保它们在布局上相互独立
-        const Gap(0),
         Tag(
           _newTagButtonText,
           type: SemanticEnum.danger,
