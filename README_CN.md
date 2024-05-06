@@ -1397,7 +1397,7 @@ const Row(
 ),
 ```
 
-![example_RLfAZpHGRt](J:\widgets_easier\readme_pics\example_RLfAZpHGRt.png)
+![example_RLfAZpHGRt](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_RLfAZpHGRt.png)
 
 #### 5.2 样式主题
 
@@ -1422,7 +1422,7 @@ const Row(
 ),
 ```
 
-![example_uLVBhrUyBl](J:\widgets_easier\readme_pics\example_uLVBhrUyBl.png)
+![example_uLVBhrUyBl](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_uLVBhrUyBl.png)
 
 
 
@@ -1443,7 +1443,7 @@ const Row(
 ),
 ```
 
-![example_4GWiRl3tzL](J:\widgets_easier\readme_pics\example_4GWiRl3tzL.png)
+![example_4GWiRl3tzL](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_4GWiRl3tzL.png)
 
 
 
@@ -1455,7 +1455,7 @@ const Row(
 Tag('radius: 0', radius: 0),
 ```
 
-![example_WCSxzzhhjE](J:\widgets_easier\readme_pics\example_WCSxzzhhjE.png)
+![example_WCSxzzhhjE](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_WCSxzzhhjE.png)
 
 
 
@@ -1483,7 +1483,7 @@ Tag('SizeEnum.large', size: SizeEnum.large),
 Tag('hignt=50', height: 50),
 ```
 
-![example_0yBhql2v2F](J:\widgets_easier\readme_pics\example_0yBhql2v2F.png)
+![example_0yBhql2v2F](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_0yBhql2v2F.png)
 
 ##### 收缩属性
 
@@ -1493,7 +1493,7 @@ Tag('hignt=50', height: 50),
 Tag('shrink: false', shrink: false)
 ```
 
-![example_sonRhtEJqj](J:\widgets_easier\readme_pics\example_sonRhtEJqj.png)
+![example_sonRhtEJqj](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_sonRhtEJqj.png)
 
 #### 5.5 可关闭标签
 
@@ -1514,7 +1514,7 @@ const Row(
 ),
 ```
 
-![example_HJgxs2Vv3O](J:\widgets_easier\readme_pics\example_HJgxs2Vv3O.gif)
+![example_HJgxs2Vv3O](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_HJgxs2Vv3O.gif)
 
 
 
@@ -1584,7 +1584,7 @@ class _DynamicTagsExampleState extends State<DynamicTagsExample> {
 }
 ```
 效果如下：
-![在这里插入图片描述](J:\widgets_easier\readme_pics\cea33e4f5e9f46d5a148d886959c6d32.gif)
+![在这里插入图片描述](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/cea33e4f5e9f46d5a148d886959c6d32.gif)
 
 
 

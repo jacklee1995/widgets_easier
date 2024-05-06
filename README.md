@@ -1417,7 +1417,7 @@ const Row(
 
 The running result is as follows:
 
-![example_RLfAZpHGRt](J:\widgets_easier\readme_pics\example_RLfAZpHGRt-1714994639986-23.png)
+![example_RLfAZpHGRt](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_RLfAZpHGRt-1714994639986-23.png)
 
 ### 5.2 Style Themes
 
@@ -1444,7 +1444,7 @@ const Row(
 
 The running result is as follows:
 
-![example_uLVBhrUyBl](J:\widgets_easier\readme_pics\example_uLVBhrUyBl-1714994639986-24.png)
+![example_uLVBhrUyBl](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_uLVBhrUyBl-1714994639986-24.png)
 
 
 
@@ -1465,7 +1465,7 @@ const Row(
 ),
 ```
 
-![example_4GWiRl3tzL](J:\widgets_easier\readme_pics\example_4GWiRl3tzL-1714994639986-25.png)
+![example_4GWiRl3tzL](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_4GWiRl3tzL-1714994639986-25.png)
 
 
 
@@ -1479,7 +1479,7 @@ Tag('radius: 0', radius: 0),
 
 The running result is as follows:
 
-![example_WCSxzzhhjE](J:\widgets_easier\readme_pics\example_WCSxzzhhjE-1714994639986-26.png)
+![example_WCSxzzhhjE](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_WCSxzzhhjE-1714994639986-26.png)
 
 
 
@@ -1497,7 +1497,7 @@ Tag('SizeEnum.large', size: SizeEnum.large),
 
 The running result is as follows:
 
-![example_T8peW8o3Ud](J:\widgets_easier\readme_pics\example_T8peW8o3Ud.png)
+![example_T8peW8o3Ud](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_T8peW8o3Ud.png)
 
 ##### 5.4.2 Numeric Sizes
 
@@ -1509,7 +1509,7 @@ Tag('hignt=50', height: 50),
 
 The running result is as follows:
 
-![example_0yBhql2v2F](J:\widgets_easier\readme_pics\example_0yBhql2v2F-1714994639986-27.png)
+![example_0yBhql2v2F](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_0yBhql2v2F-1714994639986-27.png)
 
 ##### 5.4.3 Shrink Property
 
@@ -1521,7 +1521,7 @@ Tag('shrink: false', shrink: false)
 
 The running result is as follows:
 
-![example_sonRhtEJqj](J:\widgets_easier\readme_pics\example_sonRhtEJqj-1714994639986-28.png)
+![example_sonRhtEJqj](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_sonRhtEJqj-1714994639986-28.png)
 
 #### 5.5 Closable Tags
 
@@ -1544,7 +1544,7 @@ const Row(
 
 The running result is as follows:
 
-![example_HJgxs2Vv3O](J:\widgets_easier\readme_pics\example_HJgxs2Vv3O-1714994639986-29.gif)
+![example_HJgxs2Vv3O](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_HJgxs2Vv3O-1714994639986-29.gif)
 
 
 
@@ -1614,7 +1614,7 @@ class _DynamicTagsExampleState extends State<DynamicTagsExample> {
 
 The running result is as follows:
 
-![在这里插入图片描述](J:\widgets_easier\readme_pics\cea33e4f5e9f46d5a148d886959c6d32-1714994639986-30.gif)
+![在这里插入图片描述](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/cea33e4f5e9f46d5a148d886959c6d32-1714994639986-30.gif)
 
 
 
