@@ -3185,7 +3185,7 @@ SemanticButton(
 
 ### 10. 提示吐丝
 
-#### 9.1 TipToasts工具简介
+#### 10.1 TipToasts工具简介
 
 TipToasts 是一个用于在 Flutter 应用中显示提示消息的工具类，是一种最简单的吐丝。它提供了一种简单而灵活的方式来在屏幕的不同位置显示短暂的提示信息，并支持自定义动画效果和样式。TipToast 适用各种需要简单提示性的场景：
 
@@ -3196,7 +3196,7 @@ TipToasts 是一个用于在 Flutter 应用中显示提示消息的工具类，�
 
 TipToasts 提供了几个静态方法来显示提示消息，分别是toCenter、toTop和toBottom。
 
-#### 9.2 toCenter方法
+#### 10.2 toCenter方法
 
 ```dart
 static void toCenter(
@@ -3232,7 +3232,7 @@ SemanticButton(
 
 
 
-#### 9.3 toTop方法
+#### 10.3 toTop方法
 
 该方法用于在屏幕顶部显示提示消息，并可以指定垂直偏移量。
 
@@ -3263,7 +3263,7 @@ SemanticButton(
 
 
 
-#### 9.4 toBottom 方法
+#### 10.4 toBottom 方法
 
 该方法用于在屏幕底部显示提示消息，并可以指定垂直偏移量。
 
@@ -3395,7 +3395,7 @@ Row(
 ),
 ```
 
-![在这里插入图片描述](./readme_pics/50c63288482441e696045cef7abddea9.gif)
+![在这里插入图片描述](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/50c63288482441e696045cef7abddea9.gif)
 
 ### 11.2 底部确认弹窗
 
@@ -3558,7 +3558,7 @@ Row(
 ),
 ```
 
-![在这里插入图片描述](./readme_pics/6a74972d5f8048209ccb257206fba86d.gif)
+![在这里插入图片描述](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/6a74972d5f8048209ccb257206fba86d.gif)
 
 ### 11.3 底部级联选择器
 
@@ -3610,7 +3610,7 @@ SemanticButton(
 )
 ```
 
-![在这里插入图片描述](./readme_pics/cc84116e550b4a28a58660ad918cb24b.gif)
+![在这里插入图片描述](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/cc84116e550b4a28a58660ad918cb24b.gif)
 
 ### 11.3.3 示例：多级联动选择
 
@@ -3725,11 +3725,13 @@ SemanticButton(
 )
 ```
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/direct/3d7c9de55d8642c8bc054514a68b5d76.gif)
+![在这里插入图片描述](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/3d7c9de55d8642c8bc054514a68b5d76.gif)
 
 
 
 ### 12. 抽屉
+
+正在生产中
 
 
 ###  Issues Report
