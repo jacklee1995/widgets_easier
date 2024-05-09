@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:widgets_easier/widgets_easier.dart';
 import 'docs/animation_docs.dart';
 import 'docs/border_docs.dart';
+import 'docs/bottom_sheet_docs.dart';
 import 'docs/button_group_docs.dart';
 import 'docs/card_docs.dart';
 import 'docs/counter_input_docs.dart';
@@ -75,9 +76,10 @@ class _HomeViewState extends State<HomeView> {
               const PictureDocs(11),
               const CardDocs(12),
               const DialogDocs(11),
-              const NotifyToastDocs(12),
-              const TipToastDocs(13),
-              const TagDocs(14),
+              const BottomSheetDocs(12),
+              const NotifyToastDocs(13),
+              const TipToastDocs(14),
+              const TagDocs(15),
             ],
           ),
         ),

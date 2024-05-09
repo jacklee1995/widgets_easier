@@ -46,6 +46,9 @@ export './src/widgets/dialogs/win_style_dialog/win_dialogs.dart';
 export './src/widgets/dialogs/info_dialog/info_dialog.dart';
 export './src/widgets/dialogs/confirm_dialog/confirm_dialog.dart';
 
+export './src/widgets/bottom_sheet/bottom_sheets.dart';
+export './src/widgets/bottom_sheet/cascade_bottom_sheet.dart';
+
 export './src/widgets/toasts/notify_toasts.dart';
 export './src/widgets/toasts/tip_toasts.dart';
 

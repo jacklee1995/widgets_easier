@@ -3193,9 +3193,9 @@ The running effect of the code is as follows:
 
 
 
-### 9. TipToasts
+### 10. TipToasts
 
-#### 9.1 Introduction to TipToasts Tool
+#### 10.1 Introduction to TipToasts Tool
 
 TipToasts is a utility class used to display toast messages in Flutter applications, serving as a simple form of toast. It offers a straightforward and flexible way to display brief messages at different positions on the screen, supporting custom animation effects and styles. TipToasts are suitable for various scenarios requiring simple informative prompts:
 
@@ -3206,7 +3206,7 @@ TipToasts is a utility class used to display toast messages in Flutter applicati
 
 TipToasts provide several static methods for displaying toast messages, namely `toCenter`, `toTop`, and `toBottom`.
 
-#### 9.2 `toCenter` Method
+#### 10.2 `toCenter` Method
 
 ```dart
 static void toCenter(
@@ -3239,9 +3239,11 @@ SemanticButton(
 )
 ```
 
+The running effect of the code is as follows:
+
 ![example_JskzbjcvBA](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_JskzbjcvBA.gif)
 
-#### 9.3 toTop Method
+#### 10.3 toTop Method
 
 This method is used to display a prompt message at the top of the screen, with the option to specify a vertical offset.
 
@@ -3269,11 +3271,13 @@ SemanticButton(
 )
 ```
 
+The running effect of the code is as follows:
+
 ![example_NznGSg2hm0](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_NznGSg2hm0.gif)
 
 
 
-#### 9.4 toBottom Method
+#### 10.4 toBottom Method
 
 This method is used to display a prompt message at the bottom of the screen, with the option to specify a vertical offset.
 
@@ -3301,7 +3305,445 @@ SemanticButton(
 )
 ```
 
+The running effect of the code is as follows:
+
 ![example_hbHZoFAO8O](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_hbHZoFAO8O.gif)
+
+### 11. Bottom Pop-up
+
+#### 11.1 Bottom Message Pop-up
+
+The bottom message pop-up is a bottom version of a message pop-up. You can use or disable images, specify relevant text, and define button callbacks, etc.
+
+For example:
+
+```dart
+Row(
+  mainAxisAlignment: MainAxisAlignment.spaceAround,
+  children: [
+    SemanticButton(
+      text: 'Primary',
+      type: SemanticEnum.primary,
+      onTap: () => BottomSheets.showInfoSheet(
+        context,
+        title: "Primary Sheet",
+        message: "This is a info bottom sheet.",
+        buttonText: "Close",
+        onTapDismiss: () => Navigator.pop(context),
+        type: SemanticEnum.primary,
+      ),
+    ),
+    SemanticButton(
+      text: 'Secondary',
+      type: SemanticEnum.secondary,
+      onTap: () => BottomSheets.showInfoSheet(
+        context,
+        title: "Secondary Sheet",
+        message: "This is a info bottom sheet.",
+        buttonText: "Close",
+        onTapDismiss: () => Navigator.pop(context),
+        type: SemanticEnum.secondary,
+      ),
+    ),
+    SemanticButton(
+      text: 'Info',
+      type: SemanticEnum.info,
+      onTap: () => BottomSheets.showInfoSheet(
+        context,
+        title: "Info Sheet",
+        message: "This is a info bottom sheet.",
+        buttonText: "Close",
+        onTapDismiss: () => Navigator.pop(context),
+        type: SemanticEnum.info,
+      ),
+    ),
+    SemanticButton(
+      text: 'Success',
+      type: SemanticEnum.success,
+      onTap: () => BottomSheets.showInfoSheet(
+        context,
+        title: "Success Sheet",
+        message: "This is a info bottom sheet.",
+        buttonText: "Close",
+        onTapDismiss: () => Navigator.pop(context),
+        type: SemanticEnum.success,
+      ),
+    ),
+    SemanticButton(
+      text: 'Warning',
+      type: SemanticEnum.warning,
+      onTap: () => BottomSheets.showInfoSheet(
+        context,
+        title: "Warning Sheet",
+        message: "This is a info bottom sheet.",
+        buttonText: "Close",
+        onTapDismiss: () => Navigator.pop(context),
+        type: SemanticEnum.warning,
+      ),
+    ),
+    SemanticButton(
+      text: 'Danger',
+      type: SemanticEnum.danger,
+      onTap: () => BottomSheets.showInfoSheet(
+        context,
+        title: "Danger Sheet",
+        message: "This is a info bottom sheet.",
+        buttonText: "Close",
+        onTapDismiss: () => Navigator.pop(context),
+        type: SemanticEnum.danger,
+      ),
+    ),
+    SemanticButton(
+      text: 'Fatal',
+      type: SemanticEnum.fatal,
+      onTap: () => BottomSheets.showInfoSheet(
+        context,
+        title: "Fatal Sheet",
+        message: "This is a info bottom sheet.",
+        buttonText: "Close",
+        onTapDismiss: () => Navigator.pop(context),
+        type: SemanticEnum.fatal,
+      ),
+    ),
+  ],
+),
+```
+
+The running effect of the code is as follows:
+
+![在这里插入图片描述](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/50c63288482441e696045cef7abddea9.gif)
+
+### 11.2 Bottom Confirmation Pop-up
+
+The bottom confirmation pop-up is a bottom version of a confirmation pop-up. You can use or disable images, specify relevant text, and define button callbacks, etc.
+
+For example:
+
+```dart
+Row(
+  mainAxisAlignment: MainAxisAlignment.spaceAround,
+  children: [
+    SemanticButton(
+      text: 'Primary',
+      type: SemanticEnum.primary,
+      isOutlined: true,
+      onTap: () => BottomSheets.showConfirmSheet(
+        context,
+        title: "Primary Sheet",
+        message: "This is a confirm bottom sheet.",
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        onTapConfirm: () {
+          // 处理确认操作
+          Navigator.pop(context);
+        },
+        onTapCancel: () {
+          // 处理取消操作
+          Navigator.pop(context);
+        },
+        type: SemanticEnum.primary,
+      ),
+    ),
+    SemanticButton(
+      text: 'Secondary',
+      type: SemanticEnum.secondary,
+      isOutlined: true,
+      onTap: () => BottomSheets.showConfirmSheet(
+        context,
+        title: "Secondary Sheet",
+        message: "This is a confirm bottom sheet.",
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        onTapConfirm: () {
+          // 处理确认操作
+          Navigator.pop(context);
+        },
+        onTapCancel: () {
+          // 处理取消操作
+          Navigator.pop(context);
+        },
+        type: SemanticEnum.secondary,
+      ),
+    ),
+    SemanticButton(
+      text: 'Info',
+      type: SemanticEnum.info,
+      isOutlined: true,
+      onTap: () => BottomSheets.showConfirmSheet(
+        context,
+        title: "Info Sheet",
+        message: "This is a confirm bottom sheet.",
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        onTapConfirm: () {
+          // 处理确认操作
+          Navigator.pop(context);
+        },
+        onTapCancel: () {
+          // 处理取消操作
+          Navigator.pop(context);
+        },
+        type: SemanticEnum.info,
+      ),
+    ),
+    SemanticButton(
+      text: 'Success',
+      type: SemanticEnum.success,
+      isOutlined: true,
+      onTap: () => BottomSheets.showConfirmSheet(
+        context,
+        title: "Success Sheet",
+        message: "This is a confirm bottom sheet.",
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        onTapConfirm: () {
+          // 处理确认操作
+          Navigator.pop(context);
+        },
+        onTapCancel: () {
+          // 处理取消操作
+          Navigator.pop(context);
+        },
+        type: SemanticEnum.success,
+      ),
+    ),
+    SemanticButton(
+      text: 'Warning',
+      type: SemanticEnum.warning,
+      isOutlined: true,
+      onTap: () => BottomSheets.showConfirmSheet(
+        context,
+        title: "Warning Sheet",
+        message: "This is a confirm bottom sheet.",
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        onTapConfirm: () {
+          // 处理确认操作
+          Navigator.pop(context);
+        },
+        onTapCancel: () {
+          // 处理取消操作
+          Navigator.pop(context);
+        },
+        type: SemanticEnum.warning,
+      ),
+    ),
+    SemanticButton(
+      text: 'Danger',
+      type: SemanticEnum.danger,
+      isOutlined: true,
+      onTap: () => BottomSheets.showConfirmSheet(
+        context,
+        title: "Danger Sheet",
+        message: "This is a confirm bottom sheet.",
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        onTapConfirm: () {
+          // 处理确认操作
+          Navigator.pop(context);
+        },
+        onTapCancel: () {
+          // 处理取消操作
+          Navigator.pop(context);
+        },
+        type: SemanticEnum.danger,
+      ),
+    ),
+    SemanticButton(
+      text: 'Fatal',
+      type: SemanticEnum.fatal,
+      isOutlined: true,
+      onTap: () => BottomSheets.showConfirmSheet(
+        context,
+        title: "Fatal Sheet",
+        message: "This is a confirm bottom sheet.",
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        onTapConfirm: () {
+          // 处理确认操作
+          Navigator.pop(context);
+        },
+        onTapCancel: () {
+          // 处理取消操作
+          Navigator.pop(context);
+        },
+        type: SemanticEnum.fatal,
+      ),
+    ),
+  ],
+),
+```
+
+![在这里插入图片描述](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/6a74972d5f8048209ccb257206fba86d.gif)
+
+### 11.3 Bottom Cascading Picker
+
+### 11.3.1 Introduction to Bottom Cascading Picker
+
+The bottom cascading picker is a commonly used UI component in mobile applications, mainly used for multi-level selection in a modal that pops up from the bottom. Users can scroll to select different options, which are typically hierarchical, such as selecting provinces, cities, and districts when choosing an address. The bottom cascading picker is suitable for scenarios requiring multi-level selection, commonly found in applications such as:
+
+- Address selection: Users can sequentially select provinces, cities, and districts.
+
+- Category selection: Choosing product categories on e-commerce platforms.
+
+- Setting options: For example, setting dates and times, selecting the year first, then the month, and finally the date.
+
+The main features of the bottom cascading picker include:
+
+- **Multi-level selection**: Supports dynamic loading and display of multi-level data.
+
+- **Customizable style**: Button text, styles, etc., can be customized.
+
+- **Flexible configuration**: Supports configuration of whether the picker can be closed by clicking on the background, as well as other custom behaviors.
+
+- **Responsive interaction**: Selected items are instantly reflected in the UI, enhancing user experience.
+
+### 11.3.2 Example: Single-level Selection
+
+
+```dart
+SemanticButton(
+  text: '一级选择表单',
+  shrink: true,
+  type: SemanticEnum.primary,
+  isOutlined: true,
+  onTap: () => BottomSheets.showCascadeSheet(
+    context,
+    items: [
+      {'label': ''},
+      {'label': '中国'},
+      {'label': '俄罗斯'},
+      {'label': '美国'},
+      {'label': '法国'},
+      {'label': '德国'},
+      {'label': '意大利'},
+    ],
+  ).then((value) {
+    debugPrint('value = $value');
+  }),
+)
+```
+
+The running effect of the code is as follows:
+
+![在这里插入图片描述](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/cc84116e550b4a28a58660ad918cb24b.gif)
+
+### 11.3.3 Example: Multi-level Linked Selection
+
+
+```dart
+SemanticButton(
+  text: '多级联动选择表单',
+  shrink: true,
+  type: SemanticEnum.primary,
+  isOutlined: true,
+  onTap: () => BottomSheets.showCascadeSheet(
+    context,
+    items: [
+      {
+        'label': '中国',
+        'children': [
+          {
+            'label': '北京市',
+            'children': [
+              {
+                'label': '东城区',
+                'children': [
+                  {'label': '安定门街道'},
+                  {'label': '建国门街道'},
+                  {'label': '朝阳门街道'},
+                ],
+              },
+              {
+                'label': '西城区',
+                'children': [
+                  {'label': '德胜门街道'},
+                  {'label': '新街口街道'},
+                  {'label': '月坛街道'},
+                ],
+              },
+            ],
+          },
+          {
+            'label': '上海市',
+            'children': [
+              {
+                'label': '黄浦区',
+                'children': [
+                  {'label': '南京东路街道'},
+                  {'label': '外滩街道'},
+                  {'label': '半淞园路街道'},
+                ],
+              },
+              {
+                'label': '徐汇区',
+                'children': [
+                  {'label': '湖南路街道'},
+                  {'label': '斜土路街道'},
+                  {'label': '枫林路街道'},
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        'label': '美国',
+        'children': [
+          {
+            'label': '加利福尼亚州',
+            'children': [
+              {
+                'label': '旧金山市',
+                'children': [
+                  {'label': '唐人街'},
+                  {'label': '金融区'},
+                  {'label': '渔人码头'},
+                ],
+              },
+              {
+                'label': '洛杉矶市',
+                'children': [
+                  {'label': '好莱坞'},
+                  {'label': '比佛利山'},
+                  {'label': '圣莫尼卡'},
+                ],
+              },
+            ],
+          },
+          {
+            'label': '纽约州',
+            'children': [
+              {
+                'label': '纽约市',
+                'children': [
+                  {'label': '曼哈顿'},
+                  {'label': '布鲁克林'},
+                  {'label': '皇后区'},
+                ],
+              },
+              {
+                'label': '布法罗市',
+                'children': [
+                  {'label': '尼亚加拉广场'},
+                  {'label': '艾伦敦'},
+                  {'label': '拉萨尔公园'},
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  ).then((value) {
+    debugPrint('value = $value');
+  }),
+)
+```
+
+The running effect of the code is as follows:
+
+![在这里插入图片描述](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/3d7c9de55d8642c8bc054514a68b5d76.gif)
 
 
 
