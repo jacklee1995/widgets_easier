@@ -10,7 +10,6 @@ class GuardedPage extends StatelessWidget {
       preventScreenshot: true,
       onEnterPrivacyMode: () => print('onEnterPrivacyMode'),
       onExitPrivacyMode: () => print('onExitPrivacyMode'),
-      onScreenshot: () => TipToasts.toCenter(context, '禁止截屏'),
       child: SafeArea(
         child: Scaffold(
           appBar: AppBar(
