@@ -229,7 +229,7 @@ class _SemanticButtonState extends State<SemanticButton> {
             color: widget.gradient != null
                 ? Colors.transparent
                 : (widget.isOutlined
-                    ? theme.buttonTheme.colorScheme?.background
+                    ? theme.buttonTheme.colorScheme?.surface
                     : _isPressed
                         ? finalBgColor.withOpacity(0.5)
                         : finalBgColor),

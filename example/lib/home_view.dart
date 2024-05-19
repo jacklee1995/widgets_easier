@@ -11,6 +11,7 @@ import 'docs/card_docs.dart';
 import 'docs/counter_input_docs.dart';
 import 'docs/dialog_docs.dart';
 import 'docs/notify_toast_docs.dart';
+import 'docs/paginated_loader/paginated_loader_docs.dart';
 import 'docs/shadow_docs.dart';
 import 'docs/slider_docs.dart';
 import 'docs/tip_toast_docs.dart';
@@ -80,6 +81,7 @@ class _HomeViewState extends State<HomeView> {
               const NotifyToastDocs(13),
               const TipToastDocs(14),
               const TagDocs(15),
+              const PaginatedLoaderDocs(16),
             ],
           ),
         ),

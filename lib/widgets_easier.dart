@@ -56,4 +56,10 @@ export './src/widgets/tags/tag.dart';
 
 export './src/widgets/captcha/sliding_captcha.dart';
 
+// paginated loader
+export 'src/widgets/paginated_loader/pagination_loading_controller.dart';
+export './src/widgets/paginated_loader/paginated_response.dart';
+export './src/widgets/paginated_loader/pagination_view.dart';
+export './src/widgets/paginated_loader/pagination_view_delegate.dart';
+
 export './src/widgets/write/write.dart';
