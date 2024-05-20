@@ -304,9 +304,9 @@ class GuardedPage extends StatelessWidget {
 
 页面的大致效果如下：
 
-![WeChat_c6fZ7PXYaX](./assets/WeChat_c6fZ7PXYaX.gif)
+![WeChat_c6fZ7PXYaX](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/WeChat_c6fZ7PXYaX.gif)
 
-![WeChat_xkyvwRdC29](./assets/WeChat_xkyvwRdC29.gif)
+![WeChat_xkyvwRdC29](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/WeChat_xkyvwRdC29.gif)
 
 
 
@@ -335,7 +335,7 @@ class GuardedPage extends StatelessWidget {
 
 
 
-![studio64_KgDZISJ8cE](./assets/studio64_KgDZISJ8cE.gif)
+![studio64_KgDZISJ8cE](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/studio64_KgDZISJ8cE.gif)
 
 现在假设后端又一个返回数据的**API**，这用**Django**自带分页很容易实现（哦，字符串约定是因为我喜欢用Django写后端，但是这里仅仅是在Flutter中提供一个Mock伪数据）：
 
