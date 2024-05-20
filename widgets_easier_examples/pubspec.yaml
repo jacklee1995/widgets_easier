@@ -1,0 +1,30 @@
+name: widgets_easier_examples
+description: "Example for Widgets Easier."
+publish_to: "none"
+version: 1.0.0+1
+environment:
+  sdk: ">=3.3.4 <4.0.0"
+dependencies:
+  dio: ^5.4.3+1
+  easy_refresh: ^3.4.0
+  flutter:
+    sdk: flutter
+  flutter_easy_animations: ^0.0.2
+  flutter_highlight: ^0.7.0
+  gap: ^3.0.1
+  get: ^4.6.6
+  widgets_easier:
+    git:
+      url: https://github.com/jacklee1995/widgets_easier.git
+      ref: master
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/double-arrow-right.png
+    - assets/local-image.png
+    - assets/jclee95.png
+    - assets/example-img.png
