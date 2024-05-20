@@ -1,8 +1,8 @@
-import 'package:example/login/dialogs/failure_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easy_animations/flutter_easy_animations.dart';
 import 'package:widgets_easier/widgets_easier.dart';
 
+import 'dialogs/failure_dialog.dart';
 import 'dialogs/success_dialog.dart';
 import 'login_controller.dart';
 

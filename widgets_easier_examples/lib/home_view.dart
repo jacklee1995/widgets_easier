@@ -1,20 +1,17 @@
-import 'package:example/docs/buttons_docs.dart';
-import 'package:example/docs/picture_docs.dart';
-import 'package:example/docs/tag/tag_docs.dart';
-import 'package:flutter/material.dart';
-import 'package:widgets_easier/widgets_easier.dart';
 import 'docs/animation_docs.dart';
 import 'docs/border_docs.dart';
 import 'docs/bottom_sheet_docs.dart';
 import 'docs/button_group_docs.dart';
+import 'docs/buttons_docs.dart';
 import 'docs/card_docs.dart';
 import 'docs/counter_input_docs.dart';
 import 'docs/dialog_docs.dart';
 import 'docs/notify_toast_docs.dart';
 import 'docs/other_widgets_docs.dart';
 import 'docs/loading_framework/paginated_loader_docs.dart';
+import 'docs/picture_docs.dart';
 import 'docs/shadow_docs.dart';
-import 'docs/slider_docs.dart';
+import 'docs/tag/tag_docs.dart';
 import 'docs/tip_toast_docs.dart';
 import 'theme_mode.dart';
 

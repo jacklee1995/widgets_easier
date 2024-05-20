@@ -13,10 +13,7 @@ dependencies:
   flutter_highlight: ^0.7.0
   gap: ^3.0.1
   get: ^4.6.6
-  widgets_easier:
-    git:
-      url: https://github.com/jacklee1995/widgets_easier.git
-      ref: master
+  widgets_easier: ^0.0.9
 dev_dependencies:
   flutter_test:
     sdk: flutter
