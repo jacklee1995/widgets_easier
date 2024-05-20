@@ -3,15 +3,15 @@ import UIKit
 
 /**
  * WidgetsEasierPlugin
- * 
+ *
  * 这是一个 Flutter 插件，用于处理与 iOS 原生代码的通信。
  * 该插件实现了 FlutterPlugin 接口，以便在 Flutter 引擎中进行注册和管理。
  */
 public class WidgetsEasierPlugin: NSObject, FlutterPlugin {
-    
+
     /**
      * 注册插件并初始化通信通道。
-     * 
+     *
      * @param registrar 提供 Flutter 插件注册的上下文。
      */
     public static func register(with registrar: FlutterPluginRegistrar) {
@@ -25,7 +25,7 @@ public class WidgetsEasierPlugin: NSObject, FlutterPlugin {
 
     /**
      * 处理来自 Flutter 端的调用。
-     * 
+     *
      * @param call 包含方法名和参数的 FlutterMethodCall 对象。
      * @param result 用于返回调用结果的 FlutterResult 对象。
      */

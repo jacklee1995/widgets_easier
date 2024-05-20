@@ -48,7 +48,13 @@ class PrivacyGuardHandler: NSObject, FlutterPlugin {
      */
     private func preventScreenshot(prevent: Bool) {
         DispatchQueue.main.async {
-            UIApplication.shared.windows.first?.isHidden = prevent
+            if let window = UIApplication.shared.windows.first {
+                if prevent {
+                    window.windowLevel = UIWindow.Level.statusBar + 1
+                } else {
+                    window.windowLevel = UIWindow.Level.normal
+                }
+            }
         }
     }
 }

@@ -25,14 +25,14 @@ class PrivacyGuard extends StatefulWidget {
   final bool preventScreenshot;
 
   const PrivacyGuard({
-    Key? key,
+    super.key,
     required this.child,
     this.blurRadius = 10.0,
     this.blurColor = const Color.fromARGB(136, 225, 225, 225),
     this.onEnterPrivacyMode,
     this.onExitPrivacyMode,
     this.preventScreenshot = false,
-  }) : super(key: key);
+  });
 
   @override
   State<PrivacyGuard> createState() => _PrivacyGuardState();
