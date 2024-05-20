@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:widgets_easier/widgets_easier.dart';
 
 import '../widgets/docs_widget.dart';
@@ -20,7 +21,8 @@ class OtherWidgetsDocs extends StatelessWidget {
           onTap: () => Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => const GuardedPage(),
           )),
-        )
+        ),
+        const Gap(20),
       ],
     );
   }

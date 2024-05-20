@@ -12,7 +12,7 @@ import 'docs/counter_input_docs.dart';
 import 'docs/dialog_docs.dart';
 import 'docs/notify_toast_docs.dart';
 import 'docs/other_widgets_docs.dart';
-import 'docs/paginated_loader/paginated_loader_docs.dart';
+import 'docs/loading_framework/paginated_loader_docs.dart';
 import 'docs/shadow_docs.dart';
 import 'docs/slider_docs.dart';
 import 'docs/tip_toast_docs.dart';
@@ -62,6 +62,7 @@ class _HomeViewState extends State<HomeView> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
+              Write.paragraph('注意：以文档介绍为主，此项示例目不确保使用当前API。'),
               Write.header1('1. 语义'),
               Write.header1('2. 色彩'),
               const BorderDocs(3),
@@ -69,11 +70,11 @@ class _HomeViewState extends State<HomeView> {
               const ButtonDocs(5),
               const ButtonGroupDocs(6),
               const CounterInputDocs(7),
-              Write.header1('8. 指示器'),
-              Write.header2('百分比指示器（水平）'),
-              Write.paragraph('指示器'),
-              Write.header2('百分比指示器（环形）'),
-              const SliderDocs(9),
+              // Write.header1('8. 指示器'),
+              // Write.header2('百分比指示器（水平）'),
+              // Write.paragraph('指示器'),
+              // Write.header2('百分比指示器（环形）'),
+              // const SliderDocs(9),
               const AnimationDocs(10),
               const PictureDocs(11),
               const CardDocs(12),
