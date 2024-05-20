@@ -1,10 +1,10 @@
-import 'package:example/docs/loading_framework/web_pagination/search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:widgets_easier/widgets_easier.dart';
 
 import '../../widgets/docs_widget.dart';
 import 'tile_loading_page/tilelist_page.dart';
+import 'web_pagination/search_page.dart';
 
 class PaginatedLoaderDocs extends StatelessWidget {
   final int c;

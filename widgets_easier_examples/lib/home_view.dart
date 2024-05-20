@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:widgets_easier/widgets_easier.dart';
+
 import 'docs/animation_docs.dart';
 import 'docs/border_docs.dart';
 import 'docs/bottom_sheet_docs.dart';

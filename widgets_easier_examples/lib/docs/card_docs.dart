@@ -1,7 +1,8 @@
-import 'package:example/widgets/docs_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:widgets_easier/widgets_easier.dart';
+
+import '../widgets/docs_widget.dart';
 
 class CardDocs extends StatelessWidget {
   final int c;

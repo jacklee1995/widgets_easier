@@ -1,10 +1,10 @@
-import 'package:example/widgets/docs_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easy_animations/flutter_easy_animations.dart';
 import 'package:flutter_highlight/flutter_highlight.dart';
 import 'package:flutter_highlight/themes/vs2015.dart';
 import 'package:widgets_easier/widgets_easier.dart';
 
+import '../widgets/docs_widget.dart';
 import 'animate_examples.dart';
 
 class AnimationDocs extends StatefulWidget {
