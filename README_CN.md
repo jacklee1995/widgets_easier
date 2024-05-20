@@ -310,16 +310,22 @@ class GuardedPage extends StatelessWidget {
 
 
 
-## Issue Reporting and Code Contribution
+## 问题报告和代码贡献
 
-### Issues Report
 
-You can provide feedback or report [issues](https://github.com/jacklee1995/widgets_easier/issues) on the project's **GitHub** page. If you think the library is missing a feature, please create a feature request. Before submitting, please check if there are already similar issues.
+###  Issues Report
 
-### Code Contribution
+您可以在该项目的 **GitHub** 页面上提供反馈或报告[问题](https://github.com/jacklee1995/widgets_easier/issues)。如果您觉得这个库缺少某个功能，请创建一个功能请求。在提交前，请先检查是否已又类似问题。
 
-Please fork this repository to your account, make modifications, and then rebase before submitting a PR to the dev branch. It is recommended that the commit message format be:
+### 代码贡献
+
+请将此仓库Fock到您的账户中，修改后rebase再PR到dev分支。建议提交信息格式为：
 
 ```
 type(scope): info about commit.
 ```
+
+
+
+
+
