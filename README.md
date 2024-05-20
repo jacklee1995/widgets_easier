@@ -2442,23 +2442,22 @@ If you intend to customize the pop-up animation, it's similar to the previous di
 
 ```dart
 SemanticButton(
-  text: '使用bounceIn动画',
+  text: 'Use bounceIn animation',
   isOutlined: true,
   shrink: true,
   radius: 2,
   color: Colors.black,
   onTap: () => WinDialogs.showWinDialog(
     context,
-    transitionBuilder:
-        (context, animation, secondaryAnimation, child) {
+    transitionBuilder: (context, animation, secondaryAnimation, child) {
       return AnimateStyles.bounceIn(animation, child);
     },
-    title: 'title',
+    title: 'Title',
     icon: const Icon(Icons.run_circle_outlined),
-    text: '在这个世界上，我们每个人都应该深刻理解，生活中，若能够不断地反思和自省，那么我们就能更好地理解生活的真谛。',
+    text: 'In this world, each of us should deeply understand that if we can continually reflect and introspect, we can better understand the true essence of life.',
     contents: Row(
       children: [
-        const Text('打开(O):'),
+        const Text('Open (O):'),
         const Gap(10),
         Expanded(
           child: Container(
@@ -2476,7 +2475,7 @@ SemanticButton(
     ),
     actions: [
       SemanticButton(
-        text: '确定',
+        text: 'Confirm',
         width: 90,
         isOutlined: true,
         radius: 2,
@@ -2485,7 +2484,7 @@ SemanticButton(
       ),
       const Gap(10),
       SemanticButton(
-        text: '取消',
+        text: 'Cancel',
         width: 90,
         isOutlined: true,
         radius: 2,
@@ -2494,7 +2493,7 @@ SemanticButton(
       ),
       const Gap(10),
       SemanticButton(
-        text: '浏览',
+        text: 'Browse',
         width: 90,
         isOutlined: true,
         radius: 2,
@@ -2502,7 +2501,8 @@ SemanticButton(
         onTap: () {},
       ),
     ],
-  
+  ),
+)
 ```
 
 The running result is as follows:
@@ -2689,7 +2689,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('FutureDialogs 示例')),
+      appBar: AppBar(title: const Text('FutureDialogs Demo')),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -3309,9 +3309,9 @@ The running effect of the code is as follows:
 
 ![example_hbHZoFAO8O](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_hbHZoFAO8O.gif)
 
-### 11. Bottom Pop-up
+### 12. Bottom Pop-up
 
-#### 11.1 Bottom Message Pop-up
+#### 12.1 Bottom Message Pop-up
 
 The bottom message pop-up is a bottom version of a message pop-up. You can use or disable images, specify relevant text, and define button callbacks, etc.
 
@@ -3413,7 +3413,7 @@ The running effect of the code is as follows:
 
 ![在这里插入图片描述](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/50c63288482441e696045cef7abddea9.gif)
 
-### 11.2 Bottom Confirmation Pop-up
+### 12.2 Bottom Confirmation Pop-up
 
 The bottom confirmation pop-up is a bottom version of a confirmation pop-up. You can use or disable images, specify relevant text, and define button callbacks, etc.
 
@@ -3576,9 +3576,9 @@ Row(
 
 ![在这里插入图片描述](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/6a74972d5f8048209ccb257206fba86d.gif)
 
-### 11.3 Bottom Cascading Picker
+### 12.3 Bottom Cascading Picker
 
-### 11.3.1 Introduction to Bottom Cascading Picker
+### 12.3.1 Introduction to Bottom Cascading Picker
 
 The bottom cascading picker is a commonly used UI component in mobile applications, mainly used for multi-level selection in a modal that pops up from the bottom. Users can scroll to select different options, which are typically hierarchical, such as selecting provinces, cities, and districts when choosing an address. The bottom cascading picker is suitable for scenarios requiring multi-level selection, commonly found in applications such as:
 
@@ -3598,7 +3598,7 @@ The main features of the bottom cascading picker include:
 
 - **Responsive interaction**: Selected items are instantly reflected in the UI, enhancing user experience.
 
-### 11.3.2 Example: Single-level Selection
+### 12.3.2 Example: Single-level Selection
 
 
 ```dart
@@ -3628,7 +3628,7 @@ The running effect of the code is as follows:
 
 ![在这里插入图片描述](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/cc84116e550b4a28a58660ad918cb24b.gif)
 
-### 11.3.3 Example: Multi-level Linked Selection
+### 12.3.3 Example: Multi-level Linked Selection
 
 
 ```dart
@@ -3744,6 +3744,96 @@ SemanticButton(
 The running effect of the code is as follows:
 
 ![在这里插入图片描述](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/3d7c9de55d8642c8bc054514a68b5d76.gif)
+
+### 13. Privacy Protection Component
+
+The **PrivacyGuard** component is used to protect certain page information from being screenshot or leaked. In some scenarios, we need to apply protection to pages. For instance, when a user enters a password, we need to prevent screenshots and screen recordings. Also, when the user leaves the page, it might be necessary to apply a blur effect to the page. This is a fairly common functionality, but there's no direct interface in **Flutter** to prohibit screen recording and similar actions, making it cumbersome to implement such a simple component each time through communication. Therefore, **widgets Easier** provides encapsulation for **Android** and **iOS**, offering it for use as a standalone widget. The signature of the **PrivacyGuard** widget is as follows:
+
+```dart
+const PrivacyGuard({
+  super.key,
+  required this.child, // The child component being protected
+  this.blurRadius = 10.0, // Blur radius
+  this.blurColor = const Color.fromARGB(136, 225, 225, 225), // Blur color
+  this.onEnterPrivacyMode, // Callback when leaving the page
+  this.onExitPrivacyMode, // Callback when returning to the page
+  this.preventScreenshot = false, // Whether to prevent screenshots
+});
+```
+
+The following code demonstrates a login page guarded by **PrivacyGuard**:
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:widgets_easier/widgets_easier.dart';
+
+class GuardedPage extends StatelessWidget {
+  const GuardedPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return PrivacyGuard(
+      preventScreenshot: true,
+      onEnterPrivacyMode: () => print('onEnterPrivacyMode'),
+      onExitPrivacyMode: () => print('onExitPrivacyMode'),
+      child: SafeArea(
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text('登录页面'),
+          ),
+          body: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    '守卫登录页',
+                    style: TextStyle(
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 32.0),
+                  const TextField(
+                    decoration: InputDecoration(
+                      labelText: '账户',
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+                  const SizedBox(height: 16.0),
+                  const TextField(
+                    decoration: InputDecoration(
+                      labelText: '密码',
+                      border: OutlineInputBorder(),
+                    ),
+                    obscureText: true,
+                  ),
+                  const SizedBox(height: 16.0),
+                  ElevatedButton(
+                    onPressed: () {
+                      // 登录逻辑
+                    },
+                    child: const Text('登录'),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+```
+
+
+
+页面的大致效果如下：
+
+![WeChat_c6fZ7PXYaX](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/WeChat_c6fZ7PXYaX.gif)
+
+![WeChat_xkyvwRdC29](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/WeChat_xkyvwRdC29.gif)
 
 
 

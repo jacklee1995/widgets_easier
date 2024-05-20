@@ -1,6 +1,4 @@
-
-
-### 14. 加载框架
+# 加载框架
 
 数据分页就是将一个庞大的数据分为若干份，每次仅仅加载其中的一个数据单元。后端框架（如Django），一般提供了比较完善的数据分页方案，这些方案使得我们在前端中可以比较方便地获得以下几个方面的数据：
 
@@ -19,11 +17,7 @@
 1. `map`：是一个包含了所有地分页参数和数据的映射；
 2. `fromMap`：是一个解析 `map['results']` 为 `List<T>` 的解析函数。
 
-
-
 例如下面的例子集合第三方的EasyRefresh完成率新加载：
-
-
 
 ![studio64_KgDZISJ8cE](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/studio64_KgDZISJ8cE.gif)
 
@@ -63,8 +57,6 @@ class MockApi {
 ```
 
 然后假装我们有一个具体的**API**类用于请求这里需要的分页数据：
-
-
 
 我们先定义一个数据单元的**Model**：
 
@@ -249,6 +241,3 @@ class _TileListPageState extends State<TileListPage> {
 }
 
 ```
-
-
-
