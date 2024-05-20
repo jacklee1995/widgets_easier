@@ -2,7 +2,7 @@
 
 Widgets Easier是一个开源库的Flutter组件库，附带了多个预构建UI组件。它旨在使开发更快更加地简单和高效，让开发成为一件愉快地事情。
 
-![widgets_easier.png](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/assets/widgets_easier.png)
+![widgets_easier.png](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/widgets_easier.png)
 
 ## Features
 
@@ -13,7 +13,6 @@ Widgets Easier是一个开源库的Flutter组件库，附带了多个预构建UI
 - **开源和社区驱动**：受益于积极的开发者社区，他们不断为库的增长和改进做出贡献。
 - **简单集成**：通过简单的安装步骤，轻松将 WidgetsEasier 无缝集成到您现有的 Flutter 项目中。
 - **定期更新**：我们会持续更新和增强 WidgetsEasier，让您紧跟最新的 Flutter 趋势和最佳实践。
-
 
 ## 开始
 
@@ -27,8 +26,6 @@ flutter pub add flutter_easy_animations
 即可安装最新版本的 Widgets Easier 库。其中动画部分封装为 flutter_easy_animations 库，使用到相关功能时，需要单独安装。
 
 ## Usage
-
-
 
 ### 1. 边框
 
@@ -45,8 +42,6 @@ flutter pub add flutter_easy_animations
 **SemanticButton** 是一个高度可定制的按钮组件，支持多种视觉和交互效果。它允许开发者设置按钮的文本、图标、颜色、边框样式、阴影、以及交互时的视觉反馈。此外，按钮可以配置为带有前缀图标和后缀图标，增加按钮的表达力和功能性。详细文档请参考：
 
 [SemanticButton文档](./docs_CN/semantic_button.md)
-
-
 
 ![example_udTNKdt6RP](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_udTNKdt6RP.gif)
 
@@ -130,8 +125,6 @@ flutter pub add flutter_easy_animations
 
 ![example_Jfs459a3CF](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_Jfs459a3CF.gif)
 
-
-
 ### 7. 动画
 
 动画相关工具被单独封装在`flutter_easy_animations`库中，需要独立进行安装：
@@ -188,8 +181,6 @@ flutter pub add flutter_easy_animations
 
 ![example_s2AsI6WQKD](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_s2AsI6WQKD.gif)
 
-
-
 ### 10. 提示吐丝
 
 **TipToasts** 是一个用于在 **Flutter** 应用中显示提示消息的工具类，是一种最简单的吐丝。它提供了一种简单而灵活的方式来在屏幕的不同位置显示短暂的提示信息，并支持自定义动画效果和样式。详细请参考文档：[TipToasts](./docs_CN/tip_toasts.md)
@@ -215,8 +206,6 @@ flutter pub add flutter_easy_animations
 ### 12. 抽屉
 
 正在生产中
-
-
 
 ### 13. 隐私保护组件
 
@@ -300,20 +289,15 @@ class GuardedPage extends StatelessWidget {
 }
 ```
 
-
-
 页面的大致效果如下：
 
 ![WeChat_c6fZ7PXYaX](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/WeChat_c6fZ7PXYaX.gif)
 
 ![WeChat_xkyvwRdC29](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/WeChat_xkyvwRdC29.gif)
 
-
-
 ## 问题报告和代码贡献
 
-
-###  Issues Report
+### Issues Report
 
 您可以在该项目的 **GitHub** 页面上提供反馈或报告[问题](https://github.com/jacklee1995/widgets_easier/issues)。如果您觉得这个库缺少某个功能，请创建一个功能请求。在提交前，请先检查是否已又类似问题。
 
@@ -324,8 +308,3 @@ class GuardedPage extends StatelessWidget {
 ```
 type(scope): info about commit.
 ```
-
-
-
-
-

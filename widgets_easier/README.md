@@ -4,7 +4,7 @@
 
 Widgets Easier is a Flutter component library of open-source widgets, featuring multiple pre-built UI components. It aims to make development faster, simpler, and more efficient, turning development into an enjoyable task.
 
-![widgets_easier.png](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/assets/widgets_easier.png)
+![widgets_easier.png](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/widgets_easier.png)
 
 ## Features
 
