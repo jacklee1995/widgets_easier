@@ -3779,7 +3779,7 @@ class GuardedPage extends StatelessWidget {
       child: SafeArea(
         child: Scaffold(
           appBar: AppBar(
-            title: const Text('登录页面'),
+            title: const Text('Login Page'),
           ),
           body: Padding(
             padding: const EdgeInsets.all(16.0),
@@ -3788,7 +3788,7 @@ class GuardedPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
-                    '守卫登录页',
+                    'Guarded Login Page',
                     style: TextStyle(
                       fontSize: 24.0,
                       fontWeight: FontWeight.bold,
@@ -3797,14 +3797,14 @@ class GuardedPage extends StatelessWidget {
                   const SizedBox(height: 32.0),
                   const TextField(
                     decoration: InputDecoration(
-                      labelText: '账户',
+                      labelText: 'Username',
                       border: OutlineInputBorder(),
                     ),
                   ),
                   const SizedBox(height: 16.0),
                   const TextField(
                     decoration: InputDecoration(
-                      labelText: '密码',
+                      labelText: 'Password',
                       border: OutlineInputBorder(),
                     ),
                     obscureText: true,
@@ -3812,9 +3812,9 @@ class GuardedPage extends StatelessWidget {
                   const SizedBox(height: 16.0),
                   ElevatedButton(
                     onPressed: () {
-                      // 登录逻辑
+                      // Login logic
                     },
-                    child: const Text('登录'),
+                    child: const Text('Login'),
                   ),
                 ],
               ),
