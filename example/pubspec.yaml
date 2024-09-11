@@ -28,12 +28,15 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  dio: ^5.4.3+1
+  easy_refresh: ^3.4.0
   flutter:
     sdk: flutter
 
   flutter_easy_animations: ^0.0.2
   flutter_highlight: ^0.7.0
   gap: ^3.0.1
+  get: ^4.6.6
   widgets_easier:
     path: ../
 
