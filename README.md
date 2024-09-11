@@ -4,9 +4,11 @@
 
 Widgets Easier is a Flutter component library of open-source widgets, featuring multiple pre-built UI components. It aims to make development faster, simpler, and more efficient, turning development into an enjoyable task.
 
-![widgets_easier.png](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/widgets_easier.png)
+
+![widgets_easier.png](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/assets/widgets_easier.png)
 
 ## Features
+
 
 WidgetsEasier offers a wide range of features to streamline your Flutter development process:
 
@@ -29,7 +31,11 @@ flutter pub add flutter_easy_animations
 
 This will install the latest version of the Widgets Easier library. The animation part is encapsulated into the flutter_easy_animations library. When dealing with animation-related functionalities, you need to install it separately.
 
+
 ## Usage
+
+
+
 
 ### 1. Borders
 
@@ -38,12 +44,14 @@ This will install the latest version of the Widgets Easier library. The animatio
 A Solid Border is the most common and basic type of border. Its main characteristics include:
 
 1. Uniform edges: The defining feature of a Solid Border is its even, continuous line that separates it from the surrounding content. Unlike Ribbed Borders or Grooved Borders, there are no raised or sunken effects along the edges of a Solid Border; instead, it uniformly surrounds the target area.
-
+   
 2. Clear demarcation: The edges of the border are typically sharp, providing a distinct visual separation that allows users to clearly identify the boundaries of the target area.
 
 3. Simple appearance: Solid Borders present a clean, straightforward appearance without additional decoration or depth effects. This simplicity is sometimes more suitable for interface designs that prioritize the content itself over decorative elements.
 
 Solid Borders are commonly used in layouts that require a clean, clear design, such as table borders, buttons, input fields, and other elements where borders are necessary, or to highlight specific content boundaries. In design, the choice between using a Solid Border or other border styles depends on the designer's requirements for the overall style of the interface and user experience.
+
+ 
 
 ```dart
 Container(
@@ -96,6 +104,7 @@ Dotted Borders are typically used in layouts that require a soft, delicate desig
 
 An example is provided below:
 
+
 ```dart
 Container(
   height: 150,
@@ -112,6 +121,8 @@ Container(
 ```
 
 ![example_4Cfj04zZEp.png](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_4Cfj04zZEp.png)
+
+
 
 ```dart
 Container(
@@ -466,6 +477,12 @@ BorderWrapper(
 
 In this example, the SolidStarBorder used is based on Flutter's native StarBorder implementation, with the Solid Border effect added onto it. This allows you to specify line width, color, and gradients on the SolidStarBorder. The BorderWrapper can be used to achieve clipping with borders, enabling the addition of specified line effects while changing the shape of the original widget. Therefore, to implement more border shapes, you can create shape clippers similar to SolidStarBorder that draw lines. However, rest assured that this library will continue to implement new border shapes in the future.
 
+
+
+
+
+
+
 ### 2. Shadow Boxes
 
 #### 2.1 Introduction to Shadow Boxes
@@ -473,6 +490,7 @@ In this example, the SolidStarBorder used is based on Flutter's native StarBorde
 Inspired by the **[Element-Plus](https://element-plus.org/)** component library in **Widgets Easier**, specific shadow effects are provided. These shadow effects can be added to other components in a component-like manner.
 
 Similar to **[Element-Plus](https://element-plus.org/)**, in the **Widgets Easier** library, typical shadow effects are encapsulated into the following four components: **BasicShadow**, **LightShadow**, **LighterShadow**, **DarkShadow**. Each component uses DecoratedBox to implement a specific shadow effect.
+
 
 ![example_kAfLS9VvwG](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics//example_kAfLS9VvwG.png)
 
@@ -879,6 +897,7 @@ SemanticButton(
 
 By using the fontWeight property, you can specify the thickness of the font, for example:
 
+
 ```dart
 SemanticButton(
   text: 'normal',
@@ -1018,7 +1037,6 @@ SemanticButton(
   onTap: () {},
 ),
 ```
-
 ##### 3.7.2 Shrink Behavior (shrink = true)
 
 1. When shrink is set to true, the button will adapt its width based on its content.
@@ -1035,7 +1053,6 @@ SemanticButton(
   onTap: () {},
 ),
 ```
-
 Here's a comparison between the two:
 
 1. When shrink is set to true, the button will adapt its width based on its content.
@@ -1057,7 +1074,6 @@ SemanticButton(
   type: SemanticEnum.primary,
 )
 ```
-
 ![example_UaKvmEvzEC](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_UaKvmEvzEC.png)
 
 In the above code, `Icon(Icons.phone)` is passed as the `prefixIcon` to the `SemanticButton`, allowing users to visually identify this as a button for making phone calls.
@@ -1103,7 +1119,6 @@ SemanticButton(
   isOutlined: true,
   onTap: () {},
 ```
-
 ![example_9l6lQQ1ixn](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_9l6lQQ1ixn.gif)
 
 ##### 3.9.2 Gradient Buttons
@@ -1168,7 +1183,6 @@ ButtonGroup(
   size: SizeEnum.defaultSize,
 )
 ```
-
 In ButtonGroup, the event callback function for each button is directly specified on the onTap property of SemanticButton. Similarly, the text for each individual button is directly specified through the text parameter of each SemanticButton.
 
 #### 4.2 Using Semantic Types
@@ -1409,6 +1423,8 @@ The running result is as follows:
 
 Inspired by Element-plus, **Tag** has three style themes: `plain`, `light`, and `dark`. By default, it is set to `plain`, as demonstrated in the previous section. Below are examples of the `light` and `dark` themes:
 
+
+
 ##### light
 
 ```dart
@@ -1430,6 +1446,8 @@ The running result is as follows:
 
 ![example_uLVBhrUyBl](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_uLVBhrUyBl-1714994639986-24.png)
 
+
+
 ##### dark
 
 ```dart
@@ -1449,6 +1467,8 @@ const Row(
 
 ![example_4GWiRl3tzL](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_4GWiRl3tzL-1714994639986-25.png)
 
+
+
 #### 5.3 Radius
 
 By default, there is a radius of 4 for corners. To manually modify this, you can specify the `radius` parameter. The `radius` parameter accepts a double value. For example, setting `radius` to 0 will remove the rounded corners:
@@ -1460,6 +1480,8 @@ Tag('radius: 0', radius: 0),
 The running result is as follows:
 
 ![example_WCSxzzhhjE](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_WCSxzzhhjE-1714994639986-26.png)
+
+
 
 #### 5.4 Size
 
@@ -1523,6 +1545,8 @@ const Row(
 The running result is as follows:
 
 ![example_HJgxs2Vv3O](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_HJgxs2Vv3O-1714994639986-29.gif)
+
+
 
 #### 5.6 Example of Dynamically Editing Tags
 
@@ -1592,6 +1616,11 @@ The running result is as follows:
 
 ![在这里插入图片描述](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/cea33e4f5e9f46d5a148d886959c6d32-1714994639986-30.gif)
 
+
+
+
+
+
 ### 6. Counter
 
 #### 6.1 Introduction to the Counter Component
@@ -1636,6 +1665,8 @@ const CounterInput(
   textColor: Colors.white,
 )
 ```
+
+
 
 ![example_h0k4KWue9E](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_h0k4KWue9E.png)
 
@@ -1752,6 +1783,8 @@ CounterInput(
 ),
 ```
 
+
+
 #### 6.8 Callback Events
 
 ##### 6.8.1 Increment and Decrement Callbacks
@@ -1777,6 +1810,8 @@ CounterInput(
 ```
 
 > Note: Specifying an initial value requires using the CounterInputController controller, as shown in this example.
+
+
 
 ##### 6.8.2 Boundary Reached Callbacks
 
@@ -1844,9 +1879,14 @@ CounterInput(
 )
 ```
 
+
+
 ![example_fMYLgu8hR9](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_fMYLgu8hR9.gif)
 
+
 ##### 5. Value Change Events
+
+
 
 ```dart
 CounterInput(
@@ -1876,6 +1916,10 @@ flutter: oldValue is 3.0, newValue is 2.0
 flutter: oldValue is 2.0, newValue is 1.0
 flutter: oldValue is 1.0, newValue is 0.0
 ```
+
+
+
+
 
 ### 7. Pop-up Windows
 
@@ -2017,6 +2061,8 @@ Row(
 )
 ```
 
+
+
 ![example_0YDNxnPzok](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_0YDNxnPzok.gif)
 
 ##### ZoomIn Animation
@@ -2042,6 +2088,8 @@ SemanticButton(
 The running result is as follows:
 
 ![example_QCpD0oPAWg](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_QCpD0oPAWg.gif)
+
+
 
 ##### Custom Animation
 
@@ -2076,6 +2124,8 @@ SemanticButton(
 The running result is as follows:
 
 ![example_CYfwe0SU6B](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_CYfwe0SU6B.gif)
+
+
 
 #### ConfirmDialogs
 
@@ -2238,9 +2288,13 @@ Row(
 )
 ```
 
+
+
 ##### ZoomIn Animation
 
 The `ConfirmDialogs.show` method does not have an animation effect. You can directly use the `ConfirmDialogs.zoomIn` method, which provides a pop-up animation with a scaling effect. The `ConfirmDialogs.zoomIn` method takes exactly the same parameters as `ConfirmDialogs.show`. For example:
+
+
 
 ```dart
 SemanticButton(
@@ -2374,30 +2428,37 @@ The running result is as shown in the image:
 
 ![example_Z45EJiFtKU](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_Z45EJiFtKU.gif)
 
+
+
 Just like with the previous dialogs, you can use the `zoomIn` method to set a pop-up animation effect that scales from small to large. This method takes the same parameters as the `show` method:
 
+
+
 ![example_BTEipOt7f9](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_BTEipOt7f9.gif)
+
+
 
 If you intend to customize the pop-up animation, it's similar to the previous dialogs. You can use `showWinDialog` and specify an animation through the `transitionBuilder` parameter. For example:
 
 ```dart
 SemanticButton(
-  text: 'Use bounceIn animation',
+  text: '使用bounceIn动画',
   isOutlined: true,
   shrink: true,
   radius: 2,
   color: Colors.black,
   onTap: () => WinDialogs.showWinDialog(
     context,
-    transitionBuilder: (context, animation, secondaryAnimation, child) {
+    transitionBuilder:
+        (context, animation, secondaryAnimation, child) {
       return AnimateStyles.bounceIn(animation, child);
     },
-    title: 'Title',
+    title: 'title',
     icon: const Icon(Icons.run_circle_outlined),
-    text: 'In this world, each of us should deeply understand that if we can continually reflect and introspect, we can better understand the true essence of life.',
+    text: '在这个世界上，我们每个人都应该深刻理解，生活中，若能够不断地反思和自省，那么我们就能更好地理解生活的真谛。',
     contents: Row(
       children: [
-        const Text('Open (O):'),
+        const Text('打开(O):'),
         const Gap(10),
         Expanded(
           child: Container(
@@ -2415,7 +2476,7 @@ SemanticButton(
     ),
     actions: [
       SemanticButton(
-        text: 'Confirm',
+        text: '确定',
         width: 90,
         isOutlined: true,
         radius: 2,
@@ -2424,7 +2485,7 @@ SemanticButton(
       ),
       const Gap(10),
       SemanticButton(
-        text: 'Cancel',
+        text: '取消',
         width: 90,
         isOutlined: true,
         radius: 2,
@@ -2433,7 +2494,7 @@ SemanticButton(
       ),
       const Gap(10),
       SemanticButton(
-        text: 'Browse',
+        text: '浏览',
         width: 90,
         isOutlined: true,
         radius: 2,
@@ -2441,8 +2502,7 @@ SemanticButton(
         onTap: () {},
       ),
     ],
-  ),
-)
+  
 ```
 
 The running result is as follows:
@@ -2454,6 +2514,8 @@ The running result is as follows:
 > ```bash
 > flutter pub add flutter_easy_animations
 > ```
+
+
 
 #### FutureDialogs
 
@@ -2526,6 +2588,7 @@ class SuccessDialog extends StatelessWidget {
 
 Content displayed for authentication failure:
 
+
 ```dart
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -2578,6 +2641,7 @@ class FailureDialog extends StatelessWidget {
 
 Then we call the dialogs on the login page:
 
+
 ```dart
 import 'package:example/login/dialogs/failure_dialog.dart';
 import 'package:flutter/material.dart';
@@ -2625,7 +2689,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('FutureDialogs Demo')),
+      appBar: AppBar(title: const Text('FutureDialogs 示例')),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -2689,6 +2753,7 @@ After completion, we can also chain some operations. This design is very necessa
 
 Where the asynchronous function is:
 
+
 ```dart
 import 'dart:async';
 
@@ -2731,7 +2796,10 @@ If the login fails, it returns:
 {'status': false, 'data': '账户名或密码错误'}
 ```
 
+
 Then construct a login success page:
+
+
 
 ```dart
 import 'package:flutter/material.dart';
@@ -2784,6 +2852,8 @@ The appearance looks like this:
 1. Username and password are empty:
 ![pic_discribles](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/989b2405eaab4d629d9ce22c4a9a6a71.gif)
 
+
+
 2. Incorrect password input:
 
 ![](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/9fc16728e2c740e39d3bd1f729a6dd7d.gif)
@@ -2792,6 +2862,7 @@ The appearance looks like this:
 ![](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/296cf1829bb047448477db75ff560ed1.gif)
 
 ### 8. Toast Messages
+
 
 The toast message component is inspired by Element-Plus's Notification and encapsulated in a way that is suitable for use in Flutter. It provides a simple and flexible way to display message notifications in your application. By customizing styles, animation effects, and interactions, you can create message notifications that align with your app's design style.
 
@@ -3025,6 +3096,7 @@ The running effect of the code is as follows:
 
 You can customize animations, but it is still recommended to use the pre-built animation effects from the `flutter_easy_animations` library that comes with the **Widgets Easier** component library. By default, the `showTopRight` and `showBottomRight` methods in **NotifyToasts** use the **AnimateStyles.slideInRight** animation effect, while the `showTopLeft` and `showBottomLeft` methods use the **AnimateStyles.slideInLeft** animation effect.
 
+
 You can specify the animation effect by using the `animationEffect` parameter in any of the static methods in **NotifyToasts**. For example:
 
 ```dart
@@ -3049,7 +3121,9 @@ Please note that choosing appropriate animations can make the entry and exit of 
 
 Additionally, if needed, you can specify the animation duration using the `animationDuration` parameter. If not specified, the default duration of `300` milliseconds is used.
 
+
 #### 8.6 Close Button
+
 
 By default, each toast message includes a close button. If you do not want to display the close button, you can set the value of the `showClose` attribute to `false`. For example:
 
@@ -3116,6 +3190,8 @@ SemanticButton(
 The running effect of the code is as follows:
 
 ![example_s2AsI6WQKD](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_s2AsI6WQKD.gif)
+
+
 
 ### 10. TipToasts
 
@@ -3199,6 +3275,8 @@ The running effect of the code is as follows:
 
 ![example_NznGSg2hm0](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_NznGSg2hm0.gif)
 
+
+
 #### 10.4 toBottom Method
 
 This method is used to display a prompt message at the bottom of the screen, with the option to specify a vertical offset.
@@ -3215,7 +3293,7 @@ static void toBottom(
 })
 ```
 
-Where the parameter `offset` represents the vertical offset from the bottom of the screen, defaulting to 100.
+Where the parameter `offset` represents the vertical offset from the bottom of the screen, defaulting to 100. 
 
 For example:
 
@@ -3231,9 +3309,9 @@ The running effect of the code is as follows:
 
 ![example_hbHZoFAO8O](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_hbHZoFAO8O.gif)
 
-### 12. Bottom Pop-up
+### 11. Bottom Pop-up
 
-#### 12.1 Bottom Message Pop-up
+#### 11.1 Bottom Message Pop-up
 
 The bottom message pop-up is a bottom version of a message pop-up. You can use or disable images, specify relevant text, and define button callbacks, etc.
 
@@ -3335,7 +3413,7 @@ The running effect of the code is as follows:
 
 ![在这里插入图片描述](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/50c63288482441e696045cef7abddea9.gif)
 
-### 12.2 Bottom Confirmation Pop-up
+### 11.2 Bottom Confirmation Pop-up
 
 The bottom confirmation pop-up is a bottom version of a confirmation pop-up. You can use or disable images, specify relevant text, and define button callbacks, etc.
 
@@ -3498,9 +3576,9 @@ Row(
 
 ![在这里插入图片描述](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/6a74972d5f8048209ccb257206fba86d.gif)
 
-### 12.3 Bottom Cascading Picker
+### 11.3 Bottom Cascading Picker
 
-### 12.3.1 Introduction to Bottom Cascading Picker
+### 11.3.1 Introduction to Bottom Cascading Picker
 
 The bottom cascading picker is a commonly used UI component in mobile applications, mainly used for multi-level selection in a modal that pops up from the bottom. Users can scroll to select different options, which are typically hierarchical, such as selecting provinces, cities, and districts when choosing an address. The bottom cascading picker is suitable for scenarios requiring multi-level selection, commonly found in applications such as:
 
@@ -3520,7 +3598,8 @@ The main features of the bottom cascading picker include:
 
 - **Responsive interaction**: Selected items are instantly reflected in the UI, enhancing user experience.
 
-### 12.3.2 Example: Single-level Selection
+### 11.3.2 Example: Single-level Selection
+
 
 ```dart
 SemanticButton(
@@ -3549,7 +3628,8 @@ The running effect of the code is as follows:
 
 ![在这里插入图片描述](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/cc84116e550b4a28a58660ad918cb24b.gif)
 
-### 12.3.3 Example: Multi-level Linked Selection
+### 11.3.3 Example: Multi-level Linked Selection
+
 
 ```dart
 SemanticButton(
@@ -3665,104 +3745,9 @@ The running effect of the code is as follows:
 
 ![在这里插入图片描述](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/3d7c9de55d8642c8bc054514a68b5d76.gif)
 
-### 13. Privacy Protection Component
 
-The **PrivacyGuard** component is used to protect certain page information from being screenshot or leaked. In some scenarios, we need to apply protection to pages. For instance, when a user enters a password, we need to prevent screenshots and screen recordings. Also, when the user leaves the page, it might be necessary to apply a blur effect to the page. This is a fairly common functionality, but there's no direct interface in **Flutter** to prohibit screen recording and similar actions, making it cumbersome to implement such a simple component each time through communication. Therefore, **widgets Easier** provides encapsulation for **Android** and **iOS**, offering it for use as a standalone widget. The signature of the **PrivacyGuard** widget is as follows:
 
-```dart
-const PrivacyGuard({
-  super.key,
-  required this.child, // The child component being protected
-  this.blurRadius = 10.0, // Blur radius
-  this.blurColor = const Color.fromARGB(136, 225, 225, 225), // Blur color
-  this.onEnterPrivacyMode, // Callback when leaving the page
-  this.onExitPrivacyMode, // Callback when returning to the page
-  this.preventScreenshot = false, // Whether to prevent screenshots
-});
-```
+###  Issues Report
 
-The following code demonstrates a login page guarded by **PrivacyGuard**:
+You can provide feedback or report [issues](https://github.com/jacklee1995/widgets_easier/issues) on this project's GitHub. If you feel that this library is missing a feature, please create a feature request. Pull requests are also welcome.
 
-```dart
-import 'package:flutter/material.dart';
-import 'package:widgets_easier/widgets_easier.dart';
-
-class GuardedPage extends StatelessWidget {
-  const GuardedPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return PrivacyGuard(
-      preventScreenshot: true,
-      onEnterPrivacyMode: () => print('onEnterPrivacyMode'),
-      onExitPrivacyMode: () => print('onExitPrivacyMode'),
-      child: SafeArea(
-        child: Scaffold(
-          appBar: AppBar(
-            title: const Text('Login Page'),
-          ),
-          body: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    'Guarded Login Page',
-                    style: TextStyle(
-                      fontSize: 24.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 32.0),
-                  const TextField(
-                    decoration: InputDecoration(
-                      labelText: 'Username',
-                      border: OutlineInputBorder(),
-                    ),
-                  ),
-                  const SizedBox(height: 16.0),
-                  const TextField(
-                    decoration: InputDecoration(
-                      labelText: 'Password',
-                      border: OutlineInputBorder(),
-                    ),
-                    obscureText: true,
-                  ),
-                  const SizedBox(height: 16.0),
-                  ElevatedButton(
-                    onPressed: () {
-                      // Login logic
-                    },
-                    child: const Text('Login'),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-```
-
-页面的大致效果如下：
-
-![WeChat_c6fZ7PXYaX](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/WeChat_c6fZ7PXYaX.gif)
-
-![WeChat_xkyvwRdC29](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/WeChat_xkyvwRdC29.gif)
-
-## Issue Reporting and Code Contribution
-
-### Issues Report
-
-You can provide feedback or report [issues](https://github.com/jacklee1995/widgets_easier/issues) on the project's **GitHub** page. If you think the library is missing a feature, please create a feature request. Before submitting, please check if there are already similar issues.
-
-### Code Contribution
-
-Please fork this repository to your account, make modifications, and then rebase before submitting a PR to the dev branch. It is recommended that the commit message format be:
-
-```
-type(scope): info about commit.
-```
