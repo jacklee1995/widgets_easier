@@ -1,0 +1,29 @@
+# Dart/Pub related
+
+.dart_tool/
+.packages
+.pub/
+build/
+
+# Flutter related
+
+.flutter-plugins
+.flutter-plugins-dependencies
+.flutter-plugins-dependencies.lock
+.flutter/
+.idea/
+.vscode/
+android/.gradle/
+android/app/build/
+ios/Pods/
+ios/Runner.xcworkspace/
+ios/Flutter/Flutter.framework/
+ios/Flutter/Flutter.podspec
+ios/Flutter/Generated.xcconfig
+ios/Flutter/ephemeral/
+linux/flutter/ephemeral/
+macos/Flutter/ephemeral/
+windows/flutter/ephemeral/
+web/.dart_tool/
+web/.packages
+web/build/

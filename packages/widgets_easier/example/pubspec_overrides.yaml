@@ -1,0 +1,4 @@
+# melos_managed_dependency_overrides: widgets_easier
+dependency_overrides:
+  widgets_easier:
+    path: ..

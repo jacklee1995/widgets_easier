@@ -1,0 +1,15 @@
+.git/
+.idea/
+*.log
+.readme_pics/
+.idea/
+build/
+.vscode/
+TODO.md
+linux/
+macos/
+web/
+windows/
+android/
+lib/
+linux/

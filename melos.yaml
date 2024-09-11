@@ -1,0 +1,61 @@
+name: widgets_easier
+repository: https://github.com/jacklee1995/widgets_easier
+
+packages:
+  - examples/**
+  - packages/*
+
+scripts:
+  lint:
+    run: melos analyze && melos format
+    description: |
+      Run linting on the project by executing the "melos analyze" and "melos format" commands.
+      This script ensures that the code adheres to the project's linting rules and formatting guidelines.
+
+  pre:commit:
+    exec: |
+      echo 'hello world'
+      format --output none --set-exit-if-changed
+      analyze --fatal-infos
+    description: |
+      Execute pre-commit checks before committing changes.
+      This script echoes a greeting message, runs formatting checks with the "--output none" and "--set-exit-if-changed" flags,
+      and performs static analysis with the "--fatal-infos" flag to identify any critical issues.
+
+  dartdoc:
+    run: melos exec dart doc
+    packageFilters:
+      ignore: "*_example"
+    description: |
+      Generate Dart documentation for the project using the "dart doc" command.
+      This script runs "dart doc" on all packages except those matching the "*_example" pattern,
+      which are typically example packages and do not require documentation generation.
+
+  pub:outdated:
+    run: melos exec dart pub outdated
+    description: |
+      Check for outdated dependencies in the project using the "dart pub outdated" command.
+      This script runs "dart pub outdated" on all packages to identify any dependencies that have newer versions available.
+
+  pub:upgrade:
+    run: melos exec dart pub upgrade --major-versions
+    description: |
+      Upgrade dependencies in the project to their latest major versions using the "dart pub upgrade" command with the "--major-versions" flag.
+      This script runs "dart pub upgrade --major-versions" on all packages to update the dependencies to their latest major versions.
+
+  examples:
+    run: cd examples/widgets_easier_examples && flutter run -d windows --debug
+    description: |
+      Run the example app located in the "examples/widgets_easier_examples" directory on a Windows device with debug mode enabled.
+      This script first navigates to the example app directory using the "cd" command, then executes the "flutter run" command with the specified options.
+
+  build_all:
+    exec: |
+      flutter pub get
+      cd examples/widgets_easier_examples && flutter pub get
+    description: |
+      Get dependencies for all packages and apps in the project.
+      This script first runs "flutter pub get" in the root directory to fetch dependencies for the entire project.
+      Then, it navigates to the "examples/widgets_easier_examples" directory and runs "flutter pub get" again to ensure dependencies are fetched for the example app.
+    packageFilters:
+      flutter: true
