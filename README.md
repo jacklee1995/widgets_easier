@@ -4,11 +4,9 @@
 
 Widgets Easier is a Flutter component library of open-source widgets, featuring multiple pre-built UI components. It aims to make development faster, simpler, and more efficient, turning development into an enjoyable task.
 
-
-![widgets_easier.png](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/assets/widgets_easier.png)
+![widgets_easier.png](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/widgets_easier.png)
 
 ## Features
-
 
 WidgetsEasier offers a wide range of features to streamline your Flutter development process:
 
@@ -31,11 +29,25 @@ flutter pub add flutter_easy_animations
 
 This will install the latest version of the Widgets Easier library. The animation part is encapsulated into the flutter_easy_animations library. When dealing with animation-related functionalities, you need to install it separately.
 
+## Example app
 
+Besides the minimal example in the package's `example/` folder, a standalone desktop example app is available on GitHub: [widgets_easier_app](https://github.com/jacklee1995/widgets_easier_app). It shows every component in use and is the recommended reference.
+
+## Choosing by platform
+
+Every component carries one platform label:
+
+| Label | Meaning | Examples |
+| --- | --- | --- |
+| Universal | Works well on phones, web and desktop | buttons, tags, form controls, WeDatePicker, WeDialog, WeMessage, WeDrawer |
+| Desktop / web | Relies on hover, a keyboard or a wide screen | WeMenu, WeTable, WePagination, WeCalendar, WeCascader, WeTooltip |
+| Mobile | Built for fingers and narrow screens | bottom sheets, WeDateSheet, WeTabbar, CounterInput, PaginationView |
+| Deprecated | Removed in 1.0.0; switch to the replacement | SemanticButton, NotifyToasts, TipToasts |
+
+On touch platforms (Android, iOS, and mobile browsers) components adapt on their own: controls grow from 32 to 44 px tall, hover triggers open on tap, `WeTooltip` opens on long press, `WeDatePicker` opens a bottom-sheet date wheel, and notifications and dialogs stay within the screen width. Opt out with `WeTheme.light(interaction: WeInteraction.pointer)`, or force touch sizing on desktop with `WeInteraction.touch`. In debug builds, using a desktop-only component on a touch device prints a one-time hint with a suggested replacement; silence it with `WePlatform.debugHints = false`.
+
+The full list, mobile alternatives and both size tables: [docs_CN/platform.md](./docs_CN/platform.md) (Chinese).
 ## Usage
-
-
-
 
 ### 1. Borders
 
@@ -44,14 +56,12 @@ This will install the latest version of the Widgets Easier library. The animatio
 A Solid Border is the most common and basic type of border. Its main characteristics include:
 
 1. Uniform edges: The defining feature of a Solid Border is its even, continuous line that separates it from the surrounding content. Unlike Ribbed Borders or Grooved Borders, there are no raised or sunken effects along the edges of a Solid Border; instead, it uniformly surrounds the target area.
-   
+
 2. Clear demarcation: The edges of the border are typically sharp, providing a distinct visual separation that allows users to clearly identify the boundaries of the target area.
 
 3. Simple appearance: Solid Borders present a clean, straightforward appearance without additional decoration or depth effects. This simplicity is sometimes more suitable for interface designs that prioritize the content itself over decorative elements.
 
 Solid Borders are commonly used in layouts that require a clean, clear design, such as table borders, buttons, input fields, and other elements where borders are necessary, or to highlight specific content boundaries. In design, the choice between using a Solid Border or other border styles depends on the designer's requirements for the overall style of the interface and user experience.
-
- 
 
 ```dart
 Container(
@@ -104,7 +114,6 @@ Dotted Borders are typically used in layouts that require a soft, delicate desig
 
 An example is provided below:
 
-
 ```dart
 Container(
   height: 150,
@@ -121,8 +130,6 @@ Container(
 ```
 
 ![example_4Cfj04zZEp.png](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_4Cfj04zZEp.png)
-
-
 
 ```dart
 Container(
@@ -361,7 +368,7 @@ Container(
 ),
 ```
 
-![alt text](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_pdxVBlA7pW.png)
+![alt text](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/border_groove.png)
 
 #### 1.7 Ridge Border
 
@@ -390,7 +397,7 @@ Container(
 ),
 ```
 
-![alt text](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_ust5G0YwTs.png)
+![alt text](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/border_ridge.png)
 
 #### 1.8 Inset Border
 
@@ -417,7 +424,7 @@ Container(
 ),
 ```
 
-![alt text](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_hhq0iDwXtx.png)
+![alt text](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/border_inset.png)
 
 #### 1.9 Outset Border
 
@@ -444,7 +451,7 @@ Container(
 ),
 ```
 
-![alt text](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_bCS34n32wd.png)
+![alt text](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/border_outset.png)
 
 #### 1.10 BorderWrapper
 
@@ -477,12 +484,6 @@ BorderWrapper(
 
 In this example, the SolidStarBorder used is based on Flutter's native StarBorder implementation, with the Solid Border effect added onto it. This allows you to specify line width, color, and gradients on the SolidStarBorder. The BorderWrapper can be used to achieve clipping with borders, enabling the addition of specified line effects while changing the shape of the original widget. Therefore, to implement more border shapes, you can create shape clippers similar to SolidStarBorder that draw lines. However, rest assured that this library will continue to implement new border shapes in the future.
 
-
-
-
-
-
-
 ### 2. Shadow Boxes
 
 #### 2.1 Introduction to Shadow Boxes
@@ -490,7 +491,6 @@ In this example, the SolidStarBorder used is based on Flutter's native StarBorde
 Inspired by the **[Element-Plus](https://element-plus.org/)** component library in **Widgets Easier**, specific shadow effects are provided. These shadow effects can be added to other components in a component-like manner.
 
 Similar to **[Element-Plus](https://element-plus.org/)**, in the **Widgets Easier** library, typical shadow effects are encapsulated into the following four components: **BasicShadow**, **LightShadow**, **LighterShadow**, **DarkShadow**. Each component uses DecoratedBox to implement a specific shadow effect.
-
 
 ![example_kAfLS9VvwG](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics//example_kAfLS9VvwG.png)
 
@@ -897,7 +897,6 @@ SemanticButton(
 
 By using the fontWeight property, you can specify the thickness of the font, for example:
 
-
 ```dart
 SemanticButton(
   text: 'normal',
@@ -1037,6 +1036,7 @@ SemanticButton(
   onTap: () {},
 ),
 ```
+
 ##### 3.7.2 Shrink Behavior (shrink = true)
 
 1. When shrink is set to true, the button will adapt its width based on its content.
@@ -1053,6 +1053,7 @@ SemanticButton(
   onTap: () {},
 ),
 ```
+
 Here's a comparison between the two:
 
 1. When shrink is set to true, the button will adapt its width based on its content.
@@ -1074,6 +1075,7 @@ SemanticButton(
   type: SemanticEnum.primary,
 )
 ```
+
 ![example_UaKvmEvzEC](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_UaKvmEvzEC.png)
 
 In the above code, `Icon(Icons.phone)` is passed as the `prefixIcon` to the `SemanticButton`, allowing users to visually identify this as a button for making phone calls.
@@ -1119,6 +1121,7 @@ SemanticButton(
   isOutlined: true,
   onTap: () {},
 ```
+
 ![example_9l6lQQ1ixn](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_9l6lQQ1ixn.gif)
 
 ##### 3.9.2 Gradient Buttons
@@ -1183,6 +1186,7 @@ ButtonGroup(
   size: SizeEnum.defaultSize,
 )
 ```
+
 In ButtonGroup, the event callback function for each button is directly specified on the onTap property of SemanticButton. Similarly, the text for each individual button is directly specified through the text parameter of each SemanticButton.
 
 #### 4.2 Using Semantic Types
@@ -1423,8 +1427,6 @@ The running result is as follows:
 
 Inspired by Element-plus, **Tag** has three style themes: `plain`, `light`, and `dark`. By default, it is set to `plain`, as demonstrated in the previous section. Below are examples of the `light` and `dark` themes:
 
-
-
 ##### light
 
 ```dart
@@ -1446,8 +1448,6 @@ The running result is as follows:
 
 ![example_uLVBhrUyBl](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_uLVBhrUyBl-1714994639986-24.png)
 
-
-
 ##### dark
 
 ```dart
@@ -1467,8 +1467,6 @@ const Row(
 
 ![example_4GWiRl3tzL](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_4GWiRl3tzL-1714994639986-25.png)
 
-
-
 #### 5.3 Radius
 
 By default, there is a radius of 4 for corners. To manually modify this, you can specify the `radius` parameter. The `radius` parameter accepts a double value. For example, setting `radius` to 0 will remove the rounded corners:
@@ -1480,8 +1478,6 @@ Tag('radius: 0', radius: 0),
 The running result is as follows:
 
 ![example_WCSxzzhhjE](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_WCSxzzhhjE-1714994639986-26.png)
-
-
 
 #### 5.4 Size
 
@@ -1545,8 +1541,6 @@ const Row(
 The running result is as follows:
 
 ![example_HJgxs2Vv3O](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_HJgxs2Vv3O-1714994639986-29.gif)
-
-
 
 #### 5.6 Example of Dynamically Editing Tags
 
@@ -1616,10 +1610,93 @@ The running result is as follows:
 
 ![在这里插入图片描述](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/cea33e4f5e9f46d5a148d886959c6d32-1714994639986-30.gif)
 
+#### 5.7 Checkable Tags
 
+Sometimes a form needs something that behaves like a checkbox, but the button-style checkbox does not fit the design. **CheckTag** (the counterpart of Element Plus' `el-check-tag`) fills that gap. Tapping it toggles between two states:
 
+- **checked** – a normal tag, coloured by `type` (or `color`) and `theme`;
+- **unchecked** – a light grey fill with grey text and no visible border.
 
+##### Basic usage
 
+Leave `checked` unset and the tag manages its own state, starting from `initialChecked`. Three callbacks are available: `onChanged` receives the new value on every toggle, while `onChecked` and `onUnchecked` fire only for the matching transition.
+
+```dart
+CheckTag('unchecked'),
+CheckTag('checked', initialChecked: true),
+CheckTag(
+  'callbacks',
+  onChecked: () => print('checked'),
+  onUnchecked: () => print('unchecked'),
+  onChanged: (value) => print('changed: $value'),
+),
+CheckTag('with icon', showCheckIcon: true, initialChecked: true),
+```
+
+##### Semantic types and themes
+
+The checked colour defaults to `primary`; pick any semantic colour with `type` or a custom one with `color`. `theme` accepts `plain`, `light` and `dark`, defaulting to `light`.
+
+```dart
+CheckTag('success', initialChecked: true, type: SemanticEnum.success),
+CheckTag('danger', initialChecked: true, type: SemanticEnum.danger),
+CheckTag('plain', initialChecked: true, theme: TagThemeEnum.plain),
+CheckTag('dark', initialChecked: true, theme: TagThemeEnum.dark),
+```
+
+##### Disabled
+
+A disabled tag ignores taps and keyboard input and is drawn dimmed.
+
+```dart
+CheckTag('disabled', disabled: true),
+CheckTag('disabled checked', disabled: true, initialChecked: true),
+```
+
+##### Controlled usage
+
+Pass `checked` to switch to controlled mode: the tag renders exactly that value and never changes it by itself; update your state in `onChanged` and rebuild. A multi-select filter built from controlled tags:
+
+```dart
+class CheckTagsExample extends StatefulWidget {
+  const CheckTagsExample({super.key});
+
+  @override
+  State<CheckTagsExample> createState() => _CheckTagsExampleState();
+}
+
+class _CheckTagsExampleState extends State<CheckTagsExample> {
+  static const List<String> _options = ['Flutter', 'Dart', 'Vue', 'Rust'];
+  final Set<String> _selected = {'Flutter'};
+
+  @override
+  Widget build(BuildContext context) {
+    return Wrap(
+      spacing: 8,
+      runSpacing: 8,
+      children: [
+        for (final option in _options)
+          CheckTag(
+            option,
+            checked: _selected.contains(option),
+            showCheckIcon: true,
+            onChanged: (checked) {
+              setState(() {
+                checked ? _selected.add(option) : _selected.remove(option);
+              });
+            },
+          ),
+      ],
+    );
+  }
+}
+```
+
+##### Notes
+
+- `size`, `height`, `width`, `radius` and `shrink` work exactly as on `Tag`.
+- The tag is focusable; <kbd>Space</kbd> and <kbd>Enter</kbd> toggle it, and it exposes a checked state to assistive technology.
+- The transition between the two states is animated.
 
 ### 6. Counter
 
@@ -1665,8 +1742,6 @@ const CounterInput(
   textColor: Colors.white,
 )
 ```
-
-
 
 ![example_h0k4KWue9E](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_h0k4KWue9E.png)
 
@@ -1783,8 +1858,6 @@ CounterInput(
 ),
 ```
 
-
-
 #### 6.8 Callback Events
 
 ##### 6.8.1 Increment and Decrement Callbacks
@@ -1810,8 +1883,6 @@ CounterInput(
 ```
 
 > Note: Specifying an initial value requires using the CounterInputController controller, as shown in this example.
-
-
 
 ##### 6.8.2 Boundary Reached Callbacks
 
@@ -1879,14 +1950,9 @@ CounterInput(
 )
 ```
 
-
-
 ![example_fMYLgu8hR9](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_fMYLgu8hR9.gif)
 
-
 ##### 5. Value Change Events
-
-
 
 ```dart
 CounterInput(
@@ -1917,11 +1983,255 @@ flutter: oldValue is 2.0, newValue is 1.0
 flutter: oldValue is 1.0, newValue is 0.0
 ```
 
+##### 5 Decimals and precision
 
+`step` may be fractional. The counter works out how many decimals it needs from `step`, `minValue` and `maxValue`, and rounds to that precision, so ten steps of `0.1` land on `1` rather than on `0.9999999999999999`.
 
+```dart
+const CounterInput(step: 0.1, maxValue: 1)
+```
 
+Set `decimals` when the value should always be padded to a fixed number of digits. The field then also refuses to accept more than that many decimals.
+
+```dart
+const CounterInput(
+  decimals: 2,
+  step: 0.25,
+  maxValue: 20,
+)
+```
+
+##### 6 Negative ranges
+
+A negative `minValue` makes the field accept a leading minus sign and asks for a signed numeric keyboard.
+
+```dart
+const CounterInput(minValue: -50, maxValue: 50, step: 5)
+```
+
+##### 7 Keyboard and read-only
+
+While the field has focus, the arrow up and arrow down keys step the value by `step`.
+
+Typed input is not clamped keystroke by keystroke — it is normalised when you submit the field or move focus away. That is what makes `15` reachable on a counter whose minimum is `10`; clamping eagerly would rewrite the `1` before you could type the `5`.
+
+Use `readOnly` to keep the buttons working while blocking typing, and `enabled: false` to switch the whole widget off.
+
+```dart
+const CounterInput(readOnly: true, maxValue: 10)
+```
 
 ### 7. Pop-up Windows
+
+#### WeDialog
+
+`WeDialog` is the web-style modal, modelled on `el-dialog`, and the one to
+reach for in new code. A header with icon, title and close button, a body
+that scrolls once it gets tall, and a footer that lays out `actions` on the
+right.
+
+**The header drags the dialog.** That is what an in-page dialog was missing:
+when the modal covers the table behind it, grab the title bar and move it out
+of the way; double-click the header to snap it back. It can be dragged nearly
+all the way off screen — a strip always stays inside so you can drag it back —
+and resizing the window pulls a stranded dialog into view. Pass
+`draggable: false` for a plain centred modal.
+
+```dart
+final bool? ok = await WeDialog.show<bool>(
+  context,
+  title: 'Publish product',
+  icon: Icons.add_business_rounded,
+  width: 560,
+  builder: (context) => const PublishForm(),
+  actions: (context) => [
+    WeButton(
+      text: 'Cancel',
+      variant: WeButtonVariant.plain,
+      onPressed: () => Navigator.of(context).pop(false),
+    ),
+    WeButton(
+      text: 'Submit',
+      type: SemanticEnum.primary,
+      onPressed: () => Navigator.of(context).pop(true),
+    ),
+  ],
+);
+```
+
+`actions` takes the dialog's own `BuildContext`, so the buttons pop the right
+route and `WeDialog.show` completes with whatever they popped. Other knobs:
+`width`, `top` (distance from the top, like `el-dialog`), `fullscreen`,
+`modal`, `closeOnClickModal`, `closeOnEscape`, `showClose`, `scrollable` /
+`maxHeightFactor`, `dividers`, the `header` / `titleWidget` / `footer` slots
+and a `transitionBuilder` — the default is Element's fade-and-scale.
+
+To give a dialog of your own the same dragging, wrap it in
+`WeMovableDialog` and wrap its header in a `WeDialogDragHandle`.
+
+#### WeMessageBox
+
+`WeMessageBox` is the `ElMessageBox` trio. Each one is a `WeDialog`, so they
+are draggable too.
+
+```dart
+// One button. Completes with true when confirmed.
+await WeMessageBox.alert(context, 'The export contains phone numbers.');
+
+// Two buttons. Only a confirm gives you true.
+if (await WeMessageBox.confirm(
+  context,
+  'Deleting is permanent. Continue?',
+  title: 'Delete product',
+  confirmText: 'Delete',
+  type: SemanticEnum.danger,
+)) {
+  await remove();
+}
+
+// A line of text, or null when cancelled. Confirm stays disabled
+// until the validator passes.
+final String? name = await WeMessageBox.prompt(
+  context,
+  'Name this coupon batch:',
+  validator: (v) => v.trim().length < 2 ? 'At least 2 characters' : null,
+);
+```
+
+#### WeDrawer
+
+`WeDrawer` is `el-drawer`: a panel sliding in from a screen edge, on the
+same route setup as `WeDialog` (mask, tap-outside, Escape, and the popped
+value as the result).
+
+```dart
+final bool? saved = await WeDrawer.show<bool>(
+  context,
+  title: 'Edit product',
+  size: 560,          // > 1 is pixels, <= 1 a screen fraction (default 0.3)
+  resizable: true,    // drag the inner edge
+  beforeClose: () => WeMessageBox.confirm(context, 'Discard your changes?'),
+  builder: (context) => const ProductEditor(),
+  actions: (context) => [
+    WeButton(text: 'Save', type: SemanticEnum.primary, onPressed: () => Navigator.pop(context, true)),
+  ],
+);
+```
+
+`direction` is `rtl` (default), `ltr`, `ttb` or `btt`. `beforeClose` runs
+for the mask, Escape, the close button and the back gesture; your own
+`Navigator.pop` always closes.
+
+#### Overlays: WePopper, WeTooltip, WePopover, WePopconfirm
+
+`WePopper` floats a panel next to its trigger. The panel follows the
+trigger while scrolling, flips when it does not fit, slides back inside the
+viewport, and closes on a tap outside or on Escape — one Escape closes only
+the topmost layer, so a select inside a dialog closes before the dialog.
+`WeSelect` and `WeDropdown` use it too.
+
+```dart
+WeTooltip(content: 'Edit', child: WeButton.icon(Icons.edit_outlined, onPressed: edit))
+
+WePopover(title: 'Stock', width: 240, contentBuilder: (_) => const StockList(), child: const Text('View'))
+
+WePopconfirm.builder(
+  title: 'Delete this product?',
+  type: SemanticEnum.danger,
+  onConfirm: () => api.delete(id),   // the button spins until this completes
+  builder: (context, open) => WeButton(text: 'Delete', onPressed: open),
+)
+```
+
+#### WeForm
+
+`WeForm` lays out labelled `WeFormItem`s and validates them. Give each item
+the field's current `value` and its `rules`; `WeInput` and `WeSelect` inside
+an item turn red on error and inherit its `disabled` and `size`.
+
+```dart
+final form = WeFormController();
+
+WeForm(
+  controller: form,
+  labelWidth: 88,
+  children: [
+    WeFormItem(
+      name: 'title',
+      label: 'Title',
+      value: title,
+      rules: const [WeRule(required: true), WeRule(max: 30, trigger: WeRuleTrigger.blur)],
+      onReset: () => setState(() => title = ''),
+      child: WeInput(onChanged: (v) => setState(() => title = v)),
+    ),
+  ],
+);
+
+if (await form.validate()) save();
+```
+
+Rules check `required`, `min` / `max` (length, value or count), `pattern`
+and an optionally async `validator`, on `change`, `blur` or only on submit.
+The controller also offers `validateField`, `resetFields`, `clearValidate`
+and `scrollToField`.
+
+`WeSelect.multiple` shows values as tags (`collapseTags`, `multipleLimit`),
+and every select can be `filterable`, search a server with `remoteMethod`,
+group options with `WeSelectGroup`, and be driven from the keyboard.
+
+#### WeUpload
+
+`WeUpload` has no native dependency: pass a `picker` that returns the chosen
+files (e.g. through `file_picker`) and an `uploader` that sends one and
+reports progress. The widget checks `accept`, `maxSize` and `limit`, lists
+the files as text, thumbnails or a `pictureCard` wall, shows progress and
+lets failed files be retried.
+
+```dart
+WeUpload(
+  picker: (multiple) async => [
+    for (final f in (await FilePicker.platform.pickFiles(allowMultiple: multiple, withData: true))?.files ?? [])
+      WeUploadFile(name: f.name, size: f.size, bytes: f.bytes),
+  ],
+  uploader: (file, onProgress) => api.upload(file, onProgress),
+  accept: const ['image/*'],
+  maxSize: 2 * 1024 * 1024,
+  limit: 5,
+  listType: WeUploadListType.pictureCard,
+)
+```
+
+#### WeSteps
+
+```dart
+WeSteps(
+  active: 1,
+  steps: const [
+    WeStep(title: 'Paid'),
+    WeStep(title: 'Shipped', description: 'SF Express'),
+    WeStep(title: 'Delivered'),
+  ],
+)
+```
+
+Horizontal, centred, vertical or `simple`; a step's `status` can override
+the one `active` gives it, e.g. `WeStepStatus.error`.
+
+#### WeNotification / WeLoading / WeSlider
+
+`WeNotification` stacks titled cards in a corner. `WeLoading` masks a region
+or the whole screen through `WeLoading.service`. `WeSlider` and
+`WeSlider.range` take `step`, marks and an optional side input.
+
+#### WePageHeader / WeCollapse / WeImage / WeCarousel
+
+Page title row, accordion, image with `WeImageViewer`, and a looping
+carousel.
+
+#### WeTree / WeTreeSelect
+
+A flattened tree with expand, select, parent-child checkboxes, filter and
+lazy load. `WeTreeSelect` is the same tree inside a `WePopper`.
 
 #### InfoDialogs
 
@@ -2061,8 +2371,6 @@ Row(
 )
 ```
 
-
-
 ![example_0YDNxnPzok](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_0YDNxnPzok.gif)
 
 ##### ZoomIn Animation
@@ -2088,8 +2396,6 @@ SemanticButton(
 The running result is as follows:
 
 ![example_QCpD0oPAWg](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_QCpD0oPAWg.gif)
-
-
 
 ##### Custom Animation
 
@@ -2124,8 +2430,6 @@ SemanticButton(
 The running result is as follows:
 
 ![example_CYfwe0SU6B](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_CYfwe0SU6B.gif)
-
-
 
 #### ConfirmDialogs
 
@@ -2288,13 +2592,9 @@ Row(
 )
 ```
 
-
-
 ##### ZoomIn Animation
 
 The `ConfirmDialogs.show` method does not have an animation effect. You can directly use the `ConfirmDialogs.zoomIn` method, which provides a pop-up animation with a scaling effect. The `ConfirmDialogs.zoomIn` method takes exactly the same parameters as `ConfirmDialogs.show`. For example:
-
-
 
 ```dart
 SemanticButton(
@@ -2360,7 +2660,11 @@ The running result is as follows:
 
 #### WinDialogs
 
-WinDialogs is a type of dialog that mimics the Windows style. The following example demonstrates calling a Windows-style dialog:
+WinDialogs is a desktop-style dialog: title bar, message area, command bar,
+with a close button that turns red on hover. Every colour comes from
+`WeTheme`, so it follows dark mode, and the title bar drags the dialog around
+like a real window. Reach for `WeDialog` when you want the web-style modal
+instead; the two have the same feature set.
 
 ```dart
 SemanticButton(
@@ -2369,11 +2673,11 @@ SemanticButton(
   shrink: true,
   radius: 2,
   color: Colors.black,
-  onTap: () => WinDialogs.show(
+  onTap: () => WinDialogs.show<void>(
     context,
-    title: 'title',
-    icon: const Icon(Icons.run_circle_outlined),
-    text: '在这个世界上，我们每个人都应该深刻理解，生活中，若能够不断地反思和自省，那么我们就能更好地理解生活的真谛。',
+    title: '导出订单.csv',
+    icon: const Icon(Icons.description_outlined),
+    text: '将当前筛选结果导出为 CSV，最多 10000 行。',
     contents: Row(
       children: [
         const Text('打开(O):'),
@@ -2392,32 +2696,21 @@ SemanticButton(
         ),
       ],
     ),
-    actions: [
-      SemanticButton(
-        text: '确定',
-        width: 90,
-        isOutlined: true,
-        radius: 2,
-        color: Colors.black,
-        onTap: () {},
-      ),
-      const Gap(10),
-      SemanticButton(
-        text: '取消',
-        width: 90,
-        isOutlined: true,
-        radius: 2,
-        color: Colors.black,
-        onTap: () {},
-      ),
-      const Gap(10),
-      SemanticButton(
+    actions: (context) => [
+      WeButton(
         text: '浏览',
-        width: 90,
-        isOutlined: true,
-        radius: 2,
-        color: Colors.black,
-        onTap: () {},
+        variant: WeButtonVariant.plain,
+        onPressed: () {},
+      ),
+      WeButton(
+        text: '取消',
+        variant: WeButtonVariant.plain,
+        onPressed: () => Navigator.of(context).pop(),
+      ),
+      WeButton(
+        text: '确定',
+        type: SemanticEnum.primary,
+        onPressed: () => Navigator.of(context).pop(),
       ),
     ],
   ),
@@ -2428,37 +2721,30 @@ The running result is as shown in the image:
 
 ![example_Z45EJiFtKU](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_Z45EJiFtKU.gif)
 
-
-
 Just like with the previous dialogs, you can use the `zoomIn` method to set a pop-up animation effect that scales from small to large. This method takes the same parameters as the `show` method:
 
-
-
 ![example_BTEipOt7f9](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_BTEipOt7f9.gif)
-
-
 
 If you intend to customize the pop-up animation, it's similar to the previous dialogs. You can use `showWinDialog` and specify an animation through the `transitionBuilder` parameter. For example:
 
 ```dart
 SemanticButton(
-  text: '使用bounceIn动画',
+  text: 'Use bounceIn animation',
   isOutlined: true,
   shrink: true,
   radius: 2,
   color: Colors.black,
   onTap: () => WinDialogs.showWinDialog(
     context,
-    transitionBuilder:
-        (context, animation, secondaryAnimation, child) {
+    transitionBuilder: (context, animation, secondaryAnimation, child) {
       return AnimateStyles.bounceIn(animation, child);
     },
-    title: 'title',
+    title: 'Title',
     icon: const Icon(Icons.run_circle_outlined),
-    text: '在这个世界上，我们每个人都应该深刻理解，生活中，若能够不断地反思和自省，那么我们就能更好地理解生活的真谛。',
+    text: 'In this world, each of us should deeply understand that if we can continually reflect and introspect, we can better understand the true essence of life.',
     contents: Row(
       children: [
-        const Text('打开(O):'),
+        const Text('Open (O):'),
         const Gap(10),
         Expanded(
           child: Container(
@@ -2474,35 +2760,25 @@ SemanticButton(
         ),
       ],
     ),
-    actions: [
-      SemanticButton(
-        text: '确定',
-        width: 90,
-        isOutlined: true,
-        radius: 2,
-        color: Colors.black,
-        onTap: () {},
+    actions: (context) => [
+      WeButton(
+        text: 'Browse',
+        variant: WeButtonVariant.plain,
+        onPressed: () {},
       ),
-      const Gap(10),
-      SemanticButton(
-        text: '取消',
-        width: 90,
-        isOutlined: true,
-        radius: 2,
-        color: Colors.black,
-        onTap: () {},
+      WeButton(
+        text: 'Cancel',
+        variant: WeButtonVariant.plain,
+        onPressed: () => Navigator.of(context).pop(),
       ),
-      const Gap(10),
-      SemanticButton(
-        text: '浏览',
-        width: 90,
-        isOutlined: true,
-        radius: 2,
-        color: Colors.black,
-        onTap: () {},
+      WeButton(
+        text: 'Confirm',
+        type: SemanticEnum.primary,
+        onPressed: () => Navigator.of(context).pop(),
       ),
     ],
-  
+  ),
+)
 ```
 
 The running result is as follows:
@@ -2514,8 +2790,6 @@ The running result is as follows:
 > ```bash
 > flutter pub add flutter_easy_animations
 > ```
-
-
 
 #### FutureDialogs
 
@@ -2588,7 +2862,6 @@ class SuccessDialog extends StatelessWidget {
 
 Content displayed for authentication failure:
 
-
 ```dart
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -2641,7 +2914,6 @@ class FailureDialog extends StatelessWidget {
 
 Then we call the dialogs on the login page:
 
-
 ```dart
 import 'package:example/login/dialogs/failure_dialog.dart';
 import 'package:flutter/material.dart';
@@ -2689,7 +2961,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('FutureDialogs 示例')),
+      appBar: AppBar(title: const Text('FutureDialogs Demo')),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -2753,7 +3025,6 @@ After completion, we can also chain some operations. This design is very necessa
 
 Where the asynchronous function is:
 
-
 ```dart
 import 'dart:async';
 
@@ -2796,10 +3067,7 @@ If the login fails, it returns:
 {'status': false, 'data': '账户名或密码错误'}
 ```
 
-
 Then construct a login success page:
-
-
 
 ```dart
 import 'package:flutter/material.dart';
@@ -2852,8 +3120,6 @@ The appearance looks like this:
 1. Username and password are empty:
 ![pic_discribles](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/989b2405eaab4d629d9ce22c4a9a6a71.gif)
 
-
-
 2. Incorrect password input:
 
 ![](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/9fc16728e2c740e39d3bd1f729a6dd7d.gif)
@@ -2862,7 +3128,6 @@ The appearance looks like this:
 ![](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/296cf1829bb047448477db75ff560ed1.gif)
 
 ### 8. Toast Messages
-
 
 The toast message component is inspired by Element-Plus's Notification and encapsulated in a way that is suitable for use in Flutter. It provides a simple and flexible way to display message notifications in your application. By customizing styles, animation effects, and interactions, you can create message notifications that align with your app's design style.
 
@@ -3096,7 +3361,6 @@ The running effect of the code is as follows:
 
 You can customize animations, but it is still recommended to use the pre-built animation effects from the `flutter_easy_animations` library that comes with the **Widgets Easier** component library. By default, the `showTopRight` and `showBottomRight` methods in **NotifyToasts** use the **AnimateStyles.slideInRight** animation effect, while the `showTopLeft` and `showBottomLeft` methods use the **AnimateStyles.slideInLeft** animation effect.
 
-
 You can specify the animation effect by using the `animationEffect` parameter in any of the static methods in **NotifyToasts**. For example:
 
 ```dart
@@ -3121,9 +3385,7 @@ Please note that choosing appropriate animations can make the entry and exit of 
 
 Additionally, if needed, you can specify the animation duration using the `animationDuration` parameter. If not specified, the default duration of `300` milliseconds is used.
 
-
 #### 8.6 Close Button
-
 
 By default, each toast message includes a close button. If you do not want to display the close button, you can set the value of the `showClose` attribute to `false`. For example:
 
@@ -3190,8 +3452,6 @@ SemanticButton(
 The running effect of the code is as follows:
 
 ![example_s2AsI6WQKD](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_s2AsI6WQKD.gif)
-
-
 
 ### 10. TipToasts
 
@@ -3275,8 +3535,6 @@ The running effect of the code is as follows:
 
 ![example_NznGSg2hm0](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_NznGSg2hm0.gif)
 
-
-
 #### 10.4 toBottom Method
 
 This method is used to display a prompt message at the bottom of the screen, with the option to specify a vertical offset.
@@ -3293,7 +3551,7 @@ static void toBottom(
 })
 ```
 
-Where the parameter `offset` represents the vertical offset from the bottom of the screen, defaulting to 100. 
+Where the parameter `offset` represents the vertical offset from the bottom of the screen, defaulting to 100.
 
 For example:
 
@@ -3309,9 +3567,9 @@ The running effect of the code is as follows:
 
 ![example_hbHZoFAO8O](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/example_hbHZoFAO8O.gif)
 
-### 11. Bottom Pop-up
+### 12. Bottom Pop-up
 
-#### 11.1 Bottom Message Pop-up
+#### 12.1 Bottom Message Pop-up
 
 The bottom message pop-up is a bottom version of a message pop-up. You can use or disable images, specify relevant text, and define button callbacks, etc.
 
@@ -3413,7 +3671,7 @@ The running effect of the code is as follows:
 
 ![在这里插入图片描述](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/50c63288482441e696045cef7abddea9.gif)
 
-### 11.2 Bottom Confirmation Pop-up
+### 12.2 Bottom Confirmation Pop-up
 
 The bottom confirmation pop-up is a bottom version of a confirmation pop-up. You can use or disable images, specify relevant text, and define button callbacks, etc.
 
@@ -3576,9 +3834,9 @@ Row(
 
 ![在这里插入图片描述](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/6a74972d5f8048209ccb257206fba86d.gif)
 
-### 11.3 Bottom Cascading Picker
+### 12.3 Bottom Cascading Picker
 
-### 11.3.1 Introduction to Bottom Cascading Picker
+### 12.3.1 Introduction to Bottom Cascading Picker
 
 The bottom cascading picker is a commonly used UI component in mobile applications, mainly used for multi-level selection in a modal that pops up from the bottom. Users can scroll to select different options, which are typically hierarchical, such as selecting provinces, cities, and districts when choosing an address. The bottom cascading picker is suitable for scenarios requiring multi-level selection, commonly found in applications such as:
 
@@ -3598,8 +3856,7 @@ The main features of the bottom cascading picker include:
 
 - **Responsive interaction**: Selected items are instantly reflected in the UI, enhancing user experience.
 
-### 11.3.2 Example: Single-level Selection
-
+### 12.3.2 Example: Single-level Selection
 
 ```dart
 SemanticButton(
@@ -3628,8 +3885,7 @@ The running effect of the code is as follows:
 
 ![在这里插入图片描述](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/cc84116e550b4a28a58660ad918cb24b.gif)
 
-### 11.3.3 Example: Multi-level Linked Selection
-
+### 12.3.3 Example: Multi-level Linked Selection
 
 ```dart
 SemanticButton(
@@ -3745,9 +4001,20 @@ The running effect of the code is as follows:
 
 ![在这里插入图片描述](https://raw.githubusercontent.com/jacklee1995/widgets_easier/master/readme_pics/3d7c9de55d8642c8bc054514a68b5d76.gif)
 
+### 13. Privacy Protection Component
 
+`PrivacyGuard` moved to its own package, [widgets_easier_privacy_guard](https://pub.dev/packages/widgets_easier_privacy_guard), because it is the only component that ships native code. Add that package and import `package:widgets_easier_privacy_guard/widgets_easier_privacy_guard.dart`. Its README covers the background blur, screenshot blocking and screenshot / recording events on each platform.
 
-###  Issues Report
+## Issue Reporting and Code Contribution
 
-You can provide feedback or report [issues](https://github.com/jacklee1995/widgets_easier/issues) on this project's GitHub. If you feel that this library is missing a feature, please create a feature request. Pull requests are also welcome.
+### Issues Report
 
+You can provide feedback or report [issues](https://github.com/jacklee1995/widgets_easier/issues) on the project's **GitHub** page. If you think the library is missing a feature, please create a feature request. Before submitting, please check if there are already similar issues.
+
+### Code Contribution
+
+Please fork this repository to your account, make modifications, and then rebase before submitting a PR to the dev branch. It is recommended that the commit message format be:
+
+```
+type(scope): info about commit.
+```

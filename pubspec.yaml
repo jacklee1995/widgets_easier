@@ -1,46 +1,53 @@
-name: widgets_easier
-description: "Widgets Easier aims to make development faster, simpler, and more efficient, turning development into a pleasant experience."
-version: 0.0.10
-homepage: https://flutter-online.top
-repository: https://github.com/jacklee1995/widgets_easier
+name: widgets_easier_workspace
+description: Monorepo for the Widgets Easier component library.
+publish_to: none
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
-  flutter: ">=1.17.0"
+  sdk: ^3.9.0
 
-dependencies:
-  flutter:
-    sdk: flutter
-  flutter_easy_animations: ^0.0.2
-  flutter_svg: ^2.0.10+1
-  gap: ^3.0.1
-  get: ^4.6.6
+workspace:
+  - packages/widgets_easier
+  - packages/widgets_easier/example
+  - packages/widgets_easier_privacy_guard
+  - packages/widgets_easier_privacy_guard/example
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  flutter_lints: ^4.0.0
+  melos: ^8.8.0
 
-flutter:
-  plugin:
-    platforms:
-      android:
-        package: tech.thispage.widgets_easier
-        pluginClass: WidgetsEasierPlugin
-      ios:
-        pluginClass: WidgetsEasierPlugin
-  assets:
-    - assets/images/image_loading_failed.png
-    - assets/icons/info.png
-    - assets/icons/warning.png
-    - assets/icons/success.png
-    - assets/icons/error.png
-    - assets/icons/right.png
-    - assets/icons/confirm.png
-    - assets/icons/search.png
-    - assets/icons/close.png
-    - assets/icons/prohibit.png
+melos:
+  repository: https://github.com/jacklee1995/widgets_easier
 
-screenshots:
-  - description: "Widgets Easier Logo."
-    path: assets/widgets_easier.png
+  command:
+    version:
+      # All packages share one version number and are released together.
+      linkToCommits: true
+      workspaceChangelog: true
+
+  scripts:
+    analyze:
+      run: dart analyze --fatal-infos .
+      description: Static analysis for every package in the workspace.
+
+    format:
+      run: dart format --set-exit-if-changed .
+      description: Verify formatting (fails if any file would change).
+
+    format:fix:
+      run: dart format .
+      description: Format every package in place.
+
+    test:
+      exec: flutter test
+      packageFilters:
+        dirExists: test
+      description: Run unit / widget tests of every publishable package.
+
+    publish:dry:
+      exec: dart pub publish --dry-run
+      packageFilters:
+        noPrivate: true
+      description: Publish dry-run for every publishable package.
+
+    outdated:
+      exec: dart pub outdated
+      description: List outdated dependencies for every package.

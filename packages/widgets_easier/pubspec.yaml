@@ -1,0 +1,38 @@
+name: widgets_easier
+description: "Widgets Easier aims to make development faster, simpler, and more efficient, turning development into a pleasant experience."
+version: 1.0.0
+homepage: https://flutter-online.top
+repository: https://github.com/jacklee1995/widgets_easier/tree/master/packages/widgets_easier
+issue_tracker: https://github.com/jacklee1995/widgets_easier/issues
+topics:
+  - ui
+  - widgets
+  - components
+
+environment:
+  sdk: ^3.9.0
+  flutter: ">=3.35.0"
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_svg: ^2.3.0
+  gap: ^3.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  # No `plugin:` section on purpose: this package is pure Dart. The only
+  # native code in the project lives in widgets_easier_privacy_guard, which
+  # you depend on separately if you need it.
+  assets:
+    - assets/icons/
+    - assets/images/
+
+screenshots:
+  - description: "Widgets Easier Logo."
+    path: assets/widgets_easier.webp

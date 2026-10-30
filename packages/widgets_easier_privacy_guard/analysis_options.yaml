@@ -1,0 +1,8 @@
+analyzer:
+  exclude:
+    - build/**
+    - android/**
+    - ios/**
+    - windows/**
+    - macos/**
+include: ../../analysis_options.yaml

@@ -1,0 +1,1 @@
+enum BorderDotShape { circle, square }

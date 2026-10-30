@@ -1,0 +1,45 @@
+name: widgets_easier_privacy_guard
+description: "Hides sensitive content when a Flutter app leaves the foreground, blocks screenshots and screen recording, and reports screenshots. Part of Widgets Easier."
+version: 1.0.0
+homepage: https://flutter-online.top
+repository: https://github.com/jacklee1995/widgets_easier/tree/master/packages/widgets_easier_privacy_guard
+issue_tracker: https://github.com/jacklee1995/widgets_easier/issues
+topics:
+  - privacy
+  - security
+  - screenshot
+  - widgets-easier
+
+environment:
+  sdk: ^3.9.0
+  flutter: ">=3.35.0"
+resolution: workspace
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_web_plugins:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: tech.thispage.widgets_easier_privacy_guard
+        pluginClass: WidgetsEasierPrivacyGuardPlugin
+      ios:
+        pluginClass: WidgetsEasierPrivacyGuardPlugin
+      macos:
+        pluginClass: WidgetsEasierPrivacyGuardPlugin
+      windows:
+        pluginClass: WidgetsEasierPrivacyGuardPluginCApi
+      linux:
+        dartPluginClass: PrivacyGuardNoopPlugin
+      web:
+        pluginClass: PrivacyGuardWebPlugin
+        fileName: src/privacy_guard_web.dart

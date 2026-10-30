@@ -1,4 +1,27 @@
+# Shared analysis options for every package in the workspace.
+# Packages include this file via `include: ../../analysis_options.yaml`.
 include: package:flutter_lints/flutter.yaml
 
-# Additional information about this file can be found at
-# https://dart.dev/guides/language/analysis-options
+analyzer:
+  exclude:
+    - "**/build/**"
+    - "**/.dart_tool/**"
+    - "**/android/**"
+    - "**/ios/**"
+    - "**/linux/**"
+    - "**/macos/**"
+    - "**/web/**"
+    - "**/windows/**"
+  # TODO(refactor): enable `strict-casts` / `strict-inference` once the
+  # dynamic JSON handling in paginated_loader and cascade_bottom_sheet has been
+  # typed properly (Phase 4).
+
+linter:
+  rules:
+    prefer_const_constructors: true
+    prefer_const_declarations: true
+    prefer_final_locals: true
+    prefer_single_quotes: true
+    directives_ordering: true
+    unnecessary_lambdas: true
+    avoid_print: true

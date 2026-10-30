@@ -3,12 +3,30 @@
 *.log
 *.pyc
 *.swp
-.DS_Store
+*.tmp
+*.bak
+*.orig
+*.rej
+*~
 .atom/
 .buildlog/
 .history
 .svn/
 migrate_working_dir/
+
+# macOS finder and resource-fork junk. `._*` shows up whenever files are
+# copied from a Mac onto a non-HFS volume.
+.DS_Store
+._*
+.AppleDouble
+.Spotlight-V100
+.Trashes
+
+# Windows shell junk
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
 
 # IntelliJ related
 *.iml
@@ -16,14 +34,92 @@ migrate_working_dir/
 *.iws
 .idea/
 
-# The .vscode folder contains launch configuration and tasks you configure in
-# VS Code which you may wish to be included in version control, so this line
-# is commented out by default.
-#.vscode/
+# Visual Studio. The Windows desktop toolchain drags these in even when the
+# IDE itself is never opened.
+.vs/
+*.user
+
+# Other editors
+.fleet/
+.zed/
+
+# AI coding tools. The shared project rules in .cursor/rules/ stay tracked;
+# everything else these tools write (MCP configs that may hold tokens,
+# per-user settings, caches) is local to one machine.
+.cursor/*
+!.cursor/rules/
+.windsurf/
+.claude/settings.local.json
+.aider*
+
+# VS Code: keep the shared settings.json (formatting, search/watcher
+# excludes) tracked, but ignore anything else that ends up in .vscode/,
+# such as a personal launch.json or a machine-specific *.code-workspace.
+.vscode/*
+!.vscode/settings.json
+*.code-workspace
 
 # Flutter/Dart/Pub related
 # Libraries should not include pubspec.lock, per https://dart.dev/guides/libraries/private-files#pubspeclock.
+# In a pub workspace the single lock file lives at the root.
 /pubspec.lock
+packages/**/pubspec.lock
 **/doc/api/
 .dart_tool/
 build/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub/
+.pub-cache/
+pubspec_overrides.yaml
+.melos_tool/
+
+# Flutter Version Management. `.fvmrc` pins the SDK for everyone and stays
+# tracked; only the downloaded SDK cache is ignored.
+.fvm/
+
+# Output of `flutter build --split-debug-info` / `--obfuscate`.
+app.*.symbols
+app.*.map.json
+
+# Generated per-machine files. These hold absolute SDK paths and build ids,
+# so they differ for every checkout.
+local.properties
+**/ios/Flutter/.last_build_id
+.symlinks/
+
+# Native build systems
+.gradle/
+**/android/app/debug
+**/android/app/profile
+**/android/app/release
+.swiftpm/
+.build/
+
+# Signing material and secrets. Nothing here ever belongs in the repository;
+# a template such as .env.example is fine and stays tracked.
+*.jks
+*.keystore
+*.p12
+*.pem
+*.mobileprovision
+key.properties
+.env
+.env.*
+!.env.example
+
+# `flutter test --coverage` output. None of the workspace's melos scripts
+# enable this yet, but ignore it everywhere so turning it on locally never
+# needs a .gitignore change.
+coverage/
+
+# Scratch commit message files, written with `git commit -F` to dodge
+# PowerShell's quoting of multi-line -m arguments. Always delete these once
+# the commit lands; this is only a safety net for a forgotten one.
+.commitmsg
+
+# Scratch working notes and throwaway diagnostic renders. These come out of
+# in-progress work and are not part of the published history; the documentation
+# screenshots that are meant to be kept live in readme_pics/.
+/REFACTOR_PLAN.md
+/bevel_borders_*.png
